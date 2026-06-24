@@ -41,7 +41,7 @@
 - `~/Desktop/Projects/eren-tarim-brief/design/DECISIONS.md` — tasarım kararları
 - `~/Desktop/Projects/eren-tarim-brief/design/PHOTO_PIPELINE.md` — Midjourney prompt (artık gerçek foto var)
 - `~/Desktop/Projects/eren-tarim-brief/design/mockups/*.html` (12 sayfa)
-- `~/Desktop/Projects/eren-tarim/` — Önceki Eren Tarım build'i (74 src dosya, build PASS) — **template olarak kullan, Uslu Duyar'a uyarla**
+- `~/Desktop/Projects/eren-tarim/` — Önceki **Eren Tarım** (değirmenci/biberci) build'i (74 src dosya, build PASS) — **referans olarak kullan, Uslu Duyar'a uyarla**
 
 ### 0.5 Skill'lerden Faydalan
 - `popular-web-designs` (Stripe/Apple/Framer templates)
@@ -500,7 +500,7 @@ export const siteConfig = {
 ### Faz 0 — Setup (5 dk)
 1. `pwd` → `~/Desktop/Projects/uslu-duyar-web/`
 2. CLAUDE.md oku (bu dosya)
-3. Önceki Eren Tarım build'ini kontrol: `ls ~/Desktop/Projects/eren-tarim/` (template olarak kullanılacak)
+3. Önceki **Eren Tarım** build'ini kontrol: `ls ~/Desktop/Projects/eren-tarim/` (referans olarak kullanılacak)
 4. Optimize.sh'i çalıştır: `bash ~/Desktop/Projects/"Uslu Duyar"/optimize.sh` (88 foto + 11 video pipeline)
 5. pnpm create next-app: `pnpm create next-app@latest . --typescript --tailwind --app --src-dir --import-alias "@/*" --use-pnpm`
 6. Tüm deps kur (yukarıdaki stack)
