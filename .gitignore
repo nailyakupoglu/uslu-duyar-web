@@ -1,8 +1,34 @@
-# Original photos (büyük dosyalar — git yerine lokalde tutuluyor)
+# dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# next
+.next/
+out/
+build/
+dist/
+
+# misc
+.DS_Store
+*.pem
+.env*.local
+.env
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+
+# media — git'te tutmuyoruz (büyük)
 public/media/photos/original/
 public/media/videos/original/
-# Optimized da büyük olabilir, karar ver (küçük JPG'ler OK)
-# public/media/photos/optimized/
-# Thumbnail kesinlikle git'e
-public/media/photos/thumbnails/
-public/media/videos/optimized/
+
+# Coolify
+.coolify
