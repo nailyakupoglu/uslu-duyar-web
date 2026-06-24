@@ -1,0 +1,8 @@
+# Original photos (büyük dosyalar — git yerine lokalde tutuluyor)
+public/media/photos/original/
+public/media/videos/original/
+# Optimized da büyük olabilir, karar ver (küçük JPG'ler OK)
+# public/media/photos/optimized/
+# Thumbnail kesinlikle git'e
+public/media/photos/thumbnails/
+public/media/videos/optimized/
