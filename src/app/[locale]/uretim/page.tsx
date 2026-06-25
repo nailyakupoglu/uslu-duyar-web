@@ -51,14 +51,14 @@ export default function ProductionPage({ params: { locale } }: { params: { local
           <RevealOnScroll key={item.href} delay={index * 0.05}>
             <Link
               href={item.href}
-              className="group relative flex h-72 flex-col justify-end overflow-hidden rounded-2xl shadow-[0_24px_50px_-28px_rgba(50,50,93,0.4)]"
+              className="group relative flex h-72 flex-col justify-end overflow-hidden rounded-lg shadow-[0_24px_50px_-28px_rgba(50,50,93,0.4)]"
             >
               <Image
                 src={item.image}
                 alt={item.title}
                 fill
-                quality={86}
-                sizes="(min-width: 768px) 45vw, 100vw"
+                quality={90}
+                sizes="(min-width: 1280px) 620px, (min-width: 768px) 50vw, 100vw"
                 className="object-cover transition duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-900/35 to-transparent" />

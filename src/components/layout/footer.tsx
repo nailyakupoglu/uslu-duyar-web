@@ -31,17 +31,17 @@ export async function Footer() {
           <p className="mt-6 max-w-sm text-sm leading-7 text-white/68">{pick(siteConfig.description, locale)}</p>
           <div className="mt-6 grid gap-3 text-sm text-white/75">
             <span className="inline-flex items-center gap-3">
-              <MapPin className="h-4 w-4 text-accent-500" />
+              <MapPin className="h-4 w-4 text-harvest-500" />
               {siteConfig.address}
             </span>
             {phone ? (
             <a href={phone} className="inline-flex items-center gap-3 transition hover:text-white">
-              <Phone className="h-4 w-4 text-accent-500" />
+              <Phone className="h-4 w-4 text-harvest-500" />
               {siteConfig.phone}
             </a>
             ) : null}
             <span className="inline-flex items-center gap-3">
-              <Mail className="h-4 w-4 text-accent-500" />
+              <Mail className="h-4 w-4 text-harvest-500" />
               {siteConfig.email}
             </span>
           </div>
@@ -116,7 +116,7 @@ function FooterColumn({ title, links }: { title: string; links: { title: string;
       <ul className="mt-5 grid gap-3 text-sm text-white/72">
         {links.map((link) => (
           <li key={link.href}>
-            <Link href={link.href} className="transition hover:text-accent-500">
+            <Link href={link.href} className="transition hover:text-harvest-500">
               {link.title}
             </Link>
           </li>

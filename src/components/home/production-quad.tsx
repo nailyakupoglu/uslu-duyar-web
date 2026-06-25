@@ -3,16 +3,17 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { ArrowUpRight } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useLocale } from "next-intl";
 
 import { SectionHeading } from "@/components/shared/section-heading";
 import { getProductionHighlightsL } from "@/lib/content";
 import { getProductionCover } from "@/lib/manifest-reader";
+import { useSafeReducedMotion } from "@/lib/use-safe-reduced-motion";
 
 export function ProductionQuad() {
   const locale = useLocale();
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useSafeReducedMotion();
   // Kapaklar manifest'teki gerçek operasyonel fotoğraflardan çözülür (yoksa SVG yedek).
   const productionHighlights = getProductionHighlightsL(locale).map((item) => ({
     ...item,
@@ -42,15 +43,15 @@ export function ProductionQuad() {
                 alt={item.title}
                 fill
                 quality={86}
-                sizes="(min-width: 768px) 50vw, 100vw"
+                sizes="(min-width: 1280px) 620px, (min-width: 768px) 50vw, 100vw"
                 className="object-cover transition duration-700 group-hover:scale-[1.06]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/88 via-primary-900/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-7">
-                <item.icon className="mb-4 h-9 w-9 text-accent-500" />
+                <item.icon className="mb-4 h-9 w-9 text-harvest-500" />
                 <h3 className="font-display text-4xl font-semibold">{item.title}</h3>
                 <p className="mt-3 max-w-lg text-sm leading-7 text-white/70">{item.description}</p>
-                <Link href={item.href} className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-accent-500">
+                <Link href={item.href} className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-harvest-500">
                   {locale === "en" ? "Details" : "Detay"} <ArrowUpRight className="h-4 w-4" />
                 </Link>
               </div>

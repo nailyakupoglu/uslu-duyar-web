@@ -3,8 +3,9 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
-import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
+import { useSafeReducedMotion } from "@/lib/use-safe-reduced-motion";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
@@ -50,7 +51,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const springY = useSpring(y, { stiffness: 220, damping: 18 });
     const translateX = useTransform(springX, (value) => value / 7);
     const translateY = useTransform(springY, (value) => value / 7);
-    const reduceMotion = useReducedMotion();
+    const reduceMotion = useSafeReducedMotion();
 
     const button = (
       <Comp

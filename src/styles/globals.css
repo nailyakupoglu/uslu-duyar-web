@@ -58,6 +58,18 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  .route-draw {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: draw-route 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+@keyframes draw-route {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -68,5 +80,10 @@
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .route-draw {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
   }
 }

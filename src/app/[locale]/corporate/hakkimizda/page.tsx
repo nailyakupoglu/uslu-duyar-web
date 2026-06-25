@@ -110,7 +110,7 @@ export default function AboutPage({ params: { locale } }: { params: { locale: st
           )}
         </div>
 
-        <aside className="grid gap-4 rounded-2xl bg-primary-900 p-8 text-white">
+        <aside className="grid gap-4 rounded-lg bg-primary-900 p-8 text-white">
           {stats.map((stat) => (
             <div key={stat.label} className="border-b border-white/10 pb-4 last:border-0 last:pb-0">
               <p className="font-display text-3xl font-semibold text-accent-700">

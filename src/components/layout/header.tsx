@@ -5,7 +5,7 @@
 // Kullanım: layout.tsx içinde tek örnek; mega menü hover köprüsü + tıklama + Esc + ARIA ile çalışır.
 import { Link, usePathname } from "@/i18n/navigation";
 import { ChevronDown, Menu, Phone, X } from "lucide-react";
-import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
 import { useLocale } from "next-intl";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/shared/logo";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { getCategoriesL, getCorporateLinksL, getProductionLinksL } from "@/lib/content";
+import { useSafeReducedMotion } from "@/lib/use-safe-reduced-motion";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -29,7 +30,7 @@ export function Header() {
   const [mega, setMega] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useSafeReducedMotion();
   const { scrollY } = useScroll();
   const height = useTransform(scrollY, [0, 120], [88, 70]);
   const bgOpacity = useTransform(scrollY, [0, 120], [0.86, 0.98]);

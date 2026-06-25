@@ -55,7 +55,7 @@ export default function VisionMissionPage({ params: { locale } }: { params: { lo
       />
 
       <section className="container grid gap-6 py-20 md:grid-cols-2">
-        <div className="rounded-2xl bg-primary-900 p-9 text-white">
+        <div className="rounded-lg bg-primary-900 p-9 text-white">
           <Compass className="h-9 w-9 text-accent-700" />
           <h2 className="mt-5 font-display text-3xl font-semibold">
             {locale === "en" ? "Our Vision" : "Vizyonumuz"}
@@ -66,7 +66,7 @@ export default function VisionMissionPage({ params: { locale } }: { params: { lo
               : "Anadolu'nun bereketli topraklarından çıkan ürünleri, modern üretim teknolojisi ve izlenebilir kalite anlayışıyla buluşturarak; iç piyasada ve ihracatta tercih edilen, güvenilir bir tarım markası olmak."}
           </p>
         </div>
-        <div className="rounded-2xl bg-cream p-9">
+        <div className="rounded-lg bg-cream p-9">
           <Target className="h-9 w-9 text-primary-700" />
           <h2 className="mt-5 font-display text-3xl font-semibold text-ink">
             {locale === "en" ? "Our Mission" : "Misyonumuz"}

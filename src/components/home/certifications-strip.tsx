@@ -1,14 +1,15 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useLocale } from "next-intl";
 
 import { CertBadge } from "@/components/shared/cert-badge";
 import { getCertificationsL } from "@/lib/content";
+import { useSafeReducedMotion } from "@/lib/use-safe-reduced-motion";
 
 export function CertificationsStrip() {
   const locale = useLocale();
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useSafeReducedMotion();
   const certifications = getCertificationsL(locale);
   const items = [...certifications, ...certifications];
 

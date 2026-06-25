@@ -3,12 +3,13 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { ArrowUpRight } from "lucide-react";
-import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useLocale } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 import type { ResolvedProduct } from "@/lib/content";
 import { productImage } from "@/lib/products-media";
+import { useSafeReducedMotion } from "@/lib/use-safe-reduced-motion";
 import { cn } from "@/lib/utils";
 
 type ProductCardProps = {
@@ -23,7 +24,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
   const y = useMotionValue(0);
   const rotateX = useSpring(useTransform(y, [-80, 80], [6, -6]), { stiffness: 180, damping: 18 });
   const rotateY = useSpring(useTransform(x, [-80, 80], [-6, 6]), { stiffness: 180, damping: 18 });
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useSafeReducedMotion();
 
   const href = `/urunler/${product.category}/${product.slug}`;
 
@@ -52,13 +53,13 @@ export function ProductCard({ product, className }: ProductCardProps) {
             src={productImage(product)}
             alt={product.title}
             fill
-            quality={86}
-            sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-            className="object-cover transition duration-700 group-hover:scale-108"
+            quality={90}
+            sizes="(min-width: 1280px) 305px, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            className="object-cover transition duration-700 group-hover:scale-[1.045]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/82 via-ink/12 to-transparent opacity-80" />
           <div className="absolute inset-x-0 bottom-0 p-5 text-white">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent-500">{product.category}</p>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-harvest-500">{product.category}</p>
             <h3 className="mt-2 font-display text-2xl font-semibold">{product.title}</h3>
             <p className="mt-2 line-clamp-2 text-sm leading-6 text-white/78">{product.shortDescription}</p>
             <div className="mt-4 grid grid-cols-2 gap-2 text-left">

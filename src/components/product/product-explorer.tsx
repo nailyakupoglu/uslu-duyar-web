@@ -7,11 +7,12 @@
 
 import { useMemo, useState } from "react";
 import { useLocale } from "next-intl";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import { ProductCard } from "@/components/shared/product-card";
 import { getCategoryMetaL, type ResolvedProduct } from "@/lib/content";
 import { productCategories, type ProductCategory } from "@/lib/data";
+import { useSafeReducedMotion } from "@/lib/use-safe-reduced-motion";
 import { cn } from "@/lib/utils";
 
 type Filter = ProductCategory | "all";
@@ -25,7 +26,7 @@ export function ProductExplorer({
 }) {
   const locale = useLocale();
   const isEn = locale === "en";
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useSafeReducedMotion();
   const [active, setActive] = useState<Filter>(initialCategory);
 
   const filters: { key: Filter; label: string }[] = useMemo(

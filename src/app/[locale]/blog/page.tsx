@@ -13,6 +13,7 @@ import { PageHero } from "@/components/shared/page-hero";
 import { RevealOnScroll } from "@/components/motion/reveal-on-scroll";
 import { getBlogPostsL } from "@/lib/content";
 import { buildMetadataForLocale } from "@/lib/seo/metadata";
+import { getBlogCover } from "@/lib/visual-assets";
 
 export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
   return buildMetadataForLocale(locale, {
@@ -50,15 +51,17 @@ export default function BlogPage({ params: { locale } }: { params: { locale: str
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {blogPosts.map((post, index) => (
             <RevealOnScroll key={post.slug} delay={index * 0.05}>
-              <article className="group h-full overflow-hidden rounded-2xl border border-primary-900/10 bg-white shadow-[0_18px_45px_rgba(14,14,14,0.06)] transition hover:-translate-y-1 hover:shadow-xl">
+              <article className="group h-full overflow-hidden rounded-lg border border-primary-900/10 bg-white shadow-[0_18px_45px_rgba(14,14,14,0.06)] transition hover:-translate-y-1 hover:shadow-xl">
                 <Link href={`/blog/${post.slug}`} className="block">
                   <div className="relative aspect-[16/10] overflow-hidden">
                     <Image
-                      src={`/images/blog/${post.slug}.svg`}
-                      alt={post.title}
+                      src={getBlogCover(post.slug, locale).src}
+                      alt={getBlogCover(post.slug, locale).alt}
                       fill
-                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                      quality={88}
+                      sizes="(min-width: 1280px) 405px, (min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                       className="object-cover transition duration-700 group-hover:scale-105"
+                      style={{ objectPosition: getBlogCover(post.slug, locale).position }}
                     />
                   </div>
                   <div className="p-6">

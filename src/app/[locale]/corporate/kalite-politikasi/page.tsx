@@ -74,7 +74,7 @@ export default function QualityPolicyPage({ params: { locale } }: { params: { lo
           ))}
         </ul>
 
-        <div className="rounded-2xl bg-cream p-8">
+        <div className="rounded-lg bg-cream p-8">
           <h2 className="font-display text-2xl font-semibold text-ink">
             {locale === "en" ? "Certificates & Documents" : "Sertifika & Belgeler"}
           </h2>

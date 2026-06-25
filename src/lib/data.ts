@@ -34,7 +34,7 @@ export const siteConfig = {
     exporterUnion: null
   },
   social: {
-    instagram: "https://www.instagram.com/mtnuslu",
+    instagram: "#",
     linkedin: "#",
     facebook: "#"
   }

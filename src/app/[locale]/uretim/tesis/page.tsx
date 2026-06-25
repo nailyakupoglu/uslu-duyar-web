@@ -65,13 +65,13 @@ export default function FacilityPage({ params: { locale } }: { params: { locale:
       />
 
       <section className="container py-16">
-        <div className="relative aspect-[16/7] overflow-hidden rounded-2xl shadow-[0_30px_60px_-30px_rgba(50,50,93,0.35)]">
+        <div className="relative aspect-[16/7] overflow-hidden rounded-lg shadow-[0_30px_60px_-30px_rgba(50,50,93,0.35)]">
           <Image
             src={bannerImage}
             alt={locale === "en" ? "Uslu Duyar packing facility" : "Uslu Duyar paketleme tesisi"}
             fill
             priority
-            quality={88}
+            quality={90}
             sizes="100vw"
             className="object-cover"
           />

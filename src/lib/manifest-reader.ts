@@ -2,6 +2,7 @@
 // Yollara /media prefix ekler (manifest yolları /photos.. , dosyalar /public/media/photos..).
 // Kullanım: getHeroes(), getByCategory("narenciye"), getVideos(), getFacilityGallery(), getCategoryCover().
 import manifestJson from "../../public/media/manifest.json";
+import { getCategoryVisual, getProductionVisual } from "@/lib/visual-assets";
 
 const MEDIA_PREFIX = "/media";
 
@@ -119,6 +120,9 @@ export function getFacilityGallery(limit = 12): MediaItem[] {
 
 /** Bir kategori için en kaliteli görselin src'si; yoksa fallback (SVG yedek görsel). */
 export function getCategoryCover(category: MediaCategory, fallback: string): string {
+  if (category === "narenciye" || category === "kavun" || category === "karpuz") {
+    return getCategoryVisual(category).src;
+  }
   const first = getByCategory(category, 1)[0];
   return first ? first.src : fallback;
 }
@@ -133,6 +137,10 @@ const PRODUCTION_COVER: Record<string, { cat: MediaCategory; idx: number }> = {
 
 /** Üretim kartı kapağı — href'e göre gerçek operasyonel foto; foto yoksa SVG yedek. */
 export function getProductionCover(href: string, fallback: string): string {
+  const curated = getProductionVisual(href);
+  if (curated) {
+    return curated.src;
+  }
   const map = PRODUCTION_COVER[href];
   if (!map) {
     return fallback;

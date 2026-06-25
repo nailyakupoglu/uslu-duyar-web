@@ -1,8 +1,9 @@
-// Ürün görsel çözümleyici — her ürüne kategorisinden ayrık bir gerçek foto atar.
-// Foto yoksa (örn. kavun arşivde yok) data.ts'teki SVG yedek görsele düşer.
+// Ürün görsel çözümleyici — her ürüne kategorisinden ayrık, curated gerçek foto atar.
+// SVG ürün fallback'leri görünür yüzeye çıkarılmadan önce arşiv fotoğraf seçkisi kullanılır.
 import { products } from "@/lib/data";
 import type { ResolvedProduct } from "@/lib/content";
 import { getByCategory, mediaText } from "@/lib/manifest-reader";
+import { getProductCover, getProductVisuals } from "@/lib/visual-assets";
 
 function indexInCategory(product: ResolvedProduct): number {
   return products
@@ -12,26 +13,25 @@ function indexInCategory(product: ResolvedProduct): number {
 
 /** Ürün kartı için tek temsili görsel (kategori havuzundan sıraya göre ayrık seçim). */
 export function productImage(product: ResolvedProduct): string {
-  const pool = getByCategory(product.category);
-  if (pool.length === 0) {
-    return product.image;
-  }
   const idx = Math.max(0, indexInCategory(product));
-  return (pool[idx % pool.length] ?? pool[0]).src;
+  return getProductCover(product.category, idx).src;
 }
 
-/** Detay galerisi görselleri ({src, alt}); foto yoksa data.ts gallery'sine düşer. */
+/** Detay galerisi görselleri ({src, alt}); curated seçki sonrası manifest havuzuyla genişler. */
 export function productGallery(product: ResolvedProduct, locale = "tr"): { src: string; alt: string }[] {
+  const curated = getProductVisuals(product.category, locale);
   const pool = getByCategory(product.category, 8);
-  if (pool.length === 0) {
-    return [product.image, ...product.gallery].map((src) => ({ src, alt: product.title }));
-  }
   const main = productImage(product);
-  const ordered = [main, ...pool.map((m) => m.src).filter((s) => s !== main)];
+  const ordered = [
+    main,
+    ...curated.map((asset) => asset.src).filter((src) => src !== main),
+    ...pool.map((m) => m.src).filter((src) => src !== main)
+  ];
   return Array.from(new Set(ordered))
     .slice(0, 6)
     .map((src) => {
       const found = pool.find((m) => m.src === src);
-      return { src, alt: found ? mediaText(found, locale, "alt") : product.title };
+      const curatedAsset = curated.find((asset) => asset.src === src);
+      return { src, alt: curatedAsset?.alt ?? (found ? mediaText(found, locale, "alt") : product.title) };
     });
 }

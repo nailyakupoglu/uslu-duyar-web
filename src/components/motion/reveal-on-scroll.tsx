@@ -1,7 +1,8 @@
 "use client";
 
-import { motion, useReducedMotion, type MotionProps } from "framer-motion";
+import { motion, type MotionProps } from "framer-motion";
 
+import { useSafeReducedMotion } from "@/lib/use-safe-reduced-motion";
 import { cn } from "@/lib/utils";
 
 type RevealOnScrollProps = MotionProps & {
@@ -11,7 +12,7 @@ type RevealOnScrollProps = MotionProps & {
 };
 
 export function RevealOnScroll({ children, className, delay = 0, ...props }: RevealOnScrollProps) {
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useSafeReducedMotion();
   return (
     <motion.div
       initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 28 }}

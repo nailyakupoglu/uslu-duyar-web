@@ -7,15 +7,16 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
+import { useSafeReducedMotion } from "@/lib/use-safe-reduced-motion";
 import { cn } from "@/lib/utils";
 
 export function ProductGallery({ images, alt }: { images: string[]; alt: string }) {
   const unique = Array.from(new Set(images));
   const [active, setActive] = useState(0);
   const current = unique[active] ?? unique[0];
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useSafeReducedMotion();
 
   return (
     <div className="grid gap-4">

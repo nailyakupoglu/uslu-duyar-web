@@ -2,14 +2,15 @@
 
 import { Link } from "@/i18n/navigation";
 import { MessageCircle } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useLocale } from "next-intl";
 
 import { rfqWhatsappMessage, whatsappHref } from "@/lib/contact-channels";
+import { useSafeReducedMotion } from "@/lib/use-safe-reduced-motion";
 
 export function WhatsAppFab() {
   const locale = useLocale();
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useSafeReducedMotion();
   const href = whatsappHref(rfqWhatsappMessage(locale, "global floating button"));
 
   if (!href) {

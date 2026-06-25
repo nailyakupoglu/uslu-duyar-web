@@ -14,6 +14,7 @@ import { blogPosts } from "@/lib/data";
 import { getBlogPostsL } from "@/lib/content";
 import { articleJsonLd } from "@/lib/seo/jsonld";
 import { buildMetadataForLocale } from "@/lib/seo/metadata";
+import { getBlogCover } from "@/lib/visual-assets";
 
 type Params = { locale: string; slug: string };
 
@@ -162,7 +163,7 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
     title: post.title,
     description: post.excerpt,
     path: `/blog/${post.slug}`,
-    image: "/images/og/og-default.png",
+    image: getBlogCover(post.slug, params.locale).src,
     type: "article"
   });
 }
@@ -174,6 +175,7 @@ export default function BlogPostPage({ params }: { params: Params }) {
     notFound();
   }
   const body = bodies[post.slug]?.[locale === "en" ? "en" : "tr"];
+  const cover = getBlogCover(post.slug, locale);
   const dateFormatter = new Intl.DateTimeFormat(locale === "en" ? "en-US" : "tr-TR", {
     day: "numeric",
     month: "long",
@@ -204,8 +206,17 @@ export default function BlogPostPage({ params }: { params: Params }) {
         </div>
         <h1 className="mt-4 font-display text-4xl font-semibold leading-tight text-ink md:text-5xl">{post.title}</h1>
 
-        <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-2xl shadow-[0_24px_50px_-28px_rgba(50,50,93,0.35)]">
-          <Image src={`/images/blog/${post.slug}.svg`} alt={post.title} fill priority sizes="(min-width: 768px) 768px, 100vw" className="object-cover" />
+        <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-lg shadow-[0_24px_50px_-28px_rgba(50,50,93,0.35)]">
+          <Image
+            src={cover.src}
+            alt={cover.alt}
+            fill
+            priority
+            quality={90}
+            sizes="(min-width: 768px) 768px, 100vw"
+            className="object-cover"
+            style={{ objectPosition: cover.position }}
+          />
         </div>
 
         {body ? (

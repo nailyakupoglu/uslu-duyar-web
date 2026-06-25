@@ -3,9 +3,13 @@
  * Prop'lar: { locale }.
  * Kullanım: Home ritminde sezon takvimi sonrası; hasat → liman → RFQ zincirini açıklar.
  */
+"use client";
+
 import { Anchor, ClipboardCheck, PackageCheck, Snowflake, Sprout, Truck } from "lucide-react";
+import { motion } from "framer-motion";
 
 import { RevealOnScroll } from "@/components/motion/reveal-on-scroll";
+import { useSafeReducedMotion } from "@/lib/use-safe-reduced-motion";
 
 const steps = {
   tr: [
@@ -29,36 +33,47 @@ const steps = {
 export function HarvestToPortFlow({ locale }: { locale: string }) {
   const isEn = locale === "en";
   const items = isEn ? steps.en : steps.tr;
+  const reduceMotion = useSafeReducedMotion();
 
   return (
-    <section className="section-padding bg-surface-export text-ink">
+    <section className="section-padding bg-export-radar text-white">
       <div className="container">
         <div className="max-w-3xl">
-          <p className="spec-mono text-cold-700">{isEn ? "Harvest-to-port flow" : "Tarladan limana akış"}</p>
+          <p className="spec-mono text-cold-50">{isEn ? "Harvest-to-port flow" : "Tarladan limana akış"}</p>
           <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
             {isEn ? "A visible supply chain, not a vague promise." : "Belirsiz vaat değil, görünen tedarik zinciri."}
           </h2>
-          <p className="mt-5 text-lg leading-8 text-ink/65">
+          <p className="mt-5 text-lg leading-8 text-white/70">
             {isEn
               ? "Every RFQ is answered with the operational facts a buyer needs: lot, season, grading, loading term and cold-chain plan."
               : "Her teklif talebi; alıcının ihtiyaç duyduğu parti, sezon, boylama, yükleme şekli ve soğuk zincir planıyla yanıtlanır."}
           </p>
         </div>
-        <div className="mt-12 grid gap-4 md:grid-cols-3">
+        <div className="relative mt-12">
+          <div className="absolute left-5 right-5 top-6 hidden h-px bg-white/12 md:block" />
+          <motion.div
+            className="absolute left-5 right-5 top-6 hidden h-px origin-left bg-cold-500 md:block"
+            initial={reduceMotion ? false : { scaleX: 0 }}
+            whileInView={reduceMotion ? undefined : { scaleX: 1 }}
+            viewport={{ once: true, margin: "-120px" }}
+            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+          />
+        <div className="grid gap-4 md:grid-cols-3">
           {items.map((item, index) => (
             <RevealOnScroll key={item.title} delay={index * 0.04}>
-              <article className="h-full rounded-lg border border-line-soft bg-white p-5 shadow-[0_18px_40px_rgba(16,38,51,0.06)]">
+              <article className="relative h-full rounded-lg border border-white/12 bg-white/[0.075] p-5 shadow-[0_18px_40px_rgba(0,0,0,0.16)] backdrop-blur-xl">
                 <div className="flex items-center justify-between">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-md bg-cold-50 text-cold-700">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-md bg-white/12 text-cold-50">
                     <item.icon className="h-5 w-5" />
                   </span>
-                  <span className="font-mono text-xs text-ink/35">0{index + 1}</span>
+                  <span className="font-mono text-xs text-white/38">0{index + 1}</span>
                 </div>
-                <h3 className="mt-5 text-xl font-semibold text-ink">{item.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-ink/60">{item.text}</p>
+                <h3 className="mt-5 text-xl font-semibold text-white">{item.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-white/62">{item.text}</p>
               </article>
             </RevealOnScroll>
           ))}
+          </div>
         </div>
       </div>
     </section>

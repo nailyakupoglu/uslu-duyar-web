@@ -28,15 +28,17 @@ export async function GlobalReachMap() {
             </defs>
             <path d="M7 24C18 14 33 12 45 20s19 5 30 10c10 4 17 12 18 22-15 4-31 2-45 1-18-2-31-1-43-9 0-7 0-13 2-20Z" fill="#BFE0C6" opacity="0.6" />
             <path d="M44 34c5-6 11-8 17-6 8 2 13 8 15 15-9 5-20 8-31 4-4-4-5-8-1-13Z" fill="#A9D6B2" opacity="0.65" />
-            {exportPoints.slice(1).map((point) => (
+            {exportPoints.slice(1).map((point, routeIndex) => (
               <path
                 key={point.city}
                 d={`M${origin.x} ${origin.y} Q ${(origin.x + point.x) / 2} ${Math.min(origin.y, point.y) - 12}, ${point.x} ${point.y}`}
+                className="route-draw"
                 fill="none"
                 stroke="url(#route)"
-                strokeDasharray="2 2"
                 strokeWidth="0.35"
                 opacity="0.75"
+                pathLength={1}
+                style={{ animationDelay: `${routeIndex * 140}ms` }}
               />
             ))}
             {exportPoints.map((point, index) => (

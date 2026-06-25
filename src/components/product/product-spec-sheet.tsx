@@ -3,11 +3,15 @@
  * Prop'lar: { product, locale }.
  * Kullanım: Ürün detay sayfasında kalibre, Brix, MOQ, soğuk zincir ve Incoterm alanlarını gösterir.
  */
+"use client";
+
 import { Anchor, Boxes, CalendarDays, FileDigit, PackageCheck, Snowflake, ThermometerSun } from "lucide-react";
+import { motion } from "framer-motion";
 
 import { Badge } from "@/components/ui/badge";
 import type { ResolvedProduct } from "@/lib/content";
 import { monthLabels } from "@/lib/data";
+import { useSafeReducedMotion } from "@/lib/use-safe-reduced-motion";
 import { pick } from "@/lib/utils";
 
 type ProductSpecSheetProps = {
@@ -17,6 +21,7 @@ type ProductSpecSheetProps = {
 
 export function ProductSpecSheet({ product, locale }: ProductSpecSheetProps) {
   const isEn = locale === "en";
+  const reduceMotion = useSafeReducedMotion();
   const specs = product.exportSpecs;
   const months = specs.seasonMonths.map((month) => pick(monthLabels[month - 1].short, locale)).join(" / ");
   const rows = [
@@ -36,14 +41,21 @@ export function ProductSpecSheet({ product, locale }: ProductSpecSheetProps) {
       </div>
 
       <dl className="grid sm:grid-cols-2">
-        {rows.map((row) => (
-          <div key={row.label} className="border-b border-line-soft bg-white/72 p-5 even:bg-surface-field/80 sm:border-r">
+        {rows.map((row, index) => (
+          <motion.div
+            key={row.label}
+            className="border-b border-line-soft bg-white/72 p-5 even:bg-surface-field/80 sm:border-r"
+            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+            whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.45, delay: index * 0.04 }}
+          >
             <dt className="flex items-center gap-2 spec-mono text-ink/48">
               <row.icon className="h-4 w-4 text-port-700" />
               {row.label}
             </dt>
             <dd className="mt-2 text-sm font-semibold leading-6 text-ink">{row.value}</dd>
-          </div>
+          </motion.div>
         ))}
       </dl>
 

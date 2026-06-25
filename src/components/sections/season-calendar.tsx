@@ -3,8 +3,13 @@
  * Prop'lar: { locale, compact? }.
  * Kullanım: ana sayfa preview ve /uretim/sezon-takvimi detay sayfası.
  */
+"use client";
+
+import { motion } from "framer-motion";
+
 import { getSeasonWindowsL } from "@/lib/content";
 import { monthLabels } from "@/lib/data";
+import { useSafeReducedMotion } from "@/lib/use-safe-reduced-motion";
 import { cn, pick } from "@/lib/utils";
 
 type SeasonCalendarProps = {
@@ -14,6 +19,7 @@ type SeasonCalendarProps = {
 
 export function SeasonCalendar({ locale, compact = false }: SeasonCalendarProps) {
   const isEn = locale === "en";
+  const reduceMotion = useSafeReducedMotion();
   const windows = getSeasonWindowsL(locale);
 
   return (
@@ -26,7 +32,7 @@ export function SeasonCalendar({ locale, compact = false }: SeasonCalendarProps)
           </div>
         ))}
       </div>
-      {windows.map((window) => (
+      {windows.map((window, rowIndex) => (
         <div
           key={window.category}
           className="grid grid-cols-[minmax(120px,0.9fr)_repeat(12,minmax(32px,1fr))] border-b border-line-soft last:border-b-0"
@@ -41,12 +47,17 @@ export function SeasonCalendar({ locale, compact = false }: SeasonCalendarProps)
             const peak = window.peakMonths.includes(monthNumber);
             return (
               <div key={pick(month.short, locale)} className="flex items-center justify-center border-l border-line-soft bg-white p-2">
-                <span
+                <motion.span
                   className={cn(
                     "h-6 w-full rounded-sm border transition",
                     active ? "border-harvest-700 bg-harvest-500/70" : "border-transparent bg-ink/[0.035]",
                     peak && "border-primary-700 bg-primary-700"
                   )}
+                  initial={reduceMotion ? false : { opacity: 0, scaleX: 0.35 }}
+                  whileInView={reduceMotion ? undefined : { opacity: 1, scaleX: 1 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.28, delay: rowIndex * 0.06 + index * 0.012 }}
+                  style={{ transformOrigin: "left" }}
                   title={`${window.title} ${pick(month.long, locale)}`}
                 />
               </div>

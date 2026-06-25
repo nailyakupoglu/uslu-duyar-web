@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
+import { useSafeReducedMotion } from "@/lib/use-safe-reduced-motion";
 import { formatNumber } from "@/lib/utils";
 
 type CounterUpProps = {
@@ -15,7 +16,7 @@ export function CounterUp({ value, suffix = "", duration = 1600 }: CounterUpProp
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const [display, setDisplay] = useState(0);
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useSafeReducedMotion();
 
   useEffect(() => {
     if (!inView) {

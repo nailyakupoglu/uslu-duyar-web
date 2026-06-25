@@ -61,7 +61,7 @@ export default function CapacityPage({ params: { locale } }: { params: { locale:
         <div className="grid gap-6 sm:grid-cols-2">
           {capacities.map((item, index) => (
             <RevealOnScroll key={item.title} delay={index * 0.05}>
-              <div className="h-full rounded-2xl border border-primary-900/10 bg-white p-8 shadow-sm">
+              <div className="h-full rounded-lg border border-primary-900/10 bg-white p-8 shadow-sm">
                 <p className="text-sm font-semibold uppercase tracking-wide text-ink/45">{item.title}</p>
                 <p className="mt-3 font-display text-3xl font-semibold text-primary-900">{item.value}</p>
                 <p className="mt-3 text-sm leading-7 text-ink/65">{item.text}</p>
