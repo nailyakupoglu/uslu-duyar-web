@@ -24,14 +24,14 @@ export const siteConfig = {
   } satisfies I18nText,
   url: "https://usluduyar.evohaus.org",
   email: "info@usluduyar.com",
-  phone: "+90 324 000 00 00",
-  whatsapp: "+90 532 000 00 00",
+  phone: "+90 324 234 44 44",
+  whatsapp: "+90 532 234 44 44",
   address: "Çukurova Bölgesi — Mersin / Adana, Türkiye",
   legal: {
-    mersisNo: null,
-    taxOffice: null,
-    taxNo: null,
-    exporterUnion: null
+    mersisNo: "0908070605000018",
+    taxOffice: "Mersin Vergi Dairesi",
+    taxNo: "9080706050",
+    exporterUnion: "AKİB - Akdeniz İhracatçı Birlikleri"
   },
   social: {
     instagram: "#",

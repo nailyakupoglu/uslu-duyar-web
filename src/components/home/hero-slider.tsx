@@ -53,16 +53,16 @@ export function HeroSlider() {
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="relative min-h-[calc(100svh-88px)] overflow-hidden bg-ink text-white md:min-h-[100svh]">
-      <div ref={emblaRef} className="h-[calc(100svh-88px)] min-h-[620px] overflow-hidden md:h-[100svh]">
+    <section className="relative h-svh min-h-[600px] w-full overflow-hidden bg-ink text-white">
+      <div ref={emblaRef} className="h-full w-full overflow-hidden">
         <div className="flex h-full">
           {slides.map((slide, index) => (
             <div className="relative h-full min-w-0 flex-[0_0_100%]" key={slide.title}>
               <HeroImage visual={slide.visual} active={selected === index} priority={index === 0} reduceMotion={Boolean(reduceMotion)} />
-              <div className="absolute inset-0 z-[1] bg-gradient-to-r from-ink/78 via-ink/38 to-ink/8" />
-              <div className="absolute inset-0 z-[1] bg-gradient-to-t from-ink/48 via-transparent to-ink/34 md:from-ink/54 md:to-ink/10" />
-              <div className="container relative z-10 flex h-full items-start pb-16 pt-14 sm:pt-16 md:items-center md:pb-16 md:pt-28">
-                <div className="max-w-5xl">
+              <div className="absolute inset-0 z-[1] bg-gradient-to-r from-ink/90 via-ink/60 to-transparent" />
+              <div className="absolute inset-0 z-[1] bg-gradient-to-t from-ink/60 via-transparent to-ink/40" />
+              <div className="container relative z-10 flex h-full flex-col justify-center pb-16 pt-[calc(var(--header-h)+1rem)]">
+                <div className="max-w-5xl text-left">
                   <motion.p
                     custom={0}
                     variants={titleVariant}
@@ -74,7 +74,7 @@ export function HeroSlider() {
                   </motion.p>
                   <h1
                     aria-label={slide.title}
-                    className="mt-5 max-w-4xl font-display text-4xl font-semibold leading-[0.95] text-balance text-white drop-shadow-[0_8px_28px_rgba(0,0,0,0.38)] sm:text-5xl md:text-7xl lg:text-8xl"
+                    className="mt-4 max-w-4xl font-display text-3xl font-semibold leading-[0.95] text-balance text-cream drop-shadow-[0_8px_28px_rgba(0,0,0,0.38)] sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl"
                   >
                     {slide.title.split(" ").map((word, wordIndex, words) => (
                       <motion.span
@@ -96,7 +96,7 @@ export function HeroSlider() {
                     variants={titleVariant}
                     initial="hidden"
                     animate="visible"
-                    className="mt-5 max-w-[20rem] text-base leading-7 text-white/80 sm:max-w-2xl md:mt-7 md:text-xl md:leading-8"
+                    className="mt-4 max-w-lg text-sm leading-relaxed text-cream/90 sm:text-base sm:leading-7 md:mt-6 md:text-xl md:leading-8"
                   >
                     {slide.description}
                   </motion.p>
@@ -106,15 +106,15 @@ export function HeroSlider() {
                     variants={titleVariant}
                     initial="hidden"
                     animate="visible"
-                    className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap md:mt-9"
+                    className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap md:mt-8"
                   >
-                    <Button asChild size="xl" variant="accent" className="w-full justify-center sm:w-auto" magnetic>
+                    <Button asChild size="lg" variant="accent" className="w-full justify-center sm:w-auto md:h-14 md:px-8 md:text-base" magnetic>
                       <Link href={slide.href}>
                         {slide.cta}
                         <ArrowRight className="h-5 w-5" />
                       </Link>
                     </Button>
-                    <Button asChild size="xl" variant="export" className="w-full justify-center sm:w-auto">
+                    <Button asChild size="lg" variant="export" className="w-full justify-center sm:w-auto md:h-14 md:px-8 md:text-base">
                       <Link href="/iletisim">{locale === "en" ? "Request a Quote" : "Teklif İste"}</Link>
                     </Button>
                   </motion.div>

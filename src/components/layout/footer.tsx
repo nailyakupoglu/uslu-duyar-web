@@ -45,6 +45,18 @@ export async function Footer() {
               {siteConfig.email}
             </span>
           </div>
+          <div className="mt-6">
+            <h4 className="text-xs font-bold uppercase tracking-[0.18em] text-white/42 mb-2.5">
+              {locale === "en" ? "Certificates (Pending)" : "Sertifikalar (Beklemede)"}
+            </h4>
+            <div className="flex flex-wrap gap-2">
+              {["GLOBALG.A.P", "ISO 22000", "HALAL / HELAL", "SMETA"].map((cert) => (
+                <span key={cert} className="rounded border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-semibold text-white/72">
+                  {cert}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
 
         <FooterColumn

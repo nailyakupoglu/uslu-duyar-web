@@ -18,6 +18,13 @@
     --destructive: 4 76% 54%;
     --destructive-foreground: 0 0% 100%;
     --radius: 0.5rem;
+    --header-h: 64px;
+  }
+
+  @media (min-width: 1024px) {
+    :root {
+      --header-h: 80px;
+    }
   }
 
   * {
@@ -26,6 +33,7 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: var(--header-h);
   }
 
   body {
