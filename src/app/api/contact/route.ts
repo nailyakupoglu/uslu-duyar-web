@@ -1,7 +1,8 @@
 /**
  * POST /api/contact — iletişim/teklif formu gönderimi.
  * Girdi: ContactInput (zod ile doğrulanır). Çıktı: { ok: true } veya hata.
- * Davranış: RESEND_API_KEY varsa e-posta gönderir; yoksa sunucu log'una yazar (graceful).
+ * Davranış: N8N_CONTACT_WEBHOOK_URL varsa n8n'e POST eder (e-posta + WhatsApp bildirimi);
+ *           yoksa sunucu log'una yazar (graceful).
  */
 import { NextResponse } from "next/server";
 
@@ -33,36 +34,36 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
+  const webhook = process.env.N8N_CONTACT_WEBHOOK_URL;
   const to = process.env.CONTACT_TO_EMAIL ?? siteConfig.email;
-  const from = process.env.CONTACT_FROM_EMAIL ?? "web@usluduyar.com";
 
-  if (apiKey) {
+  if (webhook) {
     try {
-      const { Resend } = await import("resend");
-      const resend = new Resend(apiKey);
-      await resend.emails.send({
-        from,
-        to,
-        replyTo: data.email,
-        subject: data.subject?.trim() || `Yeni iletişim mesajı — ${data.name}`,
-        text: [
-          `Ad Soyad: ${data.name}`,
-          `E-posta: ${data.email}`,
-          `Telefon: ${data.phone || "-"}`,
-          `Firma: ${data.company || "-"}`,
-          `Konu: ${data.subject || "-"}`,
-          "",
-          data.message
-        ].join("\n")
+      const res = await fetch(webhook, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          source: "usluduyar-web",
+          to,
+          name: data.name,
+          email: data.email,
+          phone: data.phone || "",
+          company: data.company || "",
+          subject: data.subject?.trim() || `Yeni iletişim mesajı — ${data.name}`,
+          message: data.message
+        })
       });
+      if (!res.ok) {
+        console.error("[contact] n8n webhook non-ok", res.status);
+        return NextResponse.json({ ok: false, error: "send_failed" }, { status: 502 });
+      }
     } catch (error) {
-      console.error("[contact] resend error", error);
+      console.error("[contact] n8n webhook error", error);
       return NextResponse.json({ ok: false, error: "send_failed" }, { status: 502 });
     }
   } else {
-    // Geliştirme/önizleme ortamı: anahtar yokken sadece logla.
-    console.info("[contact] (RESEND_API_KEY tanımsız) mesaj alındı:", {
+    // Geliştirme/önizleme ortamı: webhook yokken sadece logla.
+    console.info("[contact] (N8N_CONTACT_WEBHOOK_URL tanımsız) mesaj alındı:", {
       name: data.name,
       email: data.email,
       subject: data.subject
