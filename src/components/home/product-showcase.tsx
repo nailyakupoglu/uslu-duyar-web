@@ -12,9 +12,9 @@ export async function ProductShowcase() {
     <section className="section-padding bg-earth-50">
       <div className="container">
         <SectionHeading
-          eyebrow="Ürün portföyü"
-          title="Narenciye, kavun ve karpuz tek vitrin altında."
-          description="Ürün kartları operatör cevapları geldikçe gerçek boylama değerleri, ambalaj seçenekleri ve sertifika PDF'leriyle güncellenecek."
+          eyebrow={locale === "en" ? "Product portfolio" : "Ürün portföyü"}
+          title={locale === "en" ? "Citrus, melon and watermelon in a single showcase." : "Narenciye, kavun ve karpuz tek vitrin altında."}
+          description={locale === "en" ? "As operator responses arrive, the product cards will be updated with actual sizing values, packaging options and certificate PDFs." : "Ürün kartları operatör cevapları geldikçe gerçek boylama değerleri, ambalaj seçenekleri ve sertifika PDF'leriyle güncellenecek."}
           align="center"
         />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

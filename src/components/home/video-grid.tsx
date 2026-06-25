@@ -5,6 +5,7 @@
 // Kullanım: ana sayfa + üretim sayfalarında "sahadan kareler" bölümü.
 import Image from "next/image";
 import { Play } from "lucide-react";
+import { useLocale } from "next-intl";
 
 import {
   Dialog,
@@ -18,6 +19,7 @@ import { getVideos } from "@/lib/manifest-reader";
 const videos = getVideos(6);
 
 export function VideoGrid() {
+  const locale = useLocale();
   if (videos.length === 0) {
     return null;
   }
@@ -26,9 +28,9 @@ export function VideoGrid() {
     <section className="section-padding bg-ink text-white">
       <div className="container">
         <SectionHeading
-          eyebrow="Sahadan"
-          title="Tarladan kareler"
-          description="Hasattan sevkiyata; narenciye ve karpuz sahalarımızdan kısa görüntüler."
+          eyebrow={locale === "en" ? "From the Field" : "Sahadan"}
+          title={locale === "en" ? "Scenes from the Field" : "Tarladan kareler"}
+          description={locale === "en" ? "Short clips from our citrus and watermelon fields, from harvest to shipment." : "Hasattan sevkiyata; narenciye ve karpuz sahalarımızdan kısa görüntüler."}
           align="center"
           className="[&_h2]:text-white [&_p]:text-white/70"
         />
@@ -39,7 +41,7 @@ export function VideoGrid() {
                 <button
                   type="button"
                   className="group relative aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-white/5"
-                  aria-label={`${video.caption} videosunu oynat`}
+                  aria-label={locale === "en" ? `Play video: ${video.caption}` : `${video.caption} videosunu oynat`}
                 >
                   <Image
                     src={video.thumb}

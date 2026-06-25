@@ -12,11 +12,11 @@ export async function BlogTeasers() {
       <div className="container">
         <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.22em] text-primary-700">Bilgi merkezi</p>
-            <h2 className="mt-2 font-display text-4xl font-semibold">Son yazılar</h2>
+            <p className="text-sm font-bold uppercase tracking-[0.22em] text-primary-700">{locale === "en" ? "Knowledge hub" : "Bilgi merkezi"}</p>
+            <h2 className="mt-2 font-display text-4xl font-semibold">{locale === "en" ? "Latest posts" : "Son yazılar"}</h2>
           </div>
           <Link href="/blog" className="inline-flex items-center gap-2 text-sm font-bold text-primary-700">
-            Tüm Yazılar <ArrowUpRight className="h-4 w-4" />
+            {locale === "en" ? "All Posts" : "Tüm Yazılar"} <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
         <div className="grid gap-5 md:grid-cols-3">
@@ -25,7 +25,7 @@ export async function BlogTeasers() {
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent2-500">{post.category}</p>
               <h3 className="mt-4 font-display text-2xl font-semibold">{post.title}</h3>
               <p className="mt-3 text-sm leading-7 text-ink/64">{post.excerpt}</p>
-              <p className="mt-5 text-xs font-semibold text-ink/45">{post.readingMinutes} dk okuma</p>
+              <p className="mt-5 text-xs font-semibold text-ink/45">{locale === "en" ? `${post.readingMinutes} min read` : `${post.readingMinutes} dk okuma`}</p>
             </Link>
           ))}
         </div>

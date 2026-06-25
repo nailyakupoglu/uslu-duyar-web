@@ -15,10 +15,10 @@ export function CertificationsStrip() {
     <section className="overflow-hidden bg-cream py-12">
       <div className="container mb-7 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
         <div>
-          <p className="text-sm font-bold uppercase tracking-[0.22em] text-primary-700">Kalite belgeleri</p>
-          <h2 className="mt-2 font-display text-3xl font-semibold">Sertifika hazırlığı</h2>
+          <p className="text-sm font-bold uppercase tracking-[0.22em] text-primary-700">{locale === "en" ? "Quality certificates" : "Kalite belgeleri"}</p>
+          <h2 className="mt-2 font-display text-3xl font-semibold">{locale === "en" ? "Certification in progress" : "Sertifika hazırlığı"}</h2>
         </div>
-        <p className="max-w-xl text-sm leading-6 text-ink/62">Logo ve PDF dosyaları gelene kadar rozetler placeholder olarak gösterilir.</p>
+        <p className="max-w-xl text-sm leading-6 text-ink/62">{locale === "en" ? "The badges are shown as placeholders until the logos and PDF files arrive." : "Logo ve PDF dosyaları gelene kadar rozetler placeholder olarak gösterilir."}</p>
       </div>
       <motion.div className="flex w-max gap-4 px-4" whileHover={{ animationPlayState: "paused" }}>
         <div className="flex animate-marquee gap-4">

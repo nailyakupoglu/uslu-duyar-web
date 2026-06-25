@@ -6,10 +6,14 @@
 "use client";
 
 import { useEffect } from "react";
+import { useLocale } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 
 export default function Error({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
+  const locale = useLocale();
+  const isEn = locale === "en";
+
   useEffect(() => {
     // Üretimde hata izleme servisine gönderilebilir (Sentry vb.).
     console.error(error);
@@ -18,16 +22,20 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
   return (
     <section className="flex min-h-[70vh] items-center justify-center bg-cream px-6">
       <div className="mx-auto max-w-lg text-center">
-        <p className="font-mono text-sm font-semibold uppercase tracking-[0.3em] text-accent2-500">Hata</p>
+        <p className="font-mono text-sm font-semibold uppercase tracking-[0.3em] text-accent2-500">
+          {isEn ? "Error" : "Hata"}
+        </p>
         <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-ink md:text-4xl">
-          Beklenmeyen bir sorun oluştu
+          {isEn ? "An unexpected problem occurred" : "Beklenmeyen bir sorun oluştu"}
         </h1>
         <p className="mt-4 text-base leading-7 text-muted-foreground">
-          Sayfa yüklenirken bir aksaklık yaşandı. Lütfen tekrar deneyin; sorun sürerse bizimle iletişime geçin.
+          {isEn
+            ? "Something went wrong while loading the page. Please try again; if the problem persists, get in touch with us."
+            : "Sayfa yüklenirken bir aksaklık yaşandı. Lütfen tekrar deneyin; sorun sürerse bizimle iletişime geçin."}
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Button variant="primary" size="lg" onClick={reset} magnetic>
-            Tekrar Dene
+            {isEn ? "Try Again" : "Tekrar Dene"}
           </Button>
         </div>
       </div>

@@ -118,7 +118,7 @@ export function HeroSlider() {
                       </Link>
                     </Button>
                     <Button asChild size="xl" variant="ghost">
-                      <Link href="/iletisim">Teklif İste</Link>
+                      <Link href="/iletisim">{locale === "en" ? "Request a Quote" : "Teklif İste"}</Link>
                     </Button>
                   </motion.div>
                 </div>
@@ -130,7 +130,7 @@ export function HeroSlider() {
 
       <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center text-white/72">
         <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 1.6, repeat: Infinity }} className="inline-flex flex-col items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em]">
-          Aşağı Kaydır
+          {locale === "en" ? "Scroll Down" : "Aşağı Kaydır"}
           <ArrowDown className="h-5 w-5" />
         </motion.div>
       </div>
@@ -142,7 +142,7 @@ export function HeroSlider() {
             type="button"
             onClick={() => emblaApi?.scrollTo(index)}
             className={`h-2 rounded-full transition-all ${selected === index ? "w-10 bg-accent-500" : "w-2 bg-white/50"}`}
-            aria-label={`${index + 1}. slayta git`}
+            aria-label={locale === "en" ? `Go to slide ${index + 1}` : `${index + 1}. slayta git`}
           />
         ))}
       </div>

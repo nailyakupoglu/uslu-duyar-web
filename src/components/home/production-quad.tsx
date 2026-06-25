@@ -16,9 +16,9 @@ export function ProductionQuad() {
     <section className="section-padding bg-primary-900 text-white">
       <div className="container">
         <SectionHeading
-          eyebrow="Üretim gücü"
-          title="Sertifikadan lojistiğe dört kritik operasyon tek akışta."
-          description="Hasattan boylamaya, soğuk zincirden ihracata uzanan dört kritik operasyonu Mersin'in taze ürün üretimine uyarlayan net bir kurumsal anlatı."
+          eyebrow={locale === "en" ? "Production strength" : "Üretim gücü"}
+          title={locale === "en" ? "From certification to logistics, four critical operations in one flow." : "Sertifikadan lojistiğe dört kritik operasyon tek akışta."}
+          description={locale === "en" ? "A clear corporate narrative adapting four critical operations — from harvest to sizing, cold chain to export — to Mersin's fresh produce production." : "Hasattan boylamaya, soğuk zincirden ihracata uzanan dört kritik operasyonu Mersin'in taze ürün üretimine uyarlayan net bir kurumsal anlatı."}
           className="text-white [&_h2]:text-white [&_p]:text-white/68"
         />
         <div className="mt-12 grid gap-5 md:grid-cols-2">
@@ -44,7 +44,7 @@ export function ProductionQuad() {
                 <h3 className="font-display text-4xl font-semibold">{item.title}</h3>
                 <p className="mt-3 max-w-lg text-sm leading-7 text-white/70">{item.description}</p>
                 <Link href={item.href} className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-accent-500">
-                  Detay <ArrowUpRight className="h-4 w-4" />
+                  {locale === "en" ? "Details" : "Detay"} <ArrowUpRight className="h-4 w-4" />
                 </Link>
               </div>
             </motion.article>

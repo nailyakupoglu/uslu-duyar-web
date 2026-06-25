@@ -38,11 +38,11 @@ export function Header() {
       }}
     >
       <div className="container flex h-full items-center justify-between gap-4">
-        <Link href="/" className="group inline-flex items-center" aria-label="Uslu Duyar ana sayfa">
+        <Link href="/" className="group inline-flex items-center" aria-label={locale === "en" ? "Uslu Duyar home" : "Uslu Duyar ana sayfa"}>
           <Logo variant="light" />
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Ana navigasyon">
+        <nav className="hidden items-center gap-1 lg:flex" aria-label={locale === "en" ? "Main navigation" : "Ana navigasyon"}>
           {navItems.map((item) => {
             const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
             return (
@@ -66,7 +66,7 @@ export function Header() {
           <Button asChild variant="accent" size="sm" magnetic>
             <Link href="/iletisim">
               <Phone className="h-4 w-4" />
-              Teklif Al
+              {locale === "en" ? "Get a Quote" : "Teklif Al"}
             </Link>
           </Button>
         </div>
@@ -75,7 +75,7 @@ export function Header() {
           type="button"
           className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white lg:hidden"
           onClick={() => setOpen((value) => !value)}
-          aria-label={open ? "Menüyü kapat" : "Menüyü aç"}
+          aria-label={open ? (locale === "en" ? "Close menu" : "Menüyü kapat") : locale === "en" ? "Open menu" : "Menüyü aç"}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
@@ -146,7 +146,7 @@ export function Header() {
               <LanguageSwitcher />
               <Button asChild variant="accent" size="sm">
                 <Link href="/iletisim" onClick={() => setOpen(false)}>
-                  Teklif Al
+                  {locale === "en" ? "Get a Quote" : "Teklif Al"}
                 </Link>
               </Button>
             </div>

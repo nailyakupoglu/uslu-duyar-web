@@ -24,17 +24,18 @@ export function ProductExplorer({
   initialCategory?: Filter;
 }) {
   const locale = useLocale();
+  const isEn = locale === "en";
   const [active, setActive] = useState<Filter>(initialCategory);
 
   const filters: { key: Filter; label: string }[] = useMemo(
     () => [
-      { key: "all", label: "Tümü" },
+      { key: "all", label: isEn ? "All" : "Tümü" },
       ...productCategories.map((category) => ({
         key: category,
         label: getCategoryMetaL(category, locale).title
       }))
     ],
-    [locale]
+    [locale, isEn]
   );
 
   const visible = useMemo(
@@ -44,7 +45,7 @@ export function ProductExplorer({
 
   return (
     <div>
-      <div className="flex flex-wrap gap-2" role="tablist" aria-label="Ürün kategorileri">
+      <div className="flex flex-wrap gap-2" role="tablist" aria-label={isEn ? "Product categories" : "Ürün kategorileri"}>
         {filters.map((filter) => {
           const isActive = filter.key === active;
           return (
@@ -86,7 +87,7 @@ export function ProductExplorer({
 
       {visible.length === 0 ? (
         <p className="mt-10 rounded-lg bg-white/70 p-8 text-center text-ink/60">
-          Bu kategoride henüz ürün eklenmedi.
+          {isEn ? "No products have been added in this category yet." : "Bu kategoride henüz ürün eklenmedi."}
         </p>
       ) : null}
     </div>

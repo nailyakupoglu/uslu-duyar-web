@@ -6,6 +6,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLocale } from "next-intl";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
@@ -26,6 +27,8 @@ type ContactFormProps = {
 type Status = "idle" | "submitting" | "success" | "error";
 
 export function ContactForm({ defaultSubject = "", compact = false, onSuccess }: ContactFormProps) {
+  const locale = useLocale();
+  const isEn = locale === "en";
   const [status, setStatus] = useState<Status>("idle");
   const {
     register,
@@ -60,12 +63,16 @@ export function ContactForm({ defaultSubject = "", compact = false, onSuccess }:
     return (
       <div className="flex flex-col items-center gap-3 rounded-lg border border-primary-500/30 bg-primary-50 p-8 text-center" role="status">
         <CheckCircle2 className="h-10 w-10 text-primary-700" />
-        <p className="font-display text-2xl font-semibold text-primary-900">Mesajınız alındı</p>
+        <p className="font-display text-2xl font-semibold text-primary-900">
+          {isEn ? "Your message has been received" : "Mesajınız alındı"}
+        </p>
         <p className="max-w-sm text-sm leading-6 text-ink/68">
-          Talebiniz ekibimize iletildi. En kısa sürede dönüş yapacağız.
+          {isEn
+            ? "Your request has reached our team. We will get back to you shortly."
+            : "Talebiniz ekibimize iletildi. En kısa sürede dönüş yapacağız."}
         </p>
         <Button variant="outline" size="sm" onClick={() => setStatus("idle")}>
-          Yeni Mesaj Gönder
+          {isEn ? "Send New Message" : "Yeni Mesaj Gönder"}
         </Button>
       </div>
     );
@@ -75,12 +82,12 @@ export function ContactForm({ defaultSubject = "", compact = false, onSuccess }:
     <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4" noValidate>
       <div className={cn("grid gap-4", !compact && "sm:grid-cols-2")}>
         <div className="grid gap-1.5">
-          <Label htmlFor="cf-name">Ad Soyad *</Label>
+          <Label htmlFor="cf-name">{isEn ? "Full Name *" : "Ad Soyad *"}</Label>
           <Input id="cf-name" autoComplete="name" aria-invalid={Boolean(errors.name)} {...register("name")} />
           {errors.name ? <span className="text-xs text-accent2-500">{errors.name.message}</span> : null}
         </div>
         <div className="grid gap-1.5">
-          <Label htmlFor="cf-email">E-posta *</Label>
+          <Label htmlFor="cf-email">{isEn ? "Email *" : "E-posta *"}</Label>
           <Input id="cf-email" type="email" autoComplete="email" aria-invalid={Boolean(errors.email)} {...register("email")} />
           {errors.email ? <span className="text-xs text-accent2-500">{errors.email.message}</span> : null}
         </div>
@@ -88,55 +95,69 @@ export function ContactForm({ defaultSubject = "", compact = false, onSuccess }:
 
       <div className={cn("grid gap-4", !compact && "sm:grid-cols-2")}>
         <div className="grid gap-1.5">
-          <Label htmlFor="cf-phone">Telefon</Label>
+          <Label htmlFor="cf-phone">{isEn ? "Phone" : "Telefon"}</Label>
           <Input id="cf-phone" type="tel" autoComplete="tel" {...register("phone")} />
         </div>
         <div className="grid gap-1.5">
-          <Label htmlFor="cf-company">Firma</Label>
+          <Label htmlFor="cf-company">{isEn ? "Company" : "Firma"}</Label>
           <Input id="cf-company" autoComplete="organization" {...register("company")} />
         </div>
       </div>
 
       <div className="grid gap-1.5">
-        <Label htmlFor="cf-subject">Konu</Label>
+        <Label htmlFor="cf-subject">{isEn ? "Subject" : "Konu"}</Label>
         <Input id="cf-subject" {...register("subject")} />
       </div>
 
       <div className="grid gap-1.5">
-        <Label htmlFor="cf-message">Mesajınız *</Label>
+        <Label htmlFor="cf-message">{isEn ? "Message *" : "Mesajınız *"}</Label>
         <Textarea id="cf-message" rows={compact ? 4 : 6} aria-invalid={Boolean(errors.message)} {...register("message")} />
         {errors.message ? <span className="text-xs text-accent2-500">{errors.message.message}</span> : null}
       </div>
 
       {/* Honeypot — ekran dışı, kullanıcılar görmez. */}
       <div aria-hidden className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
-        <label htmlFor="cf-website">Web sitesi (boş bırakın)</label>
+        <label htmlFor="cf-website">{isEn ? "Website (leave blank)" : "Web sitesi (boş bırakın)"}</label>
         <input id="cf-website" tabIndex={-1} autoComplete="off" {...register("website")} />
       </div>
 
       {status === "error" ? (
         <p className="rounded-md bg-accent2-50 px-3 py-2 text-sm text-accent2-700" role="alert">
-          Mesaj gönderilemedi. Lütfen tekrar deneyin veya doğrudan telefonla ulaşın.
+          {isEn
+            ? "Your message could not be sent. Please try again or reach us directly by phone."
+            : "Mesaj gönderilemedi. Lütfen tekrar deneyin veya doğrudan telefonla ulaşın."}
         </p>
       ) : null}
 
       <Button type="submit" variant="primary" size="lg" disabled={status === "submitting"} magnetic className="mt-1">
         {status === "submitting" ? (
           <>
-            <Loader2 className="h-4 w-4 animate-spin" /> Gönderiliyor…
+            <Loader2 className="h-4 w-4 animate-spin" /> {isEn ? "Sending…" : "Gönderiliyor…"}
           </>
         ) : (
           <>
-            <Send className="h-4 w-4" /> Gönder
+            <Send className="h-4 w-4" /> {isEn ? "Send" : "Gönder"}
           </>
         )}
       </Button>
       <p className="text-xs leading-5 text-ink/50">
-        Formu göndererek verilerinizin{" "}
-        <a href="/kvkk" className="underline hover:text-primary-700">
-          KVKK Aydınlatma Metni
-        </a>{" "}
-        kapsamında işlenmesini kabul edersiniz.
+        {isEn ? (
+          <>
+            By submitting this form you agree to the processing of your data under the{" "}
+            <a href="/kvkk" className="underline hover:text-primary-700">
+              Privacy Notice
+            </a>
+            .
+          </>
+        ) : (
+          <>
+            Formu göndererek verilerinizin{" "}
+            <a href="/kvkk" className="underline hover:text-primary-700">
+              KVKK Aydınlatma Metni
+            </a>{" "}
+            kapsamında işlenmesini kabul edersiniz.
+          </>
+        )}
       </p>
     </form>
   );

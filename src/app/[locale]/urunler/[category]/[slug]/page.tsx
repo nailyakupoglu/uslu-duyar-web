@@ -68,6 +68,15 @@ export default function ProductDetailPage({ params: { locale, category, slug } }
   const specs = product.specs;
   const gallery = productGallery(product);
   const heroImage = gallery[0]?.src ?? product.image;
+  const isEn = locale === "en";
+  const t = {
+    productsLabel: isEn ? "Products" : "Ürünler",
+    contact: isEn ? "Contact Us" : "İletişime Geç",
+    packaging: isEn ? "Packaging Options" : "Ambalaj Seçenekleri",
+    certificates: isEn ? "Certificates & Documents" : "Sertifika & Belgeler",
+    sameCategory: isEn ? "From the same category" : "Aynı kategoriden",
+    viewAll: isEn ? "View all" : "Tümünü gör"
+  };
 
   return (
     <>
@@ -89,7 +98,7 @@ export default function ProductDetailPage({ params: { locale, category, slug } }
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             breadcrumbJsonLd([
-              { name: "Ürünler", href: "/urunler" },
+              { name: t.productsLabel, href: "/urunler" },
               { name: meta.title, href: `/urunler?cat=${product.category}` },
               { name: product.title, href: `/urunler/${product.category}/${product.slug}` }
             ])
@@ -99,7 +108,7 @@ export default function ProductDetailPage({ params: { locale, category, slug } }
 
       <Breadcrumb
         items={[
-          { label: "Ürünler", href: "/urunler" },
+          { label: t.productsLabel, href: "/urunler" },
           { label: meta.title, href: `/urunler?cat=${product.category}` },
           { label: product.title }
         ]}
@@ -119,12 +128,12 @@ export default function ProductDetailPage({ params: { locale, category, slug } }
           <p className="mt-4 text-lg leading-8 text-ink/70">{product.description}</p>
 
           <div className="mt-7 flex flex-wrap gap-3">
-            <QuoteModal productTitle={product.title} />
+            <QuoteModal productTitle={product.title} triggerLabel={isEn ? "Request a Quote" : "Teklif İste"} />
             <Link
               href="/iletisim"
               className="inline-flex h-12 items-center gap-2 rounded-lg border border-primary-700/25 bg-white px-6 text-sm font-semibold text-primary-900 transition hover:bg-primary-50"
             >
-              İletişime Geç
+              {t.contact}
             </Link>
           </div>
 
@@ -143,7 +152,7 @@ export default function ProductDetailPage({ params: { locale, category, slug } }
           {/* Ambalaj seçenekleri */}
           <div className="mt-8">
             <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-primary-700">
-              <PackageCheck className="h-4 w-4" /> Ambalaj Seçenekleri
+              <PackageCheck className="h-4 w-4" /> {t.packaging}
             </h2>
             <ul className="mt-3 flex flex-wrap gap-2">
               {product.packageOptions.map((option) => (
@@ -161,7 +170,7 @@ export default function ProductDetailPage({ params: { locale, category, slug } }
           {product.certificates.length > 0 ? (
             <div className="mt-8">
               <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-primary-700">
-                <ShieldCheck className="h-4 w-4" /> Sertifika & Belgeler
+                <ShieldCheck className="h-4 w-4" /> {t.certificates}
               </h2>
               <div className="mt-3 grid gap-3 sm:grid-cols-2">
                 {product.certificates.map((cert) => (
@@ -178,12 +187,12 @@ export default function ProductDetailPage({ params: { locale, category, slug } }
         <section className="bg-cream py-20">
           <div className="container">
             <div className="mb-8 flex items-end justify-between gap-4">
-              <h2 className="font-display text-3xl font-semibold text-ink">Aynı kategoriden</h2>
+              <h2 className="font-display text-3xl font-semibold text-ink">{t.sameCategory}</h2>
               <Link
                 href={`/urunler?cat=${product.category}`}
                 className="inline-flex items-center gap-1 text-sm font-semibold text-primary-700 hover:underline"
               >
-                <ArrowLeft className="h-4 w-4 rotate-180" /> Tümünü gör
+                <ArrowLeft className="h-4 w-4 rotate-180" /> {t.viewAll}
               </Link>
             </div>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

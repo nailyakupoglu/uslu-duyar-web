@@ -6,6 +6,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLocale } from "next-intl";
 import { FileText } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -25,7 +26,9 @@ type QuoteModalProps = {
   triggerClassName?: string;
 };
 
-export function QuoteModal({ productTitle, triggerLabel = "Teklif Al", triggerClassName }: QuoteModalProps) {
+export function QuoteModal({ productTitle, triggerLabel, triggerClassName }: QuoteModalProps) {
+  const locale = useLocale();
+  const isEn = locale === "en";
   const [open, setOpen] = useState(false);
 
   return (
@@ -33,20 +36,29 @@ export function QuoteModal({ productTitle, triggerLabel = "Teklif Al", triggerCl
       <DialogTrigger asChild>
         <Button variant="primary" size="lg" magnetic className={triggerClassName}>
           <FileText className="h-4 w-4" />
-          {triggerLabel}
+          {triggerLabel ?? (isEn ? "Request a Quote" : "Teklif Al")}
         </Button>
       </DialogTrigger>
       <DialogContent className="max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>Teklif Talebi</DialogTitle>
+          <DialogTitle>{isEn ? "Quote Request" : "Teklif Talebi"}</DialogTitle>
           <DialogDescription>
-            <strong className="text-primary-700">{productTitle}</strong> için ihtiyaçlarınızı paylaşın; ambalaj,
-            miktar ve sevkiyat detaylarıyla birlikte hızlıca dönüş yapalım.
+            {isEn ? (
+              <>
+                Share your requirements for <strong className="text-primary-700">{productTitle}</strong>; we will get
+                back to you quickly with packaging, quantity and shipping details.
+              </>
+            ) : (
+              <>
+                <strong className="text-primary-700">{productTitle}</strong> için ihtiyaçlarınızı paylaşın; ambalaj,
+                miktar ve sevkiyat detaylarıyla birlikte hızlıca dönüş yapalım.
+              </>
+            )}
           </DialogDescription>
         </DialogHeader>
         <ContactForm
           compact
-          defaultSubject={`Teklif Talebi — ${productTitle}`}
+          defaultSubject={isEn ? `Quote Request — ${productTitle}` : `Teklif Talebi — ${productTitle}`}
           onSuccess={() => {
             // Başarıdan sonra modalı kapatma; kullanıcı onay mesajını görsün.
           }}
