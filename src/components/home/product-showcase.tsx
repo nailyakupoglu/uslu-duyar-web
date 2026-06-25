@@ -8,8 +8,8 @@ export function ProductShowcase() {
       <div className="container">
         <SectionHeading
           eyebrow="Ürün portföyü"
-          title="Değirmen, biber-baharat ve silaj ürünleri tek vitrin altında."
-          description="Ürün kartları operatör cevapları geldikçe gerçek teknik değerler, ambalaj seçenekleri ve sertifika PDF'leriyle güncellenecek."
+          title="Narenciye, kavun ve karpuz tek vitrin altında."
+          description="Ürün kartları operatör cevapları geldikçe gerçek boylama değerleri, ambalaj seçenekleri ve sertifika PDF'leriyle güncellenecek."
           align="center"
         />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

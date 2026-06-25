@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 
+import { Logo } from "@/components/shared/logo";
 import { categories, corporateLinks, productionLinks, siteConfig } from "@/lib/data";
 
 export function Footer() {
@@ -8,12 +9,8 @@ export function Footer() {
     <footer className="bg-footer-gradient text-white">
       <div className="container grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr]">
         <div>
-          <Link href="/" className="inline-flex items-center gap-3">
-            <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-white text-primary-700">ET</span>
-            <span>
-              <span className="block font-display text-3xl font-semibold">Eren Tarım</span>
-              <span className="text-xs uppercase tracking-[0.22em] text-white/55">Mersin / Türkiye</span>
-            </span>
+          <Link href="/" className="group inline-flex items-center" aria-label="Uslu Duyar ana sayfa">
+            <Logo variant="light" />
           </Link>
           <p className="mt-6 max-w-sm text-sm leading-7 text-white/68">{siteConfig.description}</p>
           <div className="mt-6 grid gap-3 text-sm text-white/75">
@@ -62,10 +59,18 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="container flex flex-col gap-3 py-6 text-xs text-white/55 md:flex-row md:items-center md:justify-between">
           <p>© {new Date().getFullYear()} {siteConfig.legalName}. Tüm hakları saklıdır.</p>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap items-center gap-4">
             <Link href="/kvkk" className="hover:text-white">KVKK</Link>
             <Link href="/gizlilik" className="hover:text-white">Gizlilik</Link>
             <Link href="/cerez-politikasi" className="hover:text-white">Çerez Politikası</Link>
+            <a
+              href="https://evohaus.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/45 hover:text-white"
+            >
+              Designed by EVOHAUS
+            </a>
           </div>
         </div>
       </div>

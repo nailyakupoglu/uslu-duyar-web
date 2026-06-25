@@ -1,15 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Eren Tarım — Tarladan Sofraya">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Uslu Duyar — Tarım Ürünleri">
   <defs>
     <linearGradient id="og" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#062818"/>
-      <stop offset="1" stop-color="#0E0E0E"/>
+      <stop offset="0" stop-color="#1F7A2A"/>
+      <stop offset="1" stop-color="#0C3B16"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#og)"/>
-  <g><circle cx="0" cy="580" r="4" fill="#D4A017" opacity="0.13"/><circle cx="875" cy="336" r="4" fill="#D4A017" opacity="0.21"/><circle cx="906" cy="342" r="6" fill="#D4A017" opacity="0.20"/><circle cx="980" cy="152" r="4" fill="#D4A017" opacity="0.21"/><circle cx="838" cy="34" r="6" fill="#D4A017" opacity="0.17"/><circle cx="1107" cy="509" r="3" fill="#D4A017" opacity="0.18"/><circle cx="1108" cy="434" r="6" fill="#D4A017" opacity="0.19"/><circle cx="1094" cy="572" r="4" fill="#D4A017" opacity="0.15"/><circle cx="1005" cy="209" r="3" fill="#D4A017" opacity="0.14"/><circle cx="514" cy="186" r="8" fill="#D4A017" opacity="0.18"/><circle cx="875" cy="553" r="2" fill="#D4A017" opacity="0.14"/><circle cx="673" cy="321" r="5" fill="#D4A017" opacity="0.13"/><circle cx="1091" cy="35" r="4" fill="#D4A017" opacity="0.15"/><circle cx="797" cy="582" r="5" fill="#D4A017" opacity="0.12"/><circle cx="487" cy="179" r="4" fill="#D4A017" opacity="0.16"/><circle cx="399" cy="335" r="6" fill="#D4A017" opacity="0.13"/><circle cx="1088" cy="288" r="7" fill="#D4A017" opacity="0.20"/><circle cx="761" cy="325" r="5" fill="#D4A017" opacity="0.20"/><circle cx="1127" cy="250" r="6" fill="#D4A017" opacity="0.14"/><circle cx="704" cy="221" r="4" fill="#D4A017" opacity="0.16"/><circle cx="954" cy="553" r="3" fill="#D4A017" opacity="0.22"/><circle cx="93" cy="256" r="3" fill="#D4A017" opacity="0.11"/><circle cx="1195" cy="139" r="6" fill="#D4A017" opacity="0.12"/><circle cx="549" cy="374" r="3" fill="#D4A017" opacity="0.24"/><circle cx="1061" cy="561" r="7" fill="#D4A017" opacity="0.24"/><circle cx="913" cy="174" r="2" fill="#D4A017" opacity="0.14"/><circle cx="91" cy="1" r="6" fill="#D4A017" opacity="0.13"/><circle cx="889" cy="308" r="6" fill="#D4A017" opacity="0.14"/><circle cx="1059" cy="148" r="4" fill="#D4A017" opacity="0.23"/><circle cx="142" cy="308" r="2" fill="#D4A017" opacity="0.24"/><circle cx="764" cy="581" r="2" fill="#D4A017" opacity="0.24"/><circle cx="226" cy="610" r="5" fill="#D4A017" opacity="0.20"/><circle cx="320" cy="140" r="3" fill="#D4A017" opacity="0.18"/><circle cx="63" cy="485" r="6" fill="#D4A017" opacity="0.21"/><circle cx="598" cy="21" r="3" fill="#D4A017" opacity="0.24"/><circle cx="157" cy="433" r="7" fill="#D4A017" opacity="0.11"/><circle cx="1060" cy="543" r="8" fill="#D4A017" opacity="0.24"/><circle cx="918" cy="264" r="3" fill="#D4A017" opacity="0.21"/><circle cx="1059" cy="251" r="3" fill="#D4A017" opacity="0.16"/><circle cx="1064" cy="352" r="4" fill="#D4A017" opacity="0.19"/></g>
-  <rect x="80" y="80" width="60" height="60" rx="14" fill="#0D4525"/>
-  <path d="M110 92 C 100 102, 100 118, 110 128 C 120 118, 120 102, 110 92 Z" fill="#D4A017"/>
-  <text x="80" y="320" font-family="Georgia, serif" font-size="86" font-weight="800" fill="#FAF7F2" letter-spacing="-2">Eren Tarım</text>
-  <text x="82" y="380" font-family="Inter, sans-serif" font-size="34" fill="#D4A017">Tarladan Sofraya, Mersin'den Dünyaya</text>
-  <text x="82" y="430" font-family="Inter, sans-serif" font-size="24" fill="#FAF7F2" opacity="0.7">Değirmen · Biber & Baharat · Silaj & Yem</text>
+  <!-- marka işareti: narenciye + karpuz -->
+  <g transform="translate(80,80) scale(1.25)">
+    <path d="M24 6 C27 -1 35 -1 39 3 C35 9 28 9 24 6 Z" fill="#43B14E"/>
+    <path d="M24 7 A17 17 0 0 0 24 41 Z" fill="#ED8120"/>
+    <path d="M24 11 A13 13 0 0 0 24 37 Z" fill="#F8B45E"/>
+    <path d="M24 7 A17 17 0 0 1 24 41 Z" fill="#2A5720"/>
+    <path d="M24 10 A14 14 0 0 1 24 38 Z" fill="#E23B33"/>
+    <g fill="#1C1A12"><ellipse cx="31" cy="18" rx="1.1" ry="1.7"/><ellipse cx="34" cy="24" rx="1.1" ry="1.7"/><ellipse cx="31" cy="30" rx="1.1" ry="1.7"/></g>
+  </g>
+  <text x="80" y="330" font-family="Georgia, serif" font-size="92" font-weight="800" letter-spacing="-2"><tspan fill="#F8B45E">Uslu</tspan> <tspan fill="#FAF7F2">Duyar</tspan></text>
+  <text x="82" y="392" font-family="Inter, sans-serif" font-size="30" fill="#FAF7F2" opacity="0.9">Tarım Ürünleri · Mersin / Çukurova</text>
+  <text x="82" y="446" font-family="Inter, sans-serif" font-size="26" fill="#F8B45E">Narenciye · Kavun · Karpuz</text>
+  <text x="82" y="540" font-family="Inter, sans-serif" font-size="22" fill="#FAF7F2" opacity="0.7">Aldatılan müşteri, kaybedilen bir servettir.</text>
 </svg>

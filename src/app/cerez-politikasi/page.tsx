@@ -11,7 +11,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildMetadata({
   title: "Çerez Politikası",
-  description: "Eren Tarım çerez politikası: kullanılan çerez türleri, amaçları ve tarayıcıdan yönetimi.",
+  description: "Uslu Duyar çerez politikası: kullanılan çerez türleri, amaçları ve tarayıcıdan yönetimi.",
   path: "/cerez-politikasi"
 });
 

@@ -7,6 +7,7 @@ import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion"
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/shared/logo";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { categories, corporateLinks, productionLinks } from "@/lib/data";
 import { cn } from "@/lib/utils";
@@ -37,14 +38,8 @@ export function Header() {
       }}
     >
       <div className="container flex h-full items-center justify-between gap-4">
-        <Link href="/" className="group inline-flex items-center gap-3" aria-label="Eren Tarım ana sayfa">
-          <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-white text-primary-700 shadow-lg transition group-hover:rotate-3">
-            ET
-          </span>
-          <span>
-            <span className="block font-display text-2xl font-semibold leading-none">Eren Tarım</span>
-            <span className="block text-[11px] font-semibold uppercase tracking-[0.22em] text-white/58">Mersin</span>
-          </span>
+        <Link href="/" className="group inline-flex items-center" aria-label="Uslu Duyar ana sayfa">
+          <Logo variant="light" />
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Ana navigasyon">
@@ -101,7 +96,7 @@ export function Header() {
               <div>
                 <p className="text-xs font-bold uppercase tracking-[0.22em] text-accent-500">{mega}</p>
                 <p className="mt-3 max-w-md text-sm leading-7 text-white/65">
-                  Değirmen, biber-baharat ve silaj operasyonlarını tek izlenebilir üretim zincirinde sunan Mersin merkezli yapı.
+                  Narenciye, kavun ve karpuzu tarladan markete; hasat, soğuk zincir ve paketlemeyle tek izlenebilir tedarik zincirinde sunan Mersin & Çukurova merkezli yapı.
                 </p>
               </div>
               <div className="grid grid-cols-3 gap-3">

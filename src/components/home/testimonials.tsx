@@ -1,7 +1,7 @@
 const testimonials = [
-  "Mersin liman bağlantısı ihracat akışını sadeleştiriyor.",
-  "Biber ve baharat ürünlerinde parti takibi satın alma ekibimiz için kritik.",
-  "Silaj sevkiyatında zamanlama ve analiz raporu çiftlik operasyonunu rahatlatıyor."
+  "Mersin liman bağlantısı narenciye ihracat akışını sadeleştiriyor.",
+  "Kavun ve karpuzda boylama tutarlılığı market zinciri satın alma ekibimiz için kritik.",
+  "Soğuk zincir sevkiyatında zamanlama ve tazelik raporu toptan operasyonumuzu rahatlatıyor."
 ];
 
 export function Testimonials() {

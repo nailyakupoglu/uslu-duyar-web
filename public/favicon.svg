@@ -1,5 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Eren Tarım">
-  <rect width="64" height="64" rx="14" fill="#0D4525"/>
-  <path d="M32 16 C 22 26, 22 40, 32 50 C 42 40, 42 26, 32 16 Z" fill="#D4A017"/>
-  <circle cx="32" cy="33" r="3" fill="#062818"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Uslu Duyar">
+  <title>Uslu Duyar</title>
+  <desc>Narenciye ve karpuz dilimi marka işareti</desc>
+  <!-- yaprak -->
+  <path d="M24 6 C27 -1 35 -1 39 3 C35 9 28 9 24 6 Z" fill="#43B14E"/>
+  <path d="M24 6 C21 0 14 0 10 3 C14 9 20 9 24 6 Z" fill="#2A5720"/>
+  <!-- sol: narenciye (turuncu) -->
+  <path d="M24 7 A17 17 0 0 0 24 41 Z" fill="#ED8120"/>
+  <path d="M24 11 A13 13 0 0 0 24 37 Z" fill="#F8B45E"/>
+  <g stroke="#ED8120" stroke-width="1.4" opacity="0.7">
+    <line x1="24" y1="24" x2="13" y2="17"/>
+    <line x1="24" y1="24" x2="11" y2="24"/>
+    <line x1="24" y1="24" x2="13" y2="31"/>
+  </g>
+  <!-- sağ: karpuz -->
+  <path d="M24 7 A17 17 0 0 1 24 41 Z" fill="#2A5720"/>
+  <path d="M24 10 A14 14 0 0 1 24 38 Z" fill="#E23B33"/>
+  <g fill="#1C1A12">
+    <ellipse cx="31" cy="18" rx="1.1" ry="1.7"/>
+    <ellipse cx="34" cy="24" rx="1.1" ry="1.7"/>
+    <ellipse cx="31" cy="30" rx="1.1" ry="1.7"/>
+  </g>
 </svg>

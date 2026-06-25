@@ -17,62 +17,62 @@ type Params = { slug: string };
 
 // Slug bazlı yazı gövdeleri (anlamlı Türkçe içerik — placeholder değil lorem).
 const bodies: Record<string, { intro: string; sections: { heading: string; paragraphs: string[] }[] }> = {
-  "kirmizi-toz-biberin-tarihcesi": {
+  "cukurova-narenciye-sezonu": {
     intro:
-      "Kırmızı toz biber, Anadolu mutfağının vazgeçilmez rengi ve aromasıdır. Bu yazıda biberin tarladan baharat rafına uzanan yolculuğunu ve modern üretimde değişen hijyen standartlarını ele alıyoruz.",
+      "Çukurova, Türkiye'nin narenciye üretiminde öne çıkan bereketli havzalarından biridir. Bu yazıda portakal, mandalina ve limonun hasat dönemlerini, boylama süreçlerini ve ihracata hazırlık adımlarını ele alıyoruz.",
     sections: [
       {
-        heading: "Anadolu'da Biberin Yolculuğu",
+        heading: "Hasat Dönemleri ve Olgunluk",
         paragraphs: [
-          "Kırmızı biber, yüzyıllar içinde Akdeniz ve Güneydoğu mutfaklarının temel taşı hâline geldi. Bölgenin sıcak iklimi ve uzun güneşli günleri, biberin renk ve aroma yoğunluğunu doğal olarak artırır.",
-          "Geleneksel üretimde biber güneşte kurutulur, taş değirmenlerde öğütülür ve elle paketlenirdi. Bu yöntem karakteristik lezzeti verirken, standardizasyon ve hijyen açısından sınırlıydı."
+          "Narenciye hasadı, türe ve çeşide göre sonbahardan ilkbahara uzanan geniş bir takvime yayılır. Bölgenin ılıman iklimi, meyvenin doğal şeker ve asit dengesini olgunlaştırmak için elverişli koşullar sunar.",
+          "Doğru olgunlukta toplanan portakal, mandalina ve limon hem iç piyasada hem ihracatta aranan renk, kabuk ve sululuk değerlerini korur. Erken ya da geç hasat, raf ömrünü ve görünümü doğrudan etkiler."
         ]
       },
       {
-        heading: "Modern Hijyen Standartları",
+        heading: "Boylama ve İhracata Hazırlık",
         paragraphs: [
-          "Bugün kurutma kontrollü ortamlarda yapılır; öğütme, eleme ve paketleme adımları gıda güvenliği protokolleriyle ayrıştırılır. Böylece renk, acılık ve nem değerleri parti bazında tutarlı hâle gelir.",
-          "İzlenebilir üretim, her partinin menşeini ve analiz sonuçlarını kayıt altına alır. Bu da hem iç piyasada hem ihracatta güçlü bir güven temeli oluşturur."
+          "Hasat sonrası meyveler boyutlarına ve kalitelerine göre boylanır; bu süreç, alıcının talep ettiği kalibre ve ambalaj standardına uygun partiler oluşturur.",
+          "İzlenebilir üretim, her partinin menşeini ve seçim kriterlerini kayıt altına alır. Bu da market zincirleri ve yurt dışı alıcılar için güçlü bir güven temeli oluşturur."
         ]
       }
     ]
   },
-  "silaj-yapiminin-puf-noktalari": {
+  "kavun-karpuz-tazelik": {
     intro:
-      "Kaliteli silaj, hayvan beslemede enerji ve verimin anahtarıdır. Doğru kuru madde oranından sıkıştırmaya, fermantasyondan sevkiyata kadar her aşamanın püf noktalarını derledik.",
+      "Kavun ve karpuzda tazelik, tarladaki doğru zamanlama kadar hasat sonrası akışın da bir sonucudur. Doğru olgunlukta hasattan tarlada seçime, hızlı sevkiyattan market rafına kadar tazeliği korumanın püf noktalarını derledik.",
     sections: [
       {
-        heading: "Kuru Madde ve Hasat Zamanı",
+        heading: "Doğru Olgunlukta Hasat",
         paragraphs: [
-          "Silajın başarısı doğru hasat zamanıyla başlar. Bitkinin kuru madde oranı, fermantasyon kalitesini doğrudan etkiler; erken ya da geç hasat enerji değerini düşürebilir.",
-          "Mısır silajında genellikle %30-35 kuru madde aralığı hedeflenir. Bu aralık, hem sıkıştırmayı kolaylaştırır hem de istenmeyen fermantasyonu sınırlar."
+          "Kavun ve karpuzun lezzeti, tarladaki olgunluk anına sıkı sıkıya bağlıdır. Kırkağaç ve altınbaş kavunda aroma ve doku, doğru zamanlanmış hasatla en üst seviyeye ulaşır.",
+          "Tarlada yapılan ön seçim, olgunlaşmamış ya da zedelenmiş ürünü ayıklayarak partinin tutarlılığını korur; bu da alıcıya istikrarlı bir kalite sunar."
         ]
       },
       {
-        heading: "Sıkıştırma ve Fermantasyon",
+        heading: "Hızlı Sevkiyat ve Raf Ömrü",
         paragraphs: [
-          "Havasız (anaerobik) ortam, laktik asit fermantasyonu için kritiktir. İyi sıkıştırma, oksijeni dışarıda tutarak küflenme ve ısınma riskini azaltır.",
-          "Düzenli analiz ve depolama takibi, silajın besin değerini koruduğunu doğrular. Çiftliklere düzenli sevkiyat planı, rasyon istikrarını destekler."
+          "Hasattan sevkiyata geçen sürenin kısa tutulması, tazeliğin korunmasında belirleyicidir. Hızlı toplama-paketleme akışı, ürünün market rafına en taze hâliyle ulaşmasını sağlar.",
+          "Boylama ve dikkatli paketleme, taşıma sırasında oluşabilecek zedelenmeyi azaltır. Düzenli sevkiyat planı, toptan ve perakende alıcılar için ürün sürekliliğini destekler."
         ]
       }
     ]
   },
-  "mersinin-tarim-gucu": {
+  "soguk-zincir-ve-ihracat": {
     intro:
-      "Mersin, bereketli üretim havzası ve güçlü liman altyapısıyla tarımsal ticaretin merkezlerinden biridir. Bu yazıda bölgenin üretimden ihracata uzanan avantajlarına bakıyoruz.",
+      "Taze ürün ihracatında soğuk zincir, kalitenin sınırları aşan teminatıdır. Bu yazıda Mersin Limanı avantajını, soğuk hava deposunu ve soğuk zincir nakliyenin taze ürün ihracatındaki rolünü ele alıyoruz.",
     sections: [
       {
-        heading: "Bereketli Üretim Havzası",
+        heading: "Soğuk Hava Deposu ve Zincirin Sürekliliği",
         paragraphs: [
-          "Mersin ovaları, elverişli iklimi ve sulama altyapısıyla geniş bir ürün yelpazesine ev sahipliği yapar. Tahıldan baharata kadar pek çok ürün bölgede yetiştirilir ve işlenir.",
-          "Sözleşmeli üretim modeli, bölge çiftçisiyle üretici arasında istikrarlı bir tedarik ilişkisi kurar; bu da kalite ve sürekliliği güçlendirir."
+          "Hasat sonrası ürünün uygun sıcaklıkta depolanması, tazeliğin ve raf ömrünün korunmasında ilk adımdır. Soğuk hava deposu, narenciye ve yaz meyvelerini sevkiyata kadar ideal koşullarda tutar.",
+          "Depodan araca, araçtan limana kadar zincirin kesintisiz işlemesi kritiktir. Sıcaklığın istikrarlı tutulması, ürünün hedef pazara taze ulaşmasını güvence altına alır."
         ]
       },
       {
-        heading: "Liman ve İhracat Avantajı",
+        heading: "Mersin Limanı ve İhracat Avantajı",
         paragraphs: [
-          "Mersin Limanı, ürünlerin Orta Doğu, Avrupa ve Kuzey Afrika pazarlarına ulaşmasında zaman ve maliyet avantajı sağlar. Tesise yakınlık, ihracat lojistiğini sadeleştirir.",
-          "FOB, CFR ve CIF gibi teslim şekillerine uygun planlama, evrak akışıyla birlikte sorunsuz bir sevkiyat zinciri oluşturur."
+          "Mersin Limanı, taze ürünlerin Orta Doğu, Avrupa ve Kuzey Afrika pazarlarına ulaşmasında zaman ve maliyet avantajı sağlar. Üretim havzasına yakınlık, soğuk zincir lojistiğini sadeleştirir.",
+          "FOB, CFR ve CIF gibi teslim şekillerine uygun planlama, evrak akışıyla birlikte sorunsuz bir sevkiyat zinciri oluşturur ve ihracatçı için öngörülebilirliği artırır."
         ]
       }
     ]

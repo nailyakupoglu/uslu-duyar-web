@@ -1,7 +1,7 @@
 /**
  * QuoteModal — ürün detayında "Teklif Al" butonu + form diyaloğu.
  * Prop'lar: { productTitle: string, triggerLabel?: string, triggerClassName?: string }.
- * Kullanım: <QuoteModal productTitle="Buğday Unu" /> — ContactForm'u ön-dolu konu ile açar.
+ * Kullanım: <QuoteModal productTitle="Washington Portakal" /> — ContactForm'u ön-dolu konu ile açar.
  */
 "use client";
 

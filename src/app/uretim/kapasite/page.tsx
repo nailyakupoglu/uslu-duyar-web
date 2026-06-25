@@ -14,15 +14,15 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildMetadata({
   title: "Kapasite",
   description:
-    "Eren Tarım üretim kapasitesi: vardiyalı operasyon, silo depolama hacmi ve parti bazlı izlenebilir üretim hedefleri.",
+    "Uslu Duyar üretim kapasitesi: soğuk hava deposu, parti bazlı izlenebilirlik ve sezon boyu kesintisiz taze ürün tedariki.",
   path: "/uretim/kapasite"
 });
 
 const capacities = [
-  { title: "Yıllık Üretim Hedefi", value: "50.000 ton/yıl", text: "Değirmen, biber-baharat ve silaj dikeylerinin toplam hedef kapasitesi." },
-  { title: "Vardiyalı Operasyon", value: "3 vardiya", text: "Sezon yoğunluğuna göre planlanan kesintisiz üretim takvimi." },
-  { title: "Silo & Depolama", value: "Çoklu silo", text: "Hammadde ve bitmiş ürün için ayrı, kontrollü depolama alanları." },
-  { title: "Parti Takibi", value: "%100 kayıt", text: "Her parti giriş-çıkış ve analiz bilgisiyle izlenebilir tutulur." }
+  { title: "Sezonluk Tedarik", value: "Kesintisiz", text: "Narenciye, kavun ve karpuz sezonları boyunca planlı ve istikrarlı taze ürün tedariki." },
+  { title: "Soğuk Hava Deposu", value: "—", text: "Tazeliği koruyan kontrollü soğuk hava deposu kapasitesi operatör verisiyle güncellenecektir." },
+  { title: "Paketleme Hattı", value: "Kendi + Fason", text: "Kendi üretim ve fason paketleme hatlarıyla market ve ihracat hacimlerine esnek yanıt." },
+  { title: "Parti Takibi", value: "İzlenebilir", text: "Her parti giriş-çıkış ve menşe bilgisiyle baştan sona izlenebilir tutulur." }
 ];
 
 export default function CapacityPage() {
@@ -31,8 +31,8 @@ export default function CapacityPage() {
       <Breadcrumb items={[{ label: "Üretim", href: "/uretim" }, { label: "Kapasite" }]} />
       <PageHero
         eyebrow="Kapasite"
-        title="Ölçeklenebilir, planlı üretim"
-        description="Talep dalgalanmalarını karşılayan vardiyalı operasyon ve depolama altyapısıyla istikrarlı tedarik."
+        title="Ölçeklenebilir, planlı tedarik"
+        description="Talep dalgalanmalarını karşılayan soğuk hava deposu ve paketleme altyapısıyla sezon boyu istikrarlı tedarik."
       />
 
       <section className="container py-20">

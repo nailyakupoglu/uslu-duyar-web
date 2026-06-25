@@ -14,14 +14,14 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildMetadata({
   title: "Sürdürülebilirlik",
   description:
-    "Eren Tarım sürdürülebilirlik yaklaşımı: su ve enerji verimliliği, atık yönetimi ve sorumlu tedarik zinciri.",
+    "Uslu Duyar sürdürülebilirlik yaklaşımı: su ve enerji verimliliği, atık yönetimi ve sorumlu tedarik zinciri.",
   path: "/corporate/surdurulebilirlik"
 });
 
 const focusAreas = [
-  { icon: Droplets, title: "Su Yönetimi", text: "Yıkama ve işleme hatlarında su tüketimini izler, geri kazanım fırsatlarını değerlendiririz." },
-  { icon: Zap, title: "Enerji Verimliliği", text: "Öğütme ve kurutma proseslerinde enerji verimli ekipman ve planlamayı önceliklendiririz." },
-  { icon: Recycle, title: "Atık & Ambalaj", text: "Üretim atıklarını ayrıştırır, yan ürünleri yem zincirinde değerlendirme hedefiyle çalışırız." },
+  { icon: Droplets, title: "Su Yönetimi", text: "Yıkama ve paketleme hatlarında su tüketimini izler, geri kazanım fırsatlarını değerlendiririz." },
+  { icon: Zap, title: "Enerji Verimliliği", text: "Soğuk hava deposu ve soğuk zincir proseslerinde enerji verimli ekipman ve planlamayı önceliklendiririz." },
+  { icon: Recycle, title: "Atık & Ambalaj", text: "Üretim atıklarını ayrıştırır, yan ürünleri geri kazanım zincirinde değerlendirme hedefiyle çalışırız." },
   { icon: Leaf, title: "Sorumlu Tedarik", text: "Sözleşmeli üretim ağıyla bölgesel çiftçiyi destekler, kısa tedarik zinciri kurarız." }
 ];
 

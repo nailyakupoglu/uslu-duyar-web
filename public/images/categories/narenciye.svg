@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Narenciye">
+  <title>Narenciye</title>
+  <defs>
+    <linearGradient id="nar" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F8B45E"/>
+      <stop offset="1" stop-color="#ED8120"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#nar)"/>
+  <circle cx="600" cy="450" r="210" fill="#FDF1E3" opacity="0.35"/>
+  <circle cx="600" cy="450" r="150" fill="#FFF7EC" opacity="0.55"/>
+  <g stroke="#ED8120" stroke-width="6" opacity="0.5">
+    <line x1="600" y1="450" x2="600" y2="270"/>
+    <line x1="600" y1="450" x2="755" y2="360"/>
+    <line x1="600" y1="450" x2="755" y2="540"/>
+    <line x1="600" y1="450" x2="600" y2="630"/>
+    <line x1="600" y1="450" x2="445" y2="540"/>
+    <line x1="600" y1="450" x2="445" y2="360"/>
+  </g>
+  <text x="600" y="830" text-anchor="middle" font-family="Georgia, serif" font-size="44" fill="#fff" opacity="0.9">Narenciye</text>
+</svg>

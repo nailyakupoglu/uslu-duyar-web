@@ -14,17 +14,17 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildMetadata({
   title: "Tesis",
   description:
-    "Eren Tarım üretim tesisi: silo, temizleme, öğütme, kurutma, eleme, paketleme ve depolama alanları tek akışta.",
+    "Uslu Duyar paketleme tesisi: hasat kabul, boylama-seçim, soğuk hava deposu, fason paketleme ve soğuk zincir sevkiyat alanları tek akışta.",
   path: "/uretim/tesis"
 });
 
 const steps = [
-  { step: "01", title: "Kabul & Silo", text: "Hammadde girişte örneklenir, temizlenir ve silolarda kontrollü koşullarda depolanır." },
-  { step: "02", title: "Temizleme & Ayıklama", text: "Yabancı madde ayıklama ve eleme hatları, işleme öncesi ürün saflığını sağlar." },
-  { step: "03", title: "Öğütme / Kurutma", text: "Ürün tipine göre valsli öğütme veya kontrollü kurutma prosesleri uygulanır." },
-  { step: "04", title: "Eleme & Karıştırma", text: "Granülasyon ve karışım standartları parti bazlı hedeflere göre ayarlanır." },
-  { step: "05", title: "Paketleme", text: "Çuval, kraft, bigbag ve dolum seçenekleriyle hijyenik paketleme yapılır." },
-  { step: "06", title: "Depolama & Sevkiyat", text: "Bitmiş ürün etiketlenir, depolanır ve planlı sevkiyatla yola çıkar." }
+  { step: "01", title: "Hasat & Kabul", text: "Bahçeden gelen narenciye, kavun ve karpuz girişte örneklenir ve kalite kontrolünden geçirilir." },
+  { step: "02", title: "Boylama & Seçim", text: "Ürünler boy, kalibre ve görünüm standartlarına göre ayrılarak titizlikle seçilir." },
+  { step: "03", title: "Soğuk Hava Deposu", text: "Seçilen ürünler tazeliğini koruyacak kontrollü soğuk hava koşullarında bekletilir." },
+  { step: "04", title: "Fason Paketleme", text: "Kendi üretim ve fason paketleme hatlarında market ve ihracat standartlarına uygun ambalajlanır." },
+  { step: "05", title: "Soğuk Zincir", text: "Ambalajlı ürünler kesintisiz soğuk zincirle yükleme alanına aktarılır." },
+  { step: "06", title: "Sevkiyat & İhracat", text: "Parti bazlı etiketlenen ürünler Mersin Limanı bağlantısıyla planlı sevkiyata çıkar." }
 ];
 
 export default function FacilityPage() {
@@ -33,13 +33,13 @@ export default function FacilityPage() {
       <Breadcrumb items={[{ label: "Üretim", href: "/uretim" }, { label: "Tesis" }]} />
       <PageHero
         eyebrow="Tesis"
-        title="Tek çatı altında bütün üretim akışı"
-        description="Silodan paketlemeye kadar tüm adımlar, hijyen ve izlenebilirlik gözetilerek planlanır."
+        title="Tek çatı altında bütün tedarik akışı"
+        description="Hasattan soğuk zincir sevkiyata kadar tüm adımlar, hijyen ve izlenebilirlik gözetilerek planlanır."
       />
 
       <section className="container py-16">
         <div className="relative aspect-[16/7] overflow-hidden rounded-2xl shadow-[0_30px_60px_-30px_rgba(50,50,93,0.35)]">
-          <Image src="/images/production/tesis.svg" alt="Eren Tarım üretim tesisi" fill priority sizes="100vw" className="object-cover" />
+          <Image src="/images/production/tesis.svg" alt="Uslu Duyar paketleme tesisi" fill priority sizes="100vw" className="object-cover" />
         </div>
       </section>
 

@@ -14,7 +14,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildMetadata({
   title: "Hakkımızda",
   description:
-    "1993'ten bu yana Mersin'de tahıl ticaretiyle başlayan, değirmen, biber-baharat ve silaj dikeylerinde entegre üretime ulaşan Eren Tarım'ın hikâyesi.",
+    "1991'den bu yana Çukurova'da taze meyve-sebze ticaretiyle başlayan, narenciye, kavun ve karpuzda soğuk hava deposu, paketleme ve ihracata uzanan Uslu Duyar'ın hikâyesi.",
   path: "/corporate/hakkimizda"
 });
 
@@ -29,7 +29,7 @@ const values = [
   },
   {
     title: "Süreklilik",
-    text: "Sözleşmeli üretim ağı ve silo kapasitesi sayesinde sezon boyunca kesintisiz tedarik sağlanır."
+    text: "Sözleşmeli üretim ağı ve soğuk hava deposu kapasitesi sayesinde sezon boyunca kesintisiz tedarik sağlanır."
   }
 ];
 
@@ -46,18 +46,19 @@ export default function AboutPage() {
       <section className="container grid gap-12 py-20 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
         <div className="space-y-6 text-lg leading-8 text-ink/75">
           <p>
-            Eren Tarım, 1993 yılında Mersin&apos;de tahıl ve yerel tarım ürünleri ticaretiyle yola çıktı. İlk
-            yıllarda bölge çiftçisiyle kurulan güven ilişkisi, zamanla kendi üretim ve işleme kapasitemizin temelini
+            Uslu Duyar, 1991 yılında Çukurova&apos;da taze meyve-sebze ticaretiyle yola çıktı. İlk
+            yıllarda bölge çiftçisiyle kurulan güven ilişkisi, zamanla kendi üretim ve paketleme kapasitemizin temelini
             oluşturdu.
           </p>
           <p>
-            2004&apos;te değirmen yatırımıyla un üretimine, 2012&apos;de biber-baharat hattıyla salça ve baharat
-            işlemeye, sonraki yıllarda ise silaj ve yem çözümlerine yöneldik. Bugün üç ana üretim dikeyini tek marka
-            altında, ortak bir kalite anlayışıyla yönetiyoruz.
+            Mersin, Adana ve Çukurova ovasının verimli bahçelerinden hasat edilen narenciye (portakal, mandalina,
+            limon, greyfurt), kavun ve karpuzu; boylama, soğuk zincir ve paketleme süreçlerinde toplayarak toptan
+            alıcılara, market zincirlerine ve ihracata sunuyoruz. Kendi üretimimizin yanı sıra fason paketleme
+            hizmetiyle de tedarik ağımızı genişletiyoruz.
           </p>
           <p>
             Mersin Limanı&apos;na yakınlığımız, ürünlerimizi iç piyasanın yanı sıra Orta Doğu, Avrupa ve Kuzey Afrika
-            pazarlarına da ulaştırmamızı sağlıyor. Hedefimiz, geleneksel lezzeti endüstriyel hijyenle buluşturan
+            pazarlarına da ulaştırmamızı sağlıyor. Hedefimiz, taze lezzeti soğuk zincir disipliniyle buluşturan
             güvenilir bir tedarik ortağı olmak.
           </p>
         </div>

@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function absoluteUrl(path = "") {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://erentarim.com";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://usluduyar.evohaus.org";
   return `${baseUrl}${path}`;
 }
 

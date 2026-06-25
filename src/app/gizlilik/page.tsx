@@ -11,7 +11,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildMetadata({
   title: "Gizlilik Politikası",
-  description: "Eren Tarım gizlilik politikası: kişisel verilerin toplanması, kullanımı ve korunması.",
+  description: "Uslu Duyar gizlilik politikası: kişisel verilerin toplanması, kullanımı ve korunması.",
   path: "/gizlilik"
 });
 

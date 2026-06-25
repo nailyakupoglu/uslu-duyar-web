@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Karpuz">
+  <title>Karpuz</title>
+  <defs>
+    <linearGradient id="kar" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#43B14E"/>
+      <stop offset="1" stop-color="#1F7A2A"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#kar)"/>
+  <path d="M380 450 A220 220 0 0 1 820 450 Z" fill="#2A5720"/>
+  <path d="M410 450 A190 190 0 0 1 790 450 Z" fill="#E23B33" opacity="0.92"/>
+  <g fill="#1C1A12">
+    <ellipse cx="540" cy="395" rx="9" ry="15"/>
+    <ellipse cx="640" cy="395" rx="9" ry="15"/>
+    <ellipse cx="600" cy="430" rx="9" ry="15"/>
+    <ellipse cx="500" cy="430" rx="9" ry="15"/>
+    <ellipse cx="700" cy="430" rx="9" ry="15"/>
+  </g>
+  <text x="600" y="830" text-anchor="middle" font-family="Georgia, serif" font-size="44" fill="#fff" opacity="0.9">Karpuz</text>
+</svg>

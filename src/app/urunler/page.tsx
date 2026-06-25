@@ -15,7 +15,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildMetadata({
   title: "Ürünler",
   description:
-    "Eren Tarım ürün kataloğu: değirmen unları, biber & baharat, salça ve silaj-yem çözümleri. Ambalaj, sertifika ve teklif detayları.",
+    "Uslu Duyar ürün kataloğu: narenciye (portakal, mandalina, limon, greyfurt), kavun ve karpuz. Ambalaj, sertifika ve teklif detayları.",
   path: "/urunler"
 });
 
@@ -30,8 +30,8 @@ export default function ProductsPage({ searchParams }: { searchParams: { cat?: s
       <section className="container pb-10 pt-10">
         <SectionHeading
           eyebrow="Ürün Kataloğu"
-          title="Tek üretim zincirinde un, baharat ve yem"
-          description="Değirmen, biber-baharat ve silaj dikeylerinin tamamını parti bazlı izlenebilirlik ve ihracat uyumlu ambalajlarla sunuyoruz."
+          title="Tek üretim zincirinde narenciye, kavun ve karpuz"
+          description="Narenciye, kavun ve karpuz dikeylerinin tamamını parti bazlı izlenebilirlik ve ihracat uyumlu ambalajlarla sunuyoruz."
         />
       </section>
 

@@ -14,7 +14,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildMetadata({
   title: "Vizyon & Misyon",
   description:
-    "Eren Tarım vizyon ve misyonu: tarladan sofraya güveni büyüten, izlenebilir ve sürdürülebilir bir üretim anlayışı.",
+    "Uslu Duyar vizyon ve misyonu: tarladan sofraya güveni büyüten, izlenebilir ve sürdürülebilir bir üretim anlayışı.",
   path: "/corporate/vizyon-misyon"
 });
 
@@ -47,8 +47,8 @@ export default function VisionMissionPage() {
           <Target className="h-9 w-9 text-primary-700" />
           <h2 className="mt-5 font-display text-3xl font-semibold text-ink">Misyonumuz</h2>
           <p className="mt-4 text-lg leading-8 text-ink/75">
-            Değirmen, biber-baharat ve silaj dikeylerinde; hijyenik, parti bazlı izlenebilir ve sürdürülebilir üretim
-            yaparak müşterilerimize tutarlı kalite, zamanında sevkiyat ve güçlü bir ticari ortaklık sunmak.
+            Narenciye, kavun ve karpuzda; soğuk zincire uygun, parti bazlı izlenebilir ve sürdürülebilir üretim ve
+            paketleme yaparak müşterilerimize tutarlı kalite, zamanında sevkiyat ve güçlü bir ticari ortaklık sunmak.
           </p>
         </div>
       </section>

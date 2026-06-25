@@ -16,7 +16,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildMetadata({
   title: "Kalite Politikası",
   description:
-    "Eren Tarım kalite politikası: gıda güvenliği, izlenebilirlik, hijyen protokolleri ve sürekli iyileştirme taahhüdü.",
+    "Uslu Duyar kalite politikası: gıda güvenliği, izlenebilirlik, hijyen protokolleri ve sürekli iyileştirme taahhüdü.",
   path: "/corporate/kalite-politikasi"
 });
 

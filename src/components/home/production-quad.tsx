@@ -15,7 +15,7 @@ export function ProductionQuad() {
         <SectionHeading
           eyebrow="Üretim gücü"
           title="Sertifikadan lojistiğe dört kritik operasyon tek akışta."
-          description="Bennyfruit'in üretim dörtlüsü yaklaşımını Mersin'in değirmen, biber ve silaj ihtiyaçlarına uyarlayan net bir kurumsal anlatı."
+          description="Hasattan boylamaya, soğuk zincirden ihracata uzanan dört kritik operasyonu Mersin'in taze ürün üretimine uyarlayan net bir kurumsal anlatı."
           className="text-white [&_h2]:text-white [&_p]:text-white/68"
         />
         <div className="mt-12 grid gap-5 md:grid-cols-2">

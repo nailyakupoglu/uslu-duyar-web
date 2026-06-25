@@ -16,12 +16,12 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildMetadata({
   title: "Kurumsal",
   description:
-    "Eren Tarım kurumsal sayfaları: hakkımızda, kalite politikası, vizyon & misyon ve sürdürülebilirlik yaklaşımı.",
+    "Uslu Duyar kurumsal sayfaları: hakkımızda, kalite politikası, vizyon & misyon ve sürdürülebilirlik yaklaşımı.",
   path: "/corporate"
 });
 
 const descriptions: Record<string, string> = {
-  "/corporate/hakkimizda": "1993'ten bugüne Mersin merkezli üretim hikâyemiz ve değerlerimiz.",
+  "/corporate/hakkimizda": "1991'den bugüne Çukurova merkezli taze ürün hikâyemiz ve değerlerimiz.",
   "/corporate/kalite-politikasi": "Gıda güvenliği, izlenebilirlik ve sürekli iyileştirme taahhüdümüz.",
   "/corporate/vizyon-misyon": "Tarladan sofraya güveni büyüten uzun vadeli hedeflerimiz.",
   "/corporate/surdurulebilirlik": "Su, enerji ve tedarik zincirinde sorumlu üretim yaklaşımımız."

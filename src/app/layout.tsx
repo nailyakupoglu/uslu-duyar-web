@@ -46,14 +46,14 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: [
-    "Eren Tarım",
-    "Mersin değirmen",
-    "un üretimi",
-    "kırmızı toz biber",
-    "pul biber",
-    "biber salçası",
-    "silaj",
-    "yem",
+    "Uslu Duyar",
+    "Mersin narenciye",
+    "Çukurova narenciye",
+    "portakal mandalina limon greyfurt",
+    "kavun karpuz",
+    "yaş meyve sebze ihracat",
+    "toptan narenciye",
+    "market tedariği",
     "tarım ihracat"
   ],
   authors: [{ name: siteConfig.legalName }],
@@ -106,7 +106,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#FAF7F2" },
-    { media: "(prefers-color-scheme: dark)", color: "#062818" }
+    { media: "(prefers-color-scheme: dark)", color: "#0C3B16" }
   ],
   width: "device-width",
   initialScale: 1

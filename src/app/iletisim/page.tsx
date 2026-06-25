@@ -15,7 +15,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildMetadata({
   title: "İletişim",
   description:
-    "Eren Tarım ile iletişime geçin: teklif talebi, ihracat ve tedarik soruları için form, telefon, e-posta ve WhatsApp kanalları.",
+    "Uslu Duyar ile iletişime geçin: teklif talebi, ihracat ve tedarik soruları için form, telefon, e-posta ve WhatsApp kanalları.",
   path: "/iletisim"
 });
 

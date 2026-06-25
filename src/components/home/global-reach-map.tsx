@@ -14,7 +14,7 @@ export function GlobalReachMap() {
           </p>
         </div>
         <div className="rounded-lg border border-white/10 bg-white/6 p-4 shadow-2xl">
-          <svg viewBox="0 0 100 64" role="img" aria-label="Eren Tarım ihracat haritası" className="h-auto w-full">
+          <svg viewBox="0 0 100 64" role="img" aria-label="Uslu Duyar ihracat haritası" className="h-auto w-full">
             <defs>
               <linearGradient id="route" x1="0" x2="1">
                 <stop offset="0%" stopColor="#D4A017" />

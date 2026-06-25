@@ -17,7 +17,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildMetadata({
   title: "Blog",
   description:
-    "Eren Tarım blog: kırmızı biber, silaj, baharat ve Mersin tarımı üzerine güncel içerikler ve üretim notları.",
+    "Uslu Duyar blog: narenciye, kavun, karpuz ve Çukurova tarımı üzerine güncel içerikler ve üretim notları.",
   path: "/blog"
 });
 
@@ -30,7 +30,7 @@ export default function BlogPage() {
       <PageHero
         eyebrow="Blog"
         title="Üretimden notlar, sektörden içgörüler"
-        description="Baharat, silaj ve tarım ticareti üzerine deneyimlerimizi ve güncel bilgileri paylaşıyoruz."
+        description="Narenciye, kavun, karpuz ve taze ürün ticareti üzerine deneyimlerimizi ve güncel bilgileri paylaşıyoruz."
       />
 
       <section className="container py-20">

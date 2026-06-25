@@ -15,7 +15,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildMetadata({
   title: "Sertifikalar",
   description:
-    "Eren Tarım üretim sertifikaları: ISO 22000, HACCP, GLOBALG.A.P., Helal, Kosher ve organik belgeler. İhracat uyumlu kalite güvencesi.",
+    "Uslu Duyar kalite güvencesi: gıda güvenliği, izlenebilirlik, ihracat uygunluğu, menşe belgesi, soğuk zincir ve kalite kontrol başlıkları. Resmi belgeler operatör dosyalarıyla yayınlanacaktır.",
   path: "/uretim/sertifikalar"
 });
 

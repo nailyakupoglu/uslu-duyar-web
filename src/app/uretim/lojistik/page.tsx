@@ -15,14 +15,14 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildMetadata({
   title: "Lojistik",
   description:
-    "Eren Tarım lojistik gücü: Mersin Limanı bağlantısı, FOB/CFR/CIF ihracat operasyonları ve düzenli kara yolu sevkiyatı.",
+    "Uslu Duyar lojistik gücü: Mersin Limanı bağlantısı, FOB/CFR/CIF ihracat operasyonları ve düzenli soğuk zincir kara yolu sevkiyatı.",
   path: "/uretim/lojistik"
 });
 
 const advantages = [
   { icon: Anchor, title: "Mersin Limanı", text: "Tesise yakın liman bağlantısı, ihracat sevkiyatlarında zaman ve maliyet avantajı sağlar." },
   { icon: Ship, title: "İhracat Operasyonu", text: "FOB, CFR ve CIF teslim şekillerine uygun planlama ve konteyner organizasyonu." },
-  { icon: Truck, title: "Kara Yolu Sevkiyatı", text: "İç piyasada düzenli, takip edilebilir kara yolu dağıtımı ve esnek teslim programı." },
+  { icon: Truck, title: "Soğuk Zincir Sevkiyat", text: "Market zincirleri ve toptan alıcılara soğuk zincirle düzenli, takip edilebilir kara yolu dağıtımı." },
   { icon: FileCheck2, title: "İhracat Evrakları", text: "Fatura, paket listesi, menşe ve sertifika evraklarının eksiksiz hazırlanması." }
 ];
 

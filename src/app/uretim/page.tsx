@@ -18,7 +18,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildMetadata({
   title: "Üretim",
   description:
-    "Eren Tarım üretim altyapısı: tesis, sertifikalar, kapasite ve lojistik. Tek izlenebilir akışta silo, öğütme, kurutma ve sevkiyat.",
+    "Uslu Duyar üretim altyapısı: tesis, sertifikalar, kapasite ve lojistik. Tek izlenebilir akışta hasat, boylama, soğuk hava deposu ve soğuk zincir sevkiyat.",
   path: "/uretim"
 });
 
@@ -28,8 +28,8 @@ export default function ProductionPage() {
       <Breadcrumb items={[{ label: "Üretim" }]} />
       <PageHero
         eyebrow="Üretim"
-        title="Silodan sevkiyata tek akış"
-        description="Tesis, sertifikasyon, kapasite ve lojistik süreçlerini tek bir izlenebilir üretim zincirinde yönetiyoruz."
+        title="Hasattan sevkiyata tek akış"
+        description="Tesis, sertifikasyon, kapasite ve lojistik süreçlerini tek bir izlenebilir tedarik zincirinde yönetiyoruz."
       />
 
       <section className="container grid gap-6 py-20 md:grid-cols-2">

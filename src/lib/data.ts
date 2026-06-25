@@ -1,25 +1,25 @@
 import {
   Award,
-  Factory,
-  Leaf,
-  PackageCheck,
+  Cherry,
+  Citrus,
   Ship,
-  Sprout,
+  Snowflake,
+  Sun,
   Truck,
-  Wheat
+  Warehouse
 } from "lucide-react";
 
 export const siteConfig = {
-  name: "Eren Tarım",
-  legalName: "Eren Tarım Gıda Sanayi ve Ticaret A.Ş.",
-  slogan: "Tarladan Sofraya, Mersin'den Dünyaya",
+  name: "Uslu Duyar",
+  legalName: "Uslu Duyar Tarım Ürünleri Ltd. Şti.",
+  slogan: "Aldatılan müşteri, kaybedilen bir servettir.",
   description:
-    "Mersin merkezli Eren Tarım; değirmen ürünleri, biber-baharat, salça, silaj ve yem çözümlerinde iç piyasa ve ihracata üretim yapar.",
-  url: "https://erentarim.com",
-  email: "info@erentarim.com",
+    "1991'den bu yana Mersin, Adana ve Çukurova bölgesinde narenciye, kavun ve karpuz üretimi, ihracatı, toptan satışı ve market tedariği yapıyoruz. Tarladan markete güvenilir tedarik zinciri.",
+  url: "https://usluduyar.evohaus.org",
+  email: "info@usluduyar.com",
   phone: "+90 324 000 00 00",
   whatsapp: "+90 532 000 00 00",
-  address: "Mersin Organize Sanayi Bölgesi, Mersin / Türkiye",
+  address: "Çukurova Bölgesi — Mersin / Adana, Türkiye",
   social: {
     instagram: "#",
     linkedin: "#",
@@ -29,37 +29,37 @@ export const siteConfig = {
 
 export const heroSlides = [
   {
-    title: "Tarladan Sofraya, 30 Yıllık Güven",
-    eyebrow: "Mersin merkezli entegre tarım üretimi",
+    title: "Tarladan Markete, 1991'den Bu Yana Güven",
+    eyebrow: "Mersin & Çukurova merkezli taze ürün tedariki",
     description:
-      "Sözleşmeli üretim ağından modern tesise uzanan kontrollü tedarik zinciriyle un, biber, baharat ve silaj ürünleri.",
+      "Narenciye, kavun ve karpuzda kendi üretimimiz ve sözleşmeli üretici ağımızla; toptan, market ve ihracat kanallarına kesintisiz taze ürün.",
     image: "/images/hero/hero-1.svg",
     cta: "Ürünleri İncele",
     href: "/urunler"
   },
   {
-    title: "Modern Değirmen Teknolojisi",
-    eyebrow: "Un, yem ve tahıl işleme",
+    title: "Çukurova'nın Güneşinden Narenciye",
+    eyebrow: "Portakal, mandalina, limon, greyfurt",
     description:
-      "Valsli öğütme, silo yönetimi, parti takibi ve hijyen protokolleriyle endüstriyel kalite standardı.",
+      "Hasat, boylama, soğuk zincir ve paketleme adımlarında izlenebilir kalite; ihracat standartlarına uygun sevkiyat.",
     image: "/images/hero/hero-2.svg",
-    cta: "Değirmen Ürünleri",
-    href: "/urunler?cat=degirmen"
+    cta: "Narenciye Ürünleri",
+    href: "/urunler?cat=narenciye"
   },
   {
-    title: "Geleneksel Lezzet, Endüstriyel Hijyen",
-    eyebrow: "Biber, baharat ve salça",
+    title: "Yaz Sezonunun Lezzeti: Kavun & Karpuz",
+    eyebrow: "Kırkağaç, altınbaş kavun ve karpuz",
     description:
-      "Kurutma, öğütme, eleme ve paketleme adımlarında izlenebilir üretim ve parti bazlı kalite kontrol.",
+      "Tarlada seçim, doğru olgunlukta hasat ve hızlı sevkiyatla; market raflarına ve toptan alıcıya taze ulaşım.",
     image: "/images/hero/hero-3.svg",
-    cta: "Biber & Baharat",
-    href: "/urunler?cat=biber"
+    cta: "Kavun & Karpuz",
+    href: "/urunler?cat=kavun"
   },
   {
-    title: "62 Ülkeye İhracat, Kapıda Teslim",
+    title: "Yurt İçi Toptan ve Yurt Dışı İhracat",
     eyebrow: "Mersin Limanı avantajı",
     description:
-      "FOB, CFR ve CIF operasyonlarına uygun lojistik planlama; iç piyasada hızlı ve düzenli sevkiyat.",
+      "Market zincirleri ve toptan alıcılar için düzenli tedarik; ihracat operasyonlarında soğuk zincir ve evrak akışı.",
     image: "/images/hero/hero-4.svg",
     cta: "Lojistik Gücümüz",
     href: "/uretim/lojistik"
@@ -68,28 +68,28 @@ export const heroSlides = [
 
 export const categories = [
   {
-    title: "Değirmen Unları",
-    slug: "degirmen",
-    href: "/urunler?cat=degirmen",
-    description: "Buğday unu, mısır unu, arpa unu ve yem hammaddeleri.",
-    image: "/images/categories/degirmen.svg",
-    icon: Wheat
+    title: "Narenciye",
+    slug: "narenciye",
+    href: "/urunler?cat=narenciye",
+    description: "Portakal, mandalina, limon ve greyfurt; Çukurova'nın bereketli narenciye hasadı.",
+    image: "/images/categories/narenciye.svg",
+    icon: Citrus
   },
   {
-    title: "Biber & Baharat",
-    slug: "biber",
-    href: "/urunler?cat=biber",
-    description: "Toz biber, pul biber, isot, salça ve özel baharat karışımları.",
-    image: "/images/categories/biber.svg",
-    icon: Leaf
+    title: "Kavun",
+    slug: "kavun",
+    href: "/urunler?cat=kavun",
+    description: "Kırkağaç ve altınbaş kavun çeşitleri; doğru olgunlukta hasat, hızlı sevkiyat.",
+    image: "/images/categories/kavun.svg",
+    icon: Sun
   },
   {
-    title: "Silaj & Yem",
-    slug: "silaj",
-    href: "/urunler?cat=silaj",
-    description: "Mısır, yonca ve buğday silajı; çiftliklere düzenli yem çözümleri.",
-    image: "/images/categories/silaj.svg",
-    icon: Sprout
+    title: "Karpuz",
+    slug: "karpuz",
+    href: "/urunler?cat=karpuz",
+    description: "Tarlada seçilmiş, ağırlık ve tatlılık dengesi korunmuş taze karpuz.",
+    image: "/images/categories/karpuz.svg",
+    icon: Cherry
   }
 ];
 
@@ -97,34 +97,34 @@ export const productionHighlights = [
   {
     title: "Sertifikalar",
     href: "/uretim/sertifikalar",
-    description: "ISO 22000, HACCP, Helal ve ihracat odaklı kalite belgeleri.",
+    description: "Gıda güvenliği, izlenebilirlik ve ihracat uygunluğuna yönelik belgeler (operatör dosyalarıyla güncellenecek).",
     image: "/images/production/sertifikalar.svg",
     icon: Award
   },
   {
-    title: "Tesis",
+    title: "Tesis & Paketleme",
     href: "/uretim/tesis",
-    description: "Silo, öğütme, kurutma, paketleme ve depolama alanları tek akışta.",
+    description: "Boylama, ayıklama, paketleme ve depolama alanları tek akışta; fason paketleme desteği.",
     image: "/images/production/tesis.svg",
-    icon: Factory
+    icon: Warehouse
   },
   {
-    title: "Kapasite",
+    title: "Soğuk Zincir & Kapasite",
     href: "/uretim/kapasite",
-    description: "50.000 ton/yıl üretim hedefi, vardiyalı operasyon ve izlenebilir parti yönetimi.",
+    description: "Soğuk hava deposu ve sezon boyu kesintisiz tedarik; izlenebilir parti yönetimi.",
     image: "/images/production/kapasite.svg",
-    icon: PackageCheck
+    icon: Snowflake
   },
   {
     title: "Lojistik",
     href: "/uretim/lojistik",
-    description: "Mersin Limanı bağlantısı, kara yolu sevkiyatı ve ihracat evrak akışı.",
+    description: "Mersin Limanı bağlantısı, soğuk zincir nakliye ve ihracat evrak akışı.",
     image: "/images/production/lojistik.svg",
     icon: Truck
   }
 ];
 
-export type ProductCategory = "degirmen" | "biber" | "silaj";
+export type ProductCategory = "narenciye" | "kavun" | "karpuz";
 
 export type Product = {
   slug: string;
@@ -142,146 +142,132 @@ export type Product = {
 
 export const products: Product[] = [
   {
-    slug: "bugday-unu",
-    category: "degirmen",
-    title: "Buğday Unu",
-    shortDescription: "Ekmeklik ve endüstriyel üretime uygun dengeli protein yapısı.",
+    slug: "portakal",
+    category: "narenciye",
+    title: "Portakal",
+    shortDescription: "Washington ve Valencia tipi; sofralık ve sıkmalık çeşitler.",
     description:
-      "Buğday unu; ekmek, pide, lavaş ve endüstriyel hamur ürünleri için farklı protein ve kül değerleriyle hazırlanır.",
-    image: "/images/products/degirmen/bugday-unu.svg",
-    gallery: ["/images/products/degirmen/bugday-unu.svg", "/images/categories/degirmen.svg"],
-    packageOptions: ["25 kg kraft", "50 kg çuval", "1 ton bigbag", "Dökme"],
-    certificates: ["ISO 22000", "HACCP", "Helal"],
-    specs: { Protein: "%11-13", Nem: "Maks. %14,5", Menşei: "Türkiye" },
-    tags: ["un", "ekmeklik", "ihracat"]
+      "Çukurova bölgesinde yetişen portakal; boylama ve soğuk zincir adımlarıyla market ve ihracat kanallarına taze sevk edilir. Çeşit ve kalibre bilgisi operatör verisiyle güncellenecektir.",
+    image: "/images/categories/narenciye.svg",
+    gallery: ["/images/categories/narenciye.svg", "/images/hero/hero-2.svg"],
+    packageOptions: ["Koli", "Palet", "Dökme (toptan)"],
+    certificates: ["Menşe belgesi", "Parti izlenebilirlik", "Soğuk zincir"],
+    specs: { Çeşit: "Washington / Valencia", Kalibre: "Placeholder", Sezon: "Kış" },
+    tags: ["narenciye", "portakal", "ihracat"]
   },
   {
-    slug: "misir-unu",
-    category: "degirmen",
-    title: "Mısır Unu",
-    shortDescription: "Gıda ve yem uygulamaları için kontrollü granülasyon.",
+    slug: "mandalina",
+    category: "narenciye",
+    title: "Mandalina",
+    shortDescription: "Satsuma ve klemantin; kolay soyulan, aromatik çeşitler.",
     description:
-      "Mısır unu; yem rasyonu, geleneksel mutfak ve endüstriyel karışımlar için parti bazlı öğütülür.",
-    image: "/images/products/degirmen/misir-unu.svg",
-    gallery: ["/images/products/degirmen/misir-unu.svg", "/images/categories/degirmen.svg"],
-    packageOptions: ["10 kg", "25 kg", "50 kg", "Bigbag"],
-    certificates: ["ISO 22000", "Helal"],
-    specs: { Granülasyon: "İnce / orta", Nem: "Maks. %13", Kullanım: "Gıda / yem" },
-    tags: ["mısır", "değirmen", "yem"]
+      "Mandalina; erken ve geç sezon çeşitleriyle uzun bir tedarik penceresi sunar. Hasat sonrası seçim ve paketleme ile taze ulaştırılır.",
+    image: "/images/categories/narenciye.svg",
+    gallery: ["/images/categories/narenciye.svg"],
+    packageOptions: ["Koli", "Palet", "Dökme (toptan)"],
+    certificates: ["Menşe belgesi", "Parti izlenebilirlik"],
+    specs: { Çeşit: "Satsuma / Klemantin", Kalibre: "Placeholder", Sezon: "Sonbahar – Kış" },
+    tags: ["narenciye", "mandalina"]
   },
   {
-    slug: "arpa-unu",
-    category: "degirmen",
-    title: "Arpa Unu",
-    shortDescription: "Yem ve özel karışımlar için ekonomik tahıl girdisi.",
+    slug: "limon",
+    category: "narenciye",
+    title: "Limon",
+    shortDescription: "Enterdonat ve Lamas; yüksek sululuk ve raf ömrü.",
     description:
-      "Arpa unu, yem rasyonları ve özel karışımlar için temizleme ve öğütme hatlarından geçirilerek hazırlanır.",
-    image: "/images/products/degirmen/arpa-unu.svg",
-    gallery: ["/images/products/degirmen/arpa-unu.svg"],
-    packageOptions: ["25 kg", "50 kg", "Dökme"],
-    certificates: ["HACCP"],
-    specs: { Kullanım: "Yem", Ambalaj: "Çuval / dökme", Tedarik: "Sözleşmeli" },
-    tags: ["arpa", "yem", "tahıl"]
+      "Limon; iç piyasa ve ihracat için uzun raf ömrü ve dayanıklılığıyla öne çıkar. Soğuk hava deposunda saklanarak sezon boyu tedarik edilir.",
+    image: "/images/categories/narenciye.svg",
+    gallery: ["/images/categories/narenciye.svg"],
+    packageOptions: ["Koli", "Palet", "Dökme (toptan)"],
+    certificates: ["Menşe belgesi", "Soğuk zincir"],
+    specs: { Çeşit: "Enterdonat / Lamas", Kalibre: "Placeholder", Sezon: "Sonbahar – İlkbahar" },
+    tags: ["narenciye", "limon", "ihracat"]
   },
   {
-    slug: "kirmizi-toz-biber",
-    category: "biber",
-    title: "Kırmızı Toz Biber",
-    shortDescription: "Canlı renk, dengeli acılık ve yoğun aroma.",
+    slug: "greyfurt",
+    category: "narenciye",
+    title: "Greyfurt",
+    shortDescription: "Star Ruby; canlı renk ve dengeli tat.",
     description:
-      "Kırmızı toz biber; kurutma, seçme, öğütme ve eleme süreçlerinden sonra gıda güvenliği standardına uygun paketlenir.",
-    image: "/images/products/biber/kirmizi-toz-biber.svg",
-    gallery: ["/images/products/biber/kirmizi-toz-biber.svg", "/images/categories/biber.svg"],
-    packageOptions: ["1 kg", "5 kg", "10 kg", "25 kg kraft"],
-    certificates: ["ISO 22000", "HACCP", "Helal"],
-    specs: { Acılık: "Tatlı / acı", Renk: "ASTA değeri placeholder", Nem: "Maks. %10" },
-    tags: ["biber", "baharat", "ihracat"]
+      "Greyfurt; ihracat pazarlarında talep gören kırmızı etli çeşitleriyle hazırlanır. Boylama ve paketleme sonrası sevk edilir.",
+    image: "/images/categories/narenciye.svg",
+    gallery: ["/images/categories/narenciye.svg"],
+    packageOptions: ["Koli", "Palet"],
+    certificates: ["Menşe belgesi", "Parti izlenebilirlik"],
+    specs: { Çeşit: "Star Ruby", Kalibre: "Placeholder", Sezon: "Kış" },
+    tags: ["narenciye", "greyfurt", "ihracat"]
   },
   {
-    slug: "pul-biber",
-    category: "biber",
-    title: "Pul Biber",
-    shortDescription: "Kebap, horeca ve perakende kanalı için iri taneli form.",
+    slug: "kirkagac-kavun",
+    category: "kavun",
+    title: "Kırkağaç Kavunu",
+    shortDescription: "Yüksek aroma ve dayanıklı kabuk; nakliyeye uygun.",
     description:
-      "Pul biber, seçilmiş kırmızı biberlerden farklı acılık seviyelerinde hazırlanır ve yağ/parlaklık dengesi korunur.",
-    image: "/images/products/biber/pul-biber.svg",
-    gallery: ["/images/products/biber/pul-biber.svg"],
-    packageOptions: ["500 g", "1 kg", "5 kg", "10 kg"],
-    certificates: ["HACCP", "Helal"],
-    specs: { Form: "İri pul", Acılık: "Orta / acı", Kullanım: "HORECA" },
-    tags: ["pul biber", "baharat", "horeca"]
+      "Kırkağaç kavunu; doğru olgunlukta hasat edilip hızlı sevkiyatla market ve toptan alıcıya ulaştırılır. Ağırlık aralığı operatör verisiyle güncellenecektir.",
+    image: "/images/categories/kavun.svg",
+    gallery: ["/images/categories/kavun.svg", "/images/hero/hero-3.svg"],
+    packageOptions: ["Koli", "Palet", "Dökme (toptan)"],
+    certificates: ["Menşe belgesi", "Parti izlenebilirlik"],
+    specs: { Çeşit: "Kırkağaç", Ağırlık: "Placeholder", Sezon: "Yaz" },
+    tags: ["kavun", "kırkağaç"]
   },
   {
-    slug: "biber-salcasi",
-    category: "biber",
-    title: "Biber Salçası",
-    shortDescription: "Tatlı ve acı seçenekli, endüstriyel doluma uygun salça.",
+    slug: "altinbas-kavun",
+    category: "kavun",
+    title: "Altınbaş Kavunu",
+    shortDescription: "Tatlı ve sulu; iç piyasa ve market için popüler çeşit.",
     description:
-      "Biber salçası; hasat dönemi seçilen kapya biberlerden hazırlanır, teneke, kova ve varil seçenekleriyle sunulur.",
-    image: "/images/products/biber/biber-salcasi.svg",
-    gallery: ["/images/products/biber/biber-salcasi.svg"],
-    packageOptions: ["720 g cam", "5 kg kova", "18 kg teneke", "220 kg varil"],
-    certificates: ["ISO 22000", "Helal"],
-    specs: { Brix: "Placeholder", Çeşit: "Tatlı / acı", Dolum: "Cam / teneke / varil" },
-    tags: ["salça", "kapya", "ihracat"]
+      "Altınbaş kavunu; tatlılık ve sululuk dengesiyle öne çıkar. Tarlada seçim ve hızlı tedarikle tazeliği korunur.",
+    image: "/images/categories/kavun.svg",
+    gallery: ["/images/categories/kavun.svg"],
+    packageOptions: ["Koli", "Palet", "Dökme (toptan)"],
+    certificates: ["Menşe belgesi"],
+    specs: { Çeşit: "Altınbaş", Ağırlık: "Placeholder", Sezon: "Yaz" },
+    tags: ["kavun", "altınbaş"]
   },
   {
-    slug: "misir-silaji",
-    category: "silaj",
-    title: "Mısır Silajı",
-    shortDescription: "Büyükbaş çiftlikleri için yüksek enerji değerli kaba yem.",
+    slug: "karpuz",
+    category: "karpuz",
+    title: "Karpuz",
+    shortDescription: "Tarlada seçilmiş; tatlılık ve ağırlık dengesi.",
     description:
-      "Mısır silajı; doğru kuru madde oranı, sıkıştırma ve fermantasyon takibiyle çiftliklere düzenli sevk edilir.",
-    image: "/images/products/silaj/misir-silaji.svg",
-    gallery: ["/images/products/silaj/misir-silaji.svg"],
-    packageOptions: ["Dökme", "Balya", "Sözleşmeli sevkiyat"],
-    certificates: ["Parti analiz raporu"],
-    specs: { "Kuru madde": "%30-35", Depolama: "Bunker / tünel", Müşteri: "Büyükbaş" },
-    tags: ["silaj", "mısır", "çiftlik"]
+      "Karpuz; doğru olgunlukta hasat, ağırlık seçimi ve hızlı sevkiyatla market ve toptan alıcıya taze ulaştırılır. Çeşit ve kalibre bilgisi operatör verisiyle güncellenecektir.",
+    image: "/images/categories/karpuz.svg",
+    gallery: ["/images/categories/karpuz.svg", "/images/hero/hero-1.svg"],
+    packageOptions: ["Dökme (toptan)", "Palet", "Sözleşmeli sevkiyat"],
+    certificates: ["Menşe belgesi", "Parti izlenebilirlik"],
+    specs: { Çeşit: "Crimson / Kara karpuz", Ağırlık: "Placeholder", Sezon: "Yaz" },
+    tags: ["karpuz", "yaz"]
   },
   {
-    slug: "yonca-silaji",
-    category: "silaj",
-    title: "Yonca Silajı",
-    shortDescription: "Protein odaklı rasyonlar için temiz ve dengeli yem girdisi.",
+    slug: "mini-karpuz",
+    category: "karpuz",
+    title: "Mini Karpuz",
+    shortDescription: "Küçük kalibre; perakende ve market için uygun porsiyon.",
     description:
-      "Yonca silajı, biçim dönemine göre ayrıştırılır ve besleme planına uygun sevkiyat programıyla sunulur.",
-    image: "/images/products/silaj/yonca-silaji.svg",
-    gallery: ["/images/products/silaj/yonca-silaji.svg"],
-    packageOptions: ["Balya", "Dökme"],
-    certificates: ["Parti analiz raporu"],
-    specs: { Protein: "Placeholder", Biçim: "Döneme göre", Kullanım: "Süt çiftliği" },
-    tags: ["yonca", "silaj", "protein"]
-  },
-  {
-    slug: "bugday-silaji",
-    category: "silaj",
-    title: "Buğday Silajı",
-    shortDescription: "Mevsimsel rasyon planlamasına uygun alternatif kaba yem.",
-    description:
-      "Buğday silajı, bölgesel çiftliklerin dönemsel kaba yem ihtiyacına göre planlanır ve analiz bilgisiyle teslim edilir.",
-    image: "/images/products/silaj/bugday-silaji.svg",
-    gallery: ["/images/products/silaj/bugday-silaji.svg"],
-    packageOptions: ["Dökme", "Sözleşmeli"],
-    certificates: ["Parti analiz raporu"],
-    specs: { Sezon: "İlkbahar", Depolama: "Bunker", Sevkiyat: "Mersin ve çevre iller" },
-    tags: ["buğday", "silaj", "yem"]
+      "Mini karpuz; market rafı ve küçük hane tüketimi için ideal kalibrede hazırlanır. Talebe göre paketleme yapılır.",
+    image: "/images/categories/karpuz.svg",
+    gallery: ["/images/categories/karpuz.svg"],
+    packageOptions: ["Koli", "Palet"],
+    certificates: ["Menşe belgesi"],
+    specs: { Çeşit: "Mini", Ağırlık: "Placeholder", Sezon: "Yaz" },
+    tags: ["karpuz", "market"]
   }
 ];
 
 /** Ürün kategorilerinin görünen başlık ve açıklamaları (listeleme + detay üst bilgisi). */
 export const categoryMeta: Record<ProductCategory, { title: string; description: string }> = {
-  degirmen: {
-    title: "Değirmen Unları",
-    description: "Buğday, mısır ve arpa unu ile yem hammaddeleri; parti bazlı öğütme ve hijyenik paketleme."
+  narenciye: {
+    title: "Narenciye",
+    description: "Portakal, mandalina, limon ve greyfurt; boylama, soğuk zincir ve izlenebilir paketleme."
   },
-  biber: {
-    title: "Biber & Baharat",
-    description: "Toz biber, pul biber ve salça; kurutma, öğütme, eleme ve dolum hatlarında izlenebilir üretim."
+  kavun: {
+    title: "Kavun",
+    description: "Kırkağaç ve altınbaş kavun; doğru olgunlukta hasat ve hızlı sevkiyat."
   },
-  silaj: {
-    title: "Silaj & Yem",
-    description: "Mısır, yonca ve buğday silajı; çiftliklere analiz raporlu, düzenli sevkiyat."
+  karpuz: {
+    title: "Karpuz",
+    description: "Tarlada seçilmiş karpuz; market ve toptan kanalına taze tedarik."
   }
 };
 
@@ -304,55 +290,61 @@ export function isProductCategory(value: string): value is ProductCategory {
 }
 
 export const stats = [
-  { value: 30, suffix: "+", label: "Yıl Tecrübe" },
-  { value: 62, suffix: "", label: "Ülkeye İhracat" },
-  { value: 50000, suffix: " ton/yıl", label: "Üretim Hedefi" },
-  { value: 250, suffix: "+", label: "Çalışan ve Paydaş" }
+  { value: 35, suffix: "+", label: "Yıl Tecrübe" },
+  { value: 3, suffix: "", label: "Ana Ürün Grubu" },
+  { value: 12, suffix: " ay", label: "Sezon Boyu Tedarik" },
+  { value: 1991, suffix: "", label: "Kuruluş Yılı" }
 ];
 
-export const certifications = ["ISO 22000", "HACCP", "GLOBALG.A.P.", "Helal", "Kosher", "Organik"];
+export const certifications = [
+  "Gıda Güvenliği",
+  "Soğuk Zincir",
+  "İzlenebilir Üretim",
+  "İhracat Uygunluğu",
+  "Menşe Belgesi",
+  "Kalite Kontrol"
+];
 
 export const exportPoints = [
-  { city: "Mersin", x: 52, y: 52 },
-  { city: "Rotterdam", x: 44, y: 32 },
-  { city: "Hamburg", x: 47, y: 29 },
-  { city: "Dubai", x: 62, y: 55 },
-  { city: "Doha", x: 60, y: 56 },
-  { city: "Riyad", x: 58, y: 58 },
-  { city: "Bükreş", x: 51, y: 38 },
-  { city: "Londra", x: 41, y: 30 },
-  { city: "Bakü", x: 59, y: 44 }
+  { city: "Mersin", x: 56, y: 50 },
+  { city: "Rotterdam", x: 47, y: 30 },
+  { city: "Hamburg", x: 49, y: 28 },
+  { city: "Bükreş", x: 53, y: 36 },
+  { city: "Moskova", x: 58, y: 24 },
+  { city: "Dubai", x: 64, y: 53 },
+  { city: "Riyad", x: 60, y: 56 },
+  { city: "Londra", x: 44, y: 29 }
 ];
 
 export const blogPosts = [
   {
-    slug: "kirmizi-toz-biberin-tarihcesi",
-    title: "Kırmızı Toz Biberin Tarihçesi",
+    slug: "cukurova-narenciye-sezonu",
+    title: "Çukurova'da Narenciye Sezonu",
     excerpt:
-      "Anadolu mutfağında kırmızı biberin yolculuğu, üretim bölgeleri ve modern hijyen standartları.",
+      "Portakal, mandalina ve limonun hasat dönemleri, boylama süreçleri ve ihracata hazırlık adımları.",
     date: "2026-06-24",
-    category: "Baharat",
-    tags: ["biber", "baharat", "ihracat"],
+    category: "Narenciye",
+    tags: ["narenciye", "hasat", "ihracat"],
     readingMinutes: 4
   },
   {
-    slug: "silaj-yapiminin-puf-noktalari",
-    title: "Silaj Yapımının Püf Noktaları",
+    slug: "kavun-karpuz-tazelik",
+    title: "Kavun ve Karpuzda Tazeliğin Sırrı",
     excerpt:
-      "Doğru kuru madde oranı, sıkıştırma, fermantasyon ve çiftliklere düzenli sevkiyat planı.",
+      "Doğru olgunlukta hasat, tarlada seçim ve hızlı sevkiyatla market rafına kadar tazeliği korumak.",
     date: "2026-06-24",
-    category: "Silaj",
-    tags: ["silaj", "yem", "çiftlik"],
+    category: "Yaz Meyveleri",
+    tags: ["kavun", "karpuz", "tazelik"],
     readingMinutes: 5
   },
   {
-    slug: "mersinin-tarim-gucu",
-    title: "Mersin'in Tarım Gücü",
+    slug: "soguk-zincir-ve-ihracat",
+    title: "Soğuk Zincir ve İhracat Lojistiği",
     excerpt:
-      "Mersin Limanı, bereketli üretim havzası ve ihracat altyapısıyla tarımsal ticaretin merkezinde.",
+      "Mersin Limanı avantajı, soğuk hava deposu ve soğuk zincir nakliyenin taze ürün ihracatındaki rolü.",
     date: "2026-06-24",
-    category: "İhracat",
-    tags: ["mersin", "lojistik", "tarım"],
+    category: "Lojistik",
+    tags: ["lojistik", "soğuk zincir", "ihracat"],
     readingMinutes: 3
   }
 ];
@@ -366,15 +358,15 @@ export const corporateLinks = [
 
 export const productionLinks = [
   { title: "Sertifikalar", href: "/uretim/sertifikalar", icon: Award },
-  { title: "Tesis", href: "/uretim/tesis", icon: Factory },
-  { title: "Kapasite", href: "/uretim/kapasite", icon: PackageCheck },
+  { title: "Tesis & Paketleme", href: "/uretim/tesis", icon: Warehouse },
+  { title: "Soğuk Zincir & Kapasite", href: "/uretim/kapasite", icon: Snowflake },
   { title: "Lojistik", href: "/uretim/lojistik", icon: Ship }
 ];
 
 export const timeline = [
-  { year: "1993", title: "Mersin'de İlk Üretim", text: "Aile işletmesi olarak tahıl ve yerel tarım ticaretiyle başlayan yolculuk." },
-  { year: "2004", title: "Değirmen Yatırımı", text: "Öğütme ve paketleme hattı yenilenerek düzenli un üretimine geçildi." },
-  { year: "2012", title: "Biber & Baharat Hattı", text: "Kurutma, öğütme ve eleme prosesleri gıda güvenliği protokolleriyle ayrıştırıldı." },
-  { year: "2018", title: "İhracat Operasyonu", text: "Mersin Limanı avantajıyla Orta Doğu, Avrupa ve Kuzey Afrika pazarı güçlendirildi." },
-  { year: "2026", title: "Entegre Tarım Markası", text: "Değirmen, biber-baharat, salça, silaj ve yem dikeyleri tek marka altında toplandı." }
+  { year: "1991", title: "Kuruluş", text: "İnsanlara daha iyi hizmet verme hedefiyle Çukurova bölgesinde taze ürün ticaretine başlandı." },
+  { year: "2003", title: "Toptan & Hal Ağı", text: "Toptan alıcı ve hal ağı genişletilerek düzenli tedarik kapasitesi büyütüldü." },
+  { year: "2012", title: "Soğuk Hava & Paketleme", text: "Soğuk hava deposu ve paketleme süreçleri ile tazelik ve raf ömrü güçlendirildi." },
+  { year: "2018", title: "İhracat Operasyonu", text: "Mersin Limanı avantajıyla yurt dışı pazarlara ihracat operasyonları geliştirildi." },
+  { year: "2026", title: "Entegre Taze Ürün Tedariki", text: "Narenciye, kavun ve karpuz dikeyleri üretim, toptan, market ve ihracat kanallarında tek marka altında toplandı." }
 ];
