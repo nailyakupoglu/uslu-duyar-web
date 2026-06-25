@@ -9,10 +9,10 @@ import { Breadcrumb } from "@/components/shared/breadcrumb";
 import { PageHero } from "@/components/shared/page-hero";
 import { StatsCounter } from "@/components/home/stats-counter";
 import { RevealOnScroll } from "@/components/motion/reveal-on-scroll";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
 export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
-  return buildMetadata({
+  return buildMetadataForLocale(locale, {
     title: locale === "en" ? "Capacity" : "Kapasite",
     description:
       locale === "en"

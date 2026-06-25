@@ -74,10 +74,11 @@ export async function generateMetadata({
     creator: siteConfig.legalName,
     publisher: siteConfig.legalName,
     alternates: {
-      canonical: "/",
+      canonical: locale === "en" ? "/en" : "/",
       languages: {
         "tr-TR": "/",
-        "en-US": "/en"
+        "en-US": "/en",
+        "x-default": "/"
       }
     },
     openGraph: {
@@ -89,7 +90,7 @@ export async function generateMetadata({
       description,
       images: [
         {
-          url: "/images/og/og-default.svg",
+          url: "/images/og/og-default.png",
           width: 1200,
           height: 630,
           alt: `${siteConfig.name} — ${slogan}`
@@ -100,7 +101,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: `${siteConfig.name} — ${slogan}`,
       description,
-      images: ["/images/og/og-default.svg"]
+      images: ["/images/og/og-default.png"]
     },
     icons: {
       icon: [{ url: "/favicon.svg", type: "image/svg+xml" }]
@@ -151,11 +152,11 @@ export default async function LocaleLayout({
         <script
           type="application/ld+json"
           // JSON-LD güvenli üretim: yalnızca kendi statik objemizi serialize ediyoruz.
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }}
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd(locale)) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd()) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd(locale)) }}
         />
       </head>
       <body className="min-h-dvh bg-cream font-sans text-ink antialiased">

@@ -13,8 +13,8 @@ export async function ProductShowcase() {
       <div className="container">
         <SectionHeading
           eyebrow={locale === "en" ? "Product portfolio" : "Ürün portföyü"}
-          title={locale === "en" ? "Citrus, melon and watermelon in a single showcase." : "Narenciye, kavun ve karpuz tek vitrin altında."}
-          description={locale === "en" ? "As operator responses arrive, the product cards will be updated with actual sizing values, packaging options and certificate PDFs." : "Ürün kartları operatör cevapları geldikçe gerçek boylama değerleri, ambalaj seçenekleri ve sertifika PDF'leriyle güncellenecek."}
+          title={locale === "en" ? "Citrus, melon and watermelon as RFQ-ready product files." : "RFQ'ya hazır ürün dosyalarıyla narenciye, kavun ve karpuz."}
+          description={locale === "en" ? "Each product starts with the practical details buyers need: season, calibre or weight, packaging, cold-chain range, MOQ and loading terms." : "Her ürün alıcının ihtiyaç duyduğu pratik bilgilerle başlar: sezon, kalibre veya ağırlık, ambalaj, soğuk zincir aralığı, MOQ ve yükleme şartları."}
           align="center"
         />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

@@ -10,8 +10,10 @@ import {
   productionHighlights,
   productionLinks,
   products,
+  seasonWindows,
   stats,
   timeline,
+  type ExportSpec,
   type Product,
   type ProductCategory
 } from "@/lib/data";
@@ -27,9 +29,51 @@ export type ResolvedProduct = {
   gallery: string[];
   packageOptions: string[];
   certificates: string[];
+  exportSpecs: ResolvedExportSpec;
   specs: { label: string; value: string }[];
   tags: string[];
 };
+
+export type ResolvedExportSpec = Omit<
+  ExportSpec,
+  | "varieties"
+  | "caliber"
+  | "brix"
+  | "packaging"
+  | "moq"
+  | "containerLoad"
+  | "coldChain"
+  | "shelfLife"
+  | "loadingPort"
+  | "note"
+> & {
+  varieties: string;
+  caliber: string;
+  brix: string;
+  packaging: string;
+  moq: string;
+  containerLoad: string;
+  coldChain: string;
+  shelfLife: string;
+  loadingPort: string;
+  note: string;
+};
+
+export function resolveExportSpec(spec: ExportSpec, locale: string): ResolvedExportSpec {
+  return {
+    ...spec,
+    varieties: pick(spec.varieties, locale),
+    caliber: pick(spec.caliber, locale),
+    brix: pick(spec.brix, locale),
+    packaging: pick(spec.packaging, locale),
+    moq: pick(spec.moq, locale),
+    containerLoad: pick(spec.containerLoad, locale),
+    coldChain: pick(spec.coldChain, locale),
+    shelfLife: pick(spec.shelfLife, locale),
+    loadingPort: pick(spec.loadingPort, locale),
+    note: pick(spec.note, locale)
+  };
+}
 
 export function resolveProduct(product: Product, locale: string): ResolvedProduct {
   return {
@@ -43,6 +87,7 @@ export function resolveProduct(product: Product, locale: string): ResolvedProduc
     description: pick(product.description, locale),
     packageOptions: product.packageOptions.map((o) => pick(o, locale)),
     certificates: product.certificates.map((c) => pick(c, locale)),
+    exportSpecs: resolveExportSpec(product.exportSpecs, locale),
     specs: product.specs.map((s) => ({ label: pick(s.label, locale), value: pick(s.value, locale) }))
   };
 }
@@ -123,6 +168,16 @@ export function getCorporateLinksL(locale: string) {
 
 export function getProductionLinksL(locale: string) {
   return productionLinks.map((l) => ({ href: l.href, icon: l.icon, title: pick(l.title, locale) }));
+}
+
+export function getSeasonWindowsL(locale: string) {
+  return seasonWindows.map((window) => ({
+    category: window.category,
+    title: pick(window.title, locale),
+    months: window.months,
+    peakMonths: window.peakMonths,
+    note: pick(window.note, locale)
+  }));
 }
 
 export function getTimelineL(locale: string) {

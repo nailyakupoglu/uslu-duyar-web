@@ -19,12 +19,16 @@ import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { getProducts } from "@/lib/content";
 import { contactSchema, incoterms, buyerTypes, type ContactInput } from "@/lib/contact";
+import { rfqWhatsappMessage, whatsappHref } from "@/lib/contact-channels";
 import { cn } from "@/lib/utils";
 
 type ContactFormProps = {
   defaultSubject?: string;
+  defaultProduct?: string;
   compact?: boolean;
   onSuccess?: () => void;
 };
@@ -43,9 +47,11 @@ const buyerTypeLabels: Record<(typeof buyerTypes)[number], { tr: string; en: str
   other: { tr: "Diğer", en: "Other" },
 };
 
-export function ContactForm({ defaultSubject = "", compact = false, onSuccess }: ContactFormProps) {
+export function ContactForm({ defaultSubject = "", defaultProduct = "", compact = false, onSuccess }: ContactFormProps) {
   const locale = useLocale();
   const isEn = locale === "en";
+  const products = getProducts(locale);
+  const whatsapp = whatsappHref(rfqWhatsappMessage(locale, defaultProduct || defaultSubject));
   const [status, setStatus] = useState<Status>("idle");
   const {
     register,
@@ -54,7 +60,7 @@ export function ContactForm({ defaultSubject = "", compact = false, onSuccess }:
     formState: { errors },
   } = useForm<ContactInput>({
     resolver: zodResolver(contactSchema),
-    defaultValues: { subject: defaultSubject, website: "" },
+    defaultValues: { subject: defaultSubject, product: defaultProduct, website: "" },
   });
 
   async function onSubmit(values: ContactInput) {
@@ -69,7 +75,7 @@ export function ContactForm({ defaultSubject = "", compact = false, onSuccess }:
         throw new Error("request_failed");
       }
       setStatus("success");
-      reset({ subject: defaultSubject, website: "" });
+      reset({ subject: defaultSubject, product: defaultProduct, website: "" });
       onSuccess?.();
     } catch {
       setStatus("error");
@@ -94,6 +100,13 @@ export function ContactForm({ defaultSubject = "", compact = false, onSuccess }:
         <Button variant="outline" size="sm" onClick={() => setStatus("idle")}>
           {isEn ? "Send New Request" : "Yeni Talep Gönder"}
         </Button>
+        {whatsapp ? (
+          <Button asChild variant="steel" size="sm">
+            <a href={whatsapp} target="_blank" rel="noreferrer">
+              {isEn ? "Continue on WhatsApp" : "WhatsApp ile devam et"}
+            </a>
+          </Button>
+        ) : null}
       </div>
     );
   }
@@ -145,19 +158,25 @@ export function ContactForm({ defaultSubject = "", compact = false, onSuccess }:
       </div>
 
       {/* === B2B RFQ === */}
-      <fieldset className="grid gap-3 rounded-md border border-line bg-cream/40 p-3">
-        <legend className="px-1 text-xs font-semibold uppercase tracking-wider text-ink/60">
+      <fieldset className="grid gap-3 rounded-lg border border-line-soft bg-surface-export p-4">
+        <legend className="px-1 spec-mono text-port-700">
           {t(isEn, "Teklif Detayları (B2B)", "Quote Details (B2B)")}
         </legend>
 
         <div className={cn("grid gap-3", !compact && "sm:grid-cols-2")}>
           <div className="grid gap-1.5">
             <Label htmlFor="cf-product">{t(isEn, "Ürün / Çeşit", "Product / Variety")}</Label>
-            <Input
+            <Select
               id="cf-product"
-              placeholder={t(isEn, "örn. Washington Navel Orange", "e.g. Washington Navel Orange")}
               {...register("product")}
-            />
+            >
+              <option value="">{t(isEn, "Ürün seçiniz", "Select product")}</option>
+              {products.map((product) => (
+                <option key={`${product.category}-${product.slug}`} value={product.title}>
+                  {product.title} — {product.exportSpecs.caliber}
+                </option>
+              ))}
+            </Select>
           </div>
           <div className="grid gap-1.5">
             <Label htmlFor="cf-quantity">{t(isEn, "Miktar (kg / ton)", "Quantity (kg / ton)")}</Label>
@@ -172,9 +191,8 @@ export function ContactForm({ defaultSubject = "", compact = false, onSuccess }:
         <div className={cn("grid gap-3", !compact && "sm:grid-cols-2")}>
           <div className="grid gap-1.5">
             <Label htmlFor="cf-incoterm">{t(isEn, "Incoterm", "Incoterm")}</Label>
-            <select
+            <Select
               id="cf-incoterm"
-              className="h-10 rounded-md border border-input bg-white px-3 text-sm shadow-sm focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/30"
               {...register("incoterm")}
             >
               <option value="">{t(isEn, "Seçiniz", "Select")}</option>
@@ -183,13 +201,12 @@ export function ContactForm({ defaultSubject = "", compact = false, onSuccess }:
                   {i}
                 </option>
               ))}
-            </select>
+            </Select>
           </div>
           <div className="grid gap-1.5">
             <Label htmlFor="cf-buyerType">{t(isEn, "Alıcı Tipi", "Buyer Type")}</Label>
-            <select
+            <Select
               id="cf-buyerType"
-              className="h-10 rounded-md border border-input bg-white px-3 text-sm shadow-sm focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/30"
               {...register("buyerType")}
             >
               <option value="">{t(isEn, "Seçiniz", "Select")}</option>
@@ -198,7 +215,7 @@ export function ContactForm({ defaultSubject = "", compact = false, onSuccess }:
                   {buyerTypeLabels[b][isEn ? "en" : "tr"]}
                 </option>
               ))}
-            </select>
+            </Select>
           </div>
         </div>
 

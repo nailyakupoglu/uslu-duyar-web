@@ -15,9 +15,11 @@
       "sizeKb": 277,
       "category": "narenciye",
       "caption": "Daldan toplanan taze mandalinalar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Daldan toplanan taze mandalinalar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-002",
@@ -30,9 +32,11 @@
       "sizeKb": 225,
       "category": "narenciye",
       "caption": "Dalında olgunlaşan yeşil limonlar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 3
+      "quality": 3,
+      "alt": "Dalında olgunlaşan yeşil limonlar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-003",
@@ -45,9 +49,11 @@
       "sizeKb": 201,
       "category": "narenciye",
       "caption": "Mavi gökyüzü altında olgun mandalinalar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 5
+      "quality": 5,
+      "alt": "Mavi gökyüzü altında olgun mandalinalar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-004",
@@ -60,9 +66,11 @@
       "sizeKb": 392,
       "category": "narenciye",
       "caption": "Dalında kırmızı olgun mandalinalar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Dalında kırmızı olgun mandalinalar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-005",
@@ -75,9 +83,11 @@
       "sizeKb": 351,
       "category": "narenciye",
       "caption": "Ağaçta olgunlaşan narenciye meyveleri",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 3
+      "quality": 3,
+      "alt": "Ağaçta olgunlaşan narenciye meyveleri",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-006",
@@ -90,9 +100,11 @@
       "sizeKb": 251,
       "category": "narenciye",
       "caption": "Kasada taze hasat yeşil limonlar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Kasada taze hasat yeşil limonlar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-007",
@@ -105,9 +117,11 @@
       "sizeKb": 201,
       "category": "karpuz",
       "caption": "Tarlada hasat edilmiş kara karpuzlar",
-      "captionEn": null,
+      "captionEn": "Watermelon field and wholesale supply imagery from Uslu Duyar",
       "hero": true,
-      "quality": 4
+      "quality": 4,
+      "alt": "Tarlada hasat edilmiş kara karpuzlar",
+      "altEn": "Watermelon field and wholesale supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-008",
@@ -120,9 +134,11 @@
       "sizeKb": 302,
       "category": "narenciye",
       "caption": "Bahçede kasalarda taze limonlar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Bahçede kasalarda taze limonlar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-009",
@@ -135,9 +151,11 @@
       "sizeKb": 327,
       "category": "narenciye",
       "caption": "Güneşli bahçede olgun mandalina ağaçları",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": true,
-      "quality": 5
+      "quality": 5,
+      "alt": "Güneşli bahçede olgun mandalina ağaçları",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-010",
@@ -150,9 +168,11 @@
       "sizeKb": 289,
       "category": "narenciye",
       "caption": "Elde tutulan taze mandalinalar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Elde tutulan taze mandalinalar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-011",
@@ -165,9 +185,11 @@
       "sizeKb": 423,
       "category": "narenciye",
       "caption": "Dalında olgunlaşan mandalinalar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 3
+      "quality": 3,
+      "alt": "Dalında olgunlaşan mandalinalar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-012",
@@ -180,9 +202,11 @@
       "sizeKb": 392,
       "category": "lojistik",
       "caption": "Kamyona yüklenmiş taze karpuzlar",
-      "captionEn": null,
+      "captionEn": "Cold-chain logistics and export loading imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Kamyona yüklenmiş taze karpuzlar",
+      "altEn": "Cold-chain logistics and export loading imagery from Uslu Duyar"
     },
     {
       "id": "photo-013",
@@ -195,9 +219,11 @@
       "sizeKb": 410,
       "category": "narenciye",
       "caption": "Kovada taze toplanmış mandalinalar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Kovada taze toplanmış mandalinalar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-014",
@@ -210,9 +236,11 @@
       "sizeKb": 218,
       "category": "narenciye",
       "caption": "Yakın çekim taze yeşil limonlar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Yakın çekim taze yeşil limonlar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-015",
@@ -225,9 +253,11 @@
       "sizeKb": 401,
       "category": "narenciye",
       "caption": "Ağaçta olgunlaşan yeşil limonlar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 3
+      "quality": 3,
+      "alt": "Ağaçta olgunlaşan yeşil limonlar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-016",
@@ -240,9 +270,11 @@
       "sizeKb": 407,
       "category": "kurumsal",
       "caption": "Uslu Duyar hasat ve nakliye görseli",
-      "captionEn": null,
+      "captionEn": "Uslu Duyar corporate and production identity imagery",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Uslu Duyar hasat ve nakliye görseli",
+      "altEn": "Uslu Duyar corporate and production identity imagery"
     },
     {
       "id": "photo-017",
@@ -255,9 +287,11 @@
       "sizeKb": 356,
       "category": "lojistik",
       "caption": "Kamyona yüklü karpuzlar",
-      "captionEn": null,
+      "captionEn": "Cold-chain logistics and export loading imagery from Uslu Duyar",
       "hero": false,
-      "quality": 3
+      "quality": 3,
+      "alt": "Kamyona yüklü karpuzlar",
+      "altEn": "Cold-chain logistics and export loading imagery from Uslu Duyar"
     },
     {
       "id": "photo-018",
@@ -270,9 +304,11 @@
       "sizeKb": 298,
       "category": "narenciye",
       "caption": "Elde tutulan taze mandalinalar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Elde tutulan taze mandalinalar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-019",
@@ -285,9 +321,11 @@
       "sizeKb": 394,
       "category": "karpuz",
       "caption": "Tarlada toplanmış karpuz yığını",
-      "captionEn": null,
+      "captionEn": "Watermelon field and wholesale supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Tarlada toplanmış karpuz yığını",
+      "altEn": "Watermelon field and wholesale supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-020",
@@ -300,9 +338,11 @@
       "sizeKb": 322,
       "category": "narenciye",
       "caption": "Dalında kırmızı turunçgil meyveleri",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Dalında kırmızı turunçgil meyveleri",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-021",
@@ -315,9 +355,11 @@
       "sizeKb": 242,
       "category": "narenciye",
       "caption": "Sepette taze limon hasadı",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 3
+      "quality": 3,
+      "alt": "Sepette taze limon hasadı",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-022",
@@ -330,9 +372,11 @@
       "sizeKb": 355,
       "category": "karpuz",
       "caption": "Tarlada kesilmiş karpuz",
-      "captionEn": null,
+      "captionEn": "Watermelon field and wholesale supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 3
+      "quality": 3,
+      "alt": "Tarlada kesilmiş karpuz",
+      "altEn": "Watermelon field and wholesale supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-023",
@@ -345,9 +389,11 @@
       "sizeKb": 766,
       "category": "karpuz",
       "caption": "Tarlada kesilmiş kırmızı karpuz",
-      "captionEn": null,
+      "captionEn": "Watermelon field and wholesale supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Tarlada kesilmiş kırmızı karpuz",
+      "altEn": "Watermelon field and wholesale supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-024",
@@ -360,9 +406,11 @@
       "sizeKb": 251,
       "category": "lojistik",
       "caption": "Ahşap kasada paketli karpuzlar",
-      "captionEn": null,
+      "captionEn": "Cold-chain logistics and export loading imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Ahşap kasada paketli karpuzlar",
+      "altEn": "Cold-chain logistics and export loading imagery from Uslu Duyar"
     },
     {
       "id": "photo-025",
@@ -375,9 +423,11 @@
       "sizeKb": 401,
       "category": "karpuz",
       "caption": "Tarlada istiflenmiş karpuz hasadı",
-      "captionEn": null,
+      "captionEn": "Watermelon field and wholesale supply imagery from Uslu Duyar",
       "hero": true,
-      "quality": 5
+      "quality": 5,
+      "alt": "Tarlada istiflenmiş karpuz hasadı",
+      "altEn": "Watermelon field and wholesale supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-026",
@@ -390,9 +440,11 @@
       "sizeKb": 748,
       "category": "lojistik",
       "caption": "İhracata hazır karpuz kolileri",
-      "captionEn": null,
+      "captionEn": "Cold-chain logistics and export loading imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "İhracata hazır karpuz kolileri",
+      "altEn": "Cold-chain logistics and export loading imagery from Uslu Duyar"
     },
     {
       "id": "photo-027",
@@ -405,9 +457,11 @@
       "sizeKb": 373,
       "category": "narenciye",
       "caption": "Dalında olgunlaşan limonlar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Dalında olgunlaşan limonlar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-028",
@@ -420,9 +474,11 @@
       "sizeKb": 294,
       "category": "narenciye",
       "caption": "Bahçede yeşil sarı portakallar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Bahçede yeşil sarı portakallar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-029",
@@ -435,9 +491,11 @@
       "sizeKb": 399,
       "category": "narenciye",
       "caption": "Ağaçta olgun sarı limonlar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Ağaçta olgun sarı limonlar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-030",
@@ -450,9 +508,11 @@
       "sizeKb": 512,
       "category": "narenciye",
       "caption": "Dalında bol limon salkımı",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Dalında bol limon salkımı",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-031",
@@ -465,9 +525,11 @@
       "sizeKb": 433,
       "category": "narenciye",
       "caption": "Olgunlaşan yeşil mandalina salkımı",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Olgunlaşan yeşil mandalina salkımı",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-032",
@@ -480,9 +542,11 @@
       "sizeKb": 295,
       "category": "narenciye",
       "caption": "Dalında parlak turuncu mandalinalar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 5
+      "quality": 5,
+      "alt": "Dalında parlak turuncu mandalinalar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-033",
@@ -495,9 +559,11 @@
       "sizeKb": 424,
       "category": "narenciye",
       "caption": "Ağaçta olgun mandalina kümeleri",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Ağaçta olgun mandalina kümeleri",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-034",
@@ -510,9 +576,11 @@
       "sizeKb": 436,
       "category": "narenciye",
       "caption": "Güneşte turuncu mandalina bahçesi",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Güneşte turuncu mandalina bahçesi",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-035",
@@ -525,9 +593,11 @@
       "sizeKb": 342,
       "category": "narenciye",
       "caption": "Dalında taze turuncu mandalinalar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Dalında taze turuncu mandalinalar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-036",
@@ -540,9 +610,11 @@
       "sizeKb": 310,
       "category": "narenciye",
       "caption": "Gün batımında mandalina bahçesi",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": true,
-      "quality": 5
+      "quality": 5,
+      "alt": "Gün batımında mandalina bahçesi",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-037",
@@ -555,9 +627,11 @@
       "sizeKb": 395,
       "category": "narenciye",
       "caption": "Ağaçta olgun mandalina salkımı",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": true,
-      "quality": 5
+      "quality": 5,
+      "alt": "Ağaçta olgun mandalina salkımı",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-038",
@@ -570,9 +644,11 @@
       "sizeKb": 367,
       "category": "narenciye",
       "caption": "Güneşte parlayan mandalina dalı",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": true,
-      "quality": 5
+      "quality": 5,
+      "alt": "Güneşte parlayan mandalina dalı",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-039",
@@ -585,9 +661,11 @@
       "sizeKb": 484,
       "category": "narenciye",
       "caption": "Bahçede dolu mandalina ağacı",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Bahçede dolu mandalina ağacı",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-040",
@@ -600,9 +678,11 @@
       "sizeKb": 803,
       "category": "narenciye",
       "caption": "Meyve yüklü mandalina ağacı",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": true,
-      "quality": 4
+      "quality": 4,
+      "alt": "Meyve yüklü mandalina ağacı",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-041",
@@ -615,9 +695,11 @@
       "sizeKb": 314,
       "category": "narenciye",
       "caption": "Mandalina bahçesi yakın çekim",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Mandalina bahçesi yakın çekim",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-042",
@@ -630,9 +712,11 @@
       "sizeKb": 427,
       "category": "narenciye",
       "caption": "Olgun mandalinalar dalında",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 5
+      "quality": 5,
+      "alt": "Olgun mandalinalar dalında",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-043",
@@ -645,9 +729,11 @@
       "sizeKb": 418,
       "category": "narenciye",
       "caption": "Yeşillik içinde mandalina dalı",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Yeşillik içinde mandalina dalı",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-044",
@@ -660,9 +746,11 @@
       "sizeKb": 419,
       "category": "narenciye",
       "caption": "Sık mandalina salkımları",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Sık mandalina salkımları",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-045",
@@ -675,9 +763,11 @@
       "sizeKb": 740,
       "category": "narenciye",
       "caption": "Yoğun meyveli mandalina ağacı",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Yoğun meyveli mandalina ağacı",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-046",
@@ -690,9 +780,11 @@
       "sizeKb": 684,
       "category": "narenciye",
       "caption": "Kırmızı mandalinalar dalında",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Kırmızı mandalinalar dalında",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-047",
@@ -705,9 +797,11 @@
       "sizeKb": 660,
       "category": "narenciye",
       "caption": "Bol meyveli narenciye ağacı",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Bol meyveli narenciye ağacı",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-048",
@@ -720,9 +814,11 @@
       "sizeKb": 654,
       "category": "narenciye",
       "caption": "Bahçede mandalina ağacı sırası",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Bahçede mandalina ağacı sırası",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-049",
@@ -735,9 +831,11 @@
       "sizeKb": 540,
       "category": "narenciye",
       "caption": "Parlak kırmızı mandalina salkımı",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 5
+      "quality": 5,
+      "alt": "Parlak kırmızı mandalina salkımı",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-050",
@@ -750,9 +848,11 @@
       "sizeKb": 548,
       "category": "narenciye",
       "caption": "Olgun mandalina dalda yakın",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 5
+      "quality": 5,
+      "alt": "Olgun mandalina dalda yakın",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-051",
@@ -765,9 +865,11 @@
       "sizeKb": 607,
       "category": "narenciye",
       "caption": "Damla sulamalı mandalina bahçesi",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": true,
-      "quality": 5
+      "quality": 5,
+      "alt": "Damla sulamalı mandalina bahçesi",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-052",
@@ -780,9 +882,11 @@
       "sizeKb": 574,
       "category": "narenciye",
       "caption": "Bahçede meyveli mandalina ağaçları",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": true,
-      "quality": 5
+      "quality": 5,
+      "alt": "Bahçede meyveli mandalina ağaçları",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-053",
@@ -795,9 +899,11 @@
       "sizeKb": 810,
       "category": "karpuz",
       "caption": "Tarlada kesilmiş taze karpuz",
-      "captionEn": null,
+      "captionEn": "Watermelon field and wholesale supply imagery from Uslu Duyar",
       "hero": true,
-      "quality": 4
+      "quality": 4,
+      "alt": "Tarlada kesilmiş taze karpuz",
+      "altEn": "Watermelon field and wholesale supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-054",
@@ -810,9 +916,11 @@
       "sizeKb": 593,
       "category": "lojistik",
       "caption": "Kamyona yüklenmiş karpuz sevkiyatı",
-      "captionEn": null,
+      "captionEn": "Cold-chain logistics and export loading imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Kamyona yüklenmiş karpuz sevkiyatı",
+      "altEn": "Cold-chain logistics and export loading imagery from Uslu Duyar"
     },
     {
       "id": "photo-055",
@@ -825,9 +933,11 @@
       "sizeKb": 585,
       "category": "lojistik",
       "caption": "Kamyona yüklü karpuz sevkiyatı",
-      "captionEn": null,
+      "captionEn": "Cold-chain logistics and export loading imagery from Uslu Duyar",
       "hero": false,
-      "quality": 3
+      "quality": 3,
+      "alt": "Kamyona yüklü karpuz sevkiyatı",
+      "altEn": "Cold-chain logistics and export loading imagery from Uslu Duyar"
     },
     {
       "id": "photo-056",
@@ -840,9 +950,11 @@
       "sizeKb": 497,
       "category": "lojistik",
       "caption": "Tarlada karpuz yüklü tır",
-      "captionEn": null,
+      "captionEn": "Cold-chain logistics and export loading imagery from Uslu Duyar",
       "hero": true,
-      "quality": 4
+      "quality": 4,
+      "alt": "Tarlada karpuz yüklü tır",
+      "altEn": "Cold-chain logistics and export loading imagery from Uslu Duyar"
     },
     {
       "id": "photo-057",
@@ -855,9 +967,11 @@
       "sizeKb": 680,
       "category": "karpuz",
       "caption": "Tarlada kesilmiş kırmızı karpuz",
-      "captionEn": null,
+      "captionEn": "Watermelon field and wholesale supply imagery from Uslu Duyar",
       "hero": true,
-      "quality": 5
+      "quality": 5,
+      "alt": "Tarlada kesilmiş kırmızı karpuz",
+      "altEn": "Watermelon field and wholesale supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-058",
@@ -870,9 +984,11 @@
       "sizeKb": 705,
       "category": "karpuz",
       "caption": "Hasat sonrası karpuz yığını",
-      "captionEn": null,
+      "captionEn": "Watermelon field and wholesale supply imagery from Uslu Duyar",
       "hero": true,
-      "quality": 5
+      "quality": 5,
+      "alt": "Hasat sonrası karpuz yığını",
+      "altEn": "Watermelon field and wholesale supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-059",
@@ -885,9 +1001,11 @@
       "sizeKb": 1003,
       "category": "karpuz",
       "caption": "Çeşit etiketli karpuz tarlası",
-      "captionEn": null,
+      "captionEn": "Watermelon field and wholesale supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Çeşit etiketli karpuz tarlası",
+      "altEn": "Watermelon field and wholesale supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-060",
@@ -900,9 +1018,11 @@
       "sizeKb": 890,
       "category": "karpuz",
       "caption": "Tarlada toplanmış çizgili karpuzlar",
-      "captionEn": null,
+      "captionEn": "Watermelon field and wholesale supply imagery from Uslu Duyar",
       "hero": true,
-      "quality": 5
+      "quality": 5,
+      "alt": "Tarlada toplanmış çizgili karpuzlar",
+      "altEn": "Watermelon field and wholesale supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-061",
@@ -915,9 +1035,11 @@
       "sizeKb": 267,
       "category": "tesis",
       "caption": "Markette kavun karpuz reyonu",
-      "captionEn": null,
+      "captionEn": "Facility, packing and cold-storage imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Markette kavun karpuz reyonu",
+      "altEn": "Facility, packing and cold-storage imagery from Uslu Duyar"
     },
     {
       "id": "photo-062",
@@ -930,9 +1052,11 @@
       "sizeKb": 607,
       "category": "karpuz",
       "caption": "Hasat tarlasında karpuz piramidi",
-      "captionEn": null,
+      "captionEn": "Watermelon field and wholesale supply imagery from Uslu Duyar",
       "hero": true,
-      "quality": 5
+      "quality": 5,
+      "alt": "Hasat tarlasında karpuz piramidi",
+      "altEn": "Watermelon field and wholesale supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-063",
@@ -945,9 +1069,11 @@
       "sizeKb": 413,
       "category": "narenciye",
       "caption": "Toplanan yeşil limonlar sandıkta",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Toplanan yeşil limonlar sandıkta",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-064",
@@ -960,9 +1086,11 @@
       "sizeKb": 413,
       "category": "narenciye",
       "caption": "Ağaçtaki yeşil greyfurtlar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Ağaçtaki yeşil greyfurtlar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-065",
@@ -975,9 +1103,11 @@
       "sizeKb": 259,
       "category": "narenciye",
       "caption": "Kasalarda toplanmış limon hasadı",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Kasalarda toplanmış limon hasadı",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-066",
@@ -990,9 +1120,11 @@
       "sizeKb": 669,
       "category": "narenciye",
       "caption": "Ağaçta olgunlaşan greyfurtlar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Ağaçta olgunlaşan greyfurtlar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-067",
@@ -1005,9 +1137,11 @@
       "sizeKb": 149,
       "category": "narenciye",
       "caption": "Gün batımında limon kasaları",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": true,
-      "quality": 5
+      "quality": 5,
+      "alt": "Gün batımında limon kasaları",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-068",
@@ -1020,9 +1154,11 @@
       "sizeKb": 188,
       "category": "narenciye",
       "caption": "Hasatta gün batımı limon kasaları",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": true,
-      "quality": 5
+      "quality": 5,
+      "alt": "Hasatta gün batımı limon kasaları",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-069",
@@ -1035,9 +1171,11 @@
       "sizeKb": 131,
       "category": "narenciye",
       "caption": "Gün batımında limon hasadı",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": true,
-      "quality": 4
+      "quality": 4,
+      "alt": "Gün batımında limon hasadı",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-070",
@@ -1050,9 +1188,11 @@
       "sizeKb": 272,
       "category": "narenciye",
       "caption": "Ağaçta dalında yeşil limonlar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Ağaçta dalında yeşil limonlar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-071",
@@ -1065,9 +1205,11 @@
       "sizeKb": 351,
       "category": "narenciye",
       "caption": "Limon ağacında olgun limonlar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Limon ağacında olgun limonlar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-072",
@@ -1080,9 +1222,11 @@
       "sizeKb": 404,
       "category": "narenciye",
       "caption": "Dalında asılı yeşil limonlar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Dalında asılı yeşil limonlar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-073",
@@ -1095,9 +1239,11 @@
       "sizeKb": 378,
       "category": "narenciye",
       "caption": "Dalında yeşil limonlar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Dalında yeşil limonlar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-074",
@@ -1110,9 +1256,11 @@
       "sizeKb": 427,
       "category": "narenciye",
       "caption": "Ağaçta olgunlaşan yeşil limonlar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 3
+      "quality": 3,
+      "alt": "Ağaçta olgunlaşan yeşil limonlar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-075",
@@ -1125,9 +1273,11 @@
       "sizeKb": 331,
       "category": "narenciye",
       "caption": "Bahçede portakal hasadı",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": true,
-      "quality": 5
+      "quality": 5,
+      "alt": "Bahçede portakal hasadı",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-076",
@@ -1140,9 +1290,11 @@
       "sizeKb": 214,
       "category": "narenciye",
       "caption": "Dalında sarı limonlar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Dalında sarı limonlar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-077",
@@ -1155,9 +1307,11 @@
       "sizeKb": 301,
       "category": "narenciye",
       "caption": "Hasat kasasında taze mandalina",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": true,
-      "quality": 5
+      "quality": 5,
+      "alt": "Hasat kasasında taze mandalina",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-078",
@@ -1170,9 +1324,11 @@
       "sizeKb": 301,
       "category": "narenciye",
       "caption": "Tarlada mandalina hasat sıraları",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": true,
-      "quality": 5
+      "quality": 5,
+      "alt": "Tarlada mandalina hasat sıraları",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-079",
@@ -1185,9 +1341,11 @@
       "sizeKb": 737,
       "category": "narenciye",
       "caption": "Bahçede kırmızı mandalina ağacı",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Bahçede kırmızı mandalina ağacı",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-080",
@@ -1200,9 +1358,11 @@
       "sizeKb": 568,
       "category": "narenciye",
       "caption": "Dalında olgun mandalinalar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Dalında olgun mandalinalar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-081",
@@ -1215,9 +1375,11 @@
       "sizeKb": 412,
       "category": "narenciye",
       "caption": "Ağaçta olgun portakallar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Ağaçta olgun portakallar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-082",
@@ -1230,9 +1392,11 @@
       "sizeKb": 370,
       "category": "narenciye",
       "caption": "Dalında parlak mandalinalar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Dalında parlak mandalinalar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-083",
@@ -1245,9 +1409,11 @@
       "sizeKb": 578,
       "category": "narenciye",
       "caption": "Bol mandalina yüklü ağaç",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Bol mandalina yüklü ağaç",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-084",
@@ -1260,9 +1426,11 @@
       "sizeKb": 645,
       "category": "narenciye",
       "caption": "Olgun mandalina dolu dallar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Olgun mandalina dolu dallar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-085",
@@ -1275,9 +1443,11 @@
       "sizeKb": 396,
       "category": "narenciye",
       "caption": "Kasada hasat edilmiş mandalinalar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 3
+      "quality": 3,
+      "alt": "Kasada hasat edilmiş mandalinalar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-086",
@@ -1290,9 +1460,11 @@
       "sizeKb": 271,
       "category": "narenciye",
       "caption": "Bahçede mandalina hasat kasaları",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": true,
-      "quality": 5
+      "quality": 5,
+      "alt": "Bahçede mandalina hasat kasaları",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-087",
@@ -1305,9 +1477,11 @@
       "sizeKb": 252,
       "category": "narenciye",
       "caption": "Kasada taze yeşil limonlar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Kasada taze yeşil limonlar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "photo-088",
@@ -1320,9 +1494,11 @@
       "sizeKb": 257,
       "category": "narenciye",
       "caption": "Hasat kasalarında yeşil limonlar",
-      "captionEn": null,
+      "captionEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar",
       "hero": false,
-      "quality": 4
+      "quality": 4,
+      "alt": "Hasat kasalarında yeşil limonlar",
+      "altEn": "Fresh citrus harvest and export supply imagery from Uslu Duyar"
     },
     {
       "id": "video-001",
@@ -1336,9 +1512,11 @@
       "durationSec": 24.9,
       "category": "saha",
       "caption": "Uslu Duyar saha görüntüsü",
-      "captionEn": null,
+      "captionEn": "Field video showing harvest and fresh-produce operations from Uslu Duyar",
       "hero": false,
-      "quality": 3
+      "quality": 3,
+      "alt": "Uslu Duyar saha görüntüsü",
+      "altEn": "Field video showing harvest and fresh-produce operations from Uslu Duyar"
     },
     {
       "id": "video-002",
@@ -1349,12 +1527,14 @@
       "width": 404,
       "height": 720,
       "sizeKb": 94,
-      "durationSec": 5.0,
+      "durationSec": 5,
       "category": "saha",
       "caption": "Uslu Duyar saha görüntüsü",
-      "captionEn": null,
+      "captionEn": "Field video showing harvest and fresh-produce operations from Uslu Duyar",
       "hero": false,
-      "quality": 3
+      "quality": 3,
+      "alt": "Uslu Duyar saha görüntüsü",
+      "altEn": "Field video showing harvest and fresh-produce operations from Uslu Duyar"
     },
     {
       "id": "video-003",
@@ -1365,12 +1545,14 @@
       "width": 376,
       "height": 668,
       "sizeKb": 127,
-      "durationSec": 9.0,
+      "durationSec": 9,
       "category": "saha",
       "caption": "Uslu Duyar saha görüntüsü",
-      "captionEn": null,
+      "captionEn": "Field video showing harvest and fresh-produce operations from Uslu Duyar",
       "hero": false,
-      "quality": 3
+      "quality": 3,
+      "alt": "Uslu Duyar saha görüntüsü",
+      "altEn": "Field video showing harvest and fresh-produce operations from Uslu Duyar"
     },
     {
       "id": "video-004",
@@ -1381,12 +1563,14 @@
       "width": 404,
       "height": 720,
       "sizeKb": 77,
-      "durationSec": 5.0,
+      "durationSec": 5,
       "category": "saha",
       "caption": "Uslu Duyar saha görüntüsü",
-      "captionEn": null,
+      "captionEn": "Field video showing harvest and fresh-produce operations from Uslu Duyar",
       "hero": false,
-      "quality": 3
+      "quality": 3,
+      "alt": "Uslu Duyar saha görüntüsü",
+      "altEn": "Field video showing harvest and fresh-produce operations from Uslu Duyar"
     },
     {
       "id": "video-005",
@@ -1400,9 +1584,11 @@
       "durationSec": 17.6,
       "category": "saha",
       "caption": "Uslu Duyar saha görüntüsü",
-      "captionEn": null,
+      "captionEn": "Field video showing harvest and fresh-produce operations from Uslu Duyar",
       "hero": false,
-      "quality": 3
+      "quality": 3,
+      "alt": "Uslu Duyar saha görüntüsü",
+      "altEn": "Field video showing harvest and fresh-produce operations from Uslu Duyar"
     },
     {
       "id": "video-006",
@@ -1416,9 +1602,11 @@
       "durationSec": 30.7,
       "category": "saha",
       "caption": "Uslu Duyar saha görüntüsü",
-      "captionEn": null,
+      "captionEn": "Field video showing harvest and fresh-produce operations from Uslu Duyar",
       "hero": false,
-      "quality": 3
+      "quality": 3,
+      "alt": "Uslu Duyar saha görüntüsü",
+      "altEn": "Field video showing harvest and fresh-produce operations from Uslu Duyar"
     },
     {
       "id": "video-007",
@@ -1432,9 +1620,11 @@
       "durationSec": 31.2,
       "category": "saha",
       "caption": "Uslu Duyar saha görüntüsü",
-      "captionEn": null,
+      "captionEn": "Field video showing harvest and fresh-produce operations from Uslu Duyar",
       "hero": false,
-      "quality": 3
+      "quality": 3,
+      "alt": "Uslu Duyar saha görüntüsü",
+      "altEn": "Field video showing harvest and fresh-produce operations from Uslu Duyar"
     },
     {
       "id": "video-008",
@@ -1448,9 +1638,11 @@
       "durationSec": 10.7,
       "category": "saha",
       "caption": "Uslu Duyar saha görüntüsü",
-      "captionEn": null,
+      "captionEn": "Field video showing harvest and fresh-produce operations from Uslu Duyar",
       "hero": false,
-      "quality": 3
+      "quality": 3,
+      "alt": "Uslu Duyar saha görüntüsü",
+      "altEn": "Field video showing harvest and fresh-produce operations from Uslu Duyar"
     }
   ]
 }

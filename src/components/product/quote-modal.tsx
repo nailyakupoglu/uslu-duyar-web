@@ -59,6 +59,7 @@ export function QuoteModal({ productTitle, triggerLabel, triggerClassName }: Quo
         <ContactForm
           compact
           defaultSubject={isEn ? `Quote Request — ${productTitle}` : `Teklif Talebi — ${productTitle}`}
+          defaultProduct={productTitle}
           onSuccess={() => {
             // Başarıdan sonra modalı kapatma; kullanıcı onay mesajını görsün.
           }}

@@ -9,10 +9,10 @@ import { Droplets, Leaf, Recycle, Zap } from "lucide-react";
 import { Breadcrumb } from "@/components/shared/breadcrumb";
 import { PageHero } from "@/components/shared/page-hero";
 import { RevealOnScroll } from "@/components/motion/reveal-on-scroll";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
 export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
-  return buildMetadata({
+  return buildMetadataForLocale(locale, {
     title: locale === "en" ? "Sustainability" : "Sürdürülebilirlik",
     description:
       locale === "en"

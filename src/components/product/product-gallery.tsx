@@ -7,7 +7,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 
@@ -15,15 +15,16 @@ export function ProductGallery({ images, alt }: { images: string[]; alt: string 
   const unique = Array.from(new Set(images));
   const [active, setActive] = useState(0);
   const current = unique[active] ?? unique[0];
+  const reduceMotion = useReducedMotion();
 
   return (
     <div className="grid gap-4">
       <motion.div
         key={current}
-        initial={{ opacity: 0.4, scale: 0.99 }}
-        animate={{ opacity: 1, scale: 1 }}
+        initial={reduceMotion ? false : { opacity: 0.4, scale: 0.99 }}
+        animate={reduceMotion ? undefined : { opacity: 1, scale: 1 }}
         transition={{ duration: 0.4 }}
-        className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-primary-900/10 bg-white shadow-[0_30px_60px_-30px_rgba(50,50,93,0.35)]"
+        className="relative aspect-[4/5] overflow-hidden rounded-lg border border-primary-900/10 bg-white shadow-[0_30px_60px_-30px_rgba(50,50,93,0.35)]"
       >
         <Image
           src={current}

@@ -3,7 +3,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 const faqs = [
   {
     question: "Minimum sipariş miktarı nedir?",
-    answer: "Ürün, ambalaj ve sevkiyat tipine göre değişir. Operatör bilgisi gelene kadar MOQ placeholder olarak paylaşılır."
+    answer: "Ürün, ambalaj ve sevkiyat tipine göre değişir. Ürün detay sayfalarında ön planlama aralığı verilir; nihai MOQ teklif aşamasında partiye göre teyit edilir."
   },
   {
     question: "İhracat evrakları hazırlanıyor mu?",

@@ -1,5 +1,6 @@
 import {
   Award,
+  CalendarDays,
   Cherry,
   Citrus,
   Ship,
@@ -26,6 +27,12 @@ export const siteConfig = {
   phone: "+90 324 000 00 00",
   whatsapp: "+90 532 000 00 00",
   address: "Çukurova Bölgesi — Mersin / Adana, Türkiye",
+  legal: {
+    mersisNo: null,
+    taxOffice: null,
+    taxNo: null,
+    exporterUnion: null
+  },
   social: {
     instagram: "#",
     linkedin: "#",
@@ -86,6 +93,17 @@ export const heroSlides: HeroSlide[] = [
     image: "/images/hero/hero-4.svg",
     cta: { tr: "Lojistik Gücümüz", en: "Our Logistics" },
     href: "/uretim/lojistik"
+  },
+  {
+    title: { tr: "Teklif Dosyası Hazır Bir Tedarik Zinciri", en: "A Supply Chain Ready for RFQ Files" },
+    eyebrow: { tr: "Kalibre, Brix, Incoterm, liman ve sezon tek akışta", en: "Calibre, Brix, Incoterm, port and season in one flow" },
+    description: {
+      tr: "Alıcıya sadece ürün fotoğrafı değil; parti bazlı yükleme penceresi, soğuk zincir planı ve ihracat bilgisiyle dönüş yapan premium B2B tedarik yaklaşımı.",
+      en: "A premium B2B supply approach that responds with lot-based loading windows, cold-chain plan and export data — not only product photos."
+    },
+    image: "/images/hero/hero-4.svg",
+    cta: { tr: "Teklif Talebi Gönder", en: "Send RFQ" },
+    href: "/iletisim"
   }
 ];
 
@@ -174,6 +192,16 @@ export const productionHighlights: ProductionHighlight[] = [
     icon: Snowflake
   },
   {
+    title: { tr: "Sezon Takvimi", en: "Season Calendar" },
+    href: "/uretim/sezon-takvimi",
+    description: {
+      tr: "Narenciye, kavun ve karpuz için ay-ay tedarik penceresi ve yükleme planı.",
+      en: "Month-by-month supply windows and loading plan for citrus, melon, and watermelon."
+    },
+    image: "/images/production/kapasite.svg",
+    icon: CalendarDays
+  },
+  {
     title: { tr: "Lojistik", en: "Logistics" },
     href: "/uretim/lojistik",
     description: {
@@ -188,6 +216,21 @@ export const productionHighlights: ProductionHighlight[] = [
 export type ProductCategory = "narenciye" | "kavun" | "karpuz";
 
 export type Spec = { label: I18nText; value: I18nText };
+export type ExportSpec = {
+  varieties: I18nText;
+  seasonMonths: number[];
+  caliber: I18nText;
+  brix: I18nText;
+  packaging: I18nText;
+  moq: I18nText;
+  containerLoad: I18nText;
+  coldChain: I18nText;
+  shelfLife: I18nText;
+  hsCode: string;
+  incoterms: string[];
+  loadingPort: I18nText;
+  note: I18nText;
+};
 
 export type Product = {
   slug: string;
@@ -199,9 +242,20 @@ export type Product = {
   gallery: string[];
   packageOptions: I18nText[];
   certificates: I18nText[];
+  exportSpecs: ExportSpec;
   specs: Spec[];
   tags: string[];
 };
+
+export type SeasonWindow = {
+  category: ProductCategory;
+  title: I18nText;
+  months: number[];
+  peakMonths: number[];
+  note: I18nText;
+};
+
+const DEFAULT_INCOTERMS = ["FOB", "CFR", "CIF"] as const;
 
 const PKG = {
   koli: { tr: "Koli", en: "Box" },
@@ -213,8 +267,58 @@ const PKG = {
 const CERT = {
   mense: { tr: "Menşe belgesi", en: "Certificate of origin" },
   izleme: { tr: "Parti izlenebilirlik", en: "Batch traceability" },
-  soguk: { tr: "Soğuk zincir", en: "Cold chain" }
+  soguk: { tr: "Soğuk zincir", en: "Cold chain" },
+  globalgap: { tr: "GLOBALG.A.P dosyası hazırlanıyor", en: "GLOBALG.A.P file pending" },
+  iso: { tr: "ISO 22000 dosyası hazırlanıyor", en: "ISO 22000 file pending" }
 } satisfies Record<string, I18nText>;
+
+export const monthLabels: { short: I18nText; long: I18nText }[] = [
+  { short: { tr: "Oca", en: "Jan" }, long: { tr: "Ocak", en: "January" } },
+  { short: { tr: "Şub", en: "Feb" }, long: { tr: "Şubat", en: "February" } },
+  { short: { tr: "Mar", en: "Mar" }, long: { tr: "Mart", en: "March" } },
+  { short: { tr: "Nis", en: "Apr" }, long: { tr: "Nisan", en: "April" } },
+  { short: { tr: "May", en: "May" }, long: { tr: "Mayıs", en: "May" } },
+  { short: { tr: "Haz", en: "Jun" }, long: { tr: "Haziran", en: "June" } },
+  { short: { tr: "Tem", en: "Jul" }, long: { tr: "Temmuz", en: "July" } },
+  { short: { tr: "Ağu", en: "Aug" }, long: { tr: "Ağustos", en: "August" } },
+  { short: { tr: "Eyl", en: "Sep" }, long: { tr: "Eylül", en: "September" } },
+  { short: { tr: "Eki", en: "Oct" }, long: { tr: "Ekim", en: "October" } },
+  { short: { tr: "Kas", en: "Nov" }, long: { tr: "Kasım", en: "November" } },
+  { short: { tr: "Ara", en: "Dec" }, long: { tr: "Aralık", en: "December" } }
+];
+
+export const seasonWindows: SeasonWindow[] = [
+  {
+    category: "narenciye",
+    title: { tr: "Narenciye", en: "Citrus" },
+    months: [1, 2, 3, 4, 5, 9, 10, 11, 12],
+    peakMonths: [11, 12, 1, 2, 3],
+    note: {
+      tr: "Portakal, mandalina, limon ve greyfurt parti bazlı çeşitlere göre ayrılır.",
+      en: "Orange, mandarin, lemon, and grapefruit are split by variety and harvest lot."
+    }
+  },
+  {
+    category: "kavun",
+    title: { tr: "Kavun", en: "Melon" },
+    months: [5, 6, 7, 8, 9],
+    peakMonths: [6, 7, 8],
+    note: {
+      tr: "Kırkağaç ve altınbaş tipleri olgunluk ve ağırlık seçimine göre yüklenir.",
+      en: "Kırkağaç and Altınbaş types are loaded by ripeness and weight selection."
+    }
+  },
+  {
+    category: "karpuz",
+    title: { tr: "Karpuz", en: "Watermelon" },
+    months: [4, 5, 6, 7, 8, 9],
+    peakMonths: [5, 6, 7, 8],
+    note: {
+      tr: "Standart ve mini karpuz yüklemeleri ağırlık sınıfına göre ayrılır.",
+      en: "Standard and mini watermelon loads are split by weight class."
+    }
+  }
+];
 
 export const products: Product[] = [
   {
@@ -232,11 +336,26 @@ export const products: Product[] = [
     image: "/images/categories/narenciye.svg",
     gallery: ["/images/categories/narenciye.svg", "/images/hero/hero-2.svg"],
     packageOptions: [PKG.koli, PKG.palet, PKG.dokme],
-    certificates: [CERT.mense, CERT.izleme, CERT.soguk],
+    certificates: [CERT.mense, CERT.izleme, CERT.soguk, CERT.globalgap],
+    exportSpecs: {
+      varieties: "Washington Navel / Valencia",
+      seasonMonths: [11, 12, 1, 2, 3, 4, 5],
+      caliber: "56 / 64 / 72 / 80 / 88 count",
+      brix: { tr: "11-13 Brix (parti analizine göre)", en: "11-13 Brix (by lot analysis)" },
+      packaging: { tr: "15 kg teleskopik koli, paletli yükleme", en: "15 kg telescopic box, palletized loading" },
+      moq: { tr: "5 ton deneme yükü / tam konteyner teklif", en: "5 t trial load / full-container quote" },
+      containerLoad: { tr: "20-22 ton / 40ft reefer", en: "20-22 t / 40ft reefer" },
+      coldChain: "4-8°C",
+      shelfLife: { tr: "45-60 gün partiye göre", en: "45-60 days depending on lot" },
+      hsCode: "0805.10",
+      incoterms: [...DEFAULT_INCOTERMS],
+      loadingPort: { tr: "Mersin Limanı", en: "Port of Mersin" },
+      note: { tr: "Kalibre ve Brix değerleri hasat partisine göre teyit edilir.", en: "Calibre and Brix values are confirmed per harvest lot." }
+    },
     specs: [
       { label: { tr: "Çeşit", en: "Variety" }, value: "Washington / Valencia" },
-      { label: { tr: "Kalibre", en: "Caliber" }, value: { tr: "Placeholder", en: "Placeholder" } },
-      { label: { tr: "Sezon", en: "Season" }, value: { tr: "Kış", en: "Winter" } }
+      { label: { tr: "Kalibre", en: "Caliber" }, value: "56 / 64 / 72 / 80 / 88" },
+      { label: { tr: "Sezon", en: "Season" }, value: { tr: "Kasım-Mayıs", en: "November-May" } }
     ],
     tags: ["narenciye", "portakal", "ihracat"]
   },
@@ -255,11 +374,26 @@ export const products: Product[] = [
     image: "/images/categories/narenciye.svg",
     gallery: ["/images/categories/narenciye.svg"],
     packageOptions: [PKG.koli, PKG.palet, PKG.dokme],
-    certificates: [CERT.mense, CERT.izleme],
+    certificates: [CERT.mense, CERT.izleme, CERT.globalgap],
+    exportSpecs: {
+      varieties: { tr: "Satsuma / Klemantin", en: "Satsuma / Clementine" },
+      seasonMonths: [9, 10, 11, 12, 1, 2],
+      caliber: "1X / 1 / 2 / 3 / 4",
+      brix: { tr: "10-12 Brix (parti analizine göre)", en: "10-12 Brix (by lot analysis)" },
+      packaging: { tr: "10 kg açık kasa veya teleskopik koli", en: "10 kg open-top crate or telescopic box" },
+      moq: { tr: "5 ton deneme yükü / karma konteyner", en: "5 t trial load / mixed container" },
+      containerLoad: { tr: "19-21 ton / 40ft reefer", en: "19-21 t / 40ft reefer" },
+      coldChain: "4-8°C",
+      shelfLife: { tr: "30-45 gün partiye göre", en: "30-45 days depending on lot" },
+      hsCode: "0805.21",
+      incoterms: [...DEFAULT_INCOTERMS],
+      loadingPort: { tr: "Mersin Limanı", en: "Port of Mersin" },
+      note: { tr: "Kabuk rengi ve kolay soyulma partide kontrol edilir.", en: "Peel colour and easy-peel quality are checked by lot." }
+    },
     specs: [
       { label: { tr: "Çeşit", en: "Variety" }, value: { tr: "Satsuma / Klemantin", en: "Satsuma / Clementine" } },
-      { label: { tr: "Kalibre", en: "Caliber" }, value: { tr: "Placeholder", en: "Placeholder" } },
-      { label: { tr: "Sezon", en: "Season" }, value: { tr: "Sonbahar – Kış", en: "Autumn – Winter" } }
+      { label: { tr: "Kalibre", en: "Caliber" }, value: "1X / 1 / 2 / 3 / 4" },
+      { label: { tr: "Sezon", en: "Season" }, value: { tr: "Eylül-Şubat", en: "September-February" } }
     ],
     tags: ["narenciye", "mandalina"]
   },
@@ -278,11 +412,26 @@ export const products: Product[] = [
     image: "/images/categories/narenciye.svg",
     gallery: ["/images/categories/narenciye.svg"],
     packageOptions: [PKG.koli, PKG.palet, PKG.dokme],
-    certificates: [CERT.mense, CERT.soguk],
+    certificates: [CERT.mense, CERT.soguk, CERT.iso],
+    exportSpecs: {
+      varieties: { tr: "Enterdonat / Lamas", en: "Enterdonat / Lamas" },
+      seasonMonths: [9, 10, 11, 12, 1, 2, 3, 4],
+      caliber: "45 / 54 / 63 / 72 / 80 / 88",
+      brix: { tr: "Asit/sululuk parti analizine göre", en: "Acidity/juice ratio by lot analysis" },
+      packaging: { tr: "15 kg teleskopik koli, file opsiyonlu", en: "15 kg telescopic box, net bag option" },
+      moq: { tr: "5 ton deneme yükü / tam konteyner teklif", en: "5 t trial load / full-container quote" },
+      containerLoad: { tr: "20-22 ton / 40ft reefer", en: "20-22 t / 40ft reefer" },
+      coldChain: "8-10°C",
+      shelfLife: { tr: "60-90 gün depolama koşuluna göre", en: "60-90 days depending on storage conditions" },
+      hsCode: "0805.50",
+      incoterms: [...DEFAULT_INCOTERMS],
+      loadingPort: { tr: "Mersin Limanı", en: "Port of Mersin" },
+      note: { tr: "Depolama süresi ve mumlama talebe göre tekliflenir.", en: "Storage duration and waxing are quoted on request." }
+    },
     specs: [
       { label: { tr: "Çeşit", en: "Variety" }, value: { tr: "Enterdonat / Lamas", en: "Enterdonat / Lamas" } },
-      { label: { tr: "Kalibre", en: "Caliber" }, value: { tr: "Placeholder", en: "Placeholder" } },
-      { label: { tr: "Sezon", en: "Season" }, value: { tr: "Sonbahar – İlkbahar", en: "Autumn – Spring" } }
+      { label: { tr: "Kalibre", en: "Caliber" }, value: "45 / 54 / 63 / 72 / 80 / 88" },
+      { label: { tr: "Sezon", en: "Season" }, value: { tr: "Eylül-Nisan", en: "September-April" } }
     ],
     tags: ["narenciye", "limon", "ihracat"]
   },
@@ -301,11 +450,26 @@ export const products: Product[] = [
     image: "/images/categories/narenciye.svg",
     gallery: ["/images/categories/narenciye.svg"],
     packageOptions: [PKG.koli, PKG.palet],
-    certificates: [CERT.mense, CERT.izleme],
+    certificates: [CERT.mense, CERT.izleme, CERT.globalgap],
+    exportSpecs: {
+      varieties: "Star Ruby",
+      seasonMonths: [11, 12, 1, 2, 3],
+      caliber: "32 / 36 / 40 / 45 / 48 / 56",
+      brix: { tr: "9-11 Brix (renk ve sululuk kontrolüyle)", en: "9-11 Brix (with colour and juice checks)" },
+      packaging: { tr: "15 kg teleskopik koli", en: "15 kg telescopic box" },
+      moq: { tr: "5 ton deneme yükü / karma konteyner", en: "5 t trial load / mixed container" },
+      containerLoad: { tr: "20-22 ton / 40ft reefer", en: "20-22 t / 40ft reefer" },
+      coldChain: "8-10°C",
+      shelfLife: { tr: "45-60 gün partiye göre", en: "45-60 days depending on lot" },
+      hsCode: "0805.40",
+      incoterms: [...DEFAULT_INCOTERMS],
+      loadingPort: { tr: "Mersin Limanı", en: "Port of Mersin" },
+      note: { tr: "Kırmızı et rengi ve kabuk temizliği parti fotoğrafıyla paylaşılır.", en: "Red flesh colour and peel quality are shared with lot photos." }
+    },
     specs: [
       { label: { tr: "Çeşit", en: "Variety" }, value: "Star Ruby" },
-      { label: { tr: "Kalibre", en: "Caliber" }, value: { tr: "Placeholder", en: "Placeholder" } },
-      { label: { tr: "Sezon", en: "Season" }, value: { tr: "Kış", en: "Winter" } }
+      { label: { tr: "Kalibre", en: "Caliber" }, value: "32 / 36 / 40 / 45 / 48 / 56" },
+      { label: { tr: "Sezon", en: "Season" }, value: { tr: "Kasım-Mart", en: "November-March" } }
     ],
     tags: ["narenciye", "greyfurt", "ihracat"]
   },
@@ -325,10 +489,25 @@ export const products: Product[] = [
     gallery: ["/images/categories/kavun.svg", "/images/hero/hero-3.svg"],
     packageOptions: [PKG.koli, PKG.palet, PKG.dokme],
     certificates: [CERT.mense, CERT.izleme],
+    exportSpecs: {
+      varieties: { tr: "Kırkağaç", en: "Kırkağaç" },
+      seasonMonths: [5, 6, 7, 8, 9],
+      caliber: { tr: "1.5-3.5 kg/adet", en: "1.5-3.5 kg/piece" },
+      brix: { tr: "10-13 Brix (olgunluk kontrolüyle)", en: "10-13 Brix (with ripeness check)" },
+      packaging: { tr: "Dökme kasa, karton koli veya paletli yükleme", en: "Bulk crate, carton box, or palletized loading" },
+      moq: { tr: "3 ton deneme yükü / sezon kontratı", en: "3 t trial load / seasonal contract" },
+      containerLoad: { tr: "18-20 ton / 40ft reefer", en: "18-20 t / 40ft reefer" },
+      coldChain: "7-10°C",
+      shelfLife: { tr: "20-35 gün olgunluk sınıfına göre", en: "20-35 days depending on ripeness class" },
+      hsCode: "0807.19",
+      incoterms: [...DEFAULT_INCOTERMS],
+      loadingPort: { tr: "Mersin Limanı", en: "Port of Mersin" },
+      note: { tr: "Olgunluk sınıfı yükleme öncesi fotoğraf ve parti notuyla bildirilir.", en: "Ripeness class is shared with pre-loading photos and lot notes." }
+    },
     specs: [
       { label: { tr: "Çeşit", en: "Variety" }, value: { tr: "Kırkağaç", en: "Kırkağaç" } },
-      { label: { tr: "Ağırlık", en: "Weight" }, value: { tr: "Placeholder", en: "Placeholder" } },
-      { label: { tr: "Sezon", en: "Season" }, value: { tr: "Yaz", en: "Summer" } }
+      { label: { tr: "Ağırlık", en: "Weight" }, value: { tr: "1.5-3.5 kg/adet", en: "1.5-3.5 kg/piece" } },
+      { label: { tr: "Sezon", en: "Season" }, value: { tr: "Mayıs-Eylül", en: "May-September" } }
     ],
     tags: ["kavun", "kırkağaç"]
   },
@@ -347,11 +526,26 @@ export const products: Product[] = [
     image: "/images/categories/kavun.svg",
     gallery: ["/images/categories/kavun.svg"],
     packageOptions: [PKG.koli, PKG.palet, PKG.dokme],
-    certificates: [CERT.mense],
+    certificates: [CERT.mense, CERT.izleme],
+    exportSpecs: {
+      varieties: { tr: "Altınbaş", en: "Altınbaş" },
+      seasonMonths: [6, 7, 8, 9],
+      caliber: { tr: "1.2-3 kg/adet", en: "1.2-3 kg/piece" },
+      brix: { tr: "10-12 Brix (olgunluk kontrolüyle)", en: "10-12 Brix (with ripeness check)" },
+      packaging: { tr: "Karton koli, dökme kasa veya palet", en: "Carton box, bulk crate, or pallet" },
+      moq: { tr: "3 ton deneme yükü / sezon kontratı", en: "3 t trial load / seasonal contract" },
+      containerLoad: { tr: "18-20 ton / 40ft reefer", en: "18-20 t / 40ft reefer" },
+      coldChain: "7-10°C",
+      shelfLife: { tr: "18-30 gün partiye göre", en: "18-30 days depending on lot" },
+      hsCode: "0807.19",
+      incoterms: [...DEFAULT_INCOTERMS],
+      loadingPort: { tr: "Mersin Limanı", en: "Port of Mersin" },
+      note: { tr: "Tatlılık ve kabuk dayanımı yükleme öncesi kontrol edilir.", en: "Sweetness and rind durability are checked before loading." }
+    },
     specs: [
       { label: { tr: "Çeşit", en: "Variety" }, value: { tr: "Altınbaş", en: "Altınbaş" } },
-      { label: { tr: "Ağırlık", en: "Weight" }, value: { tr: "Placeholder", en: "Placeholder" } },
-      { label: { tr: "Sezon", en: "Season" }, value: { tr: "Yaz", en: "Summer" } }
+      { label: { tr: "Ağırlık", en: "Weight" }, value: { tr: "1.2-3 kg/adet", en: "1.2-3 kg/piece" } },
+      { label: { tr: "Sezon", en: "Season" }, value: { tr: "Haziran-Eylül", en: "June-September" } }
     ],
     tags: ["kavun", "altınbaş"]
   },
@@ -371,10 +565,25 @@ export const products: Product[] = [
     gallery: ["/images/categories/karpuz.svg", "/images/hero/hero-1.svg"],
     packageOptions: [PKG.dokme, PKG.palet, PKG.sozlesmeli],
     certificates: [CERT.mense, CERT.izleme],
+    exportSpecs: {
+      varieties: { tr: "Crimson / Kara karpuz", en: "Crimson / Dark watermelon" },
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      caliber: { tr: "6-12 kg/adet", en: "6-12 kg/piece" },
+      brix: { tr: "10-12 Brix (kesim kontrolüyle)", en: "10-12 Brix (with cut-sample check)" },
+      packaging: { tr: "Dökme kasa, palet veya file opsiyonlu", en: "Bulk crate, pallet, or net option" },
+      moq: { tr: "5 ton deneme yükü / tam tır", en: "5 t trial load / full truck" },
+      containerLoad: { tr: "21-24 ton / 40ft reefer", en: "21-24 t / 40ft reefer" },
+      coldChain: "7-10°C",
+      shelfLife: { tr: "18-28 gün olgunluk sınıfına göre", en: "18-28 days depending on ripeness class" },
+      hsCode: "0807.11",
+      incoterms: [...DEFAULT_INCOTERMS],
+      loadingPort: { tr: "Mersin Limanı", en: "Port of Mersin" },
+      note: { tr: "Ağırlık sınıfı ve kesim numunesi yükleme öncesi paylaşılır.", en: "Weight class and cut sample are shared before loading." }
+    },
     specs: [
       { label: { tr: "Çeşit", en: "Variety" }, value: { tr: "Crimson / Kara karpuz", en: "Crimson / Dark watermelon" } },
-      { label: { tr: "Ağırlık", en: "Weight" }, value: { tr: "Placeholder", en: "Placeholder" } },
-      { label: { tr: "Sezon", en: "Season" }, value: { tr: "Yaz", en: "Summer" } }
+      { label: { tr: "Ağırlık", en: "Weight" }, value: { tr: "6-12 kg/adet", en: "6-12 kg/piece" } },
+      { label: { tr: "Sezon", en: "Season" }, value: { tr: "Nisan-Eylül", en: "April-September" } }
     ],
     tags: ["karpuz", "yaz"]
   },
@@ -393,11 +602,26 @@ export const products: Product[] = [
     image: "/images/categories/karpuz.svg",
     gallery: ["/images/categories/karpuz.svg"],
     packageOptions: [PKG.koli, PKG.palet],
-    certificates: [CERT.mense],
+    certificates: [CERT.mense, CERT.izleme],
+    exportSpecs: {
+      varieties: { tr: "Mini / personal size", en: "Mini / personal size" },
+      seasonMonths: [5, 6, 7, 8, 9],
+      caliber: { tr: "1.5-3 kg/adet", en: "1.5-3 kg/piece" },
+      brix: { tr: "10-12 Brix (kesim kontrolüyle)", en: "10-12 Brix (with cut-sample check)" },
+      packaging: { tr: "Karton koli veya market kasası", en: "Carton box or retail crate" },
+      moq: { tr: "3 ton deneme yükü / perakende parti", en: "3 t trial load / retail lot" },
+      containerLoad: { tr: "18-21 ton / 40ft reefer", en: "18-21 t / 40ft reefer" },
+      coldChain: "7-10°C",
+      shelfLife: { tr: "14-24 gün olgunluk sınıfına göre", en: "14-24 days depending on ripeness class" },
+      hsCode: "0807.11",
+      incoterms: [...DEFAULT_INCOTERMS],
+      loadingPort: { tr: "Mersin Limanı", en: "Port of Mersin" },
+      note: { tr: "Market raf standardı için adet/koli bilgisi talebe göre netleşir.", en: "Pieces per box for retail shelf standards are confirmed on request." }
+    },
     specs: [
       { label: { tr: "Çeşit", en: "Variety" }, value: { tr: "Mini", en: "Mini" } },
-      { label: { tr: "Ağırlık", en: "Weight" }, value: { tr: "Placeholder", en: "Placeholder" } },
-      { label: { tr: "Sezon", en: "Season" }, value: { tr: "Yaz", en: "Summer" } }
+      { label: { tr: "Ağırlık", en: "Weight" }, value: { tr: "1.5-3 kg/adet", en: "1.5-3 kg/piece" } },
+      { label: { tr: "Sezon", en: "Season" }, value: { tr: "Mayıs-Eylül", en: "May-September" } }
     ],
     tags: ["karpuz", "market"]
   }
@@ -456,12 +680,12 @@ export const stats: Stat[] = [
 ];
 
 export const certifications: I18nText[] = [
-  { tr: "Gıda Güvenliği", en: "Food Safety" },
-  { tr: "Soğuk Zincir", en: "Cold Chain" },
-  { tr: "İzlenebilir Üretim", en: "Traceable Production" },
-  { tr: "İhracat Uygunluğu", en: "Export Compliance" },
-  { tr: "Menşe Belgesi", en: "Certificate of Origin" },
-  { tr: "Kalite Kontrol", en: "Quality Control" }
+  { tr: "GLOBALG.A.P dosyası", en: "GLOBALG.A.P file" },
+  { tr: "GRASP sosyal uygunluk", en: "GRASP social compliance" },
+  { tr: "ISO 22000 gıda güvenliği", en: "ISO 22000 food safety" },
+  { tr: "BRCGS / IFS hazırlığı", en: "BRCGS / IFS readiness" },
+  { tr: "SMETA / SEDEX hazırlığı", en: "SMETA / SEDEX readiness" },
+  { tr: "Menşe ve parti izlenebilirlik", en: "Origin and batch traceability" }
 ];
 
 export const exportPoints = [
@@ -537,6 +761,7 @@ export const productionLinks: NavLink[] = [
   { title: { tr: "Sertifikalar", en: "Certifications" }, href: "/uretim/sertifikalar", icon: Award },
   { title: { tr: "Tesis & Paketleme", en: "Facility & Packing" }, href: "/uretim/tesis", icon: Warehouse },
   { title: { tr: "Soğuk Zincir & Kapasite", en: "Cold Chain & Capacity" }, href: "/uretim/kapasite", icon: Snowflake },
+  { title: { tr: "Sezon Takvimi", en: "Season Calendar" }, href: "/uretim/sezon-takvimi", icon: CalendarDays },
   { title: { tr: "Lojistik", en: "Logistics" }, href: "/uretim/lojistik", icon: Ship }
 ];
 

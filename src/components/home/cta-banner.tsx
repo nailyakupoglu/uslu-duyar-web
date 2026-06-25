@@ -3,10 +3,12 @@ import { Mail, MessageCircle, Phone } from "lucide-react";
 import { getLocale } from "next-intl/server";
 
 import { Button } from "@/components/ui/button";
-import { siteConfig } from "@/lib/data";
+import { phoneHref, rfqWhatsappMessage, whatsappHref } from "@/lib/contact-channels";
 
 export async function CtaBanner() {
   const locale = await getLocale();
+  const phone = phoneHref();
+  const whatsapp = whatsappHref(rfqWhatsappMessage(locale, "CTA"));
   return (
     <section className="bg-cream pb-20">
       <div className="container">
@@ -24,18 +26,22 @@ export async function CtaBanner() {
                   {locale === "en" ? "Send Form" : "Form Gönder"}
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="xl">
-                <Link href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}>
-                  <Phone className="h-5 w-5" />
-                  {locale === "en" ? "Phone" : "Telefon"}
-                </Link>
-              </Button>
-              <Button asChild variant="ghost" size="xl">
-                <Link href={`https://wa.me/${siteConfig.whatsapp.replace(/\D/g, "")}`} target="_blank">
-                  <MessageCircle className="h-5 w-5" />
-                  WhatsApp
-                </Link>
-              </Button>
+              {phone ? (
+                <Button asChild variant="outline" size="xl">
+                  <a href={phone}>
+                    <Phone className="h-5 w-5" />
+                    {locale === "en" ? "Phone" : "Telefon"}
+                  </a>
+                </Button>
+              ) : null}
+              {whatsapp ? (
+                <Button asChild variant="ghost" size="xl">
+                  <a href={whatsapp} target="_blank" rel="noreferrer">
+                    <MessageCircle className="h-5 w-5" />
+                    WhatsApp
+                  </a>
+                </Button>
+              ) : null}
             </div>
           </div>
         </div>

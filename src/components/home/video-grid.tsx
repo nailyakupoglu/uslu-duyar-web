@@ -14,7 +14,7 @@ import {
   DialogTrigger
 } from "@/components/ui/dialog";
 import { SectionHeading } from "@/components/shared/section-heading";
-import { getVideos } from "@/lib/manifest-reader";
+import { getVideos, mediaText } from "@/lib/manifest-reader";
 
 const videos = getVideos(6);
 
@@ -41,11 +41,11 @@ export function VideoGrid() {
                 <button
                   type="button"
                   className="group relative aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-white/5"
-                  aria-label={locale === "en" ? `Play video: ${video.caption}` : `${video.caption} videosunu oynat`}
+                  aria-label={locale === "en" ? `Play video: ${mediaText(video, locale)}` : `${mediaText(video, locale)} videosunu oynat`}
                 >
                   <Image
                     src={video.thumb}
-                    alt={video.caption}
+                    alt={mediaText(video, locale, "alt")}
                     fill
                     sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                     className="object-cover transition duration-700 group-hover:scale-105"
@@ -55,12 +55,12 @@ export function VideoGrid() {
                     <Play className="h-6 w-6 translate-x-0.5" />
                   </span>
                   <span className="absolute inset-x-0 bottom-0 p-4 text-left text-sm font-medium text-white/85">
-                    {video.caption}
+                    {mediaText(video, locale)}
                   </span>
                 </button>
               </DialogTrigger>
               <DialogContent className="max-w-3xl border-none bg-ink p-2">
-                <DialogTitle className="sr-only">{video.caption}</DialogTitle>
+                <DialogTitle className="sr-only">{mediaText(video, locale)}</DialogTitle>
                 <video
                   src={video.src}
                   poster={video.thumb}

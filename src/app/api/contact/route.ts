@@ -11,7 +11,32 @@ import { siteConfig } from "@/lib/data";
 
 export const runtime = "nodejs";
 
+const RATE_LIMIT_WINDOW_MS = 60_000;
+const RATE_LIMIT_MAX = 5;
+const buckets = new Map<string, { count: number; resetAt: number }>();
+
+function clientKey(request: Request): string {
+  const forwarded = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
+  return forwarded || request.headers.get("cf-connecting-ip") || request.headers.get("x-real-ip") || "unknown";
+}
+
+function isRateLimited(key: string): boolean {
+  const now = Date.now();
+  const current = buckets.get(key);
+  if (!current || current.resetAt < now) {
+    buckets.set(key, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return false;
+  }
+  current.count += 1;
+  return current.count > RATE_LIMIT_MAX;
+}
+
 export async function POST(request: Request) {
+  const key = clientKey(request);
+  if (isRateLimited(key)) {
+    return NextResponse.json({ ok: false, error: "rate_limited" }, { status: 429 });
+  }
+
   let payload: unknown;
   try {
     payload = await request.json();
@@ -35,13 +60,18 @@ export async function POST(request: Request) {
   }
 
   const webhook = process.env.N8N_CONTACT_WEBHOOK_URL;
+  const webhookSecret = process.env.N8N_CONTACT_WEBHOOK_SECRET;
   const to = process.env.CONTACT_TO_EMAIL ?? siteConfig.email;
 
   if (webhook) {
     try {
+      const headers: Record<string, string> = { "Content-Type": "application/json" };
+      if (webhookSecret) {
+        headers["X-Webhook-Secret"] = webhookSecret;
+      }
       const res = await fetch(webhook, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers,
         body: JSON.stringify({
           source: "usluduyar-web",
           to,

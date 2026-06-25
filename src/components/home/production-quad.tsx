@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { ArrowUpRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useLocale } from "next-intl";
 
 import { SectionHeading } from "@/components/shared/section-heading";
@@ -11,22 +11,23 @@ import { getProductionHighlightsL } from "@/lib/content";
 
 export function ProductionQuad() {
   const locale = useLocale();
+  const reduceMotion = useReducedMotion();
   const productionHighlights = getProductionHighlightsL(locale);
   return (
     <section className="section-padding bg-primary-900 text-white">
       <div className="container">
         <SectionHeading
           eyebrow={locale === "en" ? "Production strength" : "Üretim gücü"}
-          title={locale === "en" ? "From certification to logistics, four critical operations in one flow." : "Sertifikadan lojistiğe dört kritik operasyon tek akışta."}
-          description={locale === "en" ? "A clear corporate narrative adapting four critical operations — from harvest to sizing, cold chain to export — to Mersin's fresh produce production." : "Hasattan boylamaya, soğuk zincirden ihracata uzanan dört kritik operasyonu Mersin'in taze ürün üretimine uyarlayan net bir kurumsal anlatı."}
+          title={locale === "en" ? "From certification to season planning, every operation is visible." : "Sertifikadan sezon planına, her operasyon görünür."}
+          description={locale === "en" ? "A clear corporate narrative connecting harvest, grading, cold chain, season windows and export logistics in one buyer-ready flow." : "Hasat, boylama, soğuk zincir, sezon penceresi ve ihracat lojistiğini alıcıya hazır tek akışta birleştiren net kurumsal anlatı."}
           className="text-white [&_h2]:text-white [&_p]:text-white/68"
         />
         <div className="mt-12 grid gap-5 md:grid-cols-2">
           {productionHighlights.map((item, index) => (
             <motion.article
               key={item.title}
-              initial={{ opacity: 0, y: 36 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 36 }}
+              whileInView={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, delay: index * 0.08 }}
               className="group relative min-h-[360px] overflow-hidden rounded-lg"

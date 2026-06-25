@@ -76,7 +76,7 @@ export const contactSchema = z.object({
   message: z.string().min(10, "Lütfen en az 10 karakterlik bir mesaj yazın.").max(4000),
 
   // Honeypot — botlar doldurur, insanlar görmez.
-  website: z.string().max(0).optional().or(z.literal("")),
+  website: z.string().max(200).optional().or(z.literal("")),
 });
 
 export type ContactInput = z.infer<typeof contactSchema>;

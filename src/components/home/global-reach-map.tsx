@@ -14,8 +14,8 @@ export async function GlobalReachMap() {
           <h2 className="mt-5 font-display text-5xl font-semibold leading-tight text-balance">{locale === "en" ? "From Mersin to the port, from the port to the destination market." : "Mersin'den limana, limandan hedef pazara."}</h2>
           <p className="mt-5 text-lg leading-8 text-white/68">
             {locale === "en"
-              ? "The routes on the map are placeholders. Once the operator confirms the export countries, they will be converted into a country and port based list."
-              : "Harita üzerindeki rotalar placeholder'dır. Operatör ihracat ülkelerini onayladığında ülke ve liman bazlı listeye çevrilecek."}
+              ? "The routes are indicative planning lanes. Once export countries are confirmed, they will become a country and port based list."
+              : "Rotalar planlama amaçlı gösterilir. İhracat ülkeleri onaylandığında ülke ve liman bazlı listeye çevrilecek."}
           </p>
         </div>
         <div className="rounded-lg border border-white/10 bg-white/6 p-4 shadow-2xl">

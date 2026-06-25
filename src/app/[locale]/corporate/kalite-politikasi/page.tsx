@@ -11,10 +11,10 @@ import { Breadcrumb } from "@/components/shared/breadcrumb";
 import { PageHero } from "@/components/shared/page-hero";
 import { CertBadge } from "@/components/shared/cert-badge";
 import { getCertificationsL } from "@/lib/content";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
 export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
-  return buildMetadata({
+  return buildMetadataForLocale(locale, {
     title: locale === "en" ? "Quality Policy" : "Kalite Politikası",
     description:
       locale === "en"
@@ -85,7 +85,7 @@ export default function QualityPolicyPage({ params: { locale } }: { params: { lo
           </p>
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
             {certifications.map((cert) => (
-              <CertBadge key={cert} name={cert} />
+              <CertBadge key={cert} name={cert} locale={locale} />
             ))}
           </div>
           <Link

@@ -3,12 +3,12 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-semibold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-semibold ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
@@ -16,6 +16,8 @@ const buttonVariants = cva(
         accent: "bg-accent-500 text-ink hover:bg-accent-700 hover:text-white",
         ghost: "bg-transparent text-current hover:bg-white/14",
         outline: "border border-primary-700/25 bg-white/70 text-primary-900 hover:bg-primary-50",
+        export: "border border-white/16 bg-white/10 text-white backdrop-blur-xl hover:bg-white/18",
+        steel: "bg-port-900 text-white hover:bg-port-700",
         link: "h-auto p-0 text-primary-700 underline-offset-4 hover:underline"
       },
       size: {
@@ -48,13 +50,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const springY = useSpring(y, { stiffness: 220, damping: 18 });
     const translateX = useTransform(springX, (value) => value / 7);
     const translateY = useTransform(springY, (value) => value / 7);
+    const reduceMotion = useReducedMotion();
 
     const button = (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         onMouseMove={(event) => {
-          if (magnetic) {
+          if (magnetic && !reduceMotion) {
             const rect = event.currentTarget.getBoundingClientRect();
             x.set(event.clientX - rect.left - rect.width / 2);
             y.set(event.clientY - rect.top - rect.height / 2);
@@ -70,7 +73,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       />
     );
 
-    if (!magnetic) {
+    if (!magnetic || reduceMotion) {
       return button;
     }
 

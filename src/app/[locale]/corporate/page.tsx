@@ -11,10 +11,10 @@ import { Breadcrumb } from "@/components/shared/breadcrumb";
 import { PageHero } from "@/components/shared/page-hero";
 import { RevealOnScroll } from "@/components/motion/reveal-on-scroll";
 import { getCorporateLinksL, getTimelineL } from "@/lib/content";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
 export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
-  return buildMetadata({
+  return buildMetadataForLocale(locale, {
     title: locale === "en" ? "Corporate" : "Kurumsal",
     description:
       locale === "en"

@@ -13,10 +13,10 @@ import { PageHero } from "@/components/shared/page-hero";
 import { StatsCounter } from "@/components/home/stats-counter";
 import { RevealOnScroll } from "@/components/motion/reveal-on-scroll";
 import { getProductionHighlightsL } from "@/lib/content";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
 export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
-  return buildMetadata({
+  return buildMetadataForLocale(locale, {
     title: locale === "en" ? "Production" : "Üretim",
     description:
       locale === "en"
@@ -57,10 +57,10 @@ export default function ProductionPage({ params: { locale } }: { params: { local
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-900/35 to-transparent" />
               <div className="relative z-10 p-7 text-white">
-                <item.icon className="h-7 w-7 text-accent-500" />
+                <item.icon className="h-7 w-7 text-accent-700" />
                 <h2 className="mt-3 font-display text-2xl font-semibold">{item.title}</h2>
                 <p className="mt-2 max-w-md text-sm leading-6 text-white/75">{item.description}</p>
-                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent-500">
+                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent-700">
                   {locale === "en" ? "Explore" : "İncele"} <ArrowUpRight className="h-4 w-4" />
                 </span>
               </div>

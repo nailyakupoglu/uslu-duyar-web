@@ -44,7 +44,15 @@
   }
 
   .premium-card {
-    @apply rounded-lg border border-white/70 bg-white/78 shadow-[0_22px_55px_rgba(14,14,14,0.08)] backdrop-blur-xl;
+    @apply rounded-lg border border-line-soft bg-white/82 shadow-[0_22px_55px_rgba(14,14,14,0.08)] backdrop-blur-xl;
+  }
+
+  .export-panel {
+    @apply rounded-lg border border-line-soft bg-surface-export shadow-[0_24px_60px_rgba(16,38,51,0.10)];
+  }
+
+  .spec-mono {
+    @apply font-mono text-[0.8rem] font-semibold uppercase tracking-[0.14em];
   }
 
   .text-balance {

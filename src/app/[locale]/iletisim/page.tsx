@@ -9,6 +9,8 @@ import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Breadcrumb } from "@/components/shared/breadcrumb";
 import { PageHero } from "@/components/shared/page-hero";
 import { ContactForm } from "@/components/shared/contact-form";
+import { LegalTrustBlock } from "@/components/shared/legal-trust-block";
+import { phoneHref, rfqWhatsappMessage, whatsappHref } from "@/lib/contact-channels";
 import { siteConfig } from "@/lib/data";
 import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
@@ -23,9 +25,9 @@ export function generateMetadata({ params: { locale } }: { params: { locale: str
   });
 }
 
-const whatsappHref = `https://wa.me/${siteConfig.whatsapp.replace(/[^0-9]/g, "")}`;
-
 export default function ContactPage({ params: { locale } }: { params: { locale: string } }) {
+  const phone = phoneHref();
+  const whatsapp = whatsappHref(rfqWhatsappMessage(locale, "contact page"));
   return (
     <>
       <Breadcrumb items={[{ label: locale === "en" ? "Contact" : "İletişim" }]} />
@@ -41,16 +43,18 @@ export default function ContactPage({ params: { locale } }: { params: { locale: 
 
       <section className="container grid gap-12 py-20 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
         <div className="space-y-4">
-          <a
-            href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
-            className="flex items-start gap-4 rounded-lg border border-primary-900/10 bg-white p-5 transition hover:border-primary-500"
-          >
-            <Phone className="mt-0.5 h-5 w-5 text-primary-700" />
-            <span>
-              <span className="block text-sm font-semibold text-ink">{locale === "en" ? "Phone" : "Telefon"}</span>
-              <span className="text-sm text-ink/65">{siteConfig.phone}</span>
-            </span>
-          </a>
+          {phone ? (
+            <a
+              href={phone}
+              className="flex items-start gap-4 rounded-lg border border-primary-900/10 bg-white p-5 transition hover:border-primary-500"
+            >
+              <Phone className="mt-0.5 h-5 w-5 text-primary-700" />
+              <span>
+                <span className="block text-sm font-semibold text-ink">{locale === "en" ? "Phone" : "Telefon"}</span>
+                <span className="text-sm text-ink/65">{siteConfig.phone}</span>
+              </span>
+            </a>
+          ) : null}
           <a
             href={`mailto:${siteConfig.email}`}
             className="flex items-start gap-4 rounded-lg border border-primary-900/10 bg-white p-5 transition hover:border-primary-500"
@@ -61,18 +65,20 @@ export default function ContactPage({ params: { locale } }: { params: { locale: 
               <span className="text-sm text-ink/65">{siteConfig.email}</span>
             </span>
           </a>
-          <a
-            href={whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-start gap-4 rounded-lg border border-primary-900/10 bg-white p-5 transition hover:border-primary-500"
-          >
-            <MessageCircle className="mt-0.5 h-5 w-5 text-primary-700" />
-            <span>
-              <span className="block text-sm font-semibold text-ink">WhatsApp</span>
-              <span className="text-sm text-ink/65">{siteConfig.whatsapp}</span>
-            </span>
-          </a>
+          {whatsapp ? (
+            <a
+              href={whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-4 rounded-lg border border-primary-900/10 bg-white p-5 transition hover:border-primary-500"
+            >
+              <MessageCircle className="mt-0.5 h-5 w-5 text-primary-700" />
+              <span>
+                <span className="block text-sm font-semibold text-ink">WhatsApp</span>
+                <span className="text-sm text-ink/65">{siteConfig.whatsapp}</span>
+              </span>
+            </a>
+          ) : null}
           <div className="flex items-start gap-4 rounded-lg border border-primary-900/10 bg-white p-5">
             <MapPin className="mt-0.5 h-5 w-5 text-primary-700" />
             <span>
@@ -80,9 +86,10 @@ export default function ContactPage({ params: { locale } }: { params: { locale: 
               <span className="text-sm text-ink/65">{siteConfig.address}</span>
             </span>
           </div>
+          <LegalTrustBlock locale={locale} />
         </div>
 
-        <div className="rounded-2xl border border-primary-900/10 bg-white p-7 shadow-[0_24px_50px_-30px_rgba(50,50,93,0.35)] md:p-9">
+        <div className="rounded-lg border border-primary-900/10 bg-white p-7 shadow-[0_24px_50px_-30px_rgba(50,50,93,0.35)] md:p-9">
           <h2 className="font-display text-2xl font-semibold text-ink">
             {locale === "en" ? "Write to Us" : "Bize Yazın"}
           </h2>

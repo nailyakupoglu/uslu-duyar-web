@@ -15,7 +15,7 @@ export function SectionHeading({ eyebrow, title, description, align = "left", cl
     <div className={cn("max-w-3xl", align === "center" && "mx-auto text-center", className)}>
       {eyebrow ? (
         <p className={cn("mb-4 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-primary-700", align === "center" && "justify-center")}>
-          <Leaf className="h-4 w-4 text-accent-500" />
+          <Leaf className="h-4 w-4 text-accent-700" />
           {eyebrow}
         </p>
       ) : null}

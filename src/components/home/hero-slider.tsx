@@ -5,13 +5,13 @@ import Image from "next/image";
 import { ArrowDown, ArrowRight } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useLocale } from "next-intl";
 import { useCallback, useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { getHeroSlidesL } from "@/lib/content";
-import { getHeroes } from "@/lib/manifest-reader";
+import { getHeroes, getVideos, type MediaItem } from "@/lib/manifest-reader";
 
 const titleVariant = {
   hidden: { opacity: 0, y: 26 },
@@ -24,11 +24,13 @@ const titleVariant = {
 
 export function HeroSlider() {
   const locale = useLocale();
+  const reduceMotion = useReducedMotion();
   // Hero metinleri locale'e göre çözülür, görseller manifest'teki gerçek hero fotoğraflarından (yetmezse SVG fallback).
-  const photos = getHeroes(4);
+  const photos = getHeroes(5);
+  const videos = getVideos(2);
   const slides = getHeroSlidesL(locale).map((slide, index) => ({
     ...slide,
-    image: photos[index]?.src ?? slide.image
+    media: pickHeroMedia(index, photos, videos, slide.image)
   }));
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 6500, stopOnInteraction: false })]);
   const [selected, setSelected] = useState(0);
@@ -55,17 +57,31 @@ export function HeroSlider() {
             <div className="relative h-full min-w-0 flex-[0_0_100%]" key={slide.title}>
               <motion.div
                 className="absolute inset-0"
-                animate={selected === index ? { scale: [1, 1.08] } : { scale: 1 }}
+                animate={!reduceMotion && selected === index ? { scale: [1, 1.08] } : { scale: 1 }}
                 transition={{ duration: 12, ease: "linear" }}
               >
-                <Image
-                  src={slide.image}
-                  alt={slide.title}
-                  fill
-                  priority={index === 0}
-                  sizes="100vw"
-                  className="object-cover"
-                />
+                {slide.media.type === "video" && !reduceMotion ? (
+                  <video
+                    className="h-full w-full object-cover"
+                    src={slide.media.src}
+                    poster={slide.media.thumb}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload={index === 0 ? "auto" : "metadata"}
+                    aria-label={slide.title}
+                  />
+                ) : (
+                  <Image
+                    src={slide.media.type === "video" ? slide.media.thumb : slide.media.src}
+                    alt={slide.title}
+                    fill
+                    priority={index === 0}
+                    sizes="100vw"
+                    className="object-cover"
+                  />
+                )}
               </motion.div>
               <div className="absolute inset-0 bg-gradient-to-r from-primary-900/86 via-ink/58 to-ink/18" />
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(212,160,23,0.22),transparent_28%)]" />
@@ -129,7 +145,7 @@ export function HeroSlider() {
       </div>
 
       <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center text-white/72">
-        <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 1.6, repeat: Infinity }} className="inline-flex flex-col items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em]">
+        <motion.div animate={reduceMotion ? undefined : { y: [0, 10, 0] }} transition={{ duration: 1.6, repeat: Infinity }} className="inline-flex flex-col items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em]">
           {locale === "en" ? "Scroll Down" : "Aşağı Kaydır"}
           <ArrowDown className="h-5 w-5" />
         </motion.div>
@@ -148,6 +164,20 @@ export function HeroSlider() {
       </div>
     </section>
   );
+}
+
+function pickHeroMedia(
+  index: number,
+  photos: MediaItem[],
+  videos: MediaItem[],
+  fallback: string
+): Pick<MediaItem, "type" | "src" | "thumb"> {
+  const video = index === 2 ? videos[0] : index === 4 ? videos[1] : undefined;
+  if (video) {
+    return { type: "video", src: video.src, thumb: video.thumb };
+  }
+  const photo = photos[index] ?? photos[0];
+  return { type: "photo", src: photo?.src ?? fallback, thumb: photo?.thumb ?? fallback };
 }
 
 function FloatingParticles() {

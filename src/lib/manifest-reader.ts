@@ -24,6 +24,9 @@ export type MediaItem = {
   width: number;
   height: number;
   caption: string;
+  captionEn: string;
+  alt: string;
+  altEn: string;
   category: MediaCategory | null;
   hero: boolean;
   quality: number;
@@ -42,6 +45,8 @@ type RawItem = {
   category: string | null;
   caption: string | null;
   captionEn?: string | null;
+  alt?: string | null;
+  altEn?: string | null;
   hero?: boolean;
   quality?: number;
   durationSec?: number;
@@ -59,6 +64,9 @@ function toItem(r: RawItem): MediaItem {
     width: r.width || (isVideo ? 1280 : 1200),
     height: r.height || (isVideo ? 720 : 1600),
     caption: r.caption ?? "Uslu Duyar",
+    captionEn: r.captionEn ?? r.caption ?? "Uslu Duyar",
+    alt: r.alt ?? r.caption ?? "Uslu Duyar",
+    altEn: r.altEn ?? r.captionEn ?? r.caption ?? "Uslu Duyar",
     category: (r.category as MediaCategory | null) ?? null,
     hero: Boolean(r.hero),
     quality: r.quality ?? 3,
@@ -109,8 +117,16 @@ export function getFacilityGallery(limit = 12): MediaItem[] {
     .slice(0, limit);
 }
 
-/** Bir kategori için en kaliteli görselin src'si; yoksa fallback (SVG placeholder). */
+/** Bir kategori için en kaliteli görselin src'si; yoksa fallback (SVG yedek görsel). */
 export function getCategoryCover(category: MediaCategory, fallback: string): string {
   const first = getByCategory(category, 1)[0];
   return first ? first.src : fallback;
+}
+
+/** Locale'e göre medya caption/alt metnini döndürür. */
+export function mediaText(item: Pick<MediaItem, "caption" | "captionEn" | "alt" | "altEn">, locale: string, kind: "caption" | "alt" = "caption"): string {
+  if (locale === "en") {
+    return kind === "alt" ? item.altEn : item.captionEn;
+  }
+  return kind === "alt" ? item.alt : item.caption;
 }

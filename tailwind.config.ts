@@ -55,7 +55,37 @@ const config = {
           500: "#8B5A2B",
           700: "#5C3A18"
         },
+        port: {
+          50: "#EDF3F6",
+          500: "#4D6875",
+          700: "#253F4B",
+          900: "#102633"
+        },
+        cold: {
+          50: "#EAF6FB",
+          500: "#3F9EC4",
+          700: "#176D91",
+          900: "#0D3F54"
+        },
+        harvest: {
+          50: "#FBF2D7",
+          500: "#D4A017",
+          700: "#9C6F08"
+        },
+        ripe: {
+          50: "#FCE9E6",
+          500: "#C0392B",
+          700: "#8B2820"
+        },
+        trust: {
+          50: "#E8F4EF",
+          500: "#2F7D62",
+          700: "#155640"
+        },
         cream: "#FAF7F2",
+        "surface-field": "#F6F7F4",
+        "surface-export": "#EEF4F1",
+        "line-soft": "rgba(13, 69, 37, 0.14)",
         ink: "#161A14",
         card: {
           DEFAULT: "hsl(var(--card))",
@@ -86,7 +116,8 @@ const config = {
       backgroundImage: {
         "hero-gradient": "linear-gradient(120deg, #2E9E3A 0%, #15571E 68%, #0C3B16 100%)",
         "footer-gradient": "linear-gradient(145deg, #12551C 0%, #1F7A2A 55%, #0C3B16 100%)",
-        "cta-gradient": "linear-gradient(135deg, #ED8120 0%, #E23B33 100%)"
+        "cta-gradient": "linear-gradient(135deg, #ED8120 0%, #E23B33 100%)",
+        "export-radar": "radial-gradient(circle at 12% 18%, rgba(63, 158, 196, 0.22), transparent 26%), radial-gradient(circle at 78% 6%, rgba(212, 160, 23, 0.18), transparent 24%), linear-gradient(135deg, #102633 0%, #12551C 58%, #062818 100%)"
       },
       keyframes: {
         marquee: {

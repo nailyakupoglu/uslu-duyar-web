@@ -11,14 +11,18 @@ import { FaqAccordion } from "@/components/shared/faq-accordion";
 import { ProductExplorer } from "@/components/product/product-explorer";
 import { getProducts } from "@/lib/content";
 import { isProductCategory } from "@/lib/data";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = buildMetadata({
-  title: "Ürünler",
-  description:
-    "Uslu Duyar ürün kataloğu: narenciye (portakal, mandalina, limon, greyfurt), kavun ve karpuz. Ambalaj, sertifika ve teklif detayları.",
-  path: "/urunler"
-});
+export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
+  return buildMetadataForLocale(locale, {
+    title: locale === "en" ? "Products" : "Ürünler",
+    description:
+      locale === "en"
+        ? "Uslu Duyar product catalogue: citrus, melon and watermelon with export specs, packaging and RFQ details."
+        : "Uslu Duyar ürün kataloğu: narenciye, kavun ve karpuz için ihracat specs, ambalaj ve teklif detayları.",
+    path: "/urunler"
+  });
+}
 
 export default function ProductsPage({
   params: { locale },
@@ -37,9 +41,13 @@ export default function ProductsPage({
 
       <section className="container pb-10 pt-10">
         <SectionHeading
-          eyebrow="Ürün Kataloğu"
-          title="Tek üretim zincirinde narenciye, kavun ve karpuz"
-          description="Narenciye, kavun ve karpuz dikeylerinin tamamını parti bazlı izlenebilirlik ve ihracat uyumlu ambalajlarla sunuyoruz."
+          eyebrow={locale === "en" ? "Product catalogue" : "Ürün kataloğu"}
+          title={locale === "en" ? "Citrus, melon and watermelon with export specs." : "İhracat spec'leriyle narenciye, kavun ve karpuz."}
+          description={
+            locale === "en"
+              ? "Every card carries the first details a buyer asks for: season, calibre/weight, cold-chain plan, MOQ and loading terms."
+              : "Her kart alıcının ilk sorduğu bilgileri taşır: sezon, kalibre/ağırlık, soğuk zincir planı, MOQ ve yükleme şartları."
+          }
         />
       </section>
 
@@ -50,9 +58,9 @@ export default function ProductsPage({
       <section className="bg-primary-900 py-20 text-white">
         <div className="container grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <SectionHeading
-            eyebrow="Sıkça Sorulanlar"
-            title="Sipariş ve ihracat süreçleri"
-            description="Detaylar ürün, ambalaj ve sevkiyat tipine göre teklif aşamasında netleştirilir."
+            eyebrow={locale === "en" ? "FAQ" : "Sıkça Sorulanlar"}
+            title={locale === "en" ? "Order and export process" : "Sipariş ve ihracat süreçleri"}
+            description={locale === "en" ? "Details are confirmed by product, packaging and shipping type during RFQ." : "Detaylar ürün, ambalaj ve sevkiyat tipine göre teklif aşamasında netleştirilir."}
             className="text-white [&_h2]:text-white [&_p]:text-white/70"
           />
           <FaqAccordion />

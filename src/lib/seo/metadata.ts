@@ -28,7 +28,7 @@ export function buildMetadata({
   title,
   description,
   path = "/",
-  image = "/images/og/og-default.svg",
+  image = "/images/og/og-default.png",
   type = "website",
 }: PageMetaInput): Metadata {
   const url = `${siteConfig.url}${path}`;
@@ -82,8 +82,8 @@ export function buildMetadataForLocale(
     },
     openGraph: {
       ...base.openGraph,
+      url: `${siteConfig.url}${localizedPath}`,
       locale: isEn ? "en_US" : "tr_TR",
     },
   };
 }
-

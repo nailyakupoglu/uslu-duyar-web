@@ -18,6 +18,7 @@ const staticPaths = [
   "/uretim/sertifikalar",
   "/uretim/tesis",
   "/uretim/kapasite",
+  "/uretim/sezon-takvimi",
   "/uretim/lojistik",
   "/urunler",
   "/blog",
@@ -30,14 +31,6 @@ const staticPaths = [
 // EN karşılığı varsa (örn. /kurumsal-hakkimizda yok, sadece /corporate/hakkimizda),
 // her TR yol için EN yolunu döndürür. Yoksa null (no EN version).
 function enPathFor(trPath: string): string | null {
-  // TR'ye özel sayfalar (kvkk, gizlilik, cerez-politikasi) → EN karşılığı yok
-  if (
-    trPath === "/kvkk" ||
-    trPath === "/gizlilik" ||
-    trPath === "/cerez-politikasi"
-  ) {
-    return null;
-  }
   return `/en${trPath === "/" ? "" : trPath}`;
 }
 

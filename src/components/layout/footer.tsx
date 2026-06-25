@@ -3,7 +3,9 @@ import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react
 import { getLocale } from "next-intl/server";
 
 import { Logo } from "@/components/shared/logo";
+import { LegalTrustBlock } from "@/components/shared/legal-trust-block";
 import { getCategoriesL, getCorporateLinksL, getProductionLinksL } from "@/lib/content";
+import { phoneHref } from "@/lib/contact-channels";
 import { siteConfig } from "@/lib/data";
 import { pick } from "@/lib/utils";
 
@@ -12,6 +14,12 @@ export async function Footer() {
   const categories = getCategoriesL(locale);
   const corporateLinks = getCorporateLinksL(locale);
   const productionLinks = getProductionLinksL(locale);
+  const phone = phoneHref();
+  const socialLinks = [
+    { icon: Instagram, href: siteConfig.social.instagram, label: "Instagram" },
+    { icon: Linkedin, href: siteConfig.social.linkedin, label: "LinkedIn" },
+    { icon: Facebook, href: siteConfig.social.facebook, label: "Facebook" }
+  ].filter((item) => item.href && item.href !== "#");
 
   return (
     <footer className="bg-footer-gradient text-white">
@@ -26,10 +34,12 @@ export async function Footer() {
               <MapPin className="h-4 w-4 text-accent-500" />
               {siteConfig.address}
             </span>
-            <span className="inline-flex items-center gap-3">
+            {phone ? (
+            <a href={phone} className="inline-flex items-center gap-3 transition hover:text-white">
               <Phone className="h-4 w-4 text-accent-500" />
               {siteConfig.phone}
-            </span>
+            </a>
+            ) : null}
             <span className="inline-flex items-center gap-3">
               <Mail className="h-4 w-4 text-accent-500" />
               {siteConfig.email}
@@ -48,27 +58,27 @@ export async function Footer() {
 
         <div>
           <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-white/55">{locale === "en" ? "Social" : "Sosyal"}</h3>
-          <div className="mt-5 flex gap-2">
-            {[
-              { icon: Instagram, href: siteConfig.social.instagram, label: "Instagram" },
-              { icon: Linkedin, href: siteConfig.social.linkedin, label: "LinkedIn" },
-              { icon: Facebook, href: siteConfig.social.facebook, label: "Facebook" }
-            ].map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                aria-label={item.label}
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-accent-500 hover:text-ink"
-              >
-                <item.icon className="h-4 w-4" />
-              </Link>
-            ))}
+          {socialLinks.length > 0 ? (
+            <div className="mt-5 flex gap-2">
+              {socialLinks.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  aria-label={item.label}
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-accent-500 hover:text-ink"
+                >
+                  <item.icon className="h-4 w-4" />
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <p className="mt-5 text-sm leading-6 text-white/60">
+              {locale === "en" ? "Social channels will be added after confirmation." : "Sosyal kanallar onay sonrası eklenecek."}
+            </p>
+          )}
+          <div className="mt-6 text-ink">
+            <LegalTrustBlock locale={locale} compact />
           </div>
-          <p className="mt-6 text-sm leading-7 text-white/62">
-            {locale === "en"
-              ? "Certification and legal information are placeholders; they will be updated once the operator files arrive."
-              : "Sertifika ve yasal bilgiler placeholder olarak yerleştirildi; operatör dosyaları geldiğinde güncellenecek."}
-          </p>
         </div>
       </div>
 

@@ -9,10 +9,10 @@ import Image from "next/image";
 import { Breadcrumb } from "@/components/shared/breadcrumb";
 import { PageHero } from "@/components/shared/page-hero";
 import { RevealOnScroll } from "@/components/motion/reveal-on-scroll";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
 export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
-  return buildMetadata({
+  return buildMetadataForLocale(locale, {
     title: locale === "en" ? "Facility" : "Tesis",
     description:
       locale === "en"
@@ -79,7 +79,7 @@ export default function FacilityPage({ params: { locale } }: { params: { locale:
           {steps.map((item, index) => (
             <RevealOnScroll key={item.step} delay={index * 0.04}>
               <div className="h-full rounded-lg border border-primary-900/10 bg-white p-7 shadow-sm">
-                <span className="font-mono text-2xl font-semibold text-accent-500">{item.step}</span>
+                <span className="font-mono text-2xl font-semibold text-accent-700">{item.step}</span>
                 <h2 className="mt-3 font-display text-xl font-semibold text-ink">{item.title}</h2>
                 <p className="mt-2 text-sm leading-7 text-ink/65">{item.text}</p>
               </div>

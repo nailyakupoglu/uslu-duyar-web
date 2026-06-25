@@ -2,7 +2,7 @@
 
 import { Link, usePathname } from "@/i18n/navigation";
 import { Menu, Phone, X } from "lucide-react";
-import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useLocale } from "next-intl";
 import { useState } from "react";
 
@@ -24,6 +24,7 @@ export function Header() {
   ];
   const [open, setOpen] = useState(false);
   const [mega, setMega] = useState<string | null>(null);
+  const reduceMotion = useReducedMotion();
   const { scrollY } = useScroll();
   const height = useTransform(scrollY, [0, 120], [88, 70]);
   const bgOpacity = useTransform(scrollY, [0, 120], [0.14, 0.92]);
@@ -33,8 +34,8 @@ export function Header() {
     <motion.header
       className="fixed inset-x-0 top-0 z-50 border-b border-white/10 text-white backdrop-blur-xl"
       style={{
-        height,
-        backgroundColor
+        height: reduceMotion ? 76 : height,
+        backgroundColor: reduceMotion ? "rgba(6, 40, 24, 0.92)" : backgroundColor
       }}
     >
       <div className="container flex h-full items-center justify-between gap-4">
@@ -87,9 +88,9 @@ export function Header() {
             layoutId="mega-menu"
             className="hidden border-t border-white/10 bg-primary-900/94 text-white shadow-2xl backdrop-blur-xl lg:block"
             onMouseLeave={() => setMega(null)}
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
+            initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -8 }}
+            animate={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+            exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
           >
             <div className="container grid grid-cols-[0.8fr_1.2fr] gap-8 py-8">
@@ -126,9 +127,9 @@ export function Header() {
         {open ? (
           <motion.div
             className="border-t border-white/10 bg-primary-900/96 px-4 pb-6 pt-3 text-white shadow-2xl lg:hidden"
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
+            initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -12 }}
+            animate={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+            exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -12 }}
           >
             <div className="grid gap-1">
               {navItems.map((item) => (

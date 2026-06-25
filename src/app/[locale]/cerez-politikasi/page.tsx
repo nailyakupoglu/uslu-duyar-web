@@ -7,10 +7,10 @@ import type { Metadata } from "next";
 
 import { LegalLayout } from "@/components/shared/legal-layout";
 import { siteConfig } from "@/lib/data";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
 export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
-  return buildMetadata({
+  return buildMetadataForLocale(locale, {
     title: locale === "en" ? "Cookie Policy" : "Çerez Politikası",
     description:
       locale === "en"

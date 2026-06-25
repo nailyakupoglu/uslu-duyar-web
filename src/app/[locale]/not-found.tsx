@@ -15,7 +15,7 @@ export default async function NotFound() {
     <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden bg-primary-900 px-6 text-white">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(212,160,23,0.18),transparent_55%)]" />
       <div className="relative z-10 mx-auto max-w-xl text-center">
-        <p className="font-mono text-sm font-semibold uppercase tracking-[0.3em] text-accent-500">404</p>
+        <p className="font-mono text-sm font-semibold uppercase tracking-[0.3em] text-accent-700">404</p>
         <h1 className="mt-4 font-display text-4xl font-bold tracking-tight md:text-6xl">
           {isEn ? "Page not found" : "Sayfa bulunamadı"}
         </h1>

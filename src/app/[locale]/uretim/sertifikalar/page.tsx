@@ -10,10 +10,10 @@ import { PageHero } from "@/components/shared/page-hero";
 import { CertBadge } from "@/components/shared/cert-badge";
 import { RevealOnScroll } from "@/components/motion/reveal-on-scroll";
 import { getCertificationsL } from "@/lib/content";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
 export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
-  return buildMetadata({
+  return buildMetadataForLocale(locale, {
     title: locale === "en" ? "Certificates" : "Sertifikalar",
     description:
       locale === "en"
@@ -47,7 +47,7 @@ export default function CertificatesPage({ params: { locale } }: { params: { loc
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {certifications.map((cert, index) => (
             <RevealOnScroll key={cert} delay={index * 0.04}>
-              <CertBadge name={cert} className="h-full" />
+              <CertBadge name={cert} locale={locale} className="h-full" />
             </RevealOnScroll>
           ))}
         </div>

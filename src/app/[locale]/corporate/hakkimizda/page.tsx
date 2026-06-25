@@ -9,10 +9,10 @@ import { Breadcrumb } from "@/components/shared/breadcrumb";
 import { PageHero } from "@/components/shared/page-hero";
 import { RevealOnScroll } from "@/components/motion/reveal-on-scroll";
 import { getStatsL } from "@/lib/content";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
 export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
-  return buildMetadata({
+  return buildMetadataForLocale(locale, {
     title: locale === "en" ? "About Us" : "Hakkımızda",
     description:
       locale === "en"
@@ -113,7 +113,7 @@ export default function AboutPage({ params: { locale } }: { params: { locale: st
         <aside className="grid gap-4 rounded-2xl bg-primary-900 p-8 text-white">
           {stats.map((stat) => (
             <div key={stat.label} className="border-b border-white/10 pb-4 last:border-0 last:pb-0">
-              <p className="font-display text-3xl font-semibold text-accent-500">
+              <p className="font-display text-3xl font-semibold text-accent-700">
                 {new Intl.NumberFormat("tr-TR").format(stat.value)}
                 {stat.suffix}
               </p>

@@ -10,10 +10,10 @@ import { Breadcrumb } from "@/components/shared/breadcrumb";
 import { PageHero } from "@/components/shared/page-hero";
 import { GlobalReachMap } from "@/components/home/global-reach-map";
 import { RevealOnScroll } from "@/components/motion/reveal-on-scroll";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
 export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
-  return buildMetadata({
+  return buildMetadataForLocale(locale, {
     title: locale === "en" ? "Logistics" : "Lojistik",
     description:
       locale === "en"

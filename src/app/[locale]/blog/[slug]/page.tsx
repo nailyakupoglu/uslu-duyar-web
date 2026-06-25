@@ -13,6 +13,7 @@ import { Breadcrumb } from "@/components/shared/breadcrumb";
 import { blogPosts } from "@/lib/data";
 import { getBlogPostsL } from "@/lib/content";
 import { articleJsonLd } from "@/lib/seo/jsonld";
+import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
 type Params = { locale: string; slug: string };
 
@@ -157,17 +158,13 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
   if (!post) {
     return { title: params.locale === "en" ? "Post not found" : "Yazı bulunamadı" };
   }
-  return {
+  return buildMetadataForLocale(params.locale, {
     title: post.title,
     description: post.excerpt,
-    alternates: { canonical: `/blog/${post.slug}` },
-    openGraph: {
-      type: "article",
-      title: post.title,
-      description: post.excerpt,
-      images: [{ url: `/images/blog/${post.slug}.svg`, alt: post.title }]
-    }
-  };
+    path: `/blog/${post.slug}`,
+    image: "/images/og/og-default.png",
+    type: "article"
+  });
 }
 
 export default function BlogPostPage({ params }: { params: Params }) {

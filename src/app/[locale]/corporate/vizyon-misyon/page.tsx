@@ -9,10 +9,10 @@ import { Compass, Target } from "lucide-react";
 import { Breadcrumb } from "@/components/shared/breadcrumb";
 import { PageHero } from "@/components/shared/page-hero";
 import { RevealOnScroll } from "@/components/motion/reveal-on-scroll";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
 export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
-  return buildMetadata({
+  return buildMetadataForLocale(locale, {
     title: locale === "en" ? "Vision & Mission" : "Vizyon & Misyon",
     description:
       locale === "en"
@@ -56,7 +56,7 @@ export default function VisionMissionPage({ params: { locale } }: { params: { lo
 
       <section className="container grid gap-6 py-20 md:grid-cols-2">
         <div className="rounded-2xl bg-primary-900 p-9 text-white">
-          <Compass className="h-9 w-9 text-accent-500" />
+          <Compass className="h-9 w-9 text-accent-700" />
           <h2 className="mt-5 font-display text-3xl font-semibold">
             {locale === "en" ? "Our Vision" : "Vizyonumuz"}
           </h2>

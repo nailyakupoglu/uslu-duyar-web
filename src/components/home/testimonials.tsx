@@ -1,32 +1,39 @@
 import { getLocale } from "next-intl/server";
+import { Anchor, CalendarDays, FileCheck2 } from "lucide-react";
 
-const testimonialsTr = [
-  { quote: "Mersin liman bağlantısı narenciye ihracat akışını sadeleştiriyor.", role: "Satın Alma Müdürü, Market Zinciri" },
-  { quote: "Kavun ve karpuzda boylama tutarlılığı market zinciri satın alma ekibimiz için kritik.", role: "Kategori Yöneticisi, Toptan Tedarikçi" },
-  { quote: "Soğuk zincir sevkiyatında zamanlama ve tazelik raporu toptan operasyonumuzu rahatlatıyor.", role: "İhracat Sorumlusu, İhracatçı" }
+const trustTr = [
+  { icon: Anchor, label: "Mersin Limanı", text: "FOB, CFR ve CIF teklifleri için liman odaklı yükleme dili." },
+  { icon: CalendarDays, label: "12 ay planlama", text: "Narenciye + kavun + karpuz sezonları tek takvimde okunur." },
+  { icon: FileCheck2, label: "RFQ dosyası", text: "Kalibre, Brix, MOQ, Incoterm ve HS kodu ürün detayında görünür." }
 ];
 
-const testimonialsEn = [
-  { quote: "The Mersin port connection streamlines our citrus export flow.", role: "Procurement Manager, Retail Chain" },
-  { quote: "Consistent sizing on melon and watermelon is critical for our retail chain buying team.", role: "Category Manager, Wholesale Supplier" },
-  { quote: "Timing and freshness reports on cold-chain shipments ease our wholesale operation.", role: "Export Officer, Exporter" }
+const trustEn = [
+  { icon: Anchor, label: "Port of Mersin", text: "Port-focused loading language for FOB, CFR and CIF quotes." },
+  { icon: CalendarDays, label: "12-month planning", text: "Citrus + melon + watermelon windows are visible in one calendar." },
+  { icon: FileCheck2, label: "RFQ file", text: "Calibre, Brix, MOQ, Incoterm and HS code are visible on product details." }
 ];
 
 export async function Testimonials() {
   const locale = await getLocale();
-  const testimonials = locale === "en" ? testimonialsEn : testimonialsTr;
+  const items = locale === "en" ? trustEn : trustTr;
   return (
     <section className="bg-white py-16">
       <div className="container">
+        <div className="mb-8 max-w-2xl">
+          <p className="spec-mono text-primary-700">{locale === "en" ? "Verified trust signals" : "Doğrulanabilir güven sinyalleri"}</p>
+          <h2 className="mt-3 font-display text-4xl font-semibold text-ink">
+            {locale === "en" ? "No fake logos. Only useful buyer signals." : "Sahte logo yok. Alıcıya yarayan sinyaller var."}
+          </h2>
+        </div>
         <div className="grid gap-5 md:grid-cols-3">
-          {testimonials.map((item, index) => (
-            <figure key={item.quote} className="rounded-lg border border-primary-900/10 bg-cream p-6">
-              <div className="mb-6 flex h-10 w-28 items-center justify-center rounded bg-white text-xs font-bold uppercase tracking-[0.16em] text-ink/35">
-                Logo {index + 1}
-              </div>
-              <blockquote className="text-lg leading-8 text-ink/78">&ldquo;{item.quote}&rdquo;</blockquote>
-              <figcaption className="mt-6 text-sm font-semibold text-primary-700">{item.role}</figcaption>
-            </figure>
+          {items.map((item) => (
+            <article key={item.label} className="rounded-lg border border-line-soft bg-cream p-6">
+              <span className="flex h-11 w-11 items-center justify-center rounded-md bg-white text-primary-700 shadow-sm">
+                <item.icon className="h-5 w-5" />
+              </span>
+              <h3 className="mt-5 text-xl font-semibold text-ink">{item.label}</h3>
+              <p className="mt-3 text-sm leading-7 text-ink/68">{item.text}</p>
+            </article>
           ))}
         </div>
       </div>

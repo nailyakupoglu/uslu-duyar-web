@@ -4,11 +4,12 @@
  * Kullanım: layout/sayfa <script type="application/ld+json"> içinde JSON.stringify ile gömülür.
  */
 import { siteConfig } from "@/lib/data";
+import { pick } from "@/lib/utils";
 
 type JsonLd = Record<string, unknown>;
 
 /** Organization şeması — firma kimliği, iletişim ve sosyal profiller. */
-export function organizationJsonLd(): JsonLd {
+export function organizationJsonLd(locale = "tr"): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -16,9 +17,11 @@ export function organizationJsonLd(): JsonLd {
     alternateName: siteConfig.name,
     url: siteConfig.url,
     logo: `${siteConfig.url}/images/logos/logo.svg`,
-    description: siteConfig.description,
+    description: pick(siteConfig.description, locale),
     email: siteConfig.email,
     telephone: siteConfig.phone,
+    areaServed: ["Türkiye", "European Union", "Middle East", "North Africa"],
+    knowsLanguage: ["tr", "en"],
     address: {
       "@type": "PostalAddress",
       streetAddress: siteConfig.address,
@@ -32,13 +35,13 @@ export function organizationJsonLd(): JsonLd {
 }
 
 /** WebSite şeması — site geneli arama eylemi tanımı. */
-export function websiteJsonLd(): JsonLd {
+export function websiteJsonLd(locale = "tr"): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: siteConfig.name,
     url: siteConfig.url,
-    inLanguage: "tr-TR"
+    inLanguage: locale === "en" ? "en-US" : "tr-TR"
   };
 }
 
@@ -62,6 +65,8 @@ export function productJsonLd(input: {
   description: string;
   image: string;
   category: string;
+  hsCode?: string;
+  availability?: string;
 }): JsonLd {
   return {
     "@context": "https://schema.org",
@@ -70,6 +75,24 @@ export function productJsonLd(input: {
     description: input.description,
     image: input.image.startsWith("http") ? input.image : `${siteConfig.url}${input.image}`,
     category: input.category,
+    productID: input.hsCode,
+    additionalProperty: input.hsCode
+      ? [
+          {
+            "@type": "PropertyValue",
+            name: "HS Code",
+            value: input.hsCode
+          }
+        ]
+      : undefined,
+    offers: input.availability
+      ? {
+          "@type": "Offer",
+          availability: input.availability,
+          priceCurrency: "USD",
+          url: siteConfig.url
+        }
+      : undefined,
     brand: {
       "@type": "Brand",
       name: siteConfig.name

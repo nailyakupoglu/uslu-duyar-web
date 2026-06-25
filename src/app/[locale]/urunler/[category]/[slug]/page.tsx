@@ -13,6 +13,7 @@ import { Breadcrumb } from "@/components/shared/breadcrumb";
 import { CertBadge } from "@/components/shared/cert-badge";
 import { ProductCard } from "@/components/shared/product-card";
 import { ProductGallery } from "@/components/product/product-gallery";
+import { ProductSpecSheet } from "@/components/product/product-spec-sheet";
 import { QuoteModal } from "@/components/product/quote-modal";
 import {
   getCategoryMetaL,
@@ -22,6 +23,7 @@ import {
 import { isProductCategory, products } from "@/lib/data";
 import { breadcrumbJsonLd, productJsonLd } from "@/lib/seo/jsonld";
 import { productGallery, productImage } from "@/lib/products-media";
+import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
 type Params = { locale: string; category: string; slug: string };
 
@@ -41,17 +43,12 @@ export function generateMetadata({
   if (!product) {
     return { title: "Ürün bulunamadı" };
   }
-  return {
+  return buildMetadataForLocale(locale, {
     title: product.title,
     description: product.shortDescription,
-    alternates: { canonical: `/urunler/${product.category}/${product.slug}` },
-    openGraph: {
-      type: "website",
-      title: product.title,
-      description: product.shortDescription,
-      images: [{ url: productImage(product), alt: product.title }]
-    }
-  };
+    path: `/urunler/${product.category}/${product.slug}`,
+    image: productImage(product)
+  });
 }
 
 export default function ProductDetailPage({ params: { locale, category, slug } }: { params: Params }) {
@@ -66,7 +63,7 @@ export default function ProductDetailPage({ params: { locale, category, slug } }
   const meta = getCategoryMetaL(product.category, locale);
   const related = getProductsByCategoryL(product.category, locale).filter((item) => item.slug !== product.slug);
   const specs = product.specs;
-  const gallery = productGallery(product);
+  const gallery = productGallery(product, locale);
   const heroImage = gallery[0]?.src ?? product.image;
   const isEn = locale === "en";
   const t = {
@@ -88,7 +85,9 @@ export default function ProductDetailPage({ params: { locale, category, slug } }
               name: product.title,
               description: product.description,
               image: heroImage,
-              category: meta.title
+              category: meta.title,
+              hsCode: product.exportSpecs.hsCode,
+              availability: product.exportSpecs.seasonMonths.length > 0 ? "https://schema.org/InStock" : undefined
             })
           )
         }}
@@ -126,6 +125,10 @@ export default function ProductDetailPage({ params: { locale, category, slug } }
             {product.title}
           </h1>
           <p className="mt-4 text-lg leading-8 text-ink/70">{product.description}</p>
+
+          <div className="mt-8">
+            <ProductSpecSheet product={product} locale={locale} />
+          </div>
 
           <div className="mt-7 flex flex-wrap gap-3">
             <QuoteModal productTitle={product.title} triggerLabel={isEn ? "Request a Quote" : "Teklif İste"} />
@@ -174,7 +177,7 @@ export default function ProductDetailPage({ params: { locale, category, slug } }
               </h2>
               <div className="mt-3 grid gap-3 sm:grid-cols-2">
                 {product.certificates.map((cert) => (
-                  <CertBadge key={cert} name={cert} />
+                  <CertBadge key={cert} name={cert} locale={locale} />
                 ))}
               </div>
             </div>

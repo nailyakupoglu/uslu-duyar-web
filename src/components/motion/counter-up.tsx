@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 
 import { formatNumber } from "@/lib/utils";
 
@@ -15,9 +15,14 @@ export function CounterUp({ value, suffix = "", duration = 1600 }: CounterUpProp
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const [display, setDisplay] = useState(0);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     if (!inView) {
+      return;
+    }
+    if (reduceMotion) {
+      setDisplay(value);
       return;
     }
 
@@ -34,10 +39,14 @@ export function CounterUp({ value, suffix = "", duration = 1600 }: CounterUpProp
     };
 
     requestAnimationFrame(tick);
-  }, [duration, inView, value]);
+  }, [duration, inView, reduceMotion, value]);
 
   return (
-    <motion.span ref={ref} initial={{ rotateX: 20 }} animate={inView ? { rotateX: 0 } : undefined}>
+    <motion.span
+      ref={ref}
+      initial={reduceMotion ? false : { rotateX: 20 }}
+      animate={!reduceMotion && inView ? { rotateX: 0 } : undefined}
+    >
       {formatNumber(display)}
       {suffix}
     </motion.span>

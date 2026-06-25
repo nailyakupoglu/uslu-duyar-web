@@ -7,7 +7,7 @@
 
 import { useMemo, useState } from "react";
 import { useLocale } from "next-intl";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 import { ProductCard } from "@/components/shared/product-card";
 import { getCategoryMetaL, type ResolvedProduct } from "@/lib/content";
@@ -25,6 +25,7 @@ export function ProductExplorer({
 }) {
   const locale = useLocale();
   const isEn = locale === "en";
+  const reduceMotion = useReducedMotion();
   const [active, setActive] = useState<Filter>(initialCategory);
 
   const filters: { key: Filter; label: string }[] = useMemo(
@@ -74,9 +75,9 @@ export function ProductExplorer({
             <motion.div
               key={`${product.category}-${product.slug}`}
               layout
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
+              initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 16 }}
+              animate={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+              exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -8 }}
               transition={{ duration: 0.3 }}
             >
               <ProductCard product={product} />
