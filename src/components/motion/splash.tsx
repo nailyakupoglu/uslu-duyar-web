@@ -28,7 +28,7 @@ export function Splash() {
     <AnimatePresence>
       {show ? (
         <motion.div
-          className="fixed inset-0 z-[200] flex items-center justify-center bg-primary-900"
+          className="fixed inset-0 z-[200] flex items-center justify-center bg-cream"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
@@ -41,7 +41,7 @@ export function Splash() {
             className="flex flex-col items-center gap-4"
           >
             <LogoMark className="h-16 w-16" />
-            <span className="font-display text-3xl font-bold text-white">
+            <span className="font-display text-3xl font-bold text-primary-700">
               <span className="text-accent">Uslu</span> Duyar
             </span>
           </motion.div>

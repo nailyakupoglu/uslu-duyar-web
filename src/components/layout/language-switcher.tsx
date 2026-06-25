@@ -19,7 +19,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "inline-flex h-10 items-center gap-1 rounded-full border border-white/20 bg-white/10 px-2 text-xs font-semibold text-current backdrop-blur",
+        "inline-flex h-10 items-center gap-1 rounded-full border border-line-soft bg-primary-50 px-2 text-xs font-semibold text-ink/70 backdrop-blur",
         className
       )}
     >

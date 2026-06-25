@@ -31,14 +31,14 @@ export function HarvestToPortFlow({ locale }: { locale: string }) {
   const items = isEn ? steps.en : steps.tr;
 
   return (
-    <section className="section-padding bg-export-radar text-white">
+    <section className="section-padding bg-surface-export text-ink">
       <div className="container">
         <div className="max-w-3xl">
-          <p className="spec-mono text-cold-50">{isEn ? "Harvest-to-port flow" : "Tarladan limana akış"}</p>
+          <p className="spec-mono text-cold-700">{isEn ? "Harvest-to-port flow" : "Tarladan limana akış"}</p>
           <h2 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
             {isEn ? "A visible supply chain, not a vague promise." : "Belirsiz vaat değil, görünen tedarik zinciri."}
           </h2>
-          <p className="mt-5 text-lg leading-8 text-white/70">
+          <p className="mt-5 text-lg leading-8 text-ink/65">
             {isEn
               ? "Every RFQ is answered with the operational facts a buyer needs: lot, season, grading, loading term and cold-chain plan."
               : "Her teklif talebi; alıcının ihtiyaç duyduğu parti, sezon, boylama, yükleme şekli ve soğuk zincir planıyla yanıtlanır."}
@@ -47,15 +47,15 @@ export function HarvestToPortFlow({ locale }: { locale: string }) {
         <div className="mt-12 grid gap-4 md:grid-cols-3">
           {items.map((item, index) => (
             <RevealOnScroll key={item.title} delay={index * 0.04}>
-              <article className="h-full rounded-lg border border-white/12 bg-white/[0.075] p-5 backdrop-blur-xl">
+              <article className="h-full rounded-lg border border-line-soft bg-white p-5 shadow-[0_18px_40px_rgba(16,38,51,0.06)]">
                 <div className="flex items-center justify-between">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-md bg-white/12 text-cold-50">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-md bg-cold-50 text-cold-700">
                     <item.icon className="h-5 w-5" />
                   </span>
-                  <span className="font-mono text-xs text-white/38">0{index + 1}</span>
+                  <span className="font-mono text-xs text-ink/35">0{index + 1}</span>
                 </div>
-                <h3 className="mt-5 text-xl font-semibold">{item.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-white/62">{item.text}</p>
+                <h3 className="mt-5 text-xl font-semibold text-ink">{item.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-ink/60">{item.text}</p>
               </article>
             </RevealOnScroll>
           ))}

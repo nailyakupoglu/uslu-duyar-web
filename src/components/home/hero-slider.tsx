@@ -50,7 +50,7 @@ export function HeroSlider() {
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-hero-gradient text-white">
+    <section className="relative min-h-screen overflow-hidden bg-cream text-ink">
       <div ref={emblaRef} className="h-screen overflow-hidden">
         <div className="flex h-full">
           {slides.map((slide, index) => (
@@ -84,21 +84,21 @@ export function HeroSlider() {
                   />
                 )}
               </motion.div>
-              <div className="absolute inset-0 bg-gradient-to-r from-primary-900/86 via-ink/58 to-ink/18" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(212,160,23,0.22),transparent_28%)]" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/35 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(212,160,23,0.18),transparent_30%)]" />
               <FloatingParticles />
               <div className="container relative z-10 flex h-full items-center pt-20">
-                <div className="max-w-4xl">
+                <div className="max-w-2xl rounded-2xl border border-white/50 bg-cream/85 p-8 shadow-[0_30px_70px_rgba(14,14,14,0.18)] backdrop-blur-md md:p-10">
                   <motion.p
                     custom={0}
                     variants={titleVariant}
                     initial="hidden"
                     animate={selected === index ? "visible" : "hidden"}
-                    className="text-sm font-bold uppercase tracking-[0.24em] text-accent-500"
+                    className="text-sm font-bold uppercase tracking-[0.24em] text-accent-700"
                   >
                     {slide.eyebrow}
                   </motion.p>
-                  <h1 className="mt-5 font-display text-5xl font-semibold leading-none text-balance md:text-7xl lg:text-8xl">
+                  <h1 className="mt-5 font-display text-4xl font-semibold leading-none text-balance text-ink md:text-6xl lg:text-7xl">
                     {slide.title.split(" ").map((word, wordIndex) => (
                       <motion.span
                         key={`${word}-${wordIndex}`}
@@ -117,7 +117,7 @@ export function HeroSlider() {
                     variants={titleVariant}
                     initial="hidden"
                     animate={selected === index ? "visible" : "hidden"}
-                    className="mt-7 max-w-2xl text-lg leading-8 text-white/76 md:text-xl"
+                    className="mt-7 max-w-xl text-lg leading-8 text-ink/70 md:text-xl"
                   >
                     {slide.description}
                   </motion.p>
@@ -134,7 +134,7 @@ export function HeroSlider() {
                         <ArrowRight className="h-5 w-5" />
                       </Link>
                     </Button>
-                    <Button asChild size="xl" variant="ghost">
+                    <Button asChild size="xl" variant="outline">
                       <Link href="/iletisim">{locale === "en" ? "Request a Quote" : "Teklif İste"}</Link>
                     </Button>
                   </motion.div>
