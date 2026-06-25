@@ -4,7 +4,7 @@
  * Kullanım: blogPosts'u kart ızgarasında listeler; her kart [slug] detayına gider.
  */
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { Clock } from "lucide-react";
 

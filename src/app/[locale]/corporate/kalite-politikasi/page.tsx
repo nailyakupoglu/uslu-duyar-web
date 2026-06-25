@@ -4,7 +4,7 @@
  * Kullanım: kurumsal alt sayfası; ilke listesi + sertifika atıfı.
  */
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { CheckCircle2 } from "lucide-react";
 
 import { Breadcrumb } from "@/components/shared/breadcrumb";

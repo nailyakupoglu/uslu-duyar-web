@@ -3,7 +3,7 @@
  * Prop'lar: yok.
  * Kullanım: Next.js eşleşmeyen route'larda otomatik render eder.
  */
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 import { Button } from "@/components/ui/button";
 

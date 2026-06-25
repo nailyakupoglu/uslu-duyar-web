@@ -6,7 +6,11 @@
  */
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono, Playfair_Display } from "next/font/google";
+import { notFound } from "next/navigation";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages, setRequestLocale } from "next-intl/server";
 
+import { routing } from "@/i18n/routing";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppFab } from "@/components/layout/whatsapp-fab";
@@ -114,9 +118,26 @@ export const viewport: Viewport = {
   initialScale: 1
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export default async function LocaleLayout({
+  children,
+  params: { locale }
+}: {
+  children: React.ReactNode;
+  params: { locale: string };
+}) {
+  if (!(routing.locales as readonly string[]).includes(locale)) {
+    notFound();
+  }
+  setRequestLocale(locale);
+  const messages = await getMessages();
+  const skipLabel = locale === "en" ? "Skip to content" : "İçeriğe geç";
+
   return (
-    <html lang="tr" className={cn(inter.variable, playfair.variable, jetbrainsMono.variable)} suppressHydrationWarning>
+    <html lang={locale} className={cn(inter.variable, playfair.variable, jetbrainsMono.variable)} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -129,20 +150,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="min-h-dvh bg-cream font-sans text-ink antialiased">
-        <a
-          href="#main-content"
-          className="sr-only z-[100] focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:rounded-lg focus:bg-primary-700 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white focus:shadow-lg"
-        >
-          İçeriğe geç
-        </a>
-        <Splash />
-        <SmoothScrollProvider />
-        <ScrollProgress />
-        <Header />
-        <main id="main-content">{children}</main>
-        <Footer />
-        <WhatsAppFab />
-        <Analytics />
+        <NextIntlClientProvider messages={messages}>
+          <a
+            href="#main-content"
+            className="sr-only z-[100] focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:rounded-lg focus:bg-primary-700 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white focus:shadow-lg"
+          >
+            {skipLabel}
+          </a>
+          <Splash />
+          <SmoothScrollProvider />
+          <ScrollProgress />
+          <Header />
+          <main id="main-content">{children}</main>
+          <Footer />
+          <WhatsAppFab />
+          <Analytics />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

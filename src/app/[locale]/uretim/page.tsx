@@ -4,7 +4,7 @@
  * Kullanım: productionHighlights kartlarıyla alt üretim sayfalarına yönlendirir.
  */
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 

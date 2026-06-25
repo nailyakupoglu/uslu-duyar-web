@@ -5,7 +5,7 @@
  * sertifikalar, Product JSON-LD ve QuoteModal içerir.
  */
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
 import { ArrowLeft, PackageCheck, ShieldCheck, Tag } from "lucide-react";
 

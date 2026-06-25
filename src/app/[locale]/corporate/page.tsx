@@ -4,7 +4,7 @@
  * Kullanım: hakkımızda, kalite, vizyon-misyon, sürdürülebilirlik sayfalarına yönlendirir.
  */
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowUpRight } from "lucide-react";
 
 import { Breadcrumb } from "@/components/shared/breadcrumb";

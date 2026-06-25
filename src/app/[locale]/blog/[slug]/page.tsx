@@ -4,7 +4,7 @@
  * Kullanım: statik üretilir; Article JSON-LD, kapak görseli ve slug'a özel içerik gövdesi.
  */
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Clock } from "lucide-react";
