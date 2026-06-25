@@ -11,6 +11,8 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppFab } from "@/components/layout/whatsapp-fab";
 import { ScrollProgress } from "@/components/motion/scroll-progress";
+import { SmoothScrollProvider } from "@/components/motion/smooth-scroll-provider";
+import { Splash } from "@/components/motion/splash";
 import { Analytics } from "@/components/analytics";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/jsonld";
 import { siteConfig } from "@/lib/data";
@@ -133,6 +135,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           İçeriğe geç
         </a>
+        <Splash />
+        <SmoothScrollProvider />
         <ScrollProgress />
         <Header />
         <main id="main-content">{children}</main>

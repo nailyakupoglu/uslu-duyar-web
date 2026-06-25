@@ -10,6 +10,7 @@ import { ProductionQuad } from "@/components/home/production-quad";
 import { ProductShowcase } from "@/components/home/product-showcase";
 import { StatsCounter } from "@/components/home/stats-counter";
 import { GlobalReachMap } from "@/components/home/global-reach-map";
+import { VideoGrid } from "@/components/home/video-grid";
 import { CertificationsStrip } from "@/components/home/certifications-strip";
 import { Testimonials } from "@/components/home/testimonials";
 import { BlogTeasers } from "@/components/home/blog-teasers";
@@ -23,6 +24,7 @@ export default function HomePage() {
       <ProductionQuad />
       <ProductShowcase />
       <StatsCounter />
+      <VideoGrid />
       <GlobalReachMap />
       <CertificationsStrip />
       <Testimonials />
