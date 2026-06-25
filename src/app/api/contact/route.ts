@@ -45,12 +45,22 @@ export async function POST(request: Request) {
         body: JSON.stringify({
           source: "usluduyar-web",
           to,
+          // === İletişim ===
           name: data.name,
           email: data.email,
           phone: data.phone || "",
           company: data.company || "",
-          subject: data.subject?.trim() || `Yeni iletişim mesajı — ${data.name}`,
-          message: data.message
+          // === B2B RFQ ===
+          product: data.product || "",
+          quantity: data.quantity || "",
+          incoterm: data.incoterm || "",
+          destinationPort: data.destinationPort || "",
+          destinationCountry: data.destinationCountry || "",
+          buyerType: data.buyerType || "",
+          // === Mesaj ===
+          subject: data.subject?.trim() || `Yeni teklif talebi — ${data.name}`,
+          message: data.message,
+          receivedAt: new Date().toISOString(),
         })
       });
       if (!res.ok) {
