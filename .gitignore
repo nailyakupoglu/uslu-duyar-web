@@ -32,3 +32,6 @@ public/media/videos/original/
 
 # Coolify
 .coolify
+
+# archive of source folders — never commit (243MB media + node_modules)
+/_archive/

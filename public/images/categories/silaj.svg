@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1000" viewBox="0 0 1400 1000" role="img" aria-label="Mısır Silajı">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0D4525"/>
+      <stop offset="1" stop-color="#062818"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.22" cy="0.2" r="0.9">
+      <stop offset="0" stop-color="#3D8B5E" stop-opacity="0.35"/>
+      <stop offset="0.55" stop-color="#3D8B5E" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1400" height="1000" fill="url(#bg)"/>
+  <rect width="1400" height="1000" fill="url(#glow)"/>
+  <g><circle cx="1" cy="997" r="5" fill="#FAF7F2" opacity="0.16"/><circle cx="686" cy="641" r="5" fill="#FAF7F2" opacity="0.14"/><circle cx="877" cy="37" r="3" fill="#FAF7F2" opacity="0.12"/><circle cx="215" cy="627" r="2" fill="#FAF7F2" opacity="0.10"/><circle cx="10" cy="585" r="3" fill="#FAF7F2" opacity="0.08"/><circle cx="1021" cy="195" r="7" fill="#FAF7F2" opacity="0.15"/><circle cx="432" cy="47" r="8" fill="#FAF7F2" opacity="0.15"/><circle cx="862" cy="290" r="3" fill="#FAF7F2" opacity="0.17"/><circle cx="1325" cy="607" r="8" fill="#FAF7F2" opacity="0.17"/><circle cx="113" cy="487" r="4" fill="#FAF7F2" opacity="0.15"/><circle cx="1085" cy="674" r="8" fill="#FAF7F2" opacity="0.10"/><circle cx="722" cy="524" r="2" fill="#FAF7F2" opacity="0.10"/><circle cx="1016" cy="167" r="4" fill="#FAF7F2" opacity="0.11"/><circle cx="99" cy="893" r="4" fill="#FAF7F2" opacity="0.14"/><circle cx="1365" cy="222" r="3" fill="#FAF7F2" opacity="0.14"/><circle cx="1055" cy="344" r="3" fill="#FAF7F2" opacity="0.10"/><circle cx="1379" cy="542" r="3" fill="#FAF7F2" opacity="0.17"/><circle cx="42" cy="605" r="2" fill="#FAF7F2" opacity="0.09"/><circle cx="82" cy="450" r="4" fill="#FAF7F2" opacity="0.10"/><circle cx="720" cy="806" r="7" fill="#FAF7F2" opacity="0.13"/><circle cx="1280" cy="528" r="3" fill="#FAF7F2" opacity="0.11"/><circle cx="1381" cy="845" r="8" fill="#FAF7F2" opacity="0.09"/><circle cx="1342" cy="531" r="6" fill="#FAF7F2" opacity="0.10"/><circle cx="948" cy="9" r="8" fill="#FAF7F2" opacity="0.10"/><circle cx="445" cy="955" r="5" fill="#FAF7F2" opacity="0.13"/><circle cx="1169" cy="562" r="7" fill="#FAF7F2" opacity="0.13"/></g>
+  <g><circle cx="2" cy="19" r="3" fill="#3D8B5E" opacity="0.28"/><circle cx="328" cy="318" r="3" fill="#3D8B5E" opacity="0.44"/><circle cx="1228" cy="571" r="3" fill="#3D8B5E" opacity="0.47"/><circle cx="587" cy="50" r="4" fill="#3D8B5E" opacity="0.41"/><circle cx="632" cy="347" r="3" fill="#3D8B5E" opacity="0.41"/><circle cx="84" cy="185" r="2" fill="#3D8B5E" opacity="0.45"/><circle cx="111" cy="213" r="3" fill="#3D8B5E" opacity="0.33"/><circle cx="1120" cy="708" r="4" fill="#3D8B5E" opacity="0.32"/><circle cx="1301" cy="306" r="7" fill="#3D8B5E" opacity="0.33"/><circle cx="996" cy="372" r="5" fill="#3D8B5E" opacity="0.48"/><circle cx="325" cy="946" r="5" fill="#3D8B5E" opacity="0.45"/><circle cx="22" cy="720" r="5" fill="#3D8B5E" opacity="0.45"/></g>
+  <path d="M0 780 Q 420 660 840 740 T 1400 700 L 1400 1000 L 0 1000 Z" fill="#0E0E0E" opacity="0.22"/>
+  <text x="700" y="500" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="110" font-weight="700" fill="#FAF7F2" letter-spacing="-1">Mısır Silajı</text>
+  <text x="700" y="590" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="35" fill="#FAF7F2" opacity="0.7" letter-spacing="3">SILAJ</text>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1066" viewBox="0 0 1600 1066" role="img" aria-label="Tesis">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0D4525"/>
+      <stop offset="1" stop-color="#062818"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.22" cy="0.2" r="0.9">
+      <stop offset="0" stop-color="#FAF7F2" stop-opacity="0.35"/>
+      <stop offset="0.55" stop-color="#FAF7F2" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1066" fill="url(#bg)"/>
+  <rect width="1600" height="1066" fill="url(#glow)"/>
+  <g><circle cx="0" cy="223" r="3" fill="#FAF7F2" opacity="0.15"/><circle cx="78" cy="7" r="5" fill="#FAF7F2" opacity="0.15"/><circle cx="1180" cy="970" r="4" fill="#FAF7F2" opacity="0.14"/><circle cx="945" cy="113" r="6" fill="#FAF7F2" opacity="0.17"/><circle cx="763" cy="263" r="4" fill="#FAF7F2" opacity="0.09"/><circle cx="575" cy="1041" r="7" fill="#FAF7F2" opacity="0.16"/><circle cx="124" cy="919" r="8" fill="#FAF7F2" opacity="0.17"/><circle cx="499" cy="467" r="3" fill="#FAF7F2" opacity="0.11"/><circle cx="638" cy="553" r="5" fill="#FAF7F2" opacity="0.13"/><circle cx="391" cy="219" r="6" fill="#FAF7F2" opacity="0.15"/><circle cx="1448" cy="471" r="3" fill="#FAF7F2" opacity="0.08"/><circle cx="1358" cy="347" r="3" fill="#FAF7F2" opacity="0.11"/><circle cx="1163" cy="1029" r="5" fill="#FAF7F2" opacity="0.10"/><circle cx="974" cy="850" r="5" fill="#FAF7F2" opacity="0.11"/><circle cx="910" cy="773" r="3" fill="#FAF7F2" opacity="0.17"/><circle cx="1518" cy="154" r="5" fill="#FAF7F2" opacity="0.09"/><circle cx="916" cy="861" r="5" fill="#FAF7F2" opacity="0.17"/><circle cx="526" cy="384" r="2" fill="#FAF7F2" opacity="0.10"/><circle cx="1387" cy="258" r="8" fill="#FAF7F2" opacity="0.17"/><circle cx="178" cy="642" r="4" fill="#FAF7F2" opacity="0.14"/><circle cx="784" cy="12" r="5" fill="#FAF7F2" opacity="0.08"/><circle cx="1254" cy="155" r="5" fill="#FAF7F2" opacity="0.10"/><circle cx="1572" cy="463" r="5" fill="#FAF7F2" opacity="0.16"/><circle cx="372" cy="453" r="7" fill="#FAF7F2" opacity="0.08"/><circle cx="299" cy="990" r="6" fill="#FAF7F2" opacity="0.10"/><circle cx="310" cy="1038" r="3" fill="#FAF7F2" opacity="0.15"/></g>
+  <g><circle cx="2" cy="247" r="8" fill="#FAF7F2" opacity="0.22"/><circle cx="1268" cy="729" r="3" fill="#FAF7F2" opacity="0.48"/><circle cx="1581" cy="474" r="3" fill="#FAF7F2" opacity="0.21"/><circle cx="1370" cy="564" r="2" fill="#FAF7F2" opacity="0.32"/><circle cx="1473" cy="9" r="3" fill="#FAF7F2" opacity="0.43"/><circle cx="1105" cy="1031" r="3" fill="#FAF7F2" opacity="0.47"/><circle cx="1357" cy="29" r="2" fill="#FAF7F2" opacity="0.40"/><circle cx="793" cy="912" r="4" fill="#FAF7F2" opacity="0.45"/><circle cx="610" cy="232" r="5" fill="#FAF7F2" opacity="0.50"/><circle cx="1401" cy="96" r="7" fill="#FAF7F2" opacity="0.46"/><circle cx="579" cy="761" r="6" fill="#FAF7F2" opacity="0.41"/><circle cx="558" cy="556" r="6" fill="#FAF7F2" opacity="0.47"/></g>
+  <path d="M0 831.48 Q 480 703.5600000000001 960 788.84 T 1600 746.1999999999999 L 1600 1066 L 0 1066 Z" fill="#0E0E0E" opacity="0.22"/>
+  <text x="800" y="533" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="117" font-weight="700" fill="#FAF7F2" letter-spacing="-1">Tesis</text>
+  <text x="800" y="629" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="37" fill="#FAF7F2" opacity="0.7" letter-spacing="3">ÜRETİM</text>
+</svg>

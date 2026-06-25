@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Silaj">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0D4525"/>
+      <stop offset="1" stop-color="#062818"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.22" cy="0.2" r="0.9">
+      <stop offset="0" stop-color="#3D8B5E" stop-opacity="0.35"/>
+      <stop offset="0.55" stop-color="#3D8B5E" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#glow)"/>
+  <g><circle cx="1" cy="756" r="4" fill="#FAF7F2" opacity="0.16"/><circle cx="1126" cy="347" r="5" fill="#FAF7F2" opacity="0.10"/><circle cx="517" cy="544" r="8" fill="#FAF7F2" opacity="0.07"/><circle cx="336" cy="718" r="7" fill="#FAF7F2" opacity="0.13"/><circle cx="1440" cy="360" r="8" fill="#FAF7F2" opacity="0.12"/><circle cx="1135" cy="641" r="6" fill="#FAF7F2" opacity="0.11"/><circle cx="1" cy="360" r="7" fill="#FAF7F2" opacity="0.07"/><circle cx="1011" cy="416" r="4" fill="#FAF7F2" opacity="0.14"/><circle cx="1036" cy="421" r="4" fill="#FAF7F2" opacity="0.08"/><circle cx="1436" cy="300" r="5" fill="#FAF7F2" opacity="0.18"/><circle cx="1354" cy="83" r="5" fill="#FAF7F2" opacity="0.09"/><circle cx="1406" cy="702" r="7" fill="#FAF7F2" opacity="0.07"/><circle cx="289" cy="624" r="7" fill="#FAF7F2" opacity="0.16"/><circle cx="583" cy="266" r="6" fill="#FAF7F2" opacity="0.14"/><circle cx="478" cy="610" r="4" fill="#FAF7F2" opacity="0.09"/><circle cx="67" cy="212" r="7" fill="#FAF7F2" opacity="0.14"/><circle cx="489" cy="618" r="7" fill="#FAF7F2" opacity="0.15"/><circle cx="454" cy="751" r="2" fill="#FAF7F2" opacity="0.18"/><circle cx="653" cy="467" r="5" fill="#FAF7F2" opacity="0.09"/><circle cx="1490" cy="544" r="6" fill="#FAF7F2" opacity="0.08"/><circle cx="74" cy="467" r="7" fill="#FAF7F2" opacity="0.16"/><circle cx="238" cy="663" r="4" fill="#FAF7F2" opacity="0.15"/><circle cx="1555" cy="185" r="3" fill="#FAF7F2" opacity="0.17"/><circle cx="404" cy="621" r="6" fill="#FAF7F2" opacity="0.18"/><circle cx="685" cy="683" r="2" fill="#FAF7F2" opacity="0.14"/><circle cx="1504" cy="299" r="8" fill="#FAF7F2" opacity="0.10"/></g>
+  <g><circle cx="2" cy="776" r="3" fill="#3D8B5E" opacity="0.28"/><circle cx="717" cy="57" r="3" fill="#3D8B5E" opacity="0.35"/><circle cx="918" cy="125" r="7" fill="#3D8B5E" opacity="0.33"/><circle cx="761" cy="198" r="2" fill="#3D8B5E" opacity="0.50"/><circle cx="550" cy="146" r="7" fill="#3D8B5E" opacity="0.23"/><circle cx="65" cy="632" r="8" fill="#3D8B5E" opacity="0.35"/><circle cx="1234" cy="510" r="7" fill="#3D8B5E" opacity="0.42"/><circle cx="1305" cy="792" r="5" fill="#3D8B5E" opacity="0.23"/><circle cx="1009" cy="150" r="3" fill="#3D8B5E" opacity="0.37"/><circle cx="845" cy="196" r="6" fill="#3D8B5E" opacity="0.25"/><circle cx="485" cy="329" r="3" fill="#3D8B5E" opacity="0.43"/><circle cx="607" cy="878" r="4" fill="#3D8B5E" opacity="0.38"/></g>
+  <path d="M0 702 Q 480 594 960 666 T 1600 630 L 1600 900 L 0 900 Z" fill="#0E0E0E" opacity="0.22"/>
+  <text x="800" y="450" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="99" font-weight="700" fill="#FAF7F2" letter-spacing="-1">Silaj</text>
+  <text x="800" y="531" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="32" fill="#FAF7F2" opacity="0.7" letter-spacing="3">BLOG</text>
+</svg>

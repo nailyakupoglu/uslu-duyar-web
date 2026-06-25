@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1000" viewBox="0 0 1400 1000" role="img" aria-label="Buğday Unu">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8B4513"/>
+      <stop offset="1" stop-color="#3a2208"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.22" cy="0.2" r="0.9">
+      <stop offset="0" stop-color="#D4A017" stop-opacity="0.35"/>
+      <stop offset="0.55" stop-color="#D4A017" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1400" height="1000" fill="url(#bg)"/>
+  <rect width="1400" height="1000" fill="url(#glow)"/>
+  <g><circle cx="1" cy="391" r="6" fill="#FAF7F2" opacity="0.10"/><circle cx="124" cy="298" r="6" fill="#FAF7F2" opacity="0.14"/><circle cx="930" cy="841" r="4" fill="#FAF7F2" opacity="0.08"/><circle cx="905" cy="731" r="3" fill="#FAF7F2" opacity="0.16"/><circle cx="29" cy="608" r="4" fill="#FAF7F2" opacity="0.10"/><circle cx="1374" cy="255" r="5" fill="#FAF7F2" opacity="0.13"/><circle cx="1186" cy="627" r="4" fill="#FAF7F2" opacity="0.14"/><circle cx="1210" cy="394" r="7" fill="#FAF7F2" opacity="0.10"/><circle cx="1027" cy="750" r="3" fill="#FAF7F2" opacity="0.17"/><circle cx="1370" cy="756" r="4" fill="#FAF7F2" opacity="0.17"/><circle cx="723" cy="621" r="3" fill="#FAF7F2" opacity="0.13"/><circle cx="658" cy="742" r="7" fill="#FAF7F2" opacity="0.17"/><circle cx="762" cy="477" r="5" fill="#FAF7F2" opacity="0.15"/><circle cx="1098" cy="718" r="4" fill="#FAF7F2" opacity="0.09"/><circle cx="609" cy="915" r="7" fill="#FAF7F2" opacity="0.16"/><circle cx="655" cy="857" r="7" fill="#FAF7F2" opacity="0.09"/><circle cx="1323" cy="24" r="2" fill="#FAF7F2" opacity="0.09"/><circle cx="1223" cy="826" r="5" fill="#FAF7F2" opacity="0.11"/><circle cx="1245" cy="192" r="7" fill="#FAF7F2" opacity="0.15"/><circle cx="472" cy="957" r="3" fill="#FAF7F2" opacity="0.16"/><circle cx="557" cy="904" r="4" fill="#FAF7F2" opacity="0.11"/><circle cx="828" cy="734" r="3" fill="#FAF7F2" opacity="0.11"/><circle cx="1340" cy="197" r="5" fill="#FAF7F2" opacity="0.09"/><circle cx="1022" cy="549" r="6" fill="#FAF7F2" opacity="0.16"/><circle cx="776" cy="479" r="4" fill="#FAF7F2" opacity="0.16"/><circle cx="626" cy="965" r="6" fill="#FAF7F2" opacity="0.08"/></g>
+  <g><circle cx="2" cy="414" r="5" fill="#D4A017" opacity="0.39"/><circle cx="1166" cy="975" r="4" fill="#D4A017" opacity="0.45"/><circle cx="1281" cy="375" r="4" fill="#D4A017" opacity="0.34"/><circle cx="1277" cy="154" r="5" fill="#D4A017" opacity="0.29"/><circle cx="650" cy="370" r="3" fill="#D4A017" opacity="0.47"/><circle cx="438" cy="246" r="7" fill="#D4A017" opacity="0.39"/><circle cx="865" cy="793" r="4" fill="#D4A017" opacity="0.32"/><circle cx="67" cy="812" r="2" fill="#D4A017" opacity="0.40"/><circle cx="1003" cy="449" r="2" fill="#D4A017" opacity="0.33"/><circle cx="854" cy="641" r="4" fill="#D4A017" opacity="0.21"/><circle cx="1362" cy="894" r="6" fill="#D4A017" opacity="0.23"/><circle cx="1358" cy="938" r="5" fill="#D4A017" opacity="0.34"/></g>
+  <path d="M0 780 Q 420 660 840 740 T 1400 700 L 1400 1000 L 0 1000 Z" fill="#0E0E0E" opacity="0.22"/>
+  <text x="700" y="500" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="110" font-weight="700" fill="#FAF7F2" letter-spacing="-1">Buğday Unu</text>
+  <text x="700" y="590" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="35" fill="#FAF7F2" opacity="0.7" letter-spacing="3">DEGIRMEN</text>
+</svg>

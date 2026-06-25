@@ -1,0 +1,10 @@
+{
+  "nav": {
+    "home": "Home",
+    "corporate": "Corporate",
+    "production": "Production",
+    "products": "Products",
+    "blog": "Blog",
+    "contact": "Contact"
+  }
+}

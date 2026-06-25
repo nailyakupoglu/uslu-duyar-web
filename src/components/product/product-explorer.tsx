@@ -1,0 +1,85 @@
+/**
+ * ProductExplorer — kategori sekmeli, animasyonlu ürün ızgarası (istemci tarafı filtre).
+ * Prop'lar: { products: Product[], initialCategory?: ProductCategory | "all" }.
+ * Kullanım: /urunler sayfasında tüm ürünleri alır; sekme ile kategori filtreler.
+ */
+"use client";
+
+import { useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+
+import { ProductCard } from "@/components/shared/product-card";
+import { categoryMeta, productCategories, type Product, type ProductCategory } from "@/lib/data";
+import { cn } from "@/lib/utils";
+
+type Filter = ProductCategory | "all";
+
+const filters: { key: Filter; label: string }[] = [
+  { key: "all", label: "Tümü" },
+  ...productCategories.map((category) => ({ key: category, label: categoryMeta[category].title }))
+];
+
+export function ProductExplorer({
+  products,
+  initialCategory = "all"
+}: {
+  products: Product[];
+  initialCategory?: Filter;
+}) {
+  const [active, setActive] = useState<Filter>(initialCategory);
+
+  const visible = useMemo(
+    () => (active === "all" ? products : products.filter((product) => product.category === active)),
+    [active, products]
+  );
+
+  return (
+    <div>
+      <div className="flex flex-wrap gap-2" role="tablist" aria-label="Ürün kategorileri">
+        {filters.map((filter) => {
+          const isActive = filter.key === active;
+          return (
+            <button
+              key={filter.key}
+              type="button"
+              role="tab"
+              aria-selected={isActive}
+              onClick={() => setActive(filter.key)}
+              className={cn(
+                "rounded-full border px-5 py-2 text-sm font-semibold transition",
+                isActive
+                  ? "border-primary-700 bg-primary-700 text-white shadow-lg"
+                  : "border-primary-900/15 bg-white/70 text-ink/70 hover:border-primary-500 hover:text-primary-700"
+              )}
+            >
+              {filter.label}
+            </button>
+          );
+        })}
+      </div>
+
+      <motion.div layout className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <AnimatePresence mode="popLayout">
+          {visible.map((product) => (
+            <motion.div
+              key={`${product.category}-${product.slug}`}
+              layout
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.3 }}
+            >
+              <ProductCard product={product} />
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div>
+
+      {visible.length === 0 ? (
+        <p className="mt-10 rounded-lg bg-white/70 p-8 text-center text-ink/60">
+          Bu kategoride henüz ürün eklenmedi.
+        </p>
+      ) : null}
+    </div>
+  );
+}

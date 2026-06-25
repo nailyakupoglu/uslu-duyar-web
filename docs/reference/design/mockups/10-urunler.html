@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Değirmen, biber ve silaj kategorileri için filtrelenebilir ürün vitrini.">
+  <title>Eren Tarım · Ürünler</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@500;700;800&amp;family=Playfair+Display:wght@600;700;800&amp;display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: 'var(--color-primary)',
+            accent: 'var(--color-accent)',
+            pepper: 'var(--color-accent2)',
+            cream: 'var(--color-cream)',
+            ink: 'var(--color-ink)'
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          },
+          boxShadow: {
+            harvest: 'var(--shadow-3)'
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../assets/eren-design.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+<div class="page-shell">
+
+  <a class="skip-link" href="#main-content">İçeriğe geç</a>
+  <div class="top-strip" role="presentation">
+    <div class="container top-strip__inner">
+      <span>Mersin üretim kampüsü · Değirmen · Biber · Silaj</span>
+      <a href="mailto:teklif@erentarim.example">teklif@erentarim.example</a>
+    </div>
+  </div>
+  <header class="site-header" aria-label="Ana gezinme">
+    <div class="container site-header__inner">
+      <a class="logo-mark" href="01-home.html" aria-label="Eren Tarım ana sayfa">
+        <span class="logo-mark__symbol"><i data-lucide="wheat" aria-hidden="true"></i></span>
+        <span class="logo-mark__text">
+          <strong>Eren Tarım</strong>
+          <span>Mersin 1993</span>
+        </span>
+      </a>
+      <nav class="desktop-nav" aria-label="Birincil">
+          <a class="nav-link" href="01-home.html">Ana Sayfa</a>
+          <a class="nav-link" href="02-hakkimizda.html">Hakkımızda</a>
+          <a class="nav-link" href="03-kalite.html">Kalite</a>
+          <a class="nav-link" href="07-tesis.html">Tesis</a>
+          <a class="nav-link" href="10-urunler.html" aria-current="page">Ürünler</a>
+          <a class="nav-link" href="12-iletisim.html">İletişim</a>
+      </nav>
+      <div class="header-actions">
+        <a class="language-switcher" href="#" aria-label="Dil değiştir">TR / EN</a>
+        <a class="btn btn-primary hidden sm:inline-flex" href="12-iletisim.html"><i data-lucide="send" aria-hidden="true"></i> Teklif Al</a>
+        <button class="icon-button mobile-only" type="button" data-mobile-open aria-label="Menüyü aç"><i data-lucide="menu" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </header>
+  <aside class="mobile-drawer" data-mobile-drawer aria-label="Mobil menü">
+    <div class="mobile-drawer__backdrop" data-mobile-close></div>
+    <div class="mobile-drawer__panel" role="dialog" aria-modal="true" aria-label="Mobil gezinme">
+      <div class="flex items-center justify-between gap-4">
+        <a class="logo-mark" href="01-home.html" aria-label="Eren Tarım ana sayfa">
+          <span class="logo-mark__symbol"><i data-lucide="wheat" aria-hidden="true"></i></span>
+          <span class="logo-mark__text">
+            <strong>Eren Tarım</strong>
+            <span>Mersin 1993</span>
+          </span>
+        </a>
+        <button class="icon-button" type="button" data-mobile-close aria-label="Menüyü kapat"><i data-lucide="x" aria-hidden="true"></i></button>
+      </div>
+      <nav class="mobile-drawer__nav" aria-label="Mobil birincil">
+        <a href="01-home.html">Ana Sayfa</a>
+        <a href="02-hakkimizda.html">Hakkımızda</a>
+        <a href="03-kalite.html">Kalite</a>
+        <a href="07-tesis.html">Tesis</a>
+        <a href="10-urunler.html" aria-current="page">Ürünler</a>
+        <a href="12-iletisim.html">İletişim</a>
+      </nav>
+      <a class="btn btn-primary" href="12-iletisim.html"><i data-lucide="message-circle" aria-hidden="true"></i> WhatsApp ve teklif</a>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+      <section class="hero hero--compact" aria-labelledby="hero-title">
+        <div class="hero-slider" id="hero-10" data-hero-slider>
+        <div class="hero-slide is-active" aria-hidden="false">
+          <div class="hero-slide__visual">
+            <span class="media-label">Drone Tarla</span>
+          </div>
+        </div>
+        <div class="hero-slide" aria-hidden="true">
+          <div class="hero-slide__visual">
+            <span class="media-label">Öğütme Hattı</span>
+          </div>
+        </div>
+        <div class="hero-slide" aria-hidden="true">
+          <div class="hero-slide__visual">
+            <span class="media-label">Biber Sergisi</span>
+          </div>
+        </div>
+        <div class="hero-slide" aria-hidden="true">
+          <div class="hero-slide__visual">
+            <span class="media-label">Liman Lojistik</span>
+          </div>
+        </div>
+        </div>
+        <div class="container hero-content">
+          <div class="hero-copy">
+            <p class="eyebrow text-light">Anatolian Harvest Modernism</p>
+            <h1 class="display-title text-light" id="hero-title">Ürünler</h1>
+            <p>Değirmen, biber ve silaj kategorileri için filtrelenebilir ürün vitrini.</p>
+            <div class="hero-actions">
+              <a class="btn btn-accent" href="12-iletisim.html"><i data-lucide="send" aria-hidden="true"></i> Teklif iste</a>
+              <a class="btn btn-dark" href="10-urunler.html"><i data-lucide="layers" aria-hidden="true"></i> Ürünleri incele</a>
+            </div>
+            <div class="hero-meta" role="group" aria-label="Öne çıkan göstergeler">
+          <div class="hero-meta__item">
+            <strong data-counter="33" data-suffix="+">0+</strong>
+            <span>Yıllık saha tecrübesi</span>
+          </div>
+          <div class="hero-meta__item">
+            <strong data-counter="62" data-suffix="+">0+</strong>
+            <span>Hedef ihracat pazarı</span>
+          </div>
+          <div class="hero-meta__item">
+            <strong data-counter="148" data-suffix="">0</strong>
+            <span>Planlı üretim partisi</span>
+          </div>
+          <div class="hero-meta__item">
+            <strong data-counter="24" data-suffix="/7">0/7</strong>
+            <span>Saat kalite izleme</span>
+          </div>
+            </div>
+          </div>
+        </div>
+        <div class="slider-dots" role="group" aria-label="Hero slaytları">
+      <button class="slider-dot" type="button" data-slider-dot="hero-10" aria-label="1. slayt" aria-current="true"></button>
+      <button class="slider-dot" type="button" data-slider-dot="hero-10" aria-label="2. slayt" aria-current="false"></button>
+      <button class="slider-dot" type="button" data-slider-dot="hero-10" aria-label="3. slayt" aria-current="false"></button>
+      <button class="slider-dot" type="button" data-slider-dot="hero-10" aria-label="4. slayt" aria-current="false"></button>
+        </div>
+      </section>
+
+<section class="section white-band"><div class="container">
+
+        <div class="mb-10">
+          <p class="eyebrow">Ürün Kataloğu</p>
+          <h2 class="section-title">Değirmen, biber ve silaj ürünleri aynı filtre akışında sunulur.</h2>
+          <p class="section-lead">Sekmeler canlı sitede URL parametresiyle paylaşılabilir katalog deneyimine dönüşebilir.</p>
+        </div>
+
+  <div class="tabs" data-tabs>
+    <div class="tab-list" role="tablist" aria-label="Ürün kategorileri">
+      <button class="tab-button" type="button" role="tab" data-tab-button="degirmen">Değirmen</button>
+      <button class="tab-button" type="button" role="tab" data-tab-button="biber">Biber</button>
+      <button class="tab-button" type="button" role="tab" data-tab-button="silaj">Silaj</button>
+    </div>
+    <div class="tab-panel" data-tab-panel="degirmen" role="tabpanel">
+      <p class="section-lead !mb-6">Değirmen ürünleri için kalite, ambalaj ve teklif kartları.</p>
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 01</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Değirmen</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>Sarı Buğday Unu</h3>
+              <p>Ekmeklik ve endüstriyel kullanım için dengeli protein değeri.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 02</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Değirmen</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>Yemlik Arpa Kırması</h3>
+              <p>Homojen kırma yapısı ve izlenebilir tedarik zinciri.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 03</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Biber</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>Kırmızı Toz Biber</h3>
+              <p>Mersin güneşinde kurutulmuş seçili biberlerden yoğun renk.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 04</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Biber</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>Pul Biber</h3>
+              <p>Kontrollü öğütme ve düşük nem oranıyla parlak aromatik profil.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 05</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Biber</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>İsot Özel Seri</h3>
+              <p>Koyu renk, tok aroma ve dengeli acılık için düşük ısı prosesi.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 06</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Biber</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>Biber Salçası</h3>
+              <p>Endüstriyel mutfak ve perakende için pastörize üretim hattı.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 07</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Silaj</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>Mısır Silajı</h3>
+              <p>Süt verimi odaklı kuru madde takibi ve parti analizi.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 08</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Silaj</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>Yonca Balya</h3>
+              <p>Düşük yabancı madde, yüksek lif dengesi ve düzenli sevkiyat.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 09</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Silaj</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>Yem Hammaddesi</h3>
+              <p>Çiftlik ölçeğine göre planlanan karma yem girdisi.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+        </div>
+    </div>
+    <div class="tab-panel" data-tab-panel="biber" role="tabpanel">
+      <p class="section-lead !mb-6">Biber ürünleri için kalite, ambalaj ve teklif kartları.</p>
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 01</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Değirmen</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>Sarı Buğday Unu</h3>
+              <p>Ekmeklik ve endüstriyel kullanım için dengeli protein değeri.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 02</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Değirmen</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>Yemlik Arpa Kırması</h3>
+              <p>Homojen kırma yapısı ve izlenebilir tedarik zinciri.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 03</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Biber</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>Kırmızı Toz Biber</h3>
+              <p>Mersin güneşinde kurutulmuş seçili biberlerden yoğun renk.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 04</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Biber</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>Pul Biber</h3>
+              <p>Kontrollü öğütme ve düşük nem oranıyla parlak aromatik profil.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 05</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Biber</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>İsot Özel Seri</h3>
+              <p>Koyu renk, tok aroma ve dengeli acılık için düşük ısı prosesi.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 06</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Biber</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>Biber Salçası</h3>
+              <p>Endüstriyel mutfak ve perakende için pastörize üretim hattı.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 07</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Silaj</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>Mısır Silajı</h3>
+              <p>Süt verimi odaklı kuru madde takibi ve parti analizi.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 08</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Silaj</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>Yonca Balya</h3>
+              <p>Düşük yabancı madde, yüksek lif dengesi ve düzenli sevkiyat.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 09</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Silaj</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>Yem Hammaddesi</h3>
+              <p>Çiftlik ölçeğine göre planlanan karma yem girdisi.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+        </div>
+    </div>
+    <div class="tab-panel" data-tab-panel="silaj" role="tabpanel">
+      <p class="section-lead !mb-6">Silaj ve yem ürünleri için kalite, ambalaj ve teklif kartları.</p>
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 01</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Değirmen</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>Sarı Buğday Unu</h3>
+              <p>Ekmeklik ve endüstriyel kullanım için dengeli protein değeri.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 02</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Değirmen</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>Yemlik Arpa Kırması</h3>
+              <p>Homojen kırma yapısı ve izlenebilir tedarik zinciri.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 03</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Biber</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>Kırmızı Toz Biber</h3>
+              <p>Mersin güneşinde kurutulmuş seçili biberlerden yoğun renk.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 04</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Biber</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>Pul Biber</h3>
+              <p>Kontrollü öğütme ve düşük nem oranıyla parlak aromatik profil.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 05</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Biber</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>İsot Özel Seri</h3>
+              <p>Koyu renk, tok aroma ve dengeli acılık için düşük ısı prosesi.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 06</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Biber</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>Biber Salçası</h3>
+              <p>Endüstriyel mutfak ve perakende için pastörize üretim hattı.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 07</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Silaj</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>Mısır Silajı</h3>
+              <p>Süt verimi odaklı kuru madde takibi ve parti analizi.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 08</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Silaj</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>Yonca Balya</h3>
+              <p>Düşük yabancı madde, yüksek lif dengesi ve düzenli sevkiyat.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="media-placeholder product-card__visual">
+              <span class="media-label">Ürün Fotoğrafı 09</span>
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="pill">Silaj</span>
+                <span class="pill">Parti izlenebilir</span>
+              </div>
+              <h3>Yem Hammaddesi</h3>
+              <p>Çiftlik ölçeğine göre planlanan karma yem girdisi.</p>
+              <a class="btn btn-outline mt-5" href="11-urun-detay.html"><i data-lucide="arrow-right" aria-hidden="true"></i> Detay</a>
+            </div>
+          </article>
+        </div>
+    </div>
+  </div>
+</div></section>
+<section class="section cream-band"><div class="container">
+
+        <div class="mb-10">
+          <p class="eyebrow">Filtre Mantığı</p>
+          <h2 class="section-title">Kategori, ambalaj, hedef pazar ve stok durumu satış akışını hızlandırır.</h2>
+          <p class="section-lead">Prototipte filtreler görsel; canlı sürümde CMS alanlarına bağlanır.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="card__body">
+              <span class="card__icon"><i data-lucide="filter" aria-hidden="true"></i></span>
+              <h3>Kategori</h3>
+              <p>Değirmen, biber ve silaj ayrımı.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__body">
+              <span class="card__icon"><i data-lucide="package" aria-hidden="true"></i></span>
+              <h3>Ambalaj</h3>
+              <p>Çuval, kraft, bigbag ve dökme format.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__body">
+              <span class="card__icon"><i data-lucide="globe-2" aria-hidden="true"></i></span>
+              <h3>Pazar</h3>
+              <p>İç piyasa, Avrupa, Körfez ve Kafkasya.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__body">
+              <span class="card__icon"><i data-lucide="badge-check" aria-hidden="true"></i></span>
+              <h3>Belge</h3>
+              <p>Helal, ISO, HACCP ve organik eşleşmeleri.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__body">
+              <span class="card__icon"><i data-lucide="warehouse" aria-hidden="true"></i></span>
+              <h3>Stok</h3>
+              <p>Sezonluk üretim ve hazır parti bilgisi.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__body">
+              <span class="card__icon"><i data-lucide="truck" aria-hidden="true"></i></span>
+              <h3>Teslim</h3>
+              <p>Fabrika teslim, liman, iç piyasa rota planı.</p>
+            </div>
+          </article>
+        </div>
+</div></section>
+  </main>
+
+  <footer class="site-footer" aria-label="Alt bilgi">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <a class="logo-mark" href="01-home.html" aria-label="Eren Tarım ana sayfa">
+            <span class="logo-mark__symbol"><i data-lucide="wheat" aria-hidden="true"></i></span>
+            <span class="logo-mark__text">
+              <strong>Eren Tarım</strong>
+              <span>Mersin 1993</span>
+            </span>
+          </a>
+          <p class="mt-5 max-w-sm">Mersin’de değirmen, biber ve silaj üretimini tek kalite mimarisi altında birleştiren aile şirketi.</p>
+          <div class="pill-row mt-5">
+            <span class="pill">ISO 22000</span>
+            <span class="pill">HACCP</span>
+            <span class="pill">Helal</span>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Kurumsal</h3>
+          <div class="footer-links">
+            <a href="02-hakkimizda.html">Hakkımızda</a>
+            <a href="04-vizyon-misyon.html">Vizyon &amp; Misyon</a>
+            <a href="05-surdurulebilirlik.html">Sürdürülebilirlik</a>
+            <a href="03-kalite.html">Kalite</a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Üretim</h3>
+          <div class="footer-links">
+            <a href="07-tesis.html">Tesis</a>
+            <a href="08-kapasite.html">Kapasite</a>
+            <a href="09-lojistik.html">Lojistik</a>
+            <a href="10-urunler.html">Ürünler</a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>İletişim</h3>
+          <div class="footer-links">
+            <a href="tel:+903240000000">+90&nbsp;324&nbsp;000&nbsp;00&nbsp;00</a>
+            <a href="mailto:teklif@erentarim.example">teklif@erentarim.example</a>
+            <a href="12-iletisim.html">Mersin Üretim Kampüsü</a>
+            <a href="12-iletisim.html">Çalışma Saatleri</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Eren Tarım. Tasarım prototipi.</span>
+        <span>KVKK · Çerezler · Tedarikçi portalı</span>
+      </div>
+    </div>
+  </footer>
+  <a class="whatsapp-fab" href="https://wa.me/903240000000" aria-label="WhatsApp ile yazın">
+    <i data-lucide="message-circle" aria-hidden="true"></i>
+  </a>
+  <div class="lightbox" data-lightbox-root role="dialog" aria-modal="true" aria-label="Belge ön izlemesi">
+    <div class="lightbox__panel">
+      <div class="media-placeholder media-placeholder--light min-h-[240px] !rounded-none">
+        <span class="media-label">Belge Ön İzleme</span>
+      </div>
+      <div class="lightbox__body">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <p class="eyebrow">Sertifika</p>
+            <h2 class="section-title !text-3xl" data-lightbox-title>Belge adı</h2>
+          </div>
+          <button class="icon-button" type="button" data-lightbox-close aria-label="Pencereyi kapat"><i data-lucide="x" aria-hidden="true"></i></button>
+        </div>
+        <p class="section-lead" data-lightbox-body>Belge açıklaması.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="../assets/eren-prototype.js"></script>
+</body>
+</html>

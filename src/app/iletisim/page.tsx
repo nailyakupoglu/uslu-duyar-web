@@ -1,57 +1,89 @@
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+/**
+ * /iletisim — iletişim bilgileri + form.
+ * Prop'lar: yok.
+ * Kullanım: ContactForm (/api/contact) + firma iletişim kanalları + WhatsApp/telefon.
+ */
+import type { Metadata } from "next";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 
-export const metadata = {
-  title: "İletişim · Uslu Duyar",
-};
+import { Breadcrumb } from "@/components/shared/breadcrumb";
+import { PageHero } from "@/components/shared/page-hero";
+import { ContactForm } from "@/components/shared/contact-form";
+import { siteConfig } from "@/lib/data";
+import { buildMetadata } from "@/lib/seo/metadata";
 
-export default function Iletisim() {
+export const metadata: Metadata = buildMetadata({
+  title: "İletişim",
+  description:
+    "Eren Tarım ile iletişime geçin: teklif talebi, ihracat ve tedarik soruları için form, telefon, e-posta ve WhatsApp kanalları.",
+  path: "/iletisim"
+});
+
+const whatsappHref = `https://wa.me/${siteConfig.whatsapp.replace(/[^0-9]/g, "")}`;
+
+export default function ContactPage() {
   return (
-    <main style={{ maxWidth: 800, margin: "0 auto", padding: "4rem 1.5rem" }}>
-      <Link href="/" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "var(--color-primary)", marginBottom: "2rem", fontWeight: 600 }}>
-        <ArrowLeft size={16} /> Ana Sayfa
-      </Link>
-      <h1
-        style={{
-          fontSize: "clamp(2rem, 4vw, 3rem)",
-          fontWeight: 700,
-          fontFamily: "Georgia, serif",
-          color: "var(--color-primary)",
-          marginBottom: "1.5rem",
-        }}
-      >
-        İletişim
-      </h1>
-      <p style={{ fontSize: "1.125rem", opacity: 0.75, marginBottom: "2rem" }}>
-        Teklif, fiyat sorusu veya iş birliği için aşağıdaki kanallardan bize ulaşın.
-        24 saat içinde dönüş yapıyoruz.
-      </p>
+    <>
+      <Breadcrumb items={[{ label: "İletişim" }]} />
+      <PageHero
+        eyebrow="İletişim"
+        title="Teklif ve sorularınız için buradayız"
+        description="Ürün, ambalaj, ihracat ve tedarik süreçlerine dair her soru için bize ulaşın; en kısa sürede dönüş yapalım."
+      />
 
-      <div style={{ display: "grid", gap: "1rem", marginBottom: "3rem" }}>
-        {[
-          { l: "Telefon", v: "+90 324 000 00 00" },
-          { l: "WhatsApp", v: "+90 532 000 00 00" },
-          { l: "E-posta", v: "info@usluduyar.com" },
-          { l: "Adres", v: "Mersin Organize Sanayi Bölgesi, Mersin / Türkiye" },
-        ].map((r) => (
-          <div
-            key={r.l}
-            style={{
-              padding: "1rem 1.25rem",
-              background: "white",
-              border: "1px solid rgba(13,69,37,0.12)",
-              borderRadius: 8,
-            }}
+      <section className="container grid gap-12 py-20 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+        <div className="space-y-4">
+          <a
+            href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
+            className="flex items-start gap-4 rounded-lg border border-primary-900/10 bg-white p-5 transition hover:border-primary-500"
           >
-            <div style={{ fontSize: "0.75rem", opacity: 0.6, textTransform: "uppercase", letterSpacing: "0.1em" }}>{r.l}</div>
-            <div style={{ fontWeight: 600, marginTop: "0.25rem" }}>{r.v}</div>
+            <Phone className="mt-0.5 h-5 w-5 text-primary-700" />
+            <span>
+              <span className="block text-sm font-semibold text-ink">Telefon</span>
+              <span className="text-sm text-ink/65">{siteConfig.phone}</span>
+            </span>
+          </a>
+          <a
+            href={`mailto:${siteConfig.email}`}
+            className="flex items-start gap-4 rounded-lg border border-primary-900/10 bg-white p-5 transition hover:border-primary-500"
+          >
+            <Mail className="mt-0.5 h-5 w-5 text-primary-700" />
+            <span>
+              <span className="block text-sm font-semibold text-ink">E-posta</span>
+              <span className="text-sm text-ink/65">{siteConfig.email}</span>
+            </span>
+          </a>
+          <a
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-start gap-4 rounded-lg border border-primary-900/10 bg-white p-5 transition hover:border-primary-500"
+          >
+            <MessageCircle className="mt-0.5 h-5 w-5 text-primary-700" />
+            <span>
+              <span className="block text-sm font-semibold text-ink">WhatsApp</span>
+              <span className="text-sm text-ink/65">{siteConfig.whatsapp}</span>
+            </span>
+          </a>
+          <div className="flex items-start gap-4 rounded-lg border border-primary-900/10 bg-white p-5">
+            <MapPin className="mt-0.5 h-5 w-5 text-primary-700" />
+            <span>
+              <span className="block text-sm font-semibold text-ink">Adres</span>
+              <span className="text-sm text-ink/65">{siteConfig.address}</span>
+            </span>
           </div>
-        ))}
-      </div>
+        </div>
 
-      <p style={{ opacity: 0.75, fontSize: "0.875rem" }}>
-        Detaylı teklif formu ve ürün kataloğu için yakında güncellenecek.
-      </p>
-    </main>
+        <div className="rounded-2xl border border-primary-900/10 bg-white p-7 shadow-[0_24px_50px_-30px_rgba(50,50,93,0.35)] md:p-9">
+          <h2 className="font-display text-2xl font-semibold text-ink">Bize Yazın</h2>
+          <p className="mt-2 text-sm leading-6 text-ink/60">
+            Aşağıdaki formu doldurun; talebiniz ilgili ekibe iletilir.
+          </p>
+          <div className="mt-6">
+            <ContactForm />
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
