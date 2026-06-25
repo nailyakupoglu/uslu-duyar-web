@@ -61,14 +61,16 @@ export async function Footer() {
           {socialLinks.length > 0 ? (
             <div className="mt-5 flex gap-2">
               {socialLinks.map((item) => (
-                <Link
+                <a
                   key={item.label}
                   href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={item.label}
                   className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-accent-500 hover:text-ink"
                 >
                   <item.icon className="h-4 w-4" />
-                </Link>
+                </a>
               ))}
             </div>
           ) : (

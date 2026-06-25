@@ -35,6 +35,7 @@ export function CategoryMegaGrid() {
                 src={category.image}
                 alt={category.title}
                 fill
+                quality={86}
                 sizes="(min-width: 1024px) 33vw, 100vw"
                 className="object-cover transition duration-700 group-hover:scale-[1.08]"
               />

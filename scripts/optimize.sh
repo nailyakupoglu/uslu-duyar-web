@@ -4,7 +4,9 @@
 # Sonuç: ~/Desktop/Projects/uslu-duyar-web/public/media/
 
 set -e
-SRC="/Users/evohaus/Desktop/Projects/Uslu Duyar"
+# Kaynak repo içine taşındı (gitignored _archive). Eski harici yol fallback olarak denenir.
+SRC="/Users/evohaus/Desktop/Projects/uslu-duyar-web/_archive/Uslu Duyar"
+[ -d "$SRC" ] || SRC="/Users/evohaus/Desktop/Projects/Uslu Duyar"
 DST="/Users/evohaus/Desktop/Projects/uslu-duyar-web/public/media"
 
 mkdir -p "$DST/photos/original"
@@ -42,14 +44,14 @@ echo ""
 echo "✅ $i fotoğraf normalize edildi"
 echo ""
 
-# ===== 2. Web-optimized (1920px, q=82, interlaced) =====
-echo "🖼️  Web optimize (1920px max, q=82, interlaced)..."
+# ===== 2. Web-optimized (2560px, q=90, progressive) =====
+echo "🖼️  Web optimize (2560px max, q=90, progressive sRGB)..."
 i=0
 while IFS= read -r -d '' f; do
   i=$((i+1))
   base=$(basename "$f")
   out="$DST/photos/optimized/${base}"
-  magick "$f" -resize "1920x1920>" -quality 82 -strip -interlace Plane "$out" 2>/dev/null
+  magick "$f" -resize "2560x2560>" -quality 90 -interlace Plane -sampling-factor 4:2:0 -strip "$out" 2>/dev/null
 done < <(find "$DST/photos/original" -type f -iname "*.jpg" -print0)
 
 # Optimize toplam boyut
@@ -57,30 +59,30 @@ opt_size=$(du -sh "$DST/photos/optimized" 2>/dev/null | awk '{print $1}')
 echo "✅ $i web foto → $opt_size"
 echo ""
 
-# ===== 3. Thumbnails (480px) =====
-echo "🔍 Thumbnails (480px)..."
+# ===== 3. Thumbnails (640px, q=82) =====
+echo "🔍 Thumbnails (640px, q=82)..."
 i=0
 while IFS= read -r -d '' f; do
   i=$((i+1))
   base=$(basename "$f")
   out="$DST/photos/thumbnails/${base}"
-  magick "$f" -resize "480x480>" -quality 78 -strip "$out" 2>/dev/null
+  magick "$f" -resize "640x640>" -quality 82 -interlace Plane -strip "$out" 2>/dev/null
 done < <(find "$DST/photos/original" -type f -iname "*.jpg" -print0)
 
 thumb_size=$(du -sh "$DST/photos/thumbnails" 2>/dev/null | awk '{print $1}')
 echo "✅ $i thumbnail → $thumb_size"
 echo ""
 
-# ===== 4. MOV → MP4 (H.264 720p, AAC, faststart) =====
-echo "🎬 MOV → MP4 (H.264 720p, AAC 128k)..."
+# ===== 4. MOV → MP4 (H.264 1080p, CRF 20, AAC, faststart) =====
+echo "🎬 MOV → MP4 (H.264 ≤1080p, CRF 20, AAC 128k)..."
 i=0
 while IFS= read -r -d '' f; do
   i=$((i+1))
   base=$(basename "$f")
   name="${base%.*}"
   out="$DST/videos/optimized/${name}.mp4"
-  ffmpeg -y -i "$f" -c:v libx264 -preset slow -crf 22 \
-    -vf "scale='min(1280,iw)':'min(720,ih)':force_original_aspect_ratio=decrease" \
+  ffmpeg -y -i "$f" -c:v libx264 -preset slow -crf 20 \
+    -vf "scale='min(1920,iw)':-2" \
     -c:a aac -b:a 128k -movflags +faststart "$out" 2>/dev/null
   if [ -f "$out" ]; then
     size=$(stat -f%z "$out")
@@ -113,11 +115,21 @@ from datetime import datetime
 ROOT = '/Users/evohaus/Desktop/Projects/uslu-duyar-web/public/media'
 manifest = {
     'generated': datetime.now().isoformat(),
-    'source': '/Users/evohaus/Desktop/Projects/Uslu Duyar/',
+    'source': '/Users/evohaus/Desktop/Projects/uslu-duyar-web/_archive/Uslu Duyar/',
     'total_photos': 0,
     'total_videos': 0,
     'media': []
 }
+
+# KÜRATÖRLÜĞÜ KORU: kategori/caption/alt/hero/quality elle düzenlenir; yeniden üretimde silinmemeli.
+PRESERVE = ('category', 'caption', 'captionEn', 'alt', 'altEn', 'hero', 'quality', 'thumbnail')
+prev = {}
+try:
+    with open(f'{ROOT}/manifest.json') as pf:
+        for it in json.load(pf).get('media', []):
+            prev[it.get('originalName')] = {k: it[k] for k in PRESERVE if k in it}
+except FileNotFoundError:
+    pass
 
 # Fotoğraflar
 photos = sorted(os.listdir(f'{ROOT}/photos/original'))
@@ -137,7 +149,7 @@ for i, name in enumerate(photos, 1):
         width = height = size_kb = 0
 
     mid = f'photo-{i:03d}'
-    manifest['media'].append({
+    entry = {
         'id': mid,
         'type': 'photo',
         'originalName': name,
@@ -146,9 +158,11 @@ for i, name in enumerate(photos, 1):
         'width': width,
         'height': height,
         'sizeKb': size_kb,
-        'category': None,  # Claude tarafından doldurulacak
+        'category': None,  # ilk üretimde Claude tarafından doldurulur
         'caption': None,
-    })
+    }
+    entry.update(prev.get(name, {}))  # varsa küratörlüğü geri yükle
+    manifest['media'].append(entry)
 manifest['total_photos'] = len(photos)
 
 # Videolar
@@ -167,18 +181,21 @@ for i, name in enumerate(videos, 1):
     size_kb = os.path.getsize(op) // 1024
 
     mid = f'video-{i:03d}'
-    manifest['media'].append({
+    entry = {
         'id': mid,
         'type': 'video',
         'originalName': name,
         'optimized': f'/videos/optimized/{name}',
+        'thumbnail': f'/videos/posters/{os.path.splitext(name)[0]}.jpg',
         'width': width,
         'height': height,
         'sizeKb': size_kb,
         'durationSec': round(duration, 1),
         'category': None,
         'caption': None,
-    })
+    }
+    entry.update(prev.get(name, {}))  # varsa küratörlüğü geri yükle
+    manifest['media'].append(entry)
 manifest['total_videos'] = len(videos)
 
 with open(f'{ROOT}/manifest.json', 'w') as f:
@@ -201,10 +218,11 @@ cat > "$DST/README.md" << 'EOF'
 media/
 ├── photos/
 │   ├── original/      # HEIC→JPG (q=92) + orijinal JPG kopyaları
-│   ├── optimized/     # Web: 1920px max, q=82, interlaced
-│   └── thumbnails/    # Grid: 480px max, q=78
+│   ├── optimized/     # Web: 2560px max, q=90, progressive sRGB
+│   └── thumbnails/    # Grid: 640px max, q=82
 ├── videos/
-│   └── optimized/     # MP4 H.264 720p, AAC 128k, faststart
+│   ├── optimized/     # MP4 H.264 ≤1080p, CRF 20, AAC 128k, faststart
+│   └── posters/       # Video poster JPG'leri
 ├── manifest.json      # Tüm dosyaların metadata'sı
 └── README.md
 ```
@@ -224,9 +242,9 @@ const heroSlide = media.find(m => m.category === 'hero' && m.type === 'photo');
 
 ## Optimizasyon ayarları
 
-- **JPG (web):** `magick -resize 1920x1920\> -quality 82 -strip -interlace Plane`
-- **JPG (thumb):** `magick -resize 480x480\> -quality 78 -strip`
-- **MP4:** `ffmpeg libx264 -crf 22 -preset slow -vf scale=1280:720 -c:a aac -movflags +faststart`
+- **JPG (web):** `magick -resize 2560x2560\> -quality 90 -interlace Plane -sampling-factor 4:2:0 -strip`
+- **JPG (thumb):** `magick -resize 640x640\> -quality 82 -interlace Plane -strip`
+- **MP4:** `ffmpeg libx264 -crf 20 -preset slow -vf "scale='min(1920,iw)':-2" -c:a aac -movflags +faststart`
 
 ## Yeniden çalıştırma
 

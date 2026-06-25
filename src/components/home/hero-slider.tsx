@@ -78,6 +78,7 @@ export function HeroSlider() {
                     alt={slide.title}
                     fill
                     priority={index === 0}
+                    quality={90}
                     sizes="100vw"
                     className="object-cover"
                   />

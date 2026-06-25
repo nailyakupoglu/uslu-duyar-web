@@ -9,6 +9,7 @@ import Image from "next/image";
 import { Breadcrumb } from "@/components/shared/breadcrumb";
 import { PageHero } from "@/components/shared/page-hero";
 import { RevealOnScroll } from "@/components/motion/reveal-on-scroll";
+import { getProductionCover } from "@/lib/manifest-reader";
 import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
 export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
@@ -43,6 +44,8 @@ const stepsByLocale = {
 
 export default function FacilityPage({ params: { locale } }: { params: { locale: string } }) {
   const steps = locale === "en" ? stepsByLocale.en : stepsByLocale.tr;
+  // Banner gerçek tesis fotoğrafından; foto yoksa SVG yedek görsele düşer.
+  const bannerImage = getProductionCover("/uretim/tesis", "/images/production/tesis.svg");
   return (
     <>
       <Breadcrumb
@@ -64,10 +67,11 @@ export default function FacilityPage({ params: { locale } }: { params: { locale:
       <section className="container py-16">
         <div className="relative aspect-[16/7] overflow-hidden rounded-2xl shadow-[0_30px_60px_-30px_rgba(50,50,93,0.35)]">
           <Image
-            src="/images/production/tesis.svg"
+            src={bannerImage}
             alt={locale === "en" ? "Uslu Duyar packing facility" : "Uslu Duyar paketleme tesisi"}
             fill
             priority
+            quality={88}
             sizes="100vw"
             className="object-cover"
           />

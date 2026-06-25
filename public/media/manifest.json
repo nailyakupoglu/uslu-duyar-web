@@ -2,7 +2,7 @@
   "generated": "2026-06-25T15:01:47+03:00",
   "source": "public/media (optimized)",
   "total_photos": 88,
-  "total_videos": 8,
+  "total_videos": 11,
   "media": [
     {
       "id": "photo-001",
@@ -1643,6 +1643,60 @@
       "quality": 3,
       "alt": "Uslu Duyar saha görüntüsü",
       "altEn": "Field video showing harvest and fresh-produce operations from Uslu Duyar"
+    },
+    {
+      "id": "video-009",
+      "type": "video",
+      "originalName": "869D888E-A7AC-4CEB-AC79-B3629283FD65.mp4",
+      "optimized": "/videos/optimized/869D888E-A7AC-4CEB-AC79-B3629283FD65.mp4",
+      "thumbnail": "/videos/posters/869D888E-A7AC-4CEB-AC79-B3629283FD65.jpg",
+      "width": 1080,
+      "height": 1920,
+      "sizeKb": 1732,
+      "durationSec": 17.6,
+      "category": "saha",
+      "caption": "Uslu Duyar saha ve hasat görüntüsü",
+      "captionEn": "Field and harvest footage from Uslu Duyar's Mersin operations",
+      "hero": false,
+      "quality": 4,
+      "alt": "Uslu Duyar saha ve hasat görüntüsü",
+      "altEn": "Field and harvest footage from Uslu Duyar's Mersin operations"
+    },
+    {
+      "id": "video-010",
+      "type": "video",
+      "originalName": "913b462cee3445668591e211924cec59.mp4",
+      "optimized": "/videos/optimized/913b462cee3445668591e211924cec59.mp4",
+      "thumbnail": "/videos/posters/913b462cee3445668591e211924cec59.jpg",
+      "width": 720,
+      "height": 1280,
+      "sizeKb": 313,
+      "durationSec": 5.0,
+      "category": "saha",
+      "caption": "Bahçeden taze ürün hasadı",
+      "captionEn": "Fresh produce being harvested in the orchard",
+      "hero": false,
+      "quality": 4,
+      "alt": "Bahçeden taze ürün hasadı",
+      "altEn": "Fresh produce being harvested in the orchard"
+    },
+    {
+      "id": "video-011",
+      "type": "video",
+      "originalName": "71299b1625a948cb8cf694f3bd4d0848.mp4",
+      "optimized": "/videos/optimized/71299b1625a948cb8cf694f3bd4d0848.mp4",
+      "thumbnail": "/videos/posters/71299b1625a948cb8cf694f3bd4d0848.jpg",
+      "width": 720,
+      "height": 1280,
+      "sizeKb": 678,
+      "durationSec": 15.1,
+      "category": "lojistik",
+      "caption": "Sevkiyat ve paketleme akışı",
+      "captionEn": "Packing and shipment workflow at Uslu Duyar",
+      "hero": false,
+      "quality": 4,
+      "alt": "Sevkiyat ve paketleme akışı",
+      "altEn": "Packing and shipment workflow at Uslu Duyar"
     }
   ]
 }

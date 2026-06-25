@@ -123,6 +123,24 @@ export function getCategoryCover(category: MediaCategory, fallback: string): str
   return first ? first.src : fallback;
 }
 
+// Üretim kartı kapakları — her href'i anlamlı operasyonel foto kategorisine eşler (idx ile çeşitlilik).
+const PRODUCTION_COVER: Record<string, { cat: MediaCategory; idx: number }> = {
+  "/uretim/sertifikalar": { cat: "kurumsal", idx: 0 },
+  "/uretim/tesis": { cat: "tesis", idx: 0 },
+  "/uretim/kapasite": { cat: "narenciye", idx: 6 },
+  "/uretim/lojistik": { cat: "lojistik", idx: 0 }
+};
+
+/** Üretim kartı kapağı — href'e göre gerçek operasyonel foto; foto yoksa SVG yedek. */
+export function getProductionCover(href: string, fallback: string): string {
+  const map = PRODUCTION_COVER[href];
+  if (!map) {
+    return fallback;
+  }
+  const pool = getByCategory(map.cat);
+  return pool[map.idx]?.src ?? pool[0]?.src ?? fallback;
+}
+
 /** Locale'e göre medya caption/alt metnini döndürür. */
 export function mediaText(item: Pick<MediaItem, "caption" | "captionEn" | "alt" | "altEn">, locale: string, kind: "caption" | "alt" = "caption"): string {
   if (locale === "en") {

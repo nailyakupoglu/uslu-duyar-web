@@ -8,11 +8,16 @@ import { useLocale } from "next-intl";
 
 import { SectionHeading } from "@/components/shared/section-heading";
 import { getProductionHighlightsL } from "@/lib/content";
+import { getProductionCover } from "@/lib/manifest-reader";
 
 export function ProductionQuad() {
   const locale = useLocale();
   const reduceMotion = useReducedMotion();
-  const productionHighlights = getProductionHighlightsL(locale);
+  // Kapaklar manifest'teki gerçek operasyonel fotoğraflardan çözülür (yoksa SVG yedek).
+  const productionHighlights = getProductionHighlightsL(locale).map((item) => ({
+    ...item,
+    image: getProductionCover(item.href, item.image)
+  }));
   return (
     <section className="section-padding bg-primary-900 text-white">
       <div className="container">
@@ -36,6 +41,7 @@ export function ProductionQuad() {
                 src={item.image}
                 alt={item.title}
                 fill
+                quality={86}
                 sizes="(min-width: 768px) 50vw, 100vw"
                 className="object-cover transition duration-700 group-hover:scale-[1.06]"
               />

@@ -13,6 +13,7 @@ import { PageHero } from "@/components/shared/page-hero";
 import { StatsCounter } from "@/components/home/stats-counter";
 import { RevealOnScroll } from "@/components/motion/reveal-on-scroll";
 import { getProductionHighlightsL } from "@/lib/content";
+import { getProductionCover } from "@/lib/manifest-reader";
 import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
 export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
@@ -27,7 +28,11 @@ export function generateMetadata({ params: { locale } }: { params: { locale: str
 }
 
 export default function ProductionPage({ params: { locale } }: { params: { locale: string } }) {
-  const productionHighlights = getProductionHighlightsL(locale);
+  // Kapaklar manifest'teki gerçek operasyonel fotoğraflardan çözülür (yoksa SVG yedek).
+  const productionHighlights = getProductionHighlightsL(locale).map((item) => ({
+    ...item,
+    image: getProductionCover(item.href, item.image)
+  }));
   return (
     <>
       <Breadcrumb items={[{ label: locale === "en" ? "Production" : "Üretim" }]} />
@@ -52,6 +57,7 @@ export default function ProductionPage({ params: { locale } }: { params: { local
                 src={item.image}
                 alt={item.title}
                 fill
+                quality={86}
                 sizes="(min-width: 768px) 45vw, 100vw"
                 className="object-cover transition duration-700 group-hover:scale-105"
               />

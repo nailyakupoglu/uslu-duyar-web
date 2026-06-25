@@ -52,6 +52,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
             src={productImage(product)}
             alt={product.title}
             fill
+            quality={86}
             sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
             className="object-cover transition duration-700 group-hover:scale-108"
           />

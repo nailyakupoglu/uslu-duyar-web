@@ -20,6 +20,8 @@ RUN pnpm build
 # Stage 3: runner (Next.js standalone)
 FROM node:20-alpine AS runner
 WORKDIR /app
+# sharp (next/image optimizer) native bağımlılıkları için libc6-compat
+RUN apk add --no-cache libc6-compat
 ENV NODE_ENV=production
 ENV PORT=3000
 ENV NEXT_TELEMETRY_DISABLED=1
