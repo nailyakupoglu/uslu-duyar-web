@@ -10,6 +10,14 @@ import { useCallback, useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { heroSlides } from "@/lib/data";
+import { getHeroes } from "@/lib/manifest-reader";
+
+// Hero metinleri data.ts'ten, görseller manifest'teki gerçek hero fotoğraflarından (yetmezse SVG fallback).
+const heroPhotos = getHeroes(heroSlides.length);
+const slides = heroSlides.map((slide, index) => ({
+  ...slide,
+  image: heroPhotos[index]?.src ?? slide.image
+}));
 
 const titleVariant = {
   hidden: { opacity: 0, y: 26 },
@@ -42,7 +50,7 @@ export function HeroSlider() {
     <section className="relative min-h-screen overflow-hidden bg-hero-gradient text-white">
       <div ref={emblaRef} className="h-screen overflow-hidden">
         <div className="flex h-full">
-          {heroSlides.map((slide, index) => (
+          {slides.map((slide, index) => (
             <div className="relative h-full min-w-0 flex-[0_0_100%]" key={slide.title}>
               <motion.div
                 className="absolute inset-0"

@@ -6,13 +6,20 @@ import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 import { categories } from "@/lib/data";
+import { getCategoryCover, type MediaCategory } from "@/lib/manifest-reader";
+
+// Kategori kapakları: manifest'teki gerçek foto (yoksa SVG placeholder fallback).
+const cards = categories.map((category) => ({
+  ...category,
+  image: getCategoryCover(category.slug as MediaCategory, category.image)
+}));
 
 export function CategoryMegaGrid() {
   return (
     <section className="section-padding bg-cream">
       <div className="container">
         <div className="grid gap-5 lg:grid-cols-3">
-          {categories.map((category, index) => (
+          {cards.map((category, index) => (
             <motion.article
               key={category.slug}
               initial={{ opacity: 0, y: 30 }}

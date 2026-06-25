@@ -7,6 +7,7 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
 import type { Product } from "@/lib/data";
+import { productImage } from "@/lib/products-media";
 import { cn } from "@/lib/utils";
 
 type ProductCardProps = {
@@ -41,7 +42,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
       <Link href={href} className="block overflow-hidden rounded-lg" aria-label={`${product.title} ürününü incele`}>
         <div className="relative aspect-[4/5] overflow-hidden">
           <Image
-            src={product.image}
+            src={productImage(product)}
             alt={product.title}
             fill
             sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"

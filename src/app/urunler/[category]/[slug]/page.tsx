@@ -22,6 +22,7 @@ import {
   products
 } from "@/lib/data";
 import { breadcrumbJsonLd, productJsonLd } from "@/lib/seo/jsonld";
+import { productGallery, productImage } from "@/lib/products-media";
 
 type Params = { category: string; slug: string };
 
@@ -45,7 +46,7 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
       type: "website",
       title: product.title,
       description: product.shortDescription,
-      images: [{ url: product.image, alt: product.title }]
+      images: [{ url: productImage(product), alt: product.title }]
     }
   };
 }
@@ -62,6 +63,8 @@ export default function ProductDetailPage({ params }: { params: Params }) {
   const meta = categoryMeta[product.category];
   const related = getProductsByCategory(product.category).filter((item) => item.slug !== product.slug);
   const specs = Object.entries(product.specs);
+  const gallery = productGallery(product);
+  const heroImage = gallery[0]?.src ?? product.image;
 
   return (
     <>
@@ -72,7 +75,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
             productJsonLd({
               name: product.title,
               description: product.description,
-              image: product.image,
+              image: heroImage,
               category: meta.title
             })
           )
@@ -100,7 +103,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
       />
 
       <section className="container grid gap-12 py-12 lg:grid-cols-2 lg:items-start">
-        <ProductGallery images={[product.image, ...product.gallery]} alt={product.title} />
+        <ProductGallery images={gallery.map((g) => g.src)} alt={product.title} />
 
         <div className="lg:pt-4">
           <p className="inline-flex items-center gap-2 rounded-full bg-accent-50 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-accent-700">
