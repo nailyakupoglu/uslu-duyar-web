@@ -16,7 +16,7 @@ export function organizationJsonLd(locale = "tr"): JsonLd {
     name: siteConfig.legalName,
     alternateName: siteConfig.name,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/images/logos/logo.svg`,
+    logo: `${siteConfig.url}/images/logos/uslu-duyar-logo.png`,
     description: pick(siteConfig.description, locale),
     email: siteConfig.email,
     telephone: siteConfig.phone,
@@ -128,7 +128,7 @@ export function articleJsonLd(input: {
       name: siteConfig.legalName,
       logo: {
         "@type": "ImageObject",
-        url: `${siteConfig.url}/images/logos/logo.svg`
+        url: `${siteConfig.url}/images/logos/uslu-duyar-logo.png`
       }
     }
   };

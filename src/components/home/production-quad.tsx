@@ -20,13 +20,13 @@ export function ProductionQuad() {
     image: getProductionCover(item.href, item.image)
   }));
   return (
-    <section className="section-padding bg-primary-50 text-ink">
+    <section className="section-padding bg-ink text-white">
       <div className="container">
         <SectionHeading
           eyebrow={locale === "en" ? "Production strength" : "Üretim gücü"}
           title={locale === "en" ? "From certification to season planning, every operation is visible." : "Sertifikadan sezon planına, her operasyon görünür."}
           description={locale === "en" ? "A clear corporate narrative connecting harvest, grading, cold chain, season windows and export logistics in one buyer-ready flow." : "Hasat, boylama, soğuk zincir, sezon penceresi ve ihracat lojistiğini alıcıya hazır tek akışta birleştiren net kurumsal anlatı."}
-          className="[&_h2]:text-ink [&_p]:text-ink/65"
+          className="text-white [&_h2]:text-white [&_p]:text-white/65"
         />
         <div className="mt-12 grid gap-5 md:grid-cols-2">
           {productionHighlights.map((item, index) => (
@@ -36,7 +36,7 @@ export function ProductionQuad() {
               whileInView={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, delay: index * 0.08 }}
-              className="group relative min-h-[360px] overflow-hidden rounded-lg"
+              className="group relative min-h-[360px] overflow-hidden rounded-lg border border-white/10"
             >
               <Image
                 src={item.image}

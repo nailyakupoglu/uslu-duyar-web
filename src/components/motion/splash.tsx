@@ -5,7 +5,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-import { LogoMark } from "@/components/shared/logo";
+import { Logo } from "@/components/shared/logo";
 
 export function Splash() {
   const [show, setShow] = useState(false);
@@ -28,7 +28,7 @@ export function Splash() {
     <AnimatePresence>
       {show ? (
         <motion.div
-          className="fixed inset-0 z-[200] flex items-center justify-center bg-cream"
+          className="fixed inset-0 z-[200] flex items-center justify-center bg-ink"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
@@ -40,10 +40,8 @@ export function Splash() {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col items-center gap-4"
           >
-            <LogoMark className="h-16 w-16" />
-            <span className="font-display text-3xl font-bold text-primary-700">
-              <span className="text-accent">Uslu</span> Duyar
-            </span>
+            <Logo className="w-[min(480px,82vw)] shadow-[0_24px_70px_rgba(0,0,0,0.38)]" priority />
+            <span className="spec-mono text-white/55">Mersin / Cukurova</span>
           </motion.div>
         </motion.div>
       ) : null}

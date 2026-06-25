@@ -180,6 +180,7 @@ function HeroImage({
         fill
         priority={priority}
         quality={92}
+        unoptimized
         sizes="100vw"
         className="hidden object-cover md:block"
         style={{ objectPosition: visual.position }}
@@ -190,6 +191,7 @@ function HeroImage({
         fill
         priority={priority}
         quality={90}
+        unoptimized
         sizes="100vw"
         className="object-cover md:hidden"
         style={{ objectPosition: visual.mobilePosition }}

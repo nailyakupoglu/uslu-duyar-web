@@ -1,6 +1,6 @@
 "use client";
 
-// Header — açık (krem/beyaz) yapışkan üst bar + erişilebilir mega menü.
+// Header — koyu premium yapışkan üst bar + erişilebilir mega menü.
 // Prop'lar: yok (locale + pathname kendi içinde çözülür).
 // Kullanım: layout.tsx içinde tek örnek; mega menü hover köprüsü + tıklama + Esc + ARIA ile çalışır.
 import { Link, usePathname } from "@/i18n/navigation";
@@ -32,9 +32,9 @@ export function Header() {
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const reduceMotion = useSafeReducedMotion();
   const { scrollY } = useScroll();
-  const height = useTransform(scrollY, [0, 120], [88, 70]);
-  const bgOpacity = useTransform(scrollY, [0, 120], [0.86, 0.98]);
-  const backgroundColor = useTransform(bgOpacity, (value) => `rgba(250, 247, 242, ${value})`);
+  const height = useTransform(scrollY, [0, 120], [92, 76]);
+  const bgOpacity = useTransform(scrollY, [0, 120], [0.78, 0.96]);
+  const backgroundColor = useTransform(bgOpacity, (value) => `rgba(10, 17, 12, ${value})`);
   useMotionValueEvent(scrollY, "change", (value) => setScrolled(value > 12));
 
   // Mega menü köprüsü: tetikleyici ↔ panel arasında gezerken kapanmayı geciktir.
@@ -75,18 +75,18 @@ export function Header() {
   return (
     <motion.header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 border-b text-ink backdrop-blur-xl transition-shadow",
-        scrolled ? "border-line-soft shadow-[0_10px_30px_rgba(14,14,14,0.07)]" : "border-transparent"
+        "fixed inset-x-0 top-0 z-50 border-b text-white backdrop-blur-xl transition-shadow",
+        scrolled ? "border-white/12 shadow-[0_18px_50px_rgba(0,0,0,0.28)]" : "border-white/8"
       )}
       style={{
         height: reduceMotion ? 76 : height,
-        backgroundColor: reduceMotion ? "rgba(250, 247, 242, 0.98)" : backgroundColor
+        backgroundColor: reduceMotion ? "rgba(10, 17, 12, 0.96)" : backgroundColor
       }}
       onMouseLeave={scheduleClose}
     >
       <div className="container flex h-full items-center justify-between gap-4">
         <Link href="/" className="group inline-flex items-center" aria-label={locale === "en" ? "Uslu Duyar home" : "Uslu Duyar ana sayfa"}>
-          <Logo variant="dark" />
+          <Logo className="w-[176px] shadow-[0_10px_30px_rgba(0,0,0,0.20)] sm:w-[230px]" priority />
         </Link>
 
         <nav className="hidden items-center gap-0.5 lg:flex" aria-label={locale === "en" ? "Main navigation" : "Ana navigasyon"}>
@@ -98,8 +98,8 @@ export function Header() {
                 <Link
                   href={item.href}
                   className={cn(
-                    "rounded-full px-3.5 py-2 text-sm font-semibold text-ink/70 transition hover:bg-primary-50 hover:text-primary-700",
-                    active && "bg-primary-50 text-primary-700"
+                    "rounded-full px-3.5 py-2 text-sm font-semibold text-white/70 transition hover:bg-white/10 hover:text-white",
+                    active && "bg-white/12 text-white"
                   )}
                 >
                   {item.title}
@@ -111,9 +111,9 @@ export function Header() {
                     aria-haspopup="true"
                     aria-expanded={expanded}
                     aria-label={`${item.title} ${locale === "en" ? "menu" : "menüsü"}`}
-                    className="-ml-1 rounded-full p-1 text-ink/45 transition hover:text-primary-700"
+                    className="-ml-1 rounded-full p-1 text-white/45 transition hover:text-harvest-500"
                   >
-                    <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", expanded && "rotate-180 text-primary-700")} />
+                    <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", expanded && "rotate-180 text-harvest-500")} />
                   </button>
                 ) : null}
               </div>
@@ -122,7 +122,7 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <LanguageSwitcher />
+          <LanguageSwitcher tone="dark" />
           <Button asChild variant="accent" size="sm" magnetic>
             <Link href="/iletisim">
               <Phone className="h-4 w-4" />
@@ -133,7 +133,7 @@ export function Header() {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-primary-50 text-primary-700 lg:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white ring-1 ring-white/12 lg:hidden"
           onClick={() => setOpen((value) => !value)}
           aria-label={open ? (locale === "en" ? "Close menu" : "Menüyü kapat") : locale === "en" ? "Open menu" : "Menüyü aç"}
         >
@@ -144,7 +144,7 @@ export function Header() {
       <AnimatePresence>
         {mega && activeChildren ? (
           <motion.div
-            className="hidden border-t border-line-soft bg-white text-ink shadow-[0_30px_60px_rgba(14,14,14,0.12)] lg:block"
+            className="hidden border-t border-white/10 bg-ink/96 text-white shadow-[0_30px_80px_rgba(0,0,0,0.38)] lg:block"
             role="region"
             aria-label={mega}
             onMouseEnter={cancelClose}
@@ -156,8 +156,8 @@ export function Header() {
           >
             <div className="container grid grid-cols-[0.8fr_1.2fr] gap-8 py-8">
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.22em] text-accent-700">{mega}</p>
-                <p className="mt-3 max-w-md text-sm leading-7 text-ink/65">
+                <p className="text-xs font-bold uppercase tracking-[0.22em] text-harvest-500">{mega}</p>
+                <p className="mt-3 max-w-md text-sm leading-7 text-white/62">
                   {locale === "en"
                     ? "A Mersin & Çukurova based operation delivering citrus, melon and watermelon from field to market — with harvest, cold chain and packaging unified in a single traceable supply chain."
                     : "Narenciye, kavun ve karpuzu tarladan markete; hasat, soğuk zincir ve paketlemeyle tek izlenebilir tedarik zincirinde sunan Mersin & Çukurova merkezli yapı."}
@@ -169,11 +169,11 @@ export function Header() {
                     key={child.title}
                     href={child.href}
                     onClick={() => setMega(null)}
-                    className="rounded-lg border border-line-soft bg-cream p-4 transition hover:-translate-y-1 hover:border-primary-500/30 hover:bg-primary-50"
+                    className="rounded-lg border border-white/10 bg-white/[0.06] p-4 transition hover:-translate-y-1 hover:border-harvest-500/40 hover:bg-white/[0.10]"
                   >
-                    <span className="font-semibold text-ink">{child.title}</span>
+                    <span className="font-semibold text-white">{child.title}</span>
                     {"description" in child && typeof child.description === "string" ? (
-                      <span className="mt-2 block text-xs leading-5 text-ink/55">{child.description}</span>
+                      <span className="mt-2 block text-xs leading-5 text-white/55">{child.description}</span>
                     ) : null}
                   </Link>
                 ))}
@@ -186,7 +186,7 @@ export function Header() {
       <AnimatePresence>
         {open ? (
           <motion.div
-            className="border-t border-line-soft bg-white px-4 pb-6 pt-3 text-ink shadow-[0_30px_60px_rgba(14,14,14,0.12)] lg:hidden"
+            className="border-t border-white/10 bg-ink/97 px-4 pb-6 pt-3 text-white shadow-[0_30px_80px_rgba(0,0,0,0.38)] lg:hidden"
             initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -12 }}
             animate={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
             exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -12 }}
@@ -196,7 +196,7 @@ export function Header() {
                 <Link
                   key={item.title}
                   href={item.href}
-                  className="rounded-lg px-3 py-3 text-sm font-semibold text-ink hover:bg-primary-50 hover:text-primary-700"
+                  className="rounded-lg px-3 py-3 text-sm font-semibold text-white/78 hover:bg-white/10 hover:text-white"
                   onClick={() => setOpen(false)}
                 >
                   {item.title}
@@ -204,7 +204,7 @@ export function Header() {
               ))}
             </div>
             <div className="mt-4 flex items-center justify-between gap-3">
-              <LanguageSwitcher />
+              <LanguageSwitcher tone="dark" />
               <Button asChild variant="accent" size="sm">
                 <Link href="/iletisim" onClick={() => setOpen(false)}>
                   {locale === "en" ? "Get a Quote" : "Teklif Al"}

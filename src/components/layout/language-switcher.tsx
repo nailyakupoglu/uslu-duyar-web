@@ -7,9 +7,15 @@ import { usePathname, useRouter } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 // Aktif yolda kalarak locale değiştiren pill butonu.
-// Prop'lar: { className } — pill konteynerine ek sınıflar.
+// Prop'lar: { className, tone } — koyu/açık header yüzeyine uyarlanır.
 // Kullanım: <LanguageSwitcher /> — header (desktop + mobil sheet) içinde.
-export function LanguageSwitcher({ className }: { className?: string }) {
+export function LanguageSwitcher({
+  className,
+  tone = "light"
+}: {
+  className?: string;
+  tone?: "light" | "dark";
+}) {
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
@@ -19,7 +25,10 @@ export function LanguageSwitcher({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "inline-flex h-10 items-center gap-1 rounded-full border border-line-soft bg-primary-50 px-2 text-xs font-semibold text-ink/70 backdrop-blur",
+        "inline-flex h-10 items-center gap-1 rounded-full border px-2 text-xs font-semibold backdrop-blur",
+        tone === "dark"
+          ? "border-white/12 bg-white/8 text-white/72"
+          : "border-line-soft bg-primary-50 text-ink/70",
         className
       )}
     >

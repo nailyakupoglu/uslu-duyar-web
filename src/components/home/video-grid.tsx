@@ -25,14 +25,14 @@ export function VideoGrid() {
   }
 
   return (
-    <section className="section-padding bg-surface-field text-ink">
+    <section className="section-padding bg-export-radar text-white">
       <div className="container">
         <SectionHeading
           eyebrow={locale === "en" ? "From the Field" : "Sahadan"}
           title={locale === "en" ? "Scenes from the Field" : "Tarladan kareler"}
           description={locale === "en" ? "Short clips from our citrus and watermelon fields, from harvest to shipment." : "Hasattan sevkiyata; narenciye ve karpuz sahalarımızdan kısa görüntüler."}
           align="center"
-          className="[&_h2]:text-ink [&_p]:text-ink/65"
+          className="text-white [&_h2]:text-white [&_p]:text-white/65"
         />
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {videos.map((video) => (
@@ -40,7 +40,7 @@ export function VideoGrid() {
               <DialogTrigger asChild>
                 <button
                   type="button"
-                  className="group relative aspect-video w-full overflow-hidden rounded-lg border border-line-soft bg-white shadow-[0_14px_30px_rgba(14,14,14,0.06)]"
+                  className="group relative aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-white/[0.06] shadow-[0_22px_60px_rgba(0,0,0,0.25)]"
                   aria-label={locale === "en" ? `Play video: ${mediaText(video, locale)}` : `${mediaText(video, locale)} videosunu oynat`}
                 >
                   <Image
