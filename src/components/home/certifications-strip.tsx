@@ -1,11 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLocale } from "next-intl";
 
 import { CertBadge } from "@/components/shared/cert-badge";
-import { certifications } from "@/lib/data";
+import { getCertificationsL } from "@/lib/content";
 
 export function CertificationsStrip() {
+  const locale = useLocale();
+  const certifications = getCertificationsL(locale);
   const items = [...certifications, ...certifications];
 
   return (

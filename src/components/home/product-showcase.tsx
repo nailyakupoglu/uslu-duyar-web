@@ -1,8 +1,13 @@
+import { getLocale } from "next-intl/server";
+
 import { ProductCard } from "@/components/shared/product-card";
 import { SectionHeading } from "@/components/shared/section-heading";
-import { products } from "@/lib/data";
+import { getProducts } from "@/lib/content";
 
-export function ProductShowcase() {
+export async function ProductShowcase() {
+  const locale = await getLocale();
+  const items = getProducts(locale);
+
   return (
     <section className="section-padding bg-earth-50">
       <div className="container">
@@ -13,7 +18,7 @@ export function ProductShowcase() {
           align="center"
         />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {products.slice(0, 8).map((product) => (
+          {items.slice(0, 8).map((product) => (
             <ProductCard key={`${product.category}-${product.slug}`} product={product} />
           ))}
         </div>

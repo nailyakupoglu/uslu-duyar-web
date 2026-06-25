@@ -4,11 +4,14 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLocale } from "next-intl";
 
 import { SectionHeading } from "@/components/shared/section-heading";
-import { productionHighlights } from "@/lib/data";
+import { getProductionHighlightsL } from "@/lib/content";
 
 export function ProductionQuad() {
+  const locale = useLocale();
+  const productionHighlights = getProductionHighlightsL(locale);
   return (
     <section className="section-padding bg-primary-900 text-white">
       <div className="container">

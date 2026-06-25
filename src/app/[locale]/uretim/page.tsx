@@ -12,24 +12,33 @@ import { Breadcrumb } from "@/components/shared/breadcrumb";
 import { PageHero } from "@/components/shared/page-hero";
 import { StatsCounter } from "@/components/home/stats-counter";
 import { RevealOnScroll } from "@/components/motion/reveal-on-scroll";
-import { productionHighlights } from "@/lib/data";
+import { getProductionHighlightsL } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = buildMetadata({
-  title: "Üretim",
-  description:
-    "Uslu Duyar üretim altyapısı: tesis, sertifikalar, kapasite ve lojistik. Tek izlenebilir akışta hasat, boylama, soğuk hava deposu ve soğuk zincir sevkiyat.",
-  path: "/uretim"
-});
+export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
+  return buildMetadata({
+    title: locale === "en" ? "Production" : "Üretim",
+    description:
+      locale === "en"
+        ? "Uslu Duyar production infrastructure: facility, certificates, capacity and logistics. One traceable flow from harvest, grading, cold storage to cold-chain shipping."
+        : "Uslu Duyar üretim altyapısı: tesis, sertifikalar, kapasite ve lojistik. Tek izlenebilir akışta hasat, boylama, soğuk hava deposu ve soğuk zincir sevkiyat.",
+    path: "/uretim"
+  });
+}
 
-export default function ProductionPage() {
+export default function ProductionPage({ params: { locale } }: { params: { locale: string } }) {
+  const productionHighlights = getProductionHighlightsL(locale);
   return (
     <>
-      <Breadcrumb items={[{ label: "Üretim" }]} />
+      <Breadcrumb items={[{ label: locale === "en" ? "Production" : "Üretim" }]} />
       <PageHero
-        eyebrow="Üretim"
-        title="Hasattan sevkiyata tek akış"
-        description="Tesis, sertifikasyon, kapasite ve lojistik süreçlerini tek bir izlenebilir tedarik zincirinde yönetiyoruz."
+        eyebrow={locale === "en" ? "Production" : "Üretim"}
+        title={locale === "en" ? "One flow from harvest to shipping" : "Hasattan sevkiyata tek akış"}
+        description={
+          locale === "en"
+            ? "We manage facility, certification, capacity and logistics within a single traceable supply chain."
+            : "Tesis, sertifikasyon, kapasite ve lojistik süreçlerini tek bir izlenebilir tedarik zincirinde yönetiyoruz."
+        }
       />
 
       <section className="container grid gap-6 py-20 md:grid-cols-2">
@@ -52,7 +61,7 @@ export default function ProductionPage() {
                 <h2 className="mt-3 font-display text-2xl font-semibold">{item.title}</h2>
                 <p className="mt-2 max-w-md text-sm leading-6 text-white/75">{item.description}</p>
                 <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent-500">
-                  İncele <ArrowUpRight className="h-4 w-4" />
+                  {locale === "en" ? "Explore" : "İncele"} <ArrowUpRight className="h-4 w-4" />
                 </span>
               </div>
             </Link>

@@ -20,7 +20,7 @@ import { Splash } from "@/components/motion/splash";
 import { Analytics } from "@/components/analytics";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/jsonld";
 import { siteConfig } from "@/lib/data";
-import { cn } from "@/lib/utils";
+import { cn, pick } from "@/lib/utils";
 import "@/styles/globals.css";
 
 const inter = Inter({
@@ -44,70 +44,79 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500", "600"]
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
-  title: {
-    default: `${siteConfig.name} — ${siteConfig.slogan}`,
-    template: `%s | ${siteConfig.name}`
-  },
-  description: siteConfig.description,
-  keywords: [
-    "Uslu Duyar",
-    "Mersin narenciye",
-    "Çukurova narenciye",
-    "portakal mandalina limon greyfurt",
-    "kavun karpuz",
-    "yaş meyve sebze ihracat",
-    "toptan narenciye",
-    "market tedariği",
-    "tarım ihracat"
-  ],
-  authors: [{ name: siteConfig.legalName }],
-  creator: siteConfig.legalName,
-  publisher: siteConfig.legalName,
-  alternates: {
-    canonical: "/",
-    languages: {
-      "tr-TR": "/",
-      "en-US": "/en"
-    }
-  },
-  openGraph: {
-    type: "website",
-    locale: "tr_TR",
-    url: siteConfig.url,
-    siteName: siteConfig.name,
-    title: `${siteConfig.name} — ${siteConfig.slogan}`,
-    description: siteConfig.description,
-    images: [
-      {
-        url: "/images/og/og-default.svg",
-        width: 1200,
-        height: 630,
-        alt: `${siteConfig.name} — ${siteConfig.slogan}`
+export async function generateMetadata({
+  params: { locale }
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const slogan = pick(siteConfig.slogan, locale);
+  const description = pick(siteConfig.description, locale);
+
+  return {
+    metadataBase: new URL(siteConfig.url),
+    title: {
+      default: `${siteConfig.name} — ${slogan}`,
+      template: `%s | ${siteConfig.name}`
+    },
+    description,
+    keywords: [
+      "Uslu Duyar",
+      "Mersin narenciye",
+      "Çukurova narenciye",
+      "portakal mandalina limon greyfurt",
+      "kavun karpuz",
+      "yaş meyve sebze ihracat",
+      "toptan narenciye",
+      "market tedariği",
+      "tarım ihracat"
+    ],
+    authors: [{ name: siteConfig.legalName }],
+    creator: siteConfig.legalName,
+    publisher: siteConfig.legalName,
+    alternates: {
+      canonical: "/",
+      languages: {
+        "tr-TR": "/",
+        "en-US": "/en"
       }
-    ]
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `${siteConfig.name} — ${siteConfig.slogan}`,
-    description: siteConfig.description,
-    images: ["/images/og/og-default.svg"]
-  },
-  icons: {
-    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }]
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+    },
+    openGraph: {
+      type: "website",
+      locale: locale === "en" ? "en_US" : "tr_TR",
+      url: siteConfig.url,
+      siteName: siteConfig.name,
+      title: `${siteConfig.name} — ${slogan}`,
+      description,
+      images: [
+        {
+          url: "/images/og/og-default.svg",
+          width: 1200,
+          height: 630,
+          alt: `${siteConfig.name} — ${slogan}`
+        }
+      ]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${siteConfig.name} — ${slogan}`,
+      description,
+      images: ["/images/og/og-default.svg"]
+    },
+    icons: {
+      icon: [{ url: "/favicon.svg", type: "image/svg+xml" }]
+    },
+    robots: {
       index: true,
       follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1
+      }
     }
-  }
-};
+  };
+}
 
 export const viewport: Viewport = {
   themeColor: [

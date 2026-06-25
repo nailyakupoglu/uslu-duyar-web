@@ -1,7 +1,11 @@
-import { CounterUp } from "@/components/motion/counter-up";
-import { stats } from "@/lib/data";
+import { getLocale } from "next-intl/server";
 
-export function StatsCounter() {
+import { CounterUp } from "@/components/motion/counter-up";
+import { getStatsL } from "@/lib/content";
+
+export async function StatsCounter() {
+  const locale = await getLocale();
+  const stats = getStatsL(locale);
   return (
     <section className="bg-cream py-14">
       <div className="container grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

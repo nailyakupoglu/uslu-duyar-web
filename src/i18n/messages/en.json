@@ -6,5 +6,26 @@
     "products": "Products",
     "blog": "Blog",
     "contact": "Contact"
+  },
+  "cta": {
+    "getQuote": "Get a Quote",
+    "requestQuote": "Request a Quote",
+    "contact": "Contact Us",
+    "explore": "Explore",
+    "allProducts": "All Products"
+  },
+  "common": {
+    "scrollDown": "Scroll Down",
+    "loading": "Loading",
+    "menu": "Menu",
+    "close": "Close",
+    "home": "Home",
+    "skipToContent": "Skip to content"
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "products": "Products",
+    "social": "Social",
+    "rights": "All rights reserved."
   }
 }

@@ -4,17 +4,18 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLocale } from "next-intl";
 
-import { categories } from "@/lib/data";
+import { getCategoriesL } from "@/lib/content";
 import { getCategoryCover, type MediaCategory } from "@/lib/manifest-reader";
 
-// Kategori kapakları: manifest'teki gerçek foto (yoksa SVG placeholder fallback).
-const cards = categories.map((category) => ({
-  ...category,
-  image: getCategoryCover(category.slug as MediaCategory, category.image)
-}));
-
 export function CategoryMegaGrid() {
+  const locale = useLocale();
+  // Kategori metinleri locale'e göre çözülür, kapaklar manifest'teki gerçek foto (yoksa SVG placeholder fallback).
+  const cards = getCategoriesL(locale).map((category) => ({
+    ...category,
+    image: getCategoryCover(category.slug as MediaCategory, category.image)
+  }));
   return (
     <section className="section-padding bg-cream">
       <div className="container">

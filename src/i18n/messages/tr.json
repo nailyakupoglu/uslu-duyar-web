@@ -6,5 +6,26 @@
     "products": "Ürünler",
     "blog": "Blog",
     "contact": "İletişim"
+  },
+  "cta": {
+    "getQuote": "Teklif Al",
+    "requestQuote": "Teklif İste",
+    "contact": "İletişime Geç",
+    "explore": "İncele",
+    "allProducts": "Tüm Ürünler"
+  },
+  "common": {
+    "scrollDown": "Aşağı Kaydır",
+    "loading": "Yükleniyor",
+    "menu": "Menü",
+    "close": "Kapat",
+    "home": "Ana Sayfa",
+    "skipToContent": "İçeriğe geç"
+  },
+  "footer": {
+    "quickLinks": "Hızlı Linkler",
+    "products": "Ürünler",
+    "social": "Sosyal",
+    "rights": "Tüm hakları saklıdır."
   }
 }

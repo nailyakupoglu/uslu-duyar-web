@@ -1,10 +1,18 @@
 import { Link } from "@/i18n/navigation";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { getLocale } from "next-intl/server";
 
 import { Logo } from "@/components/shared/logo";
-import { categories, corporateLinks, productionLinks, siteConfig } from "@/lib/data";
+import { getCategoriesL, getCorporateLinksL, getProductionLinksL } from "@/lib/content";
+import { siteConfig } from "@/lib/data";
+import { pick } from "@/lib/utils";
 
-export function Footer() {
+export async function Footer() {
+  const locale = await getLocale();
+  const categories = getCategoriesL(locale);
+  const corporateLinks = getCorporateLinksL(locale);
+  const productionLinks = getProductionLinksL(locale);
+
   return (
     <footer className="bg-footer-gradient text-white">
       <div className="container grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr]">
@@ -12,7 +20,7 @@ export function Footer() {
           <Link href="/" className="group inline-flex items-center" aria-label="Uslu Duyar ana sayfa">
             <Logo variant="light" />
           </Link>
-          <p className="mt-6 max-w-sm text-sm leading-7 text-white/68">{siteConfig.description}</p>
+          <p className="mt-6 max-w-sm text-sm leading-7 text-white/68">{pick(siteConfig.description, locale)}</p>
           <div className="mt-6 grid gap-3 text-sm text-white/75">
             <span className="inline-flex items-center gap-3">
               <MapPin className="h-4 w-4 text-accent-500" />
@@ -29,11 +37,17 @@ export function Footer() {
           </div>
         </div>
 
-        <FooterColumn title="Hızlı Linkler" links={[...corporateLinks, ...productionLinks]} />
-        <FooterColumn title="Ürünler" links={categories.map((category) => ({ title: category.title, href: category.href }))} />
+        <FooterColumn
+          title={locale === "en" ? "Quick Links" : "Hızlı Linkler"}
+          links={[...corporateLinks, ...productionLinks].map((link) => ({ title: link.title, href: link.href }))}
+        />
+        <FooterColumn
+          title={locale === "en" ? "Products" : "Ürünler"}
+          links={categories.map((category) => ({ title: category.title, href: category.href }))}
+        />
 
         <div>
-          <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-white/55">Sosyal</h3>
+          <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-white/55">{locale === "en" ? "Social" : "Sosyal"}</h3>
           <div className="mt-5 flex gap-2">
             {[
               { icon: Instagram, href: siteConfig.social.instagram, label: "Instagram" },
@@ -51,14 +65,19 @@ export function Footer() {
             ))}
           </div>
           <p className="mt-6 text-sm leading-7 text-white/62">
-            Sertifika ve yasal bilgiler placeholder olarak yerleştirildi; operatör dosyaları geldiğinde güncellenecek.
+            {locale === "en"
+              ? "Certification and legal information are placeholders; they will be updated once the operator files arrive."
+              : "Sertifika ve yasal bilgiler placeholder olarak yerleştirildi; operatör dosyaları geldiğinde güncellenecek."}
           </p>
         </div>
       </div>
 
       <div className="border-t border-white/10">
         <div className="container flex flex-col gap-3 py-6 text-xs text-white/55 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} {siteConfig.legalName}. Tüm hakları saklıdır.</p>
+          <p>
+            © {new Date().getFullYear()} {siteConfig.legalName}.{" "}
+            {locale === "en" ? "All rights reserved." : "Tüm hakları saklıdır."}
+          </p>
           <div className="flex flex-wrap items-center gap-4">
             <Link href="/kvkk" className="hover:text-white">KVKK</Link>
             <Link href="/gizlilik" className="hover:text-white">Gizlilik</Link>

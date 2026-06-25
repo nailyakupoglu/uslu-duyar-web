@@ -11,26 +11,39 @@ import { Clock } from "lucide-react";
 import { Breadcrumb } from "@/components/shared/breadcrumb";
 import { PageHero } from "@/components/shared/page-hero";
 import { RevealOnScroll } from "@/components/motion/reveal-on-scroll";
-import { blogPosts } from "@/lib/data";
+import { getBlogPostsL } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = buildMetadata({
-  title: "Blog",
-  description:
-    "Uslu Duyar blog: narenciye, kavun, karpuz ve Çukurova tarımı üzerine güncel içerikler ve üretim notları.",
-  path: "/blog"
-});
+export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
+  return buildMetadata({
+    title: "Blog",
+    description:
+      locale === "en"
+        ? "Uslu Duyar blog: up-to-date content and production notes on citrus, melon, watermelon and Çukurova agriculture."
+        : "Uslu Duyar blog: narenciye, kavun, karpuz ve Çukurova tarımı üzerine güncel içerikler ve üretim notları.",
+    path: "/blog"
+  });
+}
 
-const dateFormatter = new Intl.DateTimeFormat("tr-TR", { day: "numeric", month: "long", year: "numeric" });
+export default function BlogPage({ params: { locale } }: { params: { locale: string } }) {
+  const blogPosts = getBlogPostsL(locale);
+  const dateFormatter = new Intl.DateTimeFormat(locale === "en" ? "en-US" : "tr-TR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric"
+  });
 
-export default function BlogPage() {
   return (
     <>
       <Breadcrumb items={[{ label: "Blog" }]} />
       <PageHero
         eyebrow="Blog"
-        title="Üretimden notlar, sektörden içgörüler"
-        description="Narenciye, kavun, karpuz ve taze ürün ticareti üzerine deneyimlerimizi ve güncel bilgileri paylaşıyoruz."
+        title={locale === "en" ? "Notes from production, insights from the industry" : "Üretimden notlar, sektörden içgörüler"}
+        description={
+          locale === "en"
+            ? "We share our experience and up-to-date knowledge on citrus, melon, watermelon and the fresh-produce trade."
+            : "Narenciye, kavun, karpuz ve taze ürün ticareti üzerine deneyimlerimizi ve güncel bilgileri paylaşıyoruz."
+        }
       />
 
       <section className="container py-20">
@@ -53,7 +66,7 @@ export default function BlogPage() {
                       <span>{post.category}</span>
                       <span className="inline-flex items-center gap-1 text-ink/45">
                         <Clock className="h-3.5 w-3.5" />
-                        {post.readingMinutes} dk
+                        {post.readingMinutes} {locale === "en" ? "min" : "dk"}
                       </span>
                     </div>
                     <h2 className="mt-3 font-display text-xl font-semibold text-ink transition group-hover:text-primary-700">

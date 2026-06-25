@@ -5,6 +5,17 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+// İki dilli metin: ya düz string (her iki dilde aynı) ya da { tr, en }.
+export type I18nText = string | { tr: string; en: string };
+
+// Aktif locale'e göre metni seçer; string ise olduğu gibi döner (kademeli çeviriye izin verir).
+export function pick(value: I18nText, locale: string): string {
+  if (typeof value === "string") {
+    return value;
+  }
+  return locale === "en" ? value.en : value.tr;
+}
+
 export function absoluteUrl(path = "") {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://usluduyar.evohaus.org";
   return `${baseUrl}${path}`;

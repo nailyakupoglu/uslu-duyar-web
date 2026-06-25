@@ -8,13 +8,19 @@ import {
   Truck,
   Warehouse
 } from "lucide-react";
+import type { I18nText } from "@/lib/utils";
 
 export const siteConfig = {
   name: "Uslu Duyar",
   legalName: "Uslu Duyar Tarım Ürünleri Ltd. Şti.",
-  slogan: "Aldatılan müşteri, kaybedilen bir servettir.",
-  description:
-    "1991'den bu yana Mersin, Adana ve Çukurova bölgesinde narenciye, kavun ve karpuz üretimi, ihracatı, toptan satışı ve market tedariği yapıyoruz. Tarladan markete güvenilir tedarik zinciri.",
+  slogan: {
+    tr: "Aldatılan müşteri, kaybedilen bir servettir.",
+    en: "A deceived customer is a fortune lost."
+  } satisfies I18nText,
+  description: {
+    tr: "1991'den bu yana Mersin, Adana ve Çukurova bölgesinde narenciye, kavun ve karpuz üretimi, ihracatı, toptan satışı ve market tedariği yapıyoruz. Tarladan markete güvenilir tedarik zinciri.",
+    en: "Since 1991, we have grown, exported, and wholesaled citrus, melon, and watermelon across the Mersin, Adana, and Çukurova region, supplying retail chains. A reliable farm-to-market supply chain."
+  } satisfies I18nText,
   url: "https://usluduyar.evohaus.org",
   email: "info@usluduyar.com",
   phone: "+90 324 000 00 00",
@@ -27,98 +33,153 @@ export const siteConfig = {
   }
 } as const;
 
-export const heroSlides = [
+export type HeroSlide = {
+  title: I18nText;
+  eyebrow: I18nText;
+  description: I18nText;
+  image: string;
+  cta: I18nText;
+  href: string;
+};
+
+export const heroSlides: HeroSlide[] = [
   {
-    title: "Tarladan Markete, 1991'den Bu Yana Güven",
-    eyebrow: "Mersin & Çukurova merkezli taze ürün tedariki",
-    description:
-      "Narenciye, kavun ve karpuzda kendi üretimimiz ve sözleşmeli üretici ağımızla; toptan, market ve ihracat kanallarına kesintisiz taze ürün.",
+    title: { tr: "Tarladan Markete, 1991'den Bu Yana Güven", en: "Farm to Market, Trusted Since 1991" },
+    eyebrow: { tr: "Mersin & Çukurova merkezli taze ürün tedariki", en: "Fresh produce supply from Mersin & Çukurova" },
+    description: {
+      tr: "Narenciye, kavun ve karpuzda kendi üretimimiz ve sözleşmeli üretici ağımızla; toptan, market ve ihracat kanallarına kesintisiz taze ürün.",
+      en: "Citrus, melon, and watermelon from our own production and contracted growers; uninterrupted fresh supply to wholesale, retail, and export channels."
+    },
     image: "/images/hero/hero-1.svg",
-    cta: "Ürünleri İncele",
+    cta: { tr: "Ürünleri İncele", en: "Explore Products" },
     href: "/urunler"
   },
   {
-    title: "Çukurova'nın Güneşinden Narenciye",
-    eyebrow: "Portakal, mandalina, limon, greyfurt",
-    description:
-      "Hasat, boylama, soğuk zincir ve paketleme adımlarında izlenebilir kalite; ihracat standartlarına uygun sevkiyat.",
+    title: { tr: "Çukurova'nın Güneşinden Narenciye", en: "Citrus from the Çukurova Sun" },
+    eyebrow: { tr: "Portakal, mandalina, limon, greyfurt", en: "Orange, mandarin, lemon, grapefruit" },
+    description: {
+      tr: "Hasat, boylama, soğuk zincir ve paketleme adımlarında izlenebilir kalite; ihracat standartlarına uygun sevkiyat.",
+      en: "Traceable quality across harvest, grading, cold chain, and packing; shipments compliant with export standards."
+    },
     image: "/images/hero/hero-2.svg",
-    cta: "Narenciye Ürünleri",
+    cta: { tr: "Narenciye Ürünleri", en: "Citrus Products" },
     href: "/urunler?cat=narenciye"
   },
   {
-    title: "Yaz Sezonunun Lezzeti: Kavun & Karpuz",
-    eyebrow: "Kırkağaç, altınbaş kavun ve karpuz",
-    description:
-      "Tarlada seçim, doğru olgunlukta hasat ve hızlı sevkiyatla; market raflarına ve toptan alıcıya taze ulaşım.",
+    title: { tr: "Yaz Sezonunun Lezzeti: Kavun & Karpuz", en: "Taste of Summer: Melon & Watermelon" },
+    eyebrow: { tr: "Kırkağaç, altınbaş kavun ve karpuz", en: "Kırkağaç, altınbaş melon and watermelon" },
+    description: {
+      tr: "Tarlada seçim, doğru olgunlukta hasat ve hızlı sevkiyatla; market raflarına ve toptan alıcıya taze ulaşım.",
+      en: "Field selection, harvest at the right ripeness, and fast shipping; fresh delivery to retail shelves and wholesale buyers."
+    },
     image: "/images/hero/hero-3.svg",
-    cta: "Kavun & Karpuz",
+    cta: { tr: "Kavun & Karpuz", en: "Melon & Watermelon" },
     href: "/urunler?cat=kavun"
   },
   {
-    title: "Yurt İçi Toptan ve Yurt Dışı İhracat",
-    eyebrow: "Mersin Limanı avantajı",
-    description:
-      "Market zincirleri ve toptan alıcılar için düzenli tedarik; ihracat operasyonlarında soğuk zincir ve evrak akışı.",
+    title: { tr: "Yurt İçi Toptan ve Yurt Dışı İhracat", en: "Domestic Wholesale and Export" },
+    eyebrow: { tr: "Mersin Limanı avantajı", en: "The Port of Mersin advantage" },
+    description: {
+      tr: "Market zincirleri ve toptan alıcılar için düzenli tedarik; ihracat operasyonlarında soğuk zincir ve evrak akışı.",
+      en: "Steady supply for retail chains and wholesale buyers; cold chain and documentation flow for export operations."
+    },
     image: "/images/hero/hero-4.svg",
-    cta: "Lojistik Gücümüz",
+    cta: { tr: "Lojistik Gücümüz", en: "Our Logistics" },
     href: "/uretim/lojistik"
   }
 ];
 
-export const categories = [
+export type Category = {
+  title: I18nText;
+  slug: string;
+  href: string;
+  description: I18nText;
+  image: string;
+  icon: typeof Citrus;
+};
+
+export const categories: Category[] = [
   {
-    title: "Narenciye",
+    title: { tr: "Narenciye", en: "Citrus" },
     slug: "narenciye",
     href: "/urunler?cat=narenciye",
-    description: "Portakal, mandalina, limon ve greyfurt; Çukurova'nın bereketli narenciye hasadı.",
+    description: {
+      tr: "Portakal, mandalina, limon ve greyfurt; Çukurova'nın bereketli narenciye hasadı.",
+      en: "Orange, mandarin, lemon, and grapefruit; the bountiful citrus harvest of Çukurova."
+    },
     image: "/images/categories/narenciye.svg",
     icon: Citrus
   },
   {
-    title: "Kavun",
+    title: { tr: "Kavun", en: "Melon" },
     slug: "kavun",
     href: "/urunler?cat=kavun",
-    description: "Kırkağaç ve altınbaş kavun çeşitleri; doğru olgunlukta hasat, hızlı sevkiyat.",
+    description: {
+      tr: "Kırkağaç ve altınbaş kavun çeşitleri; doğru olgunlukta hasat, hızlı sevkiyat.",
+      en: "Kırkağaç and altınbaş melon varieties; harvested at the right ripeness, shipped fast."
+    },
     image: "/images/categories/kavun.svg",
     icon: Sun
   },
   {
-    title: "Karpuz",
+    title: { tr: "Karpuz", en: "Watermelon" },
     slug: "karpuz",
     href: "/urunler?cat=karpuz",
-    description: "Tarlada seçilmiş, ağırlık ve tatlılık dengesi korunmuş taze karpuz.",
+    description: {
+      tr: "Tarlada seçilmiş, ağırlık ve tatlılık dengesi korunmuş taze karpuz.",
+      en: "Field-selected fresh watermelon with a balance of weight and sweetness."
+    },
     image: "/images/categories/karpuz.svg",
     icon: Cherry
   }
 ];
 
-export const productionHighlights = [
+export type ProductionHighlight = {
+  title: I18nText;
+  href: string;
+  description: I18nText;
+  image: string;
+  icon: typeof Award;
+};
+
+export const productionHighlights: ProductionHighlight[] = [
   {
-    title: "Sertifikalar",
+    title: { tr: "Sertifikalar", en: "Certifications" },
     href: "/uretim/sertifikalar",
-    description: "Gıda güvenliği, izlenebilirlik ve ihracat uygunluğuna yönelik belgeler (operatör dosyalarıyla güncellenecek).",
+    description: {
+      tr: "Gıda güvenliği, izlenebilirlik ve ihracat uygunluğuna yönelik belgeler (operatör dosyalarıyla güncellenecek).",
+      en: "Documents for food safety, traceability, and export compliance (to be updated with operator files)."
+    },
     image: "/images/production/sertifikalar.svg",
     icon: Award
   },
   {
-    title: "Tesis & Paketleme",
+    title: { tr: "Tesis & Paketleme", en: "Facility & Packing" },
     href: "/uretim/tesis",
-    description: "Boylama, ayıklama, paketleme ve depolama alanları tek akışta; fason paketleme desteği.",
+    description: {
+      tr: "Boylama, ayıklama, paketleme ve depolama alanları tek akışta; fason paketleme desteği.",
+      en: "Grading, sorting, packing, and storage in a single flow; contract packing support."
+    },
     image: "/images/production/tesis.svg",
     icon: Warehouse
   },
   {
-    title: "Soğuk Zincir & Kapasite",
+    title: { tr: "Soğuk Zincir & Kapasite", en: "Cold Chain & Capacity" },
     href: "/uretim/kapasite",
-    description: "Soğuk hava deposu ve sezon boyu kesintisiz tedarik; izlenebilir parti yönetimi.",
+    description: {
+      tr: "Soğuk hava deposu ve sezon boyu kesintisiz tedarik; izlenebilir parti yönetimi.",
+      en: "Cold storage and season-long uninterrupted supply; traceable batch management."
+    },
     image: "/images/production/kapasite.svg",
     icon: Snowflake
   },
   {
-    title: "Lojistik",
+    title: { tr: "Lojistik", en: "Logistics" },
     href: "/uretim/lojistik",
-    description: "Mersin Limanı bağlantısı, soğuk zincir nakliye ve ihracat evrak akışı.",
+    description: {
+      tr: "Mersin Limanı bağlantısı, soğuk zincir nakliye ve ihracat evrak akışı.",
+      en: "Port of Mersin connection, cold chain transport, and export documentation flow."
+    },
     image: "/images/production/lojistik.svg",
     icon: Truck
   }
@@ -126,148 +187,244 @@ export const productionHighlights = [
 
 export type ProductCategory = "narenciye" | "kavun" | "karpuz";
 
+export type Spec = { label: I18nText; value: I18nText };
+
 export type Product = {
   slug: string;
   category: ProductCategory;
-  title: string;
-  shortDescription: string;
-  description: string;
+  title: I18nText;
+  shortDescription: I18nText;
+  description: I18nText;
   image: string;
   gallery: string[];
-  packageOptions: string[];
-  certificates: string[];
-  specs: Record<string, string>;
+  packageOptions: I18nText[];
+  certificates: I18nText[];
+  specs: Spec[];
   tags: string[];
 };
+
+const PKG = {
+  koli: { tr: "Koli", en: "Box" },
+  palet: { tr: "Palet", en: "Pallet" },
+  dokme: { tr: "Dökme (toptan)", en: "Bulk (wholesale)" },
+  sozlesmeli: { tr: "Sözleşmeli sevkiyat", en: "Contract shipment" }
+} satisfies Record<string, I18nText>;
+
+const CERT = {
+  mense: { tr: "Menşe belgesi", en: "Certificate of origin" },
+  izleme: { tr: "Parti izlenebilirlik", en: "Batch traceability" },
+  soguk: { tr: "Soğuk zincir", en: "Cold chain" }
+} satisfies Record<string, I18nText>;
 
 export const products: Product[] = [
   {
     slug: "portakal",
     category: "narenciye",
-    title: "Portakal",
-    shortDescription: "Washington ve Valencia tipi; sofralık ve sıkmalık çeşitler.",
-    description:
-      "Çukurova bölgesinde yetişen portakal; boylama ve soğuk zincir adımlarıyla market ve ihracat kanallarına taze sevk edilir. Çeşit ve kalibre bilgisi operatör verisiyle güncellenecektir.",
+    title: { tr: "Portakal", en: "Orange" },
+    shortDescription: {
+      tr: "Washington ve Valencia tipi; sofralık ve sıkmalık çeşitler.",
+      en: "Washington and Valencia types; table and juicing varieties."
+    },
+    description: {
+      tr: "Çukurova bölgesinde yetişen portakal; boylama ve soğuk zincir adımlarıyla market ve ihracat kanallarına taze sevk edilir. Çeşit ve kalibre bilgisi operatör verisiyle güncellenecektir.",
+      en: "Oranges grown in the Çukurova region; shipped fresh to retail and export channels through grading and cold chain. Variety and caliber details will be updated with operator data."
+    },
     image: "/images/categories/narenciye.svg",
     gallery: ["/images/categories/narenciye.svg", "/images/hero/hero-2.svg"],
-    packageOptions: ["Koli", "Palet", "Dökme (toptan)"],
-    certificates: ["Menşe belgesi", "Parti izlenebilirlik", "Soğuk zincir"],
-    specs: { Çeşit: "Washington / Valencia", Kalibre: "Placeholder", Sezon: "Kış" },
+    packageOptions: [PKG.koli, PKG.palet, PKG.dokme],
+    certificates: [CERT.mense, CERT.izleme, CERT.soguk],
+    specs: [
+      { label: { tr: "Çeşit", en: "Variety" }, value: "Washington / Valencia" },
+      { label: { tr: "Kalibre", en: "Caliber" }, value: { tr: "Placeholder", en: "Placeholder" } },
+      { label: { tr: "Sezon", en: "Season" }, value: { tr: "Kış", en: "Winter" } }
+    ],
     tags: ["narenciye", "portakal", "ihracat"]
   },
   {
     slug: "mandalina",
     category: "narenciye",
-    title: "Mandalina",
-    shortDescription: "Satsuma ve klemantin; kolay soyulan, aromatik çeşitler.",
-    description:
-      "Mandalina; erken ve geç sezon çeşitleriyle uzun bir tedarik penceresi sunar. Hasat sonrası seçim ve paketleme ile taze ulaştırılır.",
+    title: { tr: "Mandalina", en: "Mandarin" },
+    shortDescription: {
+      tr: "Satsuma ve klemantin; kolay soyulan, aromatik çeşitler.",
+      en: "Satsuma and clementine; easy-peel, aromatic varieties."
+    },
+    description: {
+      tr: "Mandalina; erken ve geç sezon çeşitleriyle uzun bir tedarik penceresi sunar. Hasat sonrası seçim ve paketleme ile taze ulaştırılır.",
+      en: "Mandarins offer a long supply window with early and late-season varieties. Delivered fresh through post-harvest selection and packing."
+    },
     image: "/images/categories/narenciye.svg",
     gallery: ["/images/categories/narenciye.svg"],
-    packageOptions: ["Koli", "Palet", "Dökme (toptan)"],
-    certificates: ["Menşe belgesi", "Parti izlenebilirlik"],
-    specs: { Çeşit: "Satsuma / Klemantin", Kalibre: "Placeholder", Sezon: "Sonbahar – Kış" },
+    packageOptions: [PKG.koli, PKG.palet, PKG.dokme],
+    certificates: [CERT.mense, CERT.izleme],
+    specs: [
+      { label: { tr: "Çeşit", en: "Variety" }, value: { tr: "Satsuma / Klemantin", en: "Satsuma / Clementine" } },
+      { label: { tr: "Kalibre", en: "Caliber" }, value: { tr: "Placeholder", en: "Placeholder" } },
+      { label: { tr: "Sezon", en: "Season" }, value: { tr: "Sonbahar – Kış", en: "Autumn – Winter" } }
+    ],
     tags: ["narenciye", "mandalina"]
   },
   {
     slug: "limon",
     category: "narenciye",
-    title: "Limon",
-    shortDescription: "Enterdonat ve Lamas; yüksek sululuk ve raf ömrü.",
-    description:
-      "Limon; iç piyasa ve ihracat için uzun raf ömrü ve dayanıklılığıyla öne çıkar. Soğuk hava deposunda saklanarak sezon boyu tedarik edilir.",
+    title: { tr: "Limon", en: "Lemon" },
+    shortDescription: {
+      tr: "Enterdonat ve Lamas; yüksek sululuk ve raf ömrü.",
+      en: "Enterdonat and Lamas; high juiciness and shelf life."
+    },
+    description: {
+      tr: "Limon; iç piyasa ve ihracat için uzun raf ömrü ve dayanıklılığıyla öne çıkar. Soğuk hava deposunda saklanarak sezon boyu tedarik edilir.",
+      en: "Lemons stand out with long shelf life and durability for domestic and export markets. Stored in cold storage and supplied throughout the season."
+    },
     image: "/images/categories/narenciye.svg",
     gallery: ["/images/categories/narenciye.svg"],
-    packageOptions: ["Koli", "Palet", "Dökme (toptan)"],
-    certificates: ["Menşe belgesi", "Soğuk zincir"],
-    specs: { Çeşit: "Enterdonat / Lamas", Kalibre: "Placeholder", Sezon: "Sonbahar – İlkbahar" },
+    packageOptions: [PKG.koli, PKG.palet, PKG.dokme],
+    certificates: [CERT.mense, CERT.soguk],
+    specs: [
+      { label: { tr: "Çeşit", en: "Variety" }, value: { tr: "Enterdonat / Lamas", en: "Enterdonat / Lamas" } },
+      { label: { tr: "Kalibre", en: "Caliber" }, value: { tr: "Placeholder", en: "Placeholder" } },
+      { label: { tr: "Sezon", en: "Season" }, value: { tr: "Sonbahar – İlkbahar", en: "Autumn – Spring" } }
+    ],
     tags: ["narenciye", "limon", "ihracat"]
   },
   {
     slug: "greyfurt",
     category: "narenciye",
-    title: "Greyfurt",
-    shortDescription: "Star Ruby; canlı renk ve dengeli tat.",
-    description:
-      "Greyfurt; ihracat pazarlarında talep gören kırmızı etli çeşitleriyle hazırlanır. Boylama ve paketleme sonrası sevk edilir.",
+    title: { tr: "Greyfurt", en: "Grapefruit" },
+    shortDescription: {
+      tr: "Star Ruby; canlı renk ve dengeli tat.",
+      en: "Star Ruby; vivid color and balanced taste."
+    },
+    description: {
+      tr: "Greyfurt; ihracat pazarlarında talep gören kırmızı etli çeşitleriyle hazırlanır. Boylama ve paketleme sonrası sevk edilir.",
+      en: "Grapefruit is prepared with red-fleshed varieties in demand across export markets. Shipped after grading and packing."
+    },
     image: "/images/categories/narenciye.svg",
     gallery: ["/images/categories/narenciye.svg"],
-    packageOptions: ["Koli", "Palet"],
-    certificates: ["Menşe belgesi", "Parti izlenebilirlik"],
-    specs: { Çeşit: "Star Ruby", Kalibre: "Placeholder", Sezon: "Kış" },
+    packageOptions: [PKG.koli, PKG.palet],
+    certificates: [CERT.mense, CERT.izleme],
+    specs: [
+      { label: { tr: "Çeşit", en: "Variety" }, value: "Star Ruby" },
+      { label: { tr: "Kalibre", en: "Caliber" }, value: { tr: "Placeholder", en: "Placeholder" } },
+      { label: { tr: "Sezon", en: "Season" }, value: { tr: "Kış", en: "Winter" } }
+    ],
     tags: ["narenciye", "greyfurt", "ihracat"]
   },
   {
     slug: "kirkagac-kavun",
     category: "kavun",
-    title: "Kırkağaç Kavunu",
-    shortDescription: "Yüksek aroma ve dayanıklı kabuk; nakliyeye uygun.",
-    description:
-      "Kırkağaç kavunu; doğru olgunlukta hasat edilip hızlı sevkiyatla market ve toptan alıcıya ulaştırılır. Ağırlık aralığı operatör verisiyle güncellenecektir.",
+    title: { tr: "Kırkağaç Kavunu", en: "Kırkağaç Melon" },
+    shortDescription: {
+      tr: "Yüksek aroma ve dayanıklı kabuk; nakliyeye uygun.",
+      en: "High aroma and durable rind; suited for transport."
+    },
+    description: {
+      tr: "Kırkağaç kavunu; doğru olgunlukta hasat edilip hızlı sevkiyatla market ve toptan alıcıya ulaştırılır. Ağırlık aralığı operatör verisiyle güncellenecektir.",
+      en: "Kırkağaç melon is harvested at the right ripeness and delivered quickly to retail and wholesale buyers. Weight range will be updated with operator data."
+    },
     image: "/images/categories/kavun.svg",
     gallery: ["/images/categories/kavun.svg", "/images/hero/hero-3.svg"],
-    packageOptions: ["Koli", "Palet", "Dökme (toptan)"],
-    certificates: ["Menşe belgesi", "Parti izlenebilirlik"],
-    specs: { Çeşit: "Kırkağaç", Ağırlık: "Placeholder", Sezon: "Yaz" },
+    packageOptions: [PKG.koli, PKG.palet, PKG.dokme],
+    certificates: [CERT.mense, CERT.izleme],
+    specs: [
+      { label: { tr: "Çeşit", en: "Variety" }, value: { tr: "Kırkağaç", en: "Kırkağaç" } },
+      { label: { tr: "Ağırlık", en: "Weight" }, value: { tr: "Placeholder", en: "Placeholder" } },
+      { label: { tr: "Sezon", en: "Season" }, value: { tr: "Yaz", en: "Summer" } }
+    ],
     tags: ["kavun", "kırkağaç"]
   },
   {
     slug: "altinbas-kavun",
     category: "kavun",
-    title: "Altınbaş Kavunu",
-    shortDescription: "Tatlı ve sulu; iç piyasa ve market için popüler çeşit.",
-    description:
-      "Altınbaş kavunu; tatlılık ve sululuk dengesiyle öne çıkar. Tarlada seçim ve hızlı tedarikle tazeliği korunur.",
+    title: { tr: "Altınbaş Kavunu", en: "Altınbaş Melon" },
+    shortDescription: {
+      tr: "Tatlı ve sulu; iç piyasa ve market için popüler çeşit.",
+      en: "Sweet and juicy; a popular variety for domestic and retail."
+    },
+    description: {
+      tr: "Altınbaş kavunu; tatlılık ve sululuk dengesiyle öne çıkar. Tarlada seçim ve hızlı tedarikle tazeliği korunur.",
+      en: "Altınbaş melon stands out with a balance of sweetness and juiciness. Its freshness is preserved through field selection and fast supply."
+    },
     image: "/images/categories/kavun.svg",
     gallery: ["/images/categories/kavun.svg"],
-    packageOptions: ["Koli", "Palet", "Dökme (toptan)"],
-    certificates: ["Menşe belgesi"],
-    specs: { Çeşit: "Altınbaş", Ağırlık: "Placeholder", Sezon: "Yaz" },
+    packageOptions: [PKG.koli, PKG.palet, PKG.dokme],
+    certificates: [CERT.mense],
+    specs: [
+      { label: { tr: "Çeşit", en: "Variety" }, value: { tr: "Altınbaş", en: "Altınbaş" } },
+      { label: { tr: "Ağırlık", en: "Weight" }, value: { tr: "Placeholder", en: "Placeholder" } },
+      { label: { tr: "Sezon", en: "Season" }, value: { tr: "Yaz", en: "Summer" } }
+    ],
     tags: ["kavun", "altınbaş"]
   },
   {
     slug: "karpuz",
     category: "karpuz",
-    title: "Karpuz",
-    shortDescription: "Tarlada seçilmiş; tatlılık ve ağırlık dengesi.",
-    description:
-      "Karpuz; doğru olgunlukta hasat, ağırlık seçimi ve hızlı sevkiyatla market ve toptan alıcıya taze ulaştırılır. Çeşit ve kalibre bilgisi operatör verisiyle güncellenecektir.",
+    title: { tr: "Karpuz", en: "Watermelon" },
+    shortDescription: {
+      tr: "Tarlada seçilmiş; tatlılık ve ağırlık dengesi.",
+      en: "Field-selected; a balance of sweetness and weight."
+    },
+    description: {
+      tr: "Karpuz; doğru olgunlukta hasat, ağırlık seçimi ve hızlı sevkiyatla market ve toptan alıcıya taze ulaştırılır. Çeşit ve kalibre bilgisi operatör verisiyle güncellenecektir.",
+      en: "Watermelon is delivered fresh to retail and wholesale buyers through ripe harvest, weight selection, and fast shipping. Variety and caliber details will be updated with operator data."
+    },
     image: "/images/categories/karpuz.svg",
     gallery: ["/images/categories/karpuz.svg", "/images/hero/hero-1.svg"],
-    packageOptions: ["Dökme (toptan)", "Palet", "Sözleşmeli sevkiyat"],
-    certificates: ["Menşe belgesi", "Parti izlenebilirlik"],
-    specs: { Çeşit: "Crimson / Kara karpuz", Ağırlık: "Placeholder", Sezon: "Yaz" },
+    packageOptions: [PKG.dokme, PKG.palet, PKG.sozlesmeli],
+    certificates: [CERT.mense, CERT.izleme],
+    specs: [
+      { label: { tr: "Çeşit", en: "Variety" }, value: { tr: "Crimson / Kara karpuz", en: "Crimson / Dark watermelon" } },
+      { label: { tr: "Ağırlık", en: "Weight" }, value: { tr: "Placeholder", en: "Placeholder" } },
+      { label: { tr: "Sezon", en: "Season" }, value: { tr: "Yaz", en: "Summer" } }
+    ],
     tags: ["karpuz", "yaz"]
   },
   {
     slug: "mini-karpuz",
     category: "karpuz",
-    title: "Mini Karpuz",
-    shortDescription: "Küçük kalibre; perakende ve market için uygun porsiyon.",
-    description:
-      "Mini karpuz; market rafı ve küçük hane tüketimi için ideal kalibrede hazırlanır. Talebe göre paketleme yapılır.",
+    title: { tr: "Mini Karpuz", en: "Mini Watermelon" },
+    shortDescription: {
+      tr: "Küçük kalibre; perakende ve market için uygun porsiyon.",
+      en: "Small caliber; a portion suited for retail."
+    },
+    description: {
+      tr: "Mini karpuz; market rafı ve küçük hane tüketimi için ideal kalibrede hazırlanır. Talebe göre paketleme yapılır.",
+      en: "Mini watermelon is prepared in an ideal caliber for retail shelves and small households. Packed on demand."
+    },
     image: "/images/categories/karpuz.svg",
     gallery: ["/images/categories/karpuz.svg"],
-    packageOptions: ["Koli", "Palet"],
-    certificates: ["Menşe belgesi"],
-    specs: { Çeşit: "Mini", Ağırlık: "Placeholder", Sezon: "Yaz" },
+    packageOptions: [PKG.koli, PKG.palet],
+    certificates: [CERT.mense],
+    specs: [
+      { label: { tr: "Çeşit", en: "Variety" }, value: { tr: "Mini", en: "Mini" } },
+      { label: { tr: "Ağırlık", en: "Weight" }, value: { tr: "Placeholder", en: "Placeholder" } },
+      { label: { tr: "Sezon", en: "Season" }, value: { tr: "Yaz", en: "Summer" } }
+    ],
     tags: ["karpuz", "market"]
   }
 ];
 
 /** Ürün kategorilerinin görünen başlık ve açıklamaları (listeleme + detay üst bilgisi). */
-export const categoryMeta: Record<ProductCategory, { title: string; description: string }> = {
+export const categoryMeta: Record<ProductCategory, { title: I18nText; description: I18nText }> = {
   narenciye: {
-    title: "Narenciye",
-    description: "Portakal, mandalina, limon ve greyfurt; boylama, soğuk zincir ve izlenebilir paketleme."
+    title: { tr: "Narenciye", en: "Citrus" },
+    description: {
+      tr: "Portakal, mandalina, limon ve greyfurt; boylama, soğuk zincir ve izlenebilir paketleme.",
+      en: "Orange, mandarin, lemon, and grapefruit; grading, cold chain, and traceable packing."
+    }
   },
   kavun: {
-    title: "Kavun",
-    description: "Kırkağaç ve altınbaş kavun; doğru olgunlukta hasat ve hızlı sevkiyat."
+    title: { tr: "Kavun", en: "Melon" },
+    description: {
+      tr: "Kırkağaç ve altınbaş kavun; doğru olgunlukta hasat ve hızlı sevkiyat.",
+      en: "Kırkağaç and altınbaş melon; harvested at the right ripeness and shipped fast."
+    }
   },
   karpuz: {
-    title: "Karpuz",
-    description: "Tarlada seçilmiş karpuz; market ve toptan kanalına taze tedarik."
+    title: { tr: "Karpuz", en: "Watermelon" },
+    description: {
+      tr: "Tarlada seçilmiş karpuz; market ve toptan kanalına taze tedarik.",
+      en: "Field-selected watermelon; fresh supply to retail and wholesale channels."
+    }
   }
 };
 
@@ -289,20 +446,22 @@ export function isProductCategory(value: string): value is ProductCategory {
   return value in categoryMeta;
 }
 
-export const stats = [
-  { value: 35, suffix: "+", label: "Yıl Tecrübe" },
-  { value: 3, suffix: "", label: "Ana Ürün Grubu" },
-  { value: 12, suffix: " ay", label: "Sezon Boyu Tedarik" },
-  { value: 1991, suffix: "", label: "Kuruluş Yılı" }
+export type Stat = { value: number; suffix: I18nText; label: I18nText };
+
+export const stats: Stat[] = [
+  { value: 35, suffix: "+", label: { tr: "Yıl Tecrübe", en: "Years of Experience" } },
+  { value: 3, suffix: "", label: { tr: "Ana Ürün Grubu", en: "Core Product Groups" } },
+  { value: 12, suffix: { tr: " ay", en: " mo" }, label: { tr: "Sezon Boyu Tedarik", en: "Year-round Supply" } },
+  { value: 1991, suffix: "", label: { tr: "Kuruluş Yılı", en: "Founded" } }
 ];
 
-export const certifications = [
-  "Gıda Güvenliği",
-  "Soğuk Zincir",
-  "İzlenebilir Üretim",
-  "İhracat Uygunluğu",
-  "Menşe Belgesi",
-  "Kalite Kontrol"
+export const certifications: I18nText[] = [
+  { tr: "Gıda Güvenliği", en: "Food Safety" },
+  { tr: "Soğuk Zincir", en: "Cold Chain" },
+  { tr: "İzlenebilir Üretim", en: "Traceable Production" },
+  { tr: "İhracat Uygunluğu", en: "Export Compliance" },
+  { tr: "Menşe Belgesi", en: "Certificate of Origin" },
+  { tr: "Kalite Kontrol", en: "Quality Control" }
 ];
 
 export const exportPoints = [
@@ -316,57 +475,112 @@ export const exportPoints = [
   { city: "Londra", x: 44, y: 29 }
 ];
 
-export const blogPosts = [
+export type BlogPost = {
+  slug: string;
+  title: I18nText;
+  excerpt: I18nText;
+  date: string;
+  category: I18nText;
+  tags: string[];
+  readingMinutes: number;
+};
+
+export const blogPosts: BlogPost[] = [
   {
     slug: "cukurova-narenciye-sezonu",
-    title: "Çukurova'da Narenciye Sezonu",
-    excerpt:
-      "Portakal, mandalina ve limonun hasat dönemleri, boylama süreçleri ve ihracata hazırlık adımları.",
+    title: { tr: "Çukurova'da Narenciye Sezonu", en: "Citrus Season in Çukurova" },
+    excerpt: {
+      tr: "Portakal, mandalina ve limonun hasat dönemleri, boylama süreçleri ve ihracata hazırlık adımları.",
+      en: "Harvest periods of orange, mandarin, and lemon, grading processes, and export preparation steps."
+    },
     date: "2026-06-24",
-    category: "Narenciye",
+    category: { tr: "Narenciye", en: "Citrus" },
     tags: ["narenciye", "hasat", "ihracat"],
     readingMinutes: 4
   },
   {
     slug: "kavun-karpuz-tazelik",
-    title: "Kavun ve Karpuzda Tazeliğin Sırrı",
-    excerpt:
-      "Doğru olgunlukta hasat, tarlada seçim ve hızlı sevkiyatla market rafına kadar tazeliği korumak.",
+    title: { tr: "Kavun ve Karpuzda Tazeliğin Sırrı", en: "The Secret to Fresh Melon and Watermelon" },
+    excerpt: {
+      tr: "Doğru olgunlukta hasat, tarlada seçim ve hızlı sevkiyatla market rafına kadar tazeliği korumak.",
+      en: "Preserving freshness to the retail shelf through ripe harvest, field selection, and fast shipping."
+    },
     date: "2026-06-24",
-    category: "Yaz Meyveleri",
+    category: { tr: "Yaz Meyveleri", en: "Summer Fruits" },
     tags: ["kavun", "karpuz", "tazelik"],
     readingMinutes: 5
   },
   {
     slug: "soguk-zincir-ve-ihracat",
-    title: "Soğuk Zincir ve İhracat Lojistiği",
-    excerpt:
-      "Mersin Limanı avantajı, soğuk hava deposu ve soğuk zincir nakliyenin taze ürün ihracatındaki rolü.",
+    title: { tr: "Soğuk Zincir ve İhracat Lojistiği", en: "Cold Chain and Export Logistics" },
+    excerpt: {
+      tr: "Mersin Limanı avantajı, soğuk hava deposu ve soğuk zincir nakliyenin taze ürün ihracatındaki rolü.",
+      en: "The role of the Port of Mersin advantage, cold storage, and cold chain transport in fresh produce export."
+    },
     date: "2026-06-24",
-    category: "Lojistik",
+    category: { tr: "Lojistik", en: "Logistics" },
     tags: ["lojistik", "soğuk zincir", "ihracat"],
     readingMinutes: 3
   }
 ];
 
-export const corporateLinks = [
-  { title: "Hakkımızda", href: "/corporate/hakkimizda" },
-  { title: "Kalite Politikası", href: "/corporate/kalite-politikasi" },
-  { title: "Vizyon & Misyon", href: "/corporate/vizyon-misyon" },
-  { title: "Sürdürülebilirlik", href: "/corporate/surdurulebilirlik" }
+export type NavLink = { title: I18nText; href: string; icon?: typeof Award };
+
+export const corporateLinks: NavLink[] = [
+  { title: { tr: "Hakkımızda", en: "About Us" }, href: "/corporate/hakkimizda" },
+  { title: { tr: "Kalite Politikası", en: "Quality Policy" }, href: "/corporate/kalite-politikasi" },
+  { title: { tr: "Vizyon & Misyon", en: "Vision & Mission" }, href: "/corporate/vizyon-misyon" },
+  { title: { tr: "Sürdürülebilirlik", en: "Sustainability" }, href: "/corporate/surdurulebilirlik" }
 ];
 
-export const productionLinks = [
-  { title: "Sertifikalar", href: "/uretim/sertifikalar", icon: Award },
-  { title: "Tesis & Paketleme", href: "/uretim/tesis", icon: Warehouse },
-  { title: "Soğuk Zincir & Kapasite", href: "/uretim/kapasite", icon: Snowflake },
-  { title: "Lojistik", href: "/uretim/lojistik", icon: Ship }
+export const productionLinks: NavLink[] = [
+  { title: { tr: "Sertifikalar", en: "Certifications" }, href: "/uretim/sertifikalar", icon: Award },
+  { title: { tr: "Tesis & Paketleme", en: "Facility & Packing" }, href: "/uretim/tesis", icon: Warehouse },
+  { title: { tr: "Soğuk Zincir & Kapasite", en: "Cold Chain & Capacity" }, href: "/uretim/kapasite", icon: Snowflake },
+  { title: { tr: "Lojistik", en: "Logistics" }, href: "/uretim/lojistik", icon: Ship }
 ];
 
-export const timeline = [
-  { year: "1991", title: "Kuruluş", text: "İnsanlara daha iyi hizmet verme hedefiyle Çukurova bölgesinde taze ürün ticaretine başlandı." },
-  { year: "2003", title: "Toptan & Hal Ağı", text: "Toptan alıcı ve hal ağı genişletilerek düzenli tedarik kapasitesi büyütüldü." },
-  { year: "2012", title: "Soğuk Hava & Paketleme", text: "Soğuk hava deposu ve paketleme süreçleri ile tazelik ve raf ömrü güçlendirildi." },
-  { year: "2018", title: "İhracat Operasyonu", text: "Mersin Limanı avantajıyla yurt dışı pazarlara ihracat operasyonları geliştirildi." },
-  { year: "2026", title: "Entegre Taze Ürün Tedariki", text: "Narenciye, kavun ve karpuz dikeyleri üretim, toptan, market ve ihracat kanallarında tek marka altında toplandı." }
+export type TimelineItem = { year: string; title: I18nText; text: I18nText };
+
+export const timeline: TimelineItem[] = [
+  {
+    year: "1991",
+    title: { tr: "Kuruluş", en: "Founding" },
+    text: {
+      tr: "İnsanlara daha iyi hizmet verme hedefiyle Çukurova bölgesinde taze ürün ticaretine başlandı.",
+      en: "Fresh produce trade began in the Çukurova region with the goal of serving people better."
+    }
+  },
+  {
+    year: "2003",
+    title: { tr: "Toptan & Hal Ağı", en: "Wholesale & Market Network" },
+    text: {
+      tr: "Toptan alıcı ve hal ağı genişletilerek düzenli tedarik kapasitesi büyütüldü.",
+      en: "Regular supply capacity grew as the wholesale buyer and produce-market network expanded."
+    }
+  },
+  {
+    year: "2012",
+    title: { tr: "Soğuk Hava & Paketleme", en: "Cold Storage & Packing" },
+    text: {
+      tr: "Soğuk hava deposu ve paketleme süreçleri ile tazelik ve raf ömrü güçlendirildi.",
+      en: "Freshness and shelf life were strengthened through cold storage and packing processes."
+    }
+  },
+  {
+    year: "2018",
+    title: { tr: "İhracat Operasyonu", en: "Export Operations" },
+    text: {
+      tr: "Mersin Limanı avantajıyla yurt dışı pazarlara ihracat operasyonları geliştirildi.",
+      en: "Export operations to international markets were developed with the Port of Mersin advantage."
+    }
+  },
+  {
+    year: "2026",
+    title: { tr: "Entegre Taze Ürün Tedariki", en: "Integrated Fresh Produce Supply" },
+    text: {
+      tr: "Narenciye, kavun ve karpuz dikeyleri üretim, toptan, market ve ihracat kanallarında tek marka altında toplandı.",
+      en: "Citrus, melon, and watermelon verticals were unified under one brand across production, wholesale, retail, and export channels."
+    }
+  }
 ];

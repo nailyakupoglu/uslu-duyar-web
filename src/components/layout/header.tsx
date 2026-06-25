@@ -3,24 +3,25 @@
 import { Link, usePathname } from "@/i18n/navigation";
 import { Menu, Phone, X } from "lucide-react";
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
+import { useLocale } from "next-intl";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/shared/logo";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
-import { categories, corporateLinks, productionLinks } from "@/lib/data";
+import { getCategoriesL, getCorporateLinksL, getProductionLinksL } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
-const navItems = [
-  { title: "Kurumsal", href: "/corporate", children: corporateLinks },
-  { title: "Üretim", href: "/uretim", children: productionLinks },
-  { title: "Ürünler", href: "/urunler", children: categories },
-  { title: "Blog", href: "/blog" },
-  { title: "İletişim", href: "/iletisim" }
-];
-
 export function Header() {
+  const locale = useLocale();
   const pathname = usePathname();
+  const navItems = [
+    { title: locale === "en" ? "Corporate" : "Kurumsal", href: "/corporate", children: getCorporateLinksL(locale) },
+    { title: locale === "en" ? "Production" : "Üretim", href: "/uretim", children: getProductionLinksL(locale) },
+    { title: locale === "en" ? "Products" : "Ürünler", href: "/urunler", children: getCategoriesL(locale) },
+    { title: "Blog", href: "/blog" },
+    { title: locale === "en" ? "Contact" : "İletişim", href: "/iletisim" }
+  ];
   const [open, setOpen] = useState(false);
   const [mega, setMega] = useState<string | null>(null);
   const { scrollY } = useScroll();
@@ -95,7 +96,9 @@ export function Header() {
               <div>
                 <p className="text-xs font-bold uppercase tracking-[0.22em] text-accent-500">{mega}</p>
                 <p className="mt-3 max-w-md text-sm leading-7 text-white/65">
-                  Narenciye, kavun ve karpuzu tarladan markete; hasat, soğuk zincir ve paketlemeyle tek izlenebilir tedarik zincirinde sunan Mersin & Çukurova merkezli yapı.
+                  {locale === "en"
+                    ? "A Mersin & Çukurova based operation delivering citrus, melon and watermelon from field to market — with harvest, cold chain and packaging unified in a single traceable supply chain."
+                    : "Narenciye, kavun ve karpuzu tarladan markete; hasat, soğuk zincir ve paketlemeyle tek izlenebilir tedarik zincirinde sunan Mersin & Çukurova merkezli yapı."}
                 </p>
               </div>
               <div className="grid grid-cols-3 gap-3">

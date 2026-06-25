@@ -9,7 +9,8 @@ import { Breadcrumb } from "@/components/shared/breadcrumb";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { FaqAccordion } from "@/components/shared/faq-accordion";
 import { ProductExplorer } from "@/components/product/product-explorer";
-import { isProductCategory, products } from "@/lib/data";
+import { getProducts } from "@/lib/content";
+import { isProductCategory } from "@/lib/data";
 import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildMetadata({
@@ -19,9 +20,16 @@ export const metadata: Metadata = buildMetadata({
   path: "/urunler"
 });
 
-export default function ProductsPage({ searchParams }: { searchParams: { cat?: string } }) {
+export default function ProductsPage({
+  params: { locale },
+  searchParams
+}: {
+  params: { locale: string };
+  searchParams: { cat?: string };
+}) {
   const cat = searchParams.cat;
   const initialCategory = cat && isProductCategory(cat) ? cat : "all";
+  const products = getProducts(locale);
 
   return (
     <>

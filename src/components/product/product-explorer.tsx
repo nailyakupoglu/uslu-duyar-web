@@ -1,32 +1,41 @@
 /**
  * ProductExplorer — kategori sekmeli, animasyonlu ürün ızgarası (istemci tarafı filtre).
- * Prop'lar: { products: Product[], initialCategory?: ProductCategory | "all" }.
+ * Prop'lar: { products: ResolvedProduct[], initialCategory?: ProductCategory | "all" }.
  * Kullanım: /urunler sayfasında tüm ürünleri alır; sekme ile kategori filtreler.
  */
 "use client";
 
 import { useMemo, useState } from "react";
+import { useLocale } from "next-intl";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { ProductCard } from "@/components/shared/product-card";
-import { categoryMeta, productCategories, type Product, type ProductCategory } from "@/lib/data";
+import { getCategoryMetaL, type ResolvedProduct } from "@/lib/content";
+import { productCategories, type ProductCategory } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 type Filter = ProductCategory | "all";
-
-const filters: { key: Filter; label: string }[] = [
-  { key: "all", label: "Tümü" },
-  ...productCategories.map((category) => ({ key: category, label: categoryMeta[category].title }))
-];
 
 export function ProductExplorer({
   products,
   initialCategory = "all"
 }: {
-  products: Product[];
+  products: ResolvedProduct[];
   initialCategory?: Filter;
 }) {
+  const locale = useLocale();
   const [active, setActive] = useState<Filter>(initialCategory);
+
+  const filters: { key: Filter; label: string }[] = useMemo(
+    () => [
+      { key: "all", label: "Tümü" },
+      ...productCategories.map((category) => ({
+        key: category,
+        label: getCategoryMetaL(category, locale).title
+      }))
+    ],
+    [locale]
+  );
 
   const visible = useMemo(
     () => (active === "all" ? products : products.filter((product) => product.category === active)),

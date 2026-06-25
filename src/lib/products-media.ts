@@ -1,16 +1,17 @@
 // Ürün görsel çözümleyici — her ürüne kategorisinden ayrık bir gerçek foto atar.
 // Foto yoksa (örn. kavun arşivde yok) data.ts'teki SVG placeholder'a düşer.
-import { products, type Product } from "@/lib/data";
+import { products } from "@/lib/data";
+import type { ResolvedProduct } from "@/lib/content";
 import { getByCategory } from "@/lib/manifest-reader";
 
-function indexInCategory(product: Product): number {
+function indexInCategory(product: ResolvedProduct): number {
   return products
     .filter((p) => p.category === product.category)
     .findIndex((p) => p.slug === product.slug);
 }
 
 /** Ürün kartı için tek temsili görsel (kategori havuzundan sıraya göre ayrık seçim). */
-export function productImage(product: Product): string {
+export function productImage(product: ResolvedProduct): string {
   const pool = getByCategory(product.category);
   if (pool.length === 0) {
     return product.image;
@@ -20,7 +21,7 @@ export function productImage(product: Product): string {
 }
 
 /** Detay galerisi görselleri ({src, alt}); foto yoksa data.ts gallery'sine düşer. */
-export function productGallery(product: Product): { src: string; alt: string }[] {
+export function productGallery(product: ResolvedProduct): { src: string; alt: string }[] {
   const pool = getByCategory(product.category, 8);
   if (pool.length === 0) {
     return [product.image, ...product.gallery].map((src) => ({ src, alt: product.title }));

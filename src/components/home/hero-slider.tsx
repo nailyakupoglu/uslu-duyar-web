@@ -6,18 +6,12 @@ import { ArrowDown, ArrowRight } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
+import { useLocale } from "next-intl";
 import { useCallback, useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import { heroSlides } from "@/lib/data";
+import { getHeroSlidesL } from "@/lib/content";
 import { getHeroes } from "@/lib/manifest-reader";
-
-// Hero metinleri data.ts'ten, görseller manifest'teki gerçek hero fotoğraflarından (yetmezse SVG fallback).
-const heroPhotos = getHeroes(heroSlides.length);
-const slides = heroSlides.map((slide, index) => ({
-  ...slide,
-  image: heroPhotos[index]?.src ?? slide.image
-}));
 
 const titleVariant = {
   hidden: { opacity: 0, y: 26 },
@@ -29,6 +23,13 @@ const titleVariant = {
 };
 
 export function HeroSlider() {
+  const locale = useLocale();
+  // Hero metinleri locale'e göre çözülür, görseller manifest'teki gerçek hero fotoğraflarından (yetmezse SVG fallback).
+  const photos = getHeroes(4);
+  const slides = getHeroSlidesL(locale).map((slide, index) => ({
+    ...slide,
+    image: photos[index]?.src ?? slide.image
+  }));
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 6500, stopOnInteraction: false })]);
   const [selected, setSelected] = useState(0);
 
@@ -135,7 +136,7 @@ export function HeroSlider() {
       </div>
 
       <div className="absolute bottom-8 right-8 z-20 hidden gap-2 md:flex">
-        {heroSlides.map((slide, index) => (
+        {slides.map((slide, index) => (
           <button
             key={slide.title}
             type="button"

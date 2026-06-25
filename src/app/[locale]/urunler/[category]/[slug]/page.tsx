@@ -15,26 +15,29 @@ import { ProductCard } from "@/components/shared/product-card";
 import { ProductGallery } from "@/components/product/product-gallery";
 import { QuoteModal } from "@/components/product/quote-modal";
 import {
-  categoryMeta,
-  getProduct,
-  getProductsByCategory,
-  isProductCategory,
-  products
-} from "@/lib/data";
+  getCategoryMetaL,
+  getProductL,
+  getProductsByCategoryL
+} from "@/lib/content";
+import { isProductCategory, products } from "@/lib/data";
 import { breadcrumbJsonLd, productJsonLd } from "@/lib/seo/jsonld";
 import { productGallery, productImage } from "@/lib/products-media";
 
-type Params = { category: string; slug: string };
+type Params = { locale: string; category: string; slug: string };
 
-export function generateStaticParams(): Params[] {
+export function generateStaticParams(): { category: string; slug: string }[] {
   return products.map((product) => ({ category: product.category, slug: product.slug }));
 }
 
-export function generateMetadata({ params }: { params: Params }): Metadata {
-  if (!isProductCategory(params.category)) {
+export function generateMetadata({
+  params: { locale, category, slug }
+}: {
+  params: Params;
+}): Metadata {
+  if (!isProductCategory(category)) {
     return { title: "Ürün bulunamadı" };
   }
-  const product = getProduct(params.category, params.slug);
+  const product = getProductL(category, slug, locale);
   if (!product) {
     return { title: "Ürün bulunamadı" };
   }
@@ -51,18 +54,18 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
   };
 }
 
-export default function ProductDetailPage({ params }: { params: Params }) {
-  if (!isProductCategory(params.category)) {
+export default function ProductDetailPage({ params: { locale, category, slug } }: { params: Params }) {
+  if (!isProductCategory(category)) {
     notFound();
   }
-  const product = getProduct(params.category, params.slug);
+  const product = getProductL(category, slug, locale);
   if (!product) {
     notFound();
   }
 
-  const meta = categoryMeta[product.category];
-  const related = getProductsByCategory(product.category).filter((item) => item.slug !== product.slug);
-  const specs = Object.entries(product.specs);
+  const meta = getCategoryMetaL(product.category, locale);
+  const related = getProductsByCategoryL(product.category, locale).filter((item) => item.slug !== product.slug);
+  const specs = product.specs;
   const gallery = productGallery(product);
   const heroImage = gallery[0]?.src ?? product.image;
 
@@ -128,10 +131,10 @@ export default function ProductDetailPage({ params }: { params: Params }) {
           {/* Özellik tablosu */}
           {specs.length > 0 ? (
             <dl className="mt-9 grid gap-px overflow-hidden rounded-lg border border-primary-900/10 bg-primary-900/10 sm:grid-cols-2">
-              {specs.map(([key, value]) => (
-                <div key={key} className="bg-white p-4">
-                  <dt className="text-xs font-semibold uppercase tracking-wide text-ink/50">{key}</dt>
-                  <dd className="mt-1 font-mono text-sm text-ink">{value}</dd>
+              {specs.map((spec) => (
+                <div key={spec.label} className="bg-white p-4">
+                  <dt className="text-xs font-semibold uppercase tracking-wide text-ink/50">{spec.label}</dt>
+                  <dd className="mt-1 font-mono text-sm text-ink">{spec.value}</dd>
                 </div>
               ))}
             </dl>

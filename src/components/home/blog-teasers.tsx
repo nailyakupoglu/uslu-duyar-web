@@ -1,9 +1,12 @@
 import { Link } from "@/i18n/navigation";
 import { ArrowUpRight } from "lucide-react";
+import { getLocale } from "next-intl/server";
 
-import { blogPosts } from "@/lib/data";
+import { getBlogPostsL } from "@/lib/content";
 
-export function BlogTeasers() {
+export async function BlogTeasers() {
+  const locale = await getLocale();
+  const blogPosts = getBlogPostsL(locale);
   return (
     <section className="section-padding bg-cream">
       <div className="container">

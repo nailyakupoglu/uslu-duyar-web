@@ -10,33 +10,58 @@ import { CheckCircle2 } from "lucide-react";
 import { Breadcrumb } from "@/components/shared/breadcrumb";
 import { PageHero } from "@/components/shared/page-hero";
 import { CertBadge } from "@/components/shared/cert-badge";
-import { certifications } from "@/lib/data";
+import { getCertificationsL } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = buildMetadata({
-  title: "Kalite Politikası",
-  description:
-    "Uslu Duyar kalite politikası: gıda güvenliği, izlenebilirlik, hijyen protokolleri ve sürekli iyileştirme taahhüdü.",
-  path: "/corporate/kalite-politikasi"
-});
+export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
+  return buildMetadata({
+    title: locale === "en" ? "Quality Policy" : "Kalite Politikası",
+    description:
+      locale === "en"
+        ? "Uslu Duyar quality policy: food safety, traceability, hygiene protocols, and a commitment to continuous improvement."
+        : "Uslu Duyar kalite politikası: gıda güvenliği, izlenebilirlik, hijyen protokolleri ve sürekli iyileştirme taahhüdü.",
+    path: "/corporate/kalite-politikasi"
+  });
+}
 
-const principles = [
-  "Tüm üretim aşamalarında gıda güvenliği yönetim sistemlerinin gerekliliklerine uyarız.",
-  "Hammaddeyi girişten sevkiyata kadar parti bazlı izlenebilir tutarız.",
-  "Düzenli laboratuvar analizleriyle ürünlerin standartlara uygunluğunu doğrularız.",
-  "Hijyen ve sanitasyon planlarını periyodik olarak gözden geçirir ve güncelleriz.",
-  "Çalışanlarımıza gıda güvenliği ve hijyen konularında sürekli eğitim sağlarız.",
-  "Müşteri geri bildirimlerini düzeltici ve önleyici faaliyetlere dönüştürürüz."
-];
+export default function QualityPolicyPage({ params: { locale } }: { params: { locale: string } }) {
+  const certifications = getCertificationsL(locale);
 
-export default function QualityPolicyPage() {
+  const principles =
+    locale === "en"
+      ? [
+          "We comply with the requirements of food safety management systems at every stage of production.",
+          "We keep produce traceable on a batch basis, from intake to dispatch.",
+          "We verify that products meet the required standards through regular laboratory analyses.",
+          "We periodically review and update our hygiene and sanitation plans.",
+          "We provide our staff with ongoing training on food safety and hygiene.",
+          "We turn customer feedback into corrective and preventive actions."
+        ]
+      : [
+          "Tüm üretim aşamalarında gıda güvenliği yönetim sistemlerinin gerekliliklerine uyarız.",
+          "Hammaddeyi girişten sevkiyata kadar parti bazlı izlenebilir tutarız.",
+          "Düzenli laboratuvar analizleriyle ürünlerin standartlara uygunluğunu doğrularız.",
+          "Hijyen ve sanitasyon planlarını periyodik olarak gözden geçirir ve güncelleriz.",
+          "Çalışanlarımıza gıda güvenliği ve hijyen konularında sürekli eğitim sağlarız.",
+          "Müşteri geri bildirimlerini düzeltici ve önleyici faaliyetlere dönüştürürüz."
+        ];
+
   return (
     <>
-      <Breadcrumb items={[{ label: "Kurumsal", href: "/corporate" }, { label: "Kalite Politikası" }]} />
+      <Breadcrumb
+        items={[
+          { label: locale === "en" ? "Corporate" : "Kurumsal", href: "/corporate" },
+          { label: locale === "en" ? "Quality Policy" : "Kalite Politikası" }
+        ]}
+      />
       <PageHero
-        eyebrow="Kalite Politikası"
-        title="Güvenilir gıda, kayıtlı her parti"
-        description="Kalite bizim için bir kontrol noktası değil, üretimin her aşamasına yayılan bir disiplindir."
+        eyebrow={locale === "en" ? "Quality Policy" : "Kalite Politikası"}
+        title={locale === "en" ? "Reliable food, every batch on record" : "Güvenilir gıda, kayıtlı her parti"}
+        description={
+          locale === "en"
+            ? "For us, quality is not a single checkpoint but a discipline that runs through every stage of production."
+            : "Kalite bizim için bir kontrol noktası değil, üretimin her aşamasına yayılan bir disiplindir."
+        }
       />
 
       <section className="container grid gap-12 py-20 lg:grid-cols-2 lg:items-start">
@@ -50,9 +75,13 @@ export default function QualityPolicyPage() {
         </ul>
 
         <div className="rounded-2xl bg-cream p-8">
-          <h2 className="font-display text-2xl font-semibold text-ink">Sertifika & Belgeler</h2>
+          <h2 className="font-display text-2xl font-semibold text-ink">
+            {locale === "en" ? "Certificates & Documents" : "Sertifika & Belgeler"}
+          </h2>
           <p className="mt-2 text-sm leading-6 text-ink/60">
-            Aşağıdaki belgeler operatör onayı sonrası geçerlilik tarihleri ve PDF&apos;leriyle güncellenecektir.
+            {locale === "en"
+              ? "The official certificate documents below will be published with their validity dates and PDFs once the operator files arrive."
+              : "Aşağıdaki belgeler operatör onayı sonrası geçerlilik tarihleri ve PDF'leriyle güncellenecektir."}
           </p>
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
             {certifications.map((cert) => (
@@ -63,7 +92,7 @@ export default function QualityPolicyPage() {
             href="/uretim/sertifikalar"
             className="mt-6 inline-flex text-sm font-semibold text-primary-700 hover:underline"
           >
-            Üretim sertifikalarını gör →
+            {locale === "en" ? "View production certificates →" : "Üretim sertifikalarını gör →"}
           </Link>
         </div>
       </section>

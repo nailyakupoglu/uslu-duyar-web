@@ -6,12 +6,12 @@ import { ArrowUpRight } from "lucide-react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
-import type { Product } from "@/lib/data";
+import type { ResolvedProduct } from "@/lib/content";
 import { productImage } from "@/lib/products-media";
 import { cn } from "@/lib/utils";
 
 type ProductCardProps = {
-  product: Product;
+  product: ResolvedProduct;
   className?: string;
 };
 

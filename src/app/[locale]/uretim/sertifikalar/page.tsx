@@ -9,24 +9,38 @@ import { Breadcrumb } from "@/components/shared/breadcrumb";
 import { PageHero } from "@/components/shared/page-hero";
 import { CertBadge } from "@/components/shared/cert-badge";
 import { RevealOnScroll } from "@/components/motion/reveal-on-scroll";
-import { certifications } from "@/lib/data";
+import { getCertificationsL } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = buildMetadata({
-  title: "Sertifikalar",
-  description:
-    "Uslu Duyar kalite güvencesi: gıda güvenliği, izlenebilirlik, ihracat uygunluğu, menşe belgesi, soğuk zincir ve kalite kontrol başlıkları. Resmi belgeler operatör dosyalarıyla yayınlanacaktır.",
-  path: "/uretim/sertifikalar"
-});
+export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
+  return buildMetadata({
+    title: locale === "en" ? "Certificates" : "Sertifikalar",
+    description:
+      locale === "en"
+        ? "Uslu Duyar quality assurance: food safety, traceability, export compliance, certificate of origin, cold chain and quality control. Official certificate documents will be published once operator files arrive."
+        : "Uslu Duyar kalite güvencesi: gıda güvenliği, izlenebilirlik, ihracat uygunluğu, menşe belgesi, soğuk zincir ve kalite kontrol başlıkları. Resmi belgeler operatör dosyalarıyla yayınlanacaktır.",
+    path: "/uretim/sertifikalar"
+  });
+}
 
-export default function CertificatesPage() {
+export default function CertificatesPage({ params: { locale } }: { params: { locale: string } }) {
+  const certifications = getCertificationsL(locale);
   return (
     <>
-      <Breadcrumb items={[{ label: "Üretim", href: "/uretim" }, { label: "Sertifikalar" }]} />
+      <Breadcrumb
+        items={[
+          { label: locale === "en" ? "Production" : "Üretim", href: "/uretim" },
+          { label: locale === "en" ? "Certificates" : "Sertifikalar" }
+        ]}
+      />
       <PageHero
-        eyebrow="Sertifikalar"
-        title="Belgelenmiş kalite güvencesi"
-        description="Gıda güvenliği ve ihracat süreçlerini destekleyen sertifikalarımız, parti bazlı izlenebilirlikle birlikte çalışır."
+        eyebrow={locale === "en" ? "Certificates" : "Sertifikalar"}
+        title={locale === "en" ? "Documented quality assurance" : "Belgelenmiş kalite güvencesi"}
+        description={
+          locale === "en"
+            ? "Our certificates supporting food safety and export processes work hand in hand with batch-level traceability."
+            : "Gıda güvenliği ve ihracat süreçlerini destekleyen sertifikalarımız, parti bazlı izlenebilirlikle birlikte çalışır."
+        }
       />
 
       <section className="container py-20">
@@ -38,8 +52,9 @@ export default function CertificatesPage() {
           ))}
         </div>
         <p className="mt-10 max-w-2xl text-sm leading-7 text-ink/55">
-          Sertifika numaraları, geçerlilik tarihleri ve doğrulama PDF&apos;leri operatör onayı sonrası bu sayfaya
-          eklenecektir. İhracat için talep edilen ek belgeler teklif aşamasında paylaşılır.
+          {locale === "en"
+            ? "Official certificate documents will be published once operator files arrive — certificate numbers, validity dates and verification PDFs will be added to this page. Additional documents requested for export are shared during the quotation stage."
+            : "Sertifika numaraları, geçerlilik tarihleri ve doğrulama PDF'leri operatör onayı sonrası bu sayfaya eklenecektir. İhracat için talep edilen ek belgeler teklif aşamasında paylaşılır."}
         </p>
       </section>
     </>
