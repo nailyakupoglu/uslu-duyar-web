@@ -32,6 +32,7 @@ export function Header() {
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const reduceMotion = useSafeReducedMotion();
   const { scrollY } = useScroll();
+  const height = useTransform(scrollY, [0, 120], [92, 76]);
   const bgOpacity = useTransform(scrollY, [0, 120], [0.78, 0.96]);
   const backgroundColor = useTransform(bgOpacity, (value) => `rgba(10, 17, 12, ${value})`);
   useMotionValueEvent(scrollY, "change", (value) => setScrolled(value > 12));
@@ -78,7 +79,7 @@ export function Header() {
         scrolled ? "border-white/12 shadow-[0_18px_50px_rgba(0,0,0,0.28)]" : "border-white/8"
       )}
       style={{
-        height: "var(--header-h)",
+        height: reduceMotion ? 76 : height,
         backgroundColor: reduceMotion ? "rgba(10, 17, 12, 0.96)" : backgroundColor
       }}
       onMouseLeave={scheduleClose}

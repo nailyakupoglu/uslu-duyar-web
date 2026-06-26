@@ -14,7 +14,7 @@ type LogoProps = {
 
 export function Logo({ className, priority = false }: LogoProps) {
   return (
-    <span className={cn("inline-flex w-[220px] max-w-full items-center justify-center overflow-hidden rounded-md border border-white/10 bg-white p-1.5 shadow-[0_8px_30px_rgba(0,0,0,0.18)] transition-all duration-300 hover:border-white/20", className)}>
+    <span className={cn("inline-flex w-[220px] max-w-full overflow-hidden rounded-[3px] bg-white", className)}>
       <Image
         src="/images/logos/uslu-duyar-logo.png"
         alt="Uslu Duyar Tarım Ürünleri Ltd. Şti."
@@ -31,7 +31,7 @@ export function Logo({ className, priority = false }: LogoProps) {
 // LogoMark — legacy çağrılar için gerçek logo dosyasını kompakt biçimde döndürür.
 export function LogoMark({ className }: { className?: string }) {
   return (
-    <span className={cn("inline-flex items-center justify-center overflow-hidden rounded-md border border-white/10 bg-white p-1.5 shadow-[0_8px_30px_rgba(0,0,0,0.18)]", className)}>
+    <span className={cn("inline-flex overflow-hidden rounded-[3px] bg-white", className)}>
       <Image
         src="/images/logos/uslu-duyar-logo.png"
         alt="Uslu Duyar"

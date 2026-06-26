@@ -37,7 +37,7 @@ export default function ProductsPage({
 
   return (
     <>
-      <Breadcrumb items={[{ label: locale === "en" ? "Products" : "Ürünler" }]} />
+      <Breadcrumb items={[{ label: "Ürünler" }]} />
 
       <section className="container pb-10 pt-10">
         <SectionHeading

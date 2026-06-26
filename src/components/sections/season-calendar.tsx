@@ -53,7 +53,7 @@ export function SeasonCalendar({ locale, compact = false }: SeasonCalendarProps)
                     active ? "border-harvest-700 bg-harvest-500/70" : "border-transparent bg-ink/[0.035]",
                     peak && "border-primary-700 bg-primary-700"
                   )}
-                  initial={reduceMotion ? false : { opacity: 0, scaleX: 0.35 }}
+                  initial={reduceMotion ? false : { opacity: 1, scaleX: 0.35 }}
                   whileInView={reduceMotion ? undefined : { opacity: 1, scaleX: 1 }}
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.28, delay: rowIndex * 0.06 + index * 0.012 }}

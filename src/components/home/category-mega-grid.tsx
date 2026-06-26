@@ -26,8 +26,8 @@ export function CategoryMegaGrid() {
           {cards.map((category, index) => (
             <motion.article
               key={category.slug}
-              initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 30 }}
-              whileInView={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+              initial={reduceMotion ? false : { opacity: 1, y: 30 }}
+              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: index * 0.08 }}
               className="group relative min-h-[430px] overflow-hidden rounded-lg bg-ink text-white shadow-2xl"

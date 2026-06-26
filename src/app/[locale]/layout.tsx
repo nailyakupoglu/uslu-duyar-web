@@ -76,8 +76,8 @@ export async function generateMetadata({
     alternates: {
       canonical: locale === "en" ? "/en" : "/",
       languages: {
-        tr: "/",
-        en: "/en",
+        "tr-TR": "/",
+        "en-US": "/en",
         "x-default": "/"
       }
     },

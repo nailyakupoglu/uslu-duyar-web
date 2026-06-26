@@ -32,8 +32,8 @@ export function ProductionQuad() {
           {productionHighlights.map((item, index) => (
             <motion.article
               key={item.title}
-              initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 36 }}
-              whileInView={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+              initial={reduceMotion ? false : { opacity: 1, y: 36 }}
+              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, delay: index * 0.08 }}
               className="group relative min-h-[360px] overflow-hidden rounded-lg border border-white/10"
