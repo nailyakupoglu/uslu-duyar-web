@@ -25,7 +25,7 @@ export function LanguageSwitcher({
   return (
     <div
       className={cn(
-        "inline-flex h-10 items-center gap-1 rounded-full border px-2 text-xs font-semibold backdrop-blur",
+        "inline-flex h-12 items-center gap-1 rounded-full border px-2 text-xs font-semibold backdrop-blur",
         tone === "dark"
           ? "border-white/12 bg-white/8 text-white/72"
           : "border-line-soft bg-primary-50 text-ink/70",
@@ -39,7 +39,7 @@ export function LanguageSwitcher({
         aria-label="Türkçe"
         aria-current={locale === "tr" ? "true" : undefined}
         className={cn(
-          "rounded-full px-2 py-1 transition hover:opacity-100",
+          "inline-flex h-11 items-center rounded-full px-2 transition hover:opacity-100",
           locale === "tr" ? "font-bold opacity-100" : "opacity-50"
         )}
       >
@@ -54,7 +54,7 @@ export function LanguageSwitcher({
         aria-label="English"
         aria-current={locale === "en" ? "true" : undefined}
         className={cn(
-          "rounded-full px-2 py-1 transition hover:opacity-100",
+          "inline-flex h-11 items-center rounded-full px-2 transition hover:opacity-100",
           locale === "en" ? "font-bold opacity-100" : "opacity-50"
         )}
       >

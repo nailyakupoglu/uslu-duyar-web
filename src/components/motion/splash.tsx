@@ -8,7 +8,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Logo } from "@/components/shared/logo";
 
 export function Splash() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -16,11 +16,14 @@ export function Splash() {
     }
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce || sessionStorage.getItem("ud-splash")) {
+      setShow(false);
       return;
     }
-    setShow(true);
-    sessionStorage.setItem("ud-splash", "1");
-    const timer = setTimeout(() => setShow(false), 1300);
+    // Strict Mode ilk effect'i temizleyebildiği için session işaretini timer sonunda yaz.
+    const timer = setTimeout(() => {
+      setShow(false);
+      sessionStorage.setItem("ud-splash", "1");
+    }, 750);
     return () => clearTimeout(timer);
   }, []);
 
@@ -28,16 +31,16 @@ export function Splash() {
     <AnimatePresence>
       {show ? (
         <motion.div
-          className="fixed inset-0 z-[200] flex items-center justify-center bg-ink"
+          className="fixed inset-0 z-[200] flex items-center justify-center bg-ink/72 backdrop-blur-xl"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.28 }}
           aria-hidden="true"
         >
           <motion.div
             initial={{ scale: 0.82, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col items-center gap-4"
           >
             <Logo className="w-[min(480px,82vw)] shadow-[0_24px_70px_rgba(0,0,0,0.38)]" priority />

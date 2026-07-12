@@ -1,14 +1,16 @@
 import { Link } from "@/i18n/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { getLocale } from "next-intl/server";
+import Image from "next/image";
 
 import { getBlogPostsL } from "@/lib/content";
+import { getBlogCover } from "@/lib/visual-assets";
 
 export async function BlogTeasers() {
   const locale = await getLocale();
   const blogPosts = getBlogPostsL(locale);
   return (
-    <section className="section-padding bg-cream">
+    <section className="section-padding field-grid bg-cream">
       <div className="container">
         <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
@@ -21,11 +23,24 @@ export async function BlogTeasers() {
         </div>
         <div className="grid gap-5 md:grid-cols-3">
           {blogPosts.map((post) => (
-            <Link key={post.slug} href={`/blog/${post.slug}`} className="rounded-lg bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent2-500">{post.category}</p>
-              <h3 className="mt-4 font-display text-2xl font-semibold">{post.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-ink/64">{post.excerpt}</p>
-              <p className="mt-5 text-xs font-semibold text-ink/45">{locale === "en" ? `${post.readingMinutes} min read` : `${post.readingMinutes} dk okuma`}</p>
+            <Link key={post.slug} href={`/blog/${post.slug}`} className="surface-card group flex flex-col transition duration-500 hover:-translate-y-2">
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <Image
+                  src={getBlogCover(post.slug, locale).src}
+                  alt={getBlogCover(post.slug, locale).alt}
+                  fill
+                  quality={86}
+                  sizes="(min-width: 1024px) 33vw, 100vw"
+                  className="object-cover transition duration-700 group-hover:scale-105"
+                  style={{ objectPosition: getBlogCover(post.slug, locale).position }}
+                />
+              </div>
+              <div className="relative z-10 flex flex-1 flex-col p-6">
+                <p className="spec-mono text-[0.6rem] text-accent2-500">{post.category}</p>
+                <h3 className="display-tight mt-4 font-display text-3xl font-medium leading-[0.98]">{post.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-ink/64">{post.excerpt}</p>
+                <p className="mt-auto pt-6 text-xs font-semibold text-ink/45">{locale === "en" ? `${post.readingMinutes} min read` : `${post.readingMinutes} dk okuma`}</p>
+              </div>
             </Link>
           ))}
         </div>

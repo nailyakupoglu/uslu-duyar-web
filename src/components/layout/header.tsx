@@ -86,7 +86,7 @@ export function Header() {
     >
       <div className="container flex h-full items-center justify-between gap-4">
         <Link href="/" className="group inline-flex items-center" aria-label={locale === "en" ? "Uslu Duyar home" : "Uslu Duyar ana sayfa"}>
-          <Logo className="w-[176px] shadow-[0_10px_30px_rgba(0,0,0,0.20)] sm:w-[230px]" priority />
+          <Logo variant="light" className="w-[168px] sm:w-[205px]" priority />
         </Link>
 
         <nav className="hidden items-center gap-0.5 lg:flex" aria-label={locale === "en" ? "Main navigation" : "Ana navigasyon"}>
@@ -98,7 +98,7 @@ export function Header() {
                 <Link
                   href={item.href}
                   className={cn(
-                    "rounded-full px-3.5 py-2 text-sm font-semibold text-white/70 transition hover:bg-white/10 hover:text-white",
+                    "inline-flex min-h-11 items-center rounded-full px-3.5 py-2 text-sm font-semibold text-white/70 transition hover:bg-white/10 hover:text-white",
                     active && "bg-white/12 text-white"
                   )}
                 >
@@ -111,7 +111,7 @@ export function Header() {
                     aria-haspopup="true"
                     aria-expanded={expanded}
                     aria-label={`${item.title} ${locale === "en" ? "menu" : "menüsü"}`}
-                    className="-ml-1 rounded-full p-1 text-white/45 transition hover:text-harvest-500"
+                    className="-ml-1 inline-flex h-11 w-8 items-center justify-center rounded-full text-white/45 transition hover:text-harvest-500"
                   >
                     <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", expanded && "rotate-180 text-harvest-500")} />
                   </button>
@@ -136,6 +136,8 @@ export function Header() {
           className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white ring-1 ring-white/12 lg:hidden"
           onClick={() => setOpen((value) => !value)}
           aria-label={open ? (locale === "en" ? "Close menu" : "Menüyü kapat") : locale === "en" ? "Open menu" : "Menüyü aç"}
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
@@ -144,6 +146,7 @@ export function Header() {
       <AnimatePresence>
         {mega && activeChildren ? (
           <motion.div
+            id="mobile-navigation"
             className="hidden border-t border-white/10 bg-ink/96 text-white shadow-[0_30px_80px_rgba(0,0,0,0.38)] lg:block"
             role="region"
             aria-label={mega}
@@ -186,21 +189,35 @@ export function Header() {
       <AnimatePresence>
         {open ? (
           <motion.div
-            className="border-t border-white/10 bg-ink/97 px-4 pb-6 pt-3 text-white shadow-[0_30px_80px_rgba(0,0,0,0.38)] lg:hidden"
+            className="absolute inset-x-0 top-full h-[calc(100svh-76px)] overflow-y-auto border-t border-white/10 bg-[radial-gradient(circle_at_85%_10%,rgba(237,146,31,.14),transparent_28%),linear-gradient(145deg,#0A2414,#040D08)] px-5 pb-8 pt-8 text-white shadow-[0_30px_80px_rgba(0,0,0,0.5)] lg:hidden"
             initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -12 }}
             animate={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
             exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -12 }}
           >
-            <div className="grid gap-1">
-              {navItems.map((item) => (
-                <Link
-                  key={item.title}
-                  href={item.href}
-                  className="rounded-lg px-3 py-3 text-sm font-semibold text-white/78 hover:bg-white/10 hover:text-white"
-                  onClick={() => setOpen(false)}
-                >
-                  {item.title}
-                </Link>
+            <div className="mb-8 flex items-center gap-3 spec-mono text-[0.62rem] text-accent-500">
+              <span className="h-px w-10 bg-accent-500" /> Mersin · Çukurova
+            </div>
+            <div className="grid gap-0">
+              {navItems.map((item, index) => (
+                <div key={item.title} className="border-b border-white/10">
+                  <Link
+                    href={item.href}
+                    className="flex items-center justify-between py-4 font-display text-3xl font-medium text-white/86 hover:text-accent-500"
+                    onClick={() => setOpen(false)}
+                  >
+                    {item.title}
+                    <span className="font-mono text-[0.58rem] tracking-[0.18em] text-white/34">0{index + 1}</span>
+                  </Link>
+                  {item.children ? (
+                    <div className="-mt-1 flex flex-wrap gap-x-4 gap-y-2 pb-4">
+                      {item.children.map((child) => (
+                        <Link key={child.href} href={child.href} onClick={() => setOpen(false)} className="text-xs text-white/52 hover:text-white">
+                          {child.title}
+                        </Link>
+                      ))}
+                    </div>
+                  ) : null}
+                </div>
               ))}
             </div>
             <div className="mt-4 flex items-center justify-between gap-3">

@@ -17,19 +17,19 @@ export async function Testimonials() {
   const locale = await getLocale();
   const items = locale === "en" ? trustEn : trustTr;
   return (
-    <section className="bg-white py-16">
+    <section className="bg-white py-24 md:py-28">
       <div className="container">
         <div className="mb-8 max-w-2xl">
           <p className="spec-mono text-primary-700">{locale === "en" ? "Verified trust signals" : "Doğrulanabilir güven sinyalleri"}</p>
           <h2 className="mt-3 font-display text-4xl font-semibold text-ink">
-            {locale === "en" ? "No fake logos. Only useful buyer signals." : "Sahte logo yok. Alıcıya yarayan sinyaller var."}
+            {locale === "en" ? "Verified data. A clear supply flow." : "Doğrulanabilir bilgi. Açık tedarik akışı."}
           </h2>
         </div>
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="grid border-y border-line-soft md:grid-cols-3">
           {items.map((item) => (
-            <article key={item.label} className="rounded-lg border border-line-soft bg-cream p-6">
-              <span className="flex h-11 w-11 items-center justify-center rounded-md bg-white text-primary-700 shadow-sm">
-                <item.icon className="h-5 w-5" />
+            <article key={item.label} className="border-b border-line-soft py-8 last:border-0 md:border-b-0 md:border-r md:px-7 md:last:border-r-0">
+              <span className="flex h-11 w-11 items-center justify-start text-primary-700">
+                <item.icon className="h-6 w-6" strokeWidth={1.5} />
               </span>
               <h3 className="mt-5 text-xl font-semibold text-ink">{item.label}</h3>
               <p className="mt-3 text-sm leading-7 text-ink/68">{item.text}</p>

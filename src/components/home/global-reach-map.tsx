@@ -7,18 +7,18 @@ export async function GlobalReachMap() {
   const origin = exportPoints[0];
 
   return (
-    <section className="section-padding bg-export-radar text-white">
+    <section className="section-padding field-grid bg-cream text-ink">
       <div className="container grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
         <div>
           <p className="text-sm font-bold uppercase tracking-[0.22em] text-harvest-500">{locale === "en" ? "Global reach" : "Global erişim"}</p>
-          <h2 className="mt-5 font-display text-5xl font-semibold leading-tight text-balance">{locale === "en" ? "From Mersin to the port, from the port to the destination market." : "Mersin'den limana, limandan hedef pazara."}</h2>
-          <p className="mt-5 text-lg leading-8 text-white/65">
+          <h2 className="display-tight mt-5 font-display text-5xl font-medium leading-[0.95] text-balance">{locale === "en" ? "From Mersin to the port, from the port to the destination market." : "Mersin'den limana, limandan hedef pazara."}</h2>
+          <p className="mt-5 text-lg leading-8 text-ink/68">
             {locale === "en"
               ? "The routes are indicative planning lanes. Once export countries are confirmed, they will become a country and port based list."
               : "Rotalar planlama amaçlı gösterilir. İhracat ülkeleri onaylandığında ülke ve liman bazlı listeye çevrilecek."}
           </p>
         </div>
-        <div className="rounded-lg border border-white/10 bg-white/[0.06] p-4 shadow-[0_24px_70px_rgba(0,0,0,0.24)]">
+        <div className="rounded-lg border border-primary-900/10 bg-port-900 p-4 shadow-[0_24px_70px_rgba(0,0,0,0.24)]">
           <svg viewBox="0 0 100 64" role="img" aria-label={locale === "en" ? "Uslu Duyar export map" : "Uslu Duyar ihracat haritası"} className="h-auto w-full">
             <defs>
               <linearGradient id="route" x1="0" x2="1">

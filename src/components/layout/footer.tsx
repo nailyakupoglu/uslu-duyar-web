@@ -1,5 +1,5 @@
 import { Link } from "@/i18n/navigation";
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowUpRight, Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { getLocale } from "next-intl/server";
 
 import { Logo } from "@/components/shared/logo";
@@ -22,11 +22,25 @@ export async function Footer() {
   ].filter((item) => item.href && item.href !== "#");
 
   return (
-    <footer className="bg-footer-gradient text-white">
-      <div className="container grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr]">
+    <footer className="route-rule relative overflow-hidden bg-footer-gradient text-white">
+      <div className="harvest-grid pointer-events-none absolute inset-0 opacity-15" />
+      <div className="container relative border-b border-white/10 py-12 md:py-16">
+        <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
+          <div>
+            <p className="spec-mono text-[0.66rem] text-accent-500">{locale === "en" ? "Harvest · grade · ship" : "Hasat · boylama · sevkiyat"}</p>
+            <h2 className="display-tight mt-4 max-w-4xl font-display text-4xl font-medium leading-[0.92] md:text-6xl">
+              {locale === "en" ? "Let’s plan the next loading window." : "Bir sonraki yükleme penceresini birlikte planlayalım."}
+            </h2>
+          </div>
+          <Link href="/iletisim" className="inline-flex h-14 items-center justify-center gap-3 rounded-full bg-accent-500 px-7 text-sm font-bold text-ink transition hover:-translate-y-1 hover:bg-white">
+            {locale === "en" ? "Start an RFQ" : "Teklif akışını başlat"} <ArrowUpRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </div>
+      <div className="container relative grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr]">
         <div>
           <Link href="/" className="group inline-flex items-center" aria-label="Uslu Duyar ana sayfa">
-            <Logo variant="light" />
+            <Logo variant="light" className="w-[240px]" />
           </Link>
           <p className="mt-6 max-w-sm text-sm leading-7 text-white/68">{pick(siteConfig.description, locale)}</p>
           <div className="mt-6 grid gap-3 text-sm text-white/75">
@@ -67,7 +81,7 @@ export async function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={item.label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-accent-500 hover:text-ink"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 transition hover:bg-accent-500 hover:text-ink"
                 >
                   <item.icon className="h-4 w-4" />
                 </a>

@@ -24,18 +24,18 @@ const config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          50: "#EAF7EB",
-          500: "#43B14E",
-          700: "#1F7A2A",
-          900: "#12551C",
-          DEFAULT: "#2E9E3A",
+          50: "#EDF6EE",
+          500: "#428A4C",
+          700: "#1A5E2B",
+          900: "#092B16",
+          DEFAULT: "#0D4525",
           foreground: "#FFFFFF"
         },
         accent: {
           50: "#FDF1E3",
-          500: "#F39A3E",
-          700: "#B85E10",
-          DEFAULT: "#ED8120",
+          500: "#ED921F",
+          700: "#B76412",
+          DEFAULT: "#ED921F",
           foreground: "#FFFFFF"
         },
         accent2: {
@@ -82,11 +82,11 @@ const config = {
           500: "#2F7D62",
           700: "#155640"
         },
-        cream: "#FAF7F2",
-        "surface-field": "#F6F7F4",
+        cream: "#F8F4EA",
+        "surface-field": "#F2F4EE",
         "surface-export": "#EEF4F1",
         "line-soft": "rgba(13, 69, 37, 0.14)",
-        ink: "#161A14",
+        ink: "#0A140D",
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))"
@@ -114,10 +114,10 @@ const config = {
         sm: "calc(var(--radius) - 4px)"
       },
       backgroundImage: {
-        "hero-gradient": "linear-gradient(120deg, #2E9E3A 0%, #15571E 68%, #0C3B16 100%)",
-        "footer-gradient": "linear-gradient(145deg, #12551C 0%, #1F7A2A 55%, #0C3B16 100%)",
-        "cta-gradient": "linear-gradient(135deg, #ED8120 0%, #E23B33 100%)",
-        "export-radar": "radial-gradient(circle at 12% 18%, rgba(63, 158, 196, 0.22), transparent 26%), radial-gradient(circle at 78% 6%, rgba(212, 160, 23, 0.18), transparent 24%), linear-gradient(135deg, #102633 0%, #12551C 58%, #062818 100%)"
+        "hero-gradient": "radial-gradient(circle at 78% 12%, rgba(237,146,31,.22), transparent 24%), linear-gradient(120deg, #0D4525 0%, #092B16 68%, #06150C 100%)",
+        "footer-gradient": "radial-gradient(circle at 12% 0%, rgba(237,146,31,.10), transparent 30%), linear-gradient(145deg, #0B321B 0%, #082413 58%, #040D08 100%)",
+        "cta-gradient": "linear-gradient(135deg, #ED921F 0%, #C0392B 100%)",
+        "export-radar": "radial-gradient(circle at 12% 18%, rgba(63, 158, 196, 0.18), transparent 26%), radial-gradient(circle at 78% 6%, rgba(237, 146, 31, 0.16), transparent 24%), linear-gradient(135deg, #102633 0%, #0D4525 58%, #06150C 100%)"
       },
       keyframes: {
         marquee: {

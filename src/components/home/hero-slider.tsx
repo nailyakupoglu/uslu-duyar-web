@@ -2,7 +2,7 @@
 
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowLeft, ArrowRight } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
@@ -29,7 +29,8 @@ export function HeroSlider() {
   const visuals = getHeroVisuals(locale);
   const slides = getHeroSlidesL(locale).map((slide, index) => ({
     ...slide,
-    visual: visuals[index] ?? visuals[0]
+    visual: visuals[index] ?? visuals[0],
+    videoSrc: index === 3 ? "/media/videos/optimized/ad36f331-0aad-48b4-a795-eeee5f7a4e20.MP4" : undefined
   }));
   const plugins = useMemo(
     () => (reduceMotion ? [] : [Autoplay({ delay: 6500, stopOnInteraction: false })]),
@@ -53,75 +54,81 @@ export function HeroSlider() {
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="relative min-h-[calc(100svh-88px)] overflow-hidden bg-ink text-white md:min-h-[100svh]">
-      <div ref={emblaRef} className="h-[calc(100svh-88px)] min-h-[620px] overflow-hidden md:h-[100svh]">
+    <section className="route-rule relative min-h-[100svh] overflow-hidden bg-ink text-white">
+      <div ref={emblaRef} className="h-[100svh] min-h-[680px] overflow-hidden">
         <div className="flex h-full">
-          {slides.map((slide, index) => (
-            <div className="relative h-full min-w-0 flex-[0_0_100%]" key={slide.title}>
-              <HeroImage visual={slide.visual} active={selected === index} priority={index === 0} reduceMotion={Boolean(reduceMotion)} />
-              <div className="absolute inset-0 z-[1] bg-gradient-to-r from-ink/78 via-ink/38 to-ink/8" />
-              <div className="absolute inset-0 z-[1] bg-gradient-to-t from-ink/48 via-transparent to-ink/34 md:from-ink/54 md:to-ink/10" />
-              <div className="container relative z-10 flex h-full items-start pb-16 pt-14 sm:pt-16 md:items-center md:pb-16 md:pt-28">
-                <div className="max-w-5xl">
+          {slides.map((slide, index) => {
+            const active = selected === index;
+            const HeadingTag = index === 0 ? "h1" : "h2";
+            return (
+            <div className="relative h-full min-w-0 flex-[0_0_100%]" key={slide.title} aria-hidden={!active} inert={!active}>
+              <HeroMedia visual={slide.visual} videoSrc={slide.videoSrc} active={active} priority={index === 0} reduceMotion={Boolean(reduceMotion)} />
+              <div className="absolute inset-0 z-[1] bg-[linear-gradient(100deg,rgba(4,13,8,.88)_0%,rgba(4,13,8,.54)_47%,rgba(4,13,8,.05)_100%)]" />
+              <div className="absolute inset-0 z-[1] bg-gradient-to-t from-ink/64 via-transparent to-ink/30" />
+              <div className="harvest-grid absolute inset-0 z-[2] opacity-20 [mask-image:linear-gradient(90deg,black,transparent_72%)]" />
+              <div className="container relative z-10 flex h-full items-end pb-10 pt-28 md:items-center md:pb-20 md:pt-32">
+                <div className="relative max-w-5xl border-l border-white/18 pl-5 md:pl-8">
+                  <span className="absolute -left-[5px] top-0 h-2.5 w-2.5 rounded-full bg-accent-500 shadow-[0_0_0_8px_rgba(237,146,31,.14)]" aria-hidden="true" />
                   <motion.p
                     custom={0}
                     variants={titleVariant}
-                    initial="hidden"
-                    animate="visible"
+                    initial={index === 0 ? false : "hidden"}
+                    animate={active ? "visible" : "hidden"}
                     className="text-xs font-bold uppercase tracking-[0.28em] text-harvest-500 md:text-sm"
                   >
                     {slide.eyebrow}
                   </motion.p>
-                  <h1
+                  <HeadingTag
                     aria-label={slide.title}
-                    className="mt-5 max-w-4xl font-display text-4xl font-semibold leading-[0.95] text-balance text-white drop-shadow-[0_8px_28px_rgba(0,0,0,0.38)] sm:text-5xl md:text-7xl lg:text-8xl"
+                    className="display-tight mt-5 max-w-5xl font-display text-[clamp(2.9rem,14vw,4.25rem)] font-medium leading-[0.86] text-white drop-shadow-[0_8px_28px_rgba(0,0,0,0.38)] md:text-[clamp(4.8rem,8.1vw,8.2rem)] md:leading-[0.84]"
                   >
                     {slide.title.split(" ").map((word, wordIndex, words) => (
                       <motion.span
                         key={`${word}-${wordIndex}`}
                         custom={wordIndex + 1}
                         variants={titleVariant}
-                        initial="hidden"
-                        animate="visible"
-                        className="mr-3 inline-block"
+                        initial={index === 0 ? false : "hidden"}
+                        animate={active ? "visible" : "hidden"}
+                        className="mr-[0.2em] inline-block"
                         aria-hidden="true"
                       >
                         {word}
                         {wordIndex < words.length - 1 ? " " : ""}
                       </motion.span>
                     ))}
-                  </h1>
+                  </HeadingTag>
                   <motion.p
                     custom={8}
                     variants={titleVariant}
-                    initial="hidden"
-                    animate="visible"
-                    className="mt-5 max-w-[20rem] text-base leading-7 text-white/80 sm:max-w-2xl md:mt-7 md:text-xl md:leading-8"
+                    initial={index === 0 ? false : "hidden"}
+                    animate={active ? "visible" : "hidden"}
+                    className="mt-5 max-w-[22rem] text-sm leading-6 text-white/82 sm:max-w-2xl md:mt-8 md:text-xl md:leading-9"
                   >
                     {slide.description}
                   </motion.p>
-                  <ProcessRail locale={locale} active reduceMotion={Boolean(reduceMotion)} />
+                  <ProcessRail locale={locale} active={active} reduceMotion={Boolean(reduceMotion)} />
                   <motion.div
                     custom={10}
                     variants={titleVariant}
-                    initial="hidden"
-                    animate="visible"
-                    className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap md:mt-9"
+                    initial={index === 0 ? false : "hidden"}
+                    animate={active ? "visible" : "hidden"}
+                    className="mt-6 flex flex-row gap-2.5 sm:flex-wrap md:mt-9 md:gap-3"
                   >
-                    <Button asChild size="xl" variant="accent" className="w-full justify-center sm:w-auto" magnetic>
+                    <Button asChild size="xl" variant="accent" className="min-w-0 flex-1 justify-center px-4 sm:flex-none sm:px-8">
                       <Link href={slide.href}>
                         {slide.cta}
                         <ArrowRight className="h-5 w-5" />
                       </Link>
                     </Button>
-                    <Button asChild size="xl" variant="export" className="w-full justify-center sm:w-auto">
+                    <Button asChild size="xl" variant="export" className="min-w-0 flex-1 justify-center px-4 sm:flex-none sm:px-8">
                       <Link href="/iletisim">{locale === "en" ? "Request a Quote" : "Teklif İste"}</Link>
                     </Button>
                   </motion.div>
                 </div>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
@@ -133,37 +140,55 @@ export function HeroSlider() {
       </div>
 
       <div className="absolute bottom-8 right-8 z-20 hidden gap-2 md:flex">
+        <button
+          type="button"
+          onClick={() => emblaApi?.scrollPrev()}
+          className="mr-2 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-ink/20 text-white backdrop-blur-md transition hover:border-accent-500 hover:bg-accent-500 hover:text-ink"
+          aria-label={locale === "en" ? "Previous slide" : "Önceki slayt"}
+        >
+          <ArrowLeft className="h-4 w-4" />
+        </button>
         {slides.map((slide, index) => (
           <button
             key={slide.title}
             type="button"
             onClick={() => emblaApi?.scrollTo(index)}
-            className="relative h-1.5 w-14 overflow-hidden rounded-full bg-white/35 transition"
+            className="relative h-11 w-14 rounded-full transition"
             aria-label={locale === "en" ? `Go to slide ${index + 1}` : `${index + 1}. slayta git`}
           >
             {selected === index ? (
               <motion.span
                 key={`${slide.title}-${selected}`}
-                className="absolute inset-y-0 left-0 rounded-full bg-harvest-500"
+                className="absolute left-0 top-1/2 h-1.5 -translate-y-1/2 rounded-full bg-harvest-500"
                 initial={{ width: reduceMotion ? "100%" : "0%" }}
                 animate={{ width: "100%" }}
                 transition={{ duration: reduceMotion ? 0 : 6.5, ease: "linear" }}
               />
-            ) : null}
+            ) : <span className="absolute inset-x-0 top-1/2 h-1.5 -translate-y-1/2 rounded-full bg-white/35" />}
           </button>
         ))}
+        <button
+          type="button"
+          onClick={() => emblaApi?.scrollNext()}
+          className="ml-2 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-ink/20 text-white backdrop-blur-md transition hover:border-accent-500 hover:bg-accent-500 hover:text-ink"
+          aria-label={locale === "en" ? "Next slide" : "Sonraki slayt"}
+        >
+          <ArrowRight className="h-4 w-4" />
+        </button>
       </div>
     </section>
   );
 }
 
-function HeroImage({
+function HeroMedia({
   visual,
+  videoSrc,
   active,
   priority,
   reduceMotion
 }: {
   visual: ResolvedVisualAsset;
+  videoSrc?: string;
   active: boolean;
   priority: boolean;
   reduceMotion: boolean;
@@ -174,24 +199,36 @@ function HeroImage({
       animate={!reduceMotion && active ? { scale: [1, 1.055] } : { scale: 1 }}
       transition={{ duration: 12, ease: "linear" }}
     >
-      <Image
-        src={visual.src}
-        alt={visual.alt}
-        fill
-        priority={priority}
-        quality={92}
-        unoptimized
-        sizes="100vw"
-        className="hidden object-cover md:block"
-        style={{ objectPosition: visual.position }}
-      />
+      {videoSrc && !reduceMotion && active ? (
+        <video
+          src={videoSrc}
+          poster={visual.src}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="hidden h-full w-full object-cover md:block"
+          aria-label={visual.alt}
+        />
+      ) : (
+        <Image
+          src={visual.src}
+          alt={visual.alt}
+          fill
+          priority={priority}
+          quality={92}
+          sizes="100vw"
+          className="hidden object-cover md:block"
+          style={{ objectPosition: visual.position }}
+        />
+      )}
       <Image
         src={visual.mobileSrc ?? visual.src}
         alt={visual.alt}
         fill
         priority={priority}
         quality={90}
-        unoptimized
         sizes="100vw"
         className="object-cover md:hidden"
         style={{ objectPosition: visual.mobilePosition }}

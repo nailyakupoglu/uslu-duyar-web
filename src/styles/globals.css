@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    --background: 36 44% 97%;
-    --foreground: 0 0% 5%;
+    --background: 43 44% 95%;
+    --foreground: 136 33% 6%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 5%;
     --popover: 0 0% 100%;
@@ -17,7 +17,13 @@
     --ring: 127 54% 40%;
     --destructive: 4 76% 54%;
     --destructive-foreground: 0 0% 100%;
-    --radius: 0.5rem;
+    --radius: 0.875rem;
+    --brand-green: #0d4525;
+    --brand-green-dark: #06150c;
+    --brand-gold: #ed921f;
+    --brand-red: #c0392b;
+    --brand-cream: #f8f4ea;
+    --shadow-float: 0 30px 80px -36px rgba(6, 21, 12, 0.42), 0 16px 30px -24px rgba(6, 21, 12, 0.32);
   }
 
   * {
@@ -25,12 +31,35 @@
   }
 
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
+    background: var(--brand-green-dark);
   }
 
   body {
     @apply bg-cream text-ink antialiased;
     text-rendering: optimizeLegibility;
+    background-image:
+      radial-gradient(circle at 88% 8%, rgba(237, 146, 31, 0.055), transparent 24rem),
+      linear-gradient(180deg, #fbf8f1 0%, var(--brand-cream) 100%);
+  }
+
+  body::before {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    pointer-events: none;
+    content: "";
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+  }
+
+  main {
+    overflow: clip;
+  }
+
+  :where(a, button, input, select, textarea):focus-visible {
+    outline: 2px solid var(--brand-gold);
+    outline-offset: 4px;
   }
 
   ::selection {
@@ -40,11 +69,13 @@
 
 @layer components {
   .section-padding {
-    @apply py-20 md:py-28;
+    @apply py-24 md:py-32;
   }
 
   .premium-card {
-    @apply rounded-lg border border-line-soft bg-white/82 shadow-[0_22px_55px_rgba(14,14,14,0.08)] backdrop-blur-xl;
+    @apply rounded-lg border border-line-soft backdrop-blur-xl;
+    background-color: rgba(255, 255, 255, 0.82);
+    box-shadow: var(--shadow-float);
   }
 
   .export-panel {
@@ -57,6 +88,58 @@
 
   .text-balance {
     text-wrap: balance;
+  }
+
+  .display-tight {
+    letter-spacing: -0.052em;
+    text-wrap: balance;
+  }
+
+  .harvest-grid {
+    background-image:
+      linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
+    background-size: 72px 72px;
+  }
+
+  .field-grid {
+    background-image:
+      linear-gradient(rgba(13,69,37,.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(13,69,37,.055) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .surface-card {
+    @apply relative overflow-hidden rounded-lg border border-primary-900/10 bg-white/80;
+    box-shadow: var(--shadow-float);
+  }
+
+  .surface-card::after {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    content: "";
+    background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,.36) 48%, transparent 66%);
+    transform: translateX(-120%);
+    transition: transform .85s cubic-bezier(.22,1,.36,1);
+  }
+
+  .surface-card:hover::after {
+    transform: translateX(120%);
+  }
+
+  .route-rule {
+    position: relative;
+  }
+
+  .route-rule::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    content: "";
+    background: linear-gradient(90deg, transparent, rgba(237,146,31,.75), rgba(13,69,37,.3), transparent);
   }
 
   .route-draw {
@@ -72,6 +155,16 @@
   }
 }
 
+@keyframes hero-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.035); }
+}
+
+@keyframes drift-orbit {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(18px, -12px, 0) rotate(7deg); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -85,5 +178,12 @@
   .route-draw {
     animation: none !important;
     stroke-dashoffset: 0 !important;
+  }
+
+  .surface-card::after,
+  .harvest-grid,
+  .field-grid {
+    animation: none !important;
+    transform: none !important;
   }
 }

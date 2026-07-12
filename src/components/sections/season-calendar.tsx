@@ -23,7 +23,7 @@ export function SeasonCalendar({ locale, compact = false }: SeasonCalendarProps)
   const windows = getSeasonWindowsL(locale);
 
   return (
-    <div className="overflow-hidden rounded-lg border border-line-soft bg-white shadow-[0_20px_60px_rgba(16,38,51,0.08)]">
+    <div className="overflow-x-auto overscroll-x-contain rounded-lg border border-line-soft bg-white shadow-[0_20px_60px_rgba(16,38,51,0.08)]">
       <div className="grid grid-cols-[minmax(120px,0.9fr)_repeat(12,minmax(32px,1fr))] border-b border-line-soft bg-port-900 text-white">
         <div className="p-3 spec-mono text-cold-50">{isEn ? "Product" : "Ürün"}</div>
         {monthLabels.map((month) => (
