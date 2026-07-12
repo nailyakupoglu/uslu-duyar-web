@@ -74,7 +74,7 @@ export function CategoryMegaGrid() {
                 src={category.visual.src}
                 alt={category.visual.alt}
                 fill
-                quality={90}
+                quality={76}
                 sizes="(min-width: 1280px) 405px, (min-width: 1024px) 33vw, 100vw"
                 className="object-cover transition duration-700 group-hover:scale-[1.08]"
                 style={{ objectPosition: category.visual.position }}

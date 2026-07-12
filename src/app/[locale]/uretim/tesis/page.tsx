@@ -71,7 +71,7 @@ export default function FacilityPage({ params: { locale } }: { params: { locale:
             alt={locale === "en" ? "Uslu Duyar packing facility" : "Uslu Duyar paketleme tesisi"}
             fill
             priority
-            quality={90}
+            quality={80}
             sizes="100vw"
             className="object-cover"
           />

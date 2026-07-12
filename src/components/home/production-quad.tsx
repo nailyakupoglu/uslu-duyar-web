@@ -48,7 +48,7 @@ export function ProductionQuad() {
                 src={item.image}
                 alt={item.title}
                 fill
-                quality={86}
+                quality={78}
                 sizes="(min-width: 1280px) 620px, (min-width: 768px) 50vw, 100vw"
                 className="object-cover transition duration-700 group-hover:scale-[1.06]"
               />

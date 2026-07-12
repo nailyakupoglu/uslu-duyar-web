@@ -32,7 +32,7 @@ export function ProductGallery({ images, alt }: { images: string[]; alt: string 
           alt={alt}
           fill
           priority
-          quality={92}
+          quality={84}
           sizes="(min-width: 1024px) 45vw, 100vw"
           className="object-cover"
         />

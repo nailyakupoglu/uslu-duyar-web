@@ -58,7 +58,7 @@ export default function BlogPage({ params: { locale } }: { params: { locale: str
                       src={getBlogCover(post.slug, locale).src}
                       alt={getBlogCover(post.slug, locale).alt}
                       fill
-                      quality={88}
+                      quality={78}
                       sizes="(min-width: 1280px) 405px, (min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                       className="object-cover transition duration-700 group-hover:scale-105"
                       style={{ objectPosition: getBlogCover(post.slug, locale).position }}

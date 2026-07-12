@@ -34,7 +34,7 @@ export function PageHero({
         animate={reduceMotion ? undefined : { scale: 1 }}
         transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
       >
-        <Image src={image} alt="" fill priority quality={88} sizes="100vw" className="object-cover" aria-hidden="true" />
+        <Image src={image} alt="" fill priority quality={80} sizes="100vw" className="object-cover" aria-hidden="true" />
       </motion.div>
       <div className="absolute inset-0 -z-20 bg-[linear-gradient(103deg,rgba(4,13,8,.94)_0%,rgba(6,21,12,.82)_46%,rgba(6,21,12,.34)_100%)]" />
       <div className="harvest-grid absolute inset-0 -z-10 opacity-35 [mask-image:linear-gradient(90deg,black,transparent_78%)]" />

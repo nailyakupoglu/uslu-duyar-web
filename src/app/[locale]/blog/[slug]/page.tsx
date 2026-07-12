@@ -212,7 +212,7 @@ export default function BlogPostPage({ params }: { params: Params }) {
             alt={cover.alt}
             fill
             priority
-            quality={90}
+            quality={82}
             sizes="(min-width: 768px) 768px, 100vw"
             className="object-cover"
             style={{ objectPosition: cover.position }}

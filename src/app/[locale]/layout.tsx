@@ -5,7 +5,6 @@
  * sticky header/footer'ı, WhatsApp FAB'ı ve skip-to-content erişilebilirlik linkini sağlar.
  */
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono, Playfair_Display } from "next/font/google";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
@@ -16,33 +15,11 @@ import { Footer } from "@/components/layout/footer";
 import { WhatsAppFab } from "@/components/layout/whatsapp-fab";
 import { ScrollProgress } from "@/components/motion/scroll-progress";
 import { SmoothScrollProvider } from "@/components/motion/smooth-scroll-provider";
-import { Splash } from "@/components/motion/splash";
 import { Analytics } from "@/components/analytics";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/jsonld";
 import { siteConfig } from "@/lib/data";
-import { cn, pick } from "@/lib/utils";
+import { pick } from "@/lib/utils";
 import "@/styles/globals.css";
-
-const inter = Inter({
-  subsets: ["latin", "latin-ext"],
-  variable: "--font-inter",
-  display: "swap",
-  weight: ["400", "500", "600", "700"]
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin", "latin-ext"],
-  variable: "--font-playfair",
-  display: "swap",
-  weight: ["500", "600", "700", "800"]
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  display: "swap",
-  weight: ["400", "500", "600"]
-});
 
 export async function generateMetadata({
   params: { locale }
@@ -147,7 +124,7 @@ export default async function LocaleLayout({
   const skipLabel = locale === "en" ? "Skip to content" : "İçeriğe geç";
 
   return (
-    <html lang={locale} className={cn(inter.variable, playfair.variable, jetbrainsMono.variable)} suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -167,7 +144,6 @@ export default async function LocaleLayout({
           >
             {skipLabel}
           </a>
-          <Splash />
           <SmoothScrollProvider />
           <ScrollProgress />
           <Header />

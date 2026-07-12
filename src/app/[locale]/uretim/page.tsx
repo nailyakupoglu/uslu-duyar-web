@@ -57,7 +57,7 @@ export default function ProductionPage({ params: { locale } }: { params: { local
                 src={item.image}
                 alt={item.title}
                 fill
-                quality={90}
+                quality={78}
                 sizes="(min-width: 1280px) 620px, (min-width: 768px) 50vw, 100vw"
                 className="object-cover transition duration-700 group-hover:scale-105"
               />

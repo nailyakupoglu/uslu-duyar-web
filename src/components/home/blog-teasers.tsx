@@ -29,7 +29,7 @@ export async function BlogTeasers() {
                   src={getBlogCover(post.slug, locale).src}
                   alt={getBlogCover(post.slug, locale).alt}
                   fill
-                  quality={86}
+                  quality={76}
                   sizes="(min-width: 1024px) 33vw, 100vw"
                   className="object-cover transition duration-700 group-hover:scale-105"
                   style={{ objectPosition: getBlogCover(post.slug, locale).position }}

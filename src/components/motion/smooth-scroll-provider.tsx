@@ -4,7 +4,6 @@
 // Prop: { children? } (opsiyonel; mount-only da kullanılabilir). prefers-reduced-motion'da devre dışı.
 // Kullanım: layout.tsx içinde bir kez mount edilir.
 import { useEffect } from "react";
-import Lenis from "lenis";
 
 export function SmoothScrollProvider({ children }: { children?: React.ReactNode }) {
   useEffect(() => {
@@ -15,16 +14,30 @@ export function SmoothScrollProvider({ children }: { children?: React.ReactNode 
     if (reduce) {
       return;
     }
-    const lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+    let lenis: import("lenis").default | null = null;
     let raf = 0;
-    const loop = (time: number) => {
-      lenis.raf(time);
+    let cancelled = false;
+
+    const enable = async () => {
+      if (lenis || cancelled) return;
+      const { default: Lenis } = await import("lenis");
+      if (cancelled) return;
+      lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+      const loop = (time: number) => {
+        lenis?.raf(time);
+        raf = requestAnimationFrame(loop);
+      };
       raf = requestAnimationFrame(loop);
     };
-    raf = requestAnimationFrame(loop);
+
+    window.addEventListener("wheel", enable, { once: true, passive: true });
+    window.addEventListener("touchstart", enable, { once: true, passive: true });
     return () => {
+      cancelled = true;
+      window.removeEventListener("wheel", enable);
+      window.removeEventListener("touchstart", enable);
       cancelAnimationFrame(raf);
-      lenis.destroy();
+      lenis?.destroy();
     };
   }, []);
 
