@@ -14,6 +14,16 @@ export const runtime = "nodejs";
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX = 5;
 const buckets = new Map<string, { count: number; resetAt: number }>();
+const BUCKET_SWEEP_THRESHOLD = 1_000;
+const BUCKET_HARD_LIMIT = 10_000;
+
+function sweepBuckets(now: number): void {
+  if (buckets.size < BUCKET_SWEEP_THRESHOLD) return;
+  for (const [key, bucket] of buckets) {
+    if (bucket.resetAt < now) buckets.delete(key);
+  }
+  if (buckets.size >= BUCKET_HARD_LIMIT) buckets.clear();
+}
 
 function clientKey(request: Request): string {
   const forwarded = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
@@ -22,6 +32,7 @@ function clientKey(request: Request): string {
 
 function isRateLimited(key: string): boolean {
   const now = Date.now();
+  sweepBuckets(now);
   const current = buckets.get(key);
   if (!current || current.resetAt < now) {
     buckets.set(key, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
