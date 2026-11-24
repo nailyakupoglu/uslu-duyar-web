@@ -16,7 +16,12 @@ import { getProductionHighlightsL } from "@/lib/content";
 import { getProductionCover } from "@/lib/manifest-reader";
 import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
-export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
   return buildMetadataForLocale(locale, {
     title: locale === "en" ? "Production" : "Üretim",
     description:
@@ -27,7 +32,8 @@ export function generateMetadata({ params: { locale } }: { params: { locale: str
   });
 }
 
-export default function ProductionPage({ params: { locale } }: { params: { locale: string } }) {
+export default async function ProductionPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   // Kapaklar manifest'teki gerçek operasyonel fotoğraflardan çözülür (yoksa SVG yedek).
   const productionHighlights = getProductionHighlightsL(locale).map((item) => ({
     ...item,

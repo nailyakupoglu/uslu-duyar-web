@@ -154,22 +154,23 @@ export function generateStaticParams(): { slug: string }[] {
   return blogPosts.map((post) => ({ slug: post.slug }));
 }
 
-export function generateMetadata({ params }: { params: Params }): Metadata {
-  const post = getBlogPostsL(params.locale).find((item) => item.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const post = getBlogPostsL(locale).find((item) => item.slug === slug);
   if (!post) {
-    return { title: params.locale === "en" ? "Post not found" : "Yazı bulunamadı" };
+    return { title: locale === "en" ? "Post not found" : "Yazı bulunamadı" };
   }
-  return buildMetadataForLocale(params.locale, {
+  return buildMetadataForLocale(locale, {
     title: post.title,
     description: post.excerpt,
     path: `/blog/${post.slug}`,
-    image: getBlogCover(post.slug, params.locale).src,
+    image: getBlogCover(post.slug, locale).src,
     type: "article"
   });
 }
 
-export default function BlogPostPage({ params }: { params: Params }) {
-  const { locale, slug } = params;
+export default async function BlogPostPage({ params }: { params: Promise<Params> }) {
+  const { locale, slug } = await params;
   const post = getBlogPostsL(locale).find((item) => item.slug === slug);
   if (!post) {
     notFound();

@@ -13,7 +13,12 @@ import { RevealOnScroll } from "@/components/motion/reveal-on-scroll";
 import { getCorporateLinksL, getTimelineL } from "@/lib/content";
 import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
-export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
   return buildMetadataForLocale(locale, {
     title: locale === "en" ? "Corporate" : "Kurumsal",
     description:
@@ -24,7 +29,8 @@ export function generateMetadata({ params: { locale } }: { params: { locale: str
   });
 }
 
-export default function CorporatePage({ params: { locale } }: { params: { locale: string } }) {
+export default async function CorporatePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const corporateLinks = getCorporateLinksL(locale);
   const timeline = getTimelineL(locale);
 

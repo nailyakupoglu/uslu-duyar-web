@@ -11,7 +11,12 @@ import { PageHero } from "@/components/shared/page-hero";
 import { SeasonCalendar } from "@/components/sections/season-calendar";
 import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
-export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
   return buildMetadataForLocale(locale, {
     title: locale === "en" ? "Season Calendar" : "Sezon Takvimi",
     description:
@@ -22,7 +27,8 @@ export function generateMetadata({ params: { locale } }: { params: { locale: str
   });
 }
 
-export default function SeasonCalendarPage({ params: { locale } }: { params: { locale: string } }) {
+export default async function SeasonCalendarPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const isEn = locale === "en";
 
   return (

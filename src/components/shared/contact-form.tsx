@@ -16,6 +16,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 
+import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -305,17 +306,17 @@ export function ContactForm({ defaultSubject = "", defaultProduct = "", compact 
         {isEn ? (
           <>
             By submitting this form you agree to the processing of your data under the{" "}
-            <a href="/kvkk" className="underline hover:text-primary-700">
+            <Link href="/kvkk" className="underline hover:text-primary-700">
               Privacy Notice
-            </a>
+            </Link>
             .
           </>
         ) : (
           <>
             Formu göndererek verilerinizin{" "}
-            <a href="/kvkk" className="underline hover:text-primary-700">
+            <Link href="/kvkk" className="underline hover:text-primary-700">
               KVKK Aydınlatma Metni
-            </a>{" "}
+            </Link>{" "}
             kapsamında işlenmesini kabul edersiniz.
           </>
         )}

@@ -14,7 +14,12 @@ import { phoneHref, rfqWhatsappMessage, whatsappHref } from "@/lib/contact-chann
 import { siteConfig } from "@/lib/data";
 import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
-export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
   return buildMetadataForLocale(locale, {
     title: locale === "en" ? "Contact" : "İletişim",
     description:
@@ -25,7 +30,8 @@ export function generateMetadata({ params: { locale } }: { params: { locale: str
   });
 }
 
-export default function ContactPage({ params: { locale } }: { params: { locale: string } }) {
+export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const phone = phoneHref();
   const whatsapp = whatsappHref(rfqWhatsappMessage(locale, "contact page"));
   return (

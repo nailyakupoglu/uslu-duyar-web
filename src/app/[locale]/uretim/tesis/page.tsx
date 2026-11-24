@@ -12,7 +12,12 @@ import { RevealOnScroll } from "@/components/motion/reveal-on-scroll";
 import { getProductionCover } from "@/lib/manifest-reader";
 import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
-export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
   return buildMetadataForLocale(locale, {
     title: locale === "en" ? "Facility" : "Tesis",
     description:
@@ -42,7 +47,8 @@ const stepsByLocale = {
   ]
 } as const;
 
-export default function FacilityPage({ params: { locale } }: { params: { locale: string } }) {
+export default async function FacilityPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const steps = locale === "en" ? stepsByLocale.en : stepsByLocale.tr;
   // Banner gerçek tesis fotoğrafından; foto yoksa SVG yedek görsele düşer.
   const bannerImage = getProductionCover("/uretim/tesis", "/images/production/tesis.svg");

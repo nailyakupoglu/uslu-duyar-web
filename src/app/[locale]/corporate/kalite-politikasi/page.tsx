@@ -13,7 +13,12 @@ import { CertBadge } from "@/components/shared/cert-badge";
 import { getCertificationsL } from "@/lib/content";
 import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
-export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
   return buildMetadataForLocale(locale, {
     title: locale === "en" ? "Quality Policy" : "Kalite Politikası",
     description:
@@ -24,7 +29,8 @@ export function generateMetadata({ params: { locale } }: { params: { locale: str
   });
 }
 
-export default function QualityPolicyPage({ params: { locale } }: { params: { locale: string } }) {
+export default async function QualityPolicyPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const certifications = getCertificationsL(locale);
 
   const principles =

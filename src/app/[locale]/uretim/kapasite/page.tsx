@@ -11,7 +11,12 @@ import { StatsCounter } from "@/components/home/stats-counter";
 import { RevealOnScroll } from "@/components/motion/reveal-on-scroll";
 import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
-export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
   return buildMetadataForLocale(locale, {
     title: locale === "en" ? "Capacity" : "Kapasite",
     description:
@@ -37,7 +42,8 @@ const capacitiesByLocale = {
   ]
 } as const;
 
-export default function CapacityPage({ params: { locale } }: { params: { locale: string } }) {
+export default async function CapacityPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const capacities = locale === "en" ? capacitiesByLocale.en : capacitiesByLocale.tr;
   return (
     <>

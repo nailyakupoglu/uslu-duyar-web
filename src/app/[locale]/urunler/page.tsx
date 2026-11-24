@@ -13,7 +13,12 @@ import { getProducts } from "@/lib/content";
 import { isProductCategory } from "@/lib/data";
 import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
-export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
   return buildMetadataForLocale(locale, {
     title: locale === "en" ? "Products" : "Ürünler",
     description:
@@ -24,14 +29,15 @@ export function generateMetadata({ params: { locale } }: { params: { locale: str
   });
 }
 
-export default function ProductsPage({
-  params: { locale },
+export default async function ProductsPage({
+  params,
   searchParams
 }: {
-  params: { locale: string };
-  searchParams: { cat?: string };
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ cat?: string }>;
 }) {
-  const cat = searchParams.cat;
+  const { locale } = await params;
+  const { cat } = await searchParams;
   const initialCategory = cat && isProductCategory(cat) ? cat : "all";
   const products = getProducts(locale);
 
