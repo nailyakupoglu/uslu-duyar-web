@@ -1,8 +1,8 @@
 /**
  * POST /api/contact — iletişim/teklif formu gönderimi.
  * Girdi: ContactInput (zod ile doğrulanır). Çıktı: { ok: true } veya hata.
- * Davranış: N8N_CONTACT_WEBHOOK_URL varsa n8n'e POST eder (e-posta + WhatsApp bildirimi);
- *           yoksa sunucu log'una yazar (graceful).
+ * Davranış: N8N_CONTACT_WEBHOOK_URL varsa n8n'e POST eder (8 sn AbortSignal);
+ *           zaman aşımında 504 webhook_timeout döner, ayrıntı sızdırmaz.
  */
 import { NextResponse } from "next/server";
 
@@ -13,7 +13,28 @@ export const runtime = "nodejs";
 
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX = 5;
+const WEBHOOK_TIMEOUT_MS = 8_000;
 const buckets = new Map<string, { count: number; resetAt: number }>();
+
+function webhookTimeoutMs(): number {
+  if (process.env.NODE_ENV !== "test") return WEBHOOK_TIMEOUT_MS;
+  const raw = process.env.CONTACT_WEBHOOK_TIMEOUT_MS;
+  if (!raw || !/^\d+$/.test(raw)) return WEBHOOK_TIMEOUT_MS;
+  const parsed = Number(raw);
+  if (parsed < 10 || parsed > WEBHOOK_TIMEOUT_MS) return WEBHOOK_TIMEOUT_MS;
+  return parsed;
+}
+
+function isWebhookTimeout(error: unknown): boolean {
+  let current: unknown = error;
+  for (let depth = 0; depth < 3; depth += 1) {
+    if (!current || typeof current !== "object") return false;
+    if ("name" in current && current.name === "TimeoutError") return true;
+    if (!("cause" in current)) return false;
+    current = current.cause;
+  }
+  return false;
+}
 
 function clientKey(request: Request): string {
   const forwarded = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
@@ -72,6 +93,7 @@ export async function POST(request: Request) {
       const res = await fetch(webhook, {
         method: "POST",
         headers,
+        signal: AbortSignal.timeout(webhookTimeoutMs()),
         body: JSON.stringify({
           source: "usluduyar-web",
           to,
@@ -98,6 +120,10 @@ export async function POST(request: Request) {
         return NextResponse.json({ ok: false, error: "send_failed" }, { status: 502 });
       }
     } catch (error) {
+      if (isWebhookTimeout(error)) {
+        console.error("[contact] n8n webhook timeout");
+        return NextResponse.json({ ok: false, error: "webhook_timeout" }, { status: 504 });
+      }
       console.error("[contact] n8n webhook error", error);
       return NextResponse.json({ ok: false, error: "send_failed" }, { status: 502 });
     }
