@@ -11,7 +11,12 @@ import { PageHero } from "@/components/shared/page-hero";
 import { RevealOnScroll } from "@/components/motion/reveal-on-scroll";
 import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
-export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
   return buildMetadataForLocale(locale, {
     title: locale === "en" ? "Sustainability" : "Sürdürülebilirlik",
     description:
@@ -22,7 +27,8 @@ export function generateMetadata({ params: { locale } }: { params: { locale: str
   });
 }
 
-export default function SustainabilityPage({ params: { locale } }: { params: { locale: string } }) {
+export default async function SustainabilityPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const focusAreas =
     locale === "en"
       ? [

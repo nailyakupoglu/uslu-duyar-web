@@ -31,11 +31,12 @@ export function generateStaticParams(): { category: string; slug: string }[] {
   return products.map((product) => ({ category: product.category, slug: product.slug }));
 }
 
-export function generateMetadata({
-  params: { locale, category, slug }
+export async function generateMetadata({
+  params
 }: {
-  params: Params;
-}): Metadata {
+  params: Promise<Params>;
+}): Promise<Metadata> {
+  const { locale, category, slug } = await params;
   if (!isProductCategory(category)) {
     return { title: "Ürün bulunamadı" };
   }
@@ -51,7 +52,8 @@ export function generateMetadata({
   });
 }
 
-export default function ProductDetailPage({ params: { locale, category, slug } }: { params: Params }) {
+export default async function ProductDetailPage({ params }: { params: Promise<Params> }) {
+  const { locale, category, slug } = await params;
   if (!isProductCategory(category)) {
     notFound();
   }

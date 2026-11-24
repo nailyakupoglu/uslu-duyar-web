@@ -22,10 +22,11 @@ import { pick } from "@/lib/utils";
 import "@/styles/globals.css";
 
 export async function generateMetadata({
-  params: { locale }
+  params
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
+  const { locale } = await params;
   const slogan = pick(siteConfig.slogan, locale);
   const description = pick(siteConfig.description, locale);
 
@@ -111,11 +112,12 @@ export function generateStaticParams() {
 
 export default async function LocaleLayout({
   children,
-  params: { locale }
+  params
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
   if (!(routing.locales as readonly string[]).includes(locale)) {
     notFound();
   }

@@ -9,7 +9,12 @@ import { LegalLayout } from "@/components/shared/legal-layout";
 import { siteConfig } from "@/lib/data";
 import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
-export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
   return buildMetadataForLocale(locale, {
     title: locale === "en" ? "Personal Data Protection (KVKK) Notice" : "KVKK Aydınlatma Metni",
     description:
@@ -20,7 +25,8 @@ export function generateMetadata({ params: { locale } }: { params: { locale: str
   });
 }
 
-export default function KvkkPage({ params: { locale } }: { params: { locale: string } }) {
+export default async function KvkkPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const isEn = locale === "en";
 
   return (

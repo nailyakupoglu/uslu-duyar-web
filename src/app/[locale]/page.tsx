@@ -19,7 +19,8 @@ import { HarvestToPortFlow } from "@/components/home/harvest-to-port-flow";
 import { SeasonCalendar } from "@/components/sections/season-calendar";
 import { SectionHeading } from "@/components/shared/section-heading";
 
-export default function HomePage({ params: { locale } }: { params: { locale: string } }) {
+export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   return (
     <>
       <HeroSlider />

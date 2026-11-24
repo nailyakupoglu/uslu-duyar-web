@@ -12,7 +12,12 @@ import { GlobalReachMap } from "@/components/home/global-reach-map";
 import { RevealOnScroll } from "@/components/motion/reveal-on-scroll";
 import { buildMetadataForLocale } from "@/lib/seo/metadata";
 
-export function generateMetadata({ params: { locale } }: { params: { locale: string } }): Metadata {
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
   return buildMetadataForLocale(locale, {
     title: locale === "en" ? "Logistics" : "Lojistik",
     description:
@@ -38,7 +43,8 @@ const advantagesByLocale = {
   ]
 } as const;
 
-export default function LogisticsPage({ params: { locale } }: { params: { locale: string } }) {
+export default async function LogisticsPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const advantages = locale === "en" ? advantagesByLocale.en : advantagesByLocale.tr;
   return (
     <>
